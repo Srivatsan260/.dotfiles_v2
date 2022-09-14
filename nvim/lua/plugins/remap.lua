@@ -49,8 +49,11 @@ nnoremap("<leader>fd", "<cmd>FileInDirectory<CR>")
 nnoremap("<leader>pd", "<cmd>GrepInDirectory<CR>")
 nnoremap("<leader>ff", "<cmd>Telescope live_grep<CR>")
 nnoremap("<leader>b", "<cmd>Telescope buffers<CR>")
+
+-- TODO: make these not work in terminal buffers
 nnoremap("<Tab>", "<cmd>bn<CR>")
 nnoremap("<S-Tab>", "<cmd>bp<CR>")
+
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<CR>")
 nnoremap("<leader>tg", "<cmd>Telescope tags<CR>")
 nnoremap("<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>")
