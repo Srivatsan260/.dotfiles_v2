@@ -66,6 +66,10 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 tnoremap <leader><Esc> <C-\><C-n>
 
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 " }}}
 
 " vim-plug {{{
@@ -82,6 +86,10 @@ call plug#begin()
     Plug 'voldikss/vim-floaterm'
     Plug 'mbbill/undotree'
     Plug 'airblade/vim-gitgutter'
+    Plug 'prabirshrestha/vim-lsp'
+    Plug 'mattn/vim-lsp-settings'
+    Plug 'prabirshrestha/asyncomplete.vim'
+    Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 call plug#end()
 
