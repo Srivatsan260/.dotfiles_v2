@@ -37,5 +37,5 @@ require('lualine').setup {
   tabline = {},
   winbar = {},
   inactive_winbar = {},
-  extensions = {'toggleterm'}
+  extensions = {}
 }

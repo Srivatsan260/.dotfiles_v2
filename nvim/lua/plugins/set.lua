@@ -7,6 +7,8 @@ vim.g['global_colorscheme'] = 'tokyonight'
 vim.g['sessions_dir'] = '~/.local/share/nvim/session'
 vim.g['lazygit_floating_window_winblend'] = 10
 vim.g['undotree_SetFocusWhenToggle'] = 1
+vim.g['floaterm_wintype'] = 'vsplit'
+vim.g['floaterm_width'] = 0.5
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

@@ -22,8 +22,9 @@ nnoremap("<leader>tc", ":tabclose<CR>")
 -- netrw
 nnoremap("<leader>,", "<cmd>Ex<CR>")
 
--- toggleterm
-nnoremap("<leader>tt", "<cmd>ToggleTerm direction=tab<CR>")
+-- Floaterm
+nnoremap("<leader>tt", "<cmd>FloatermToggle<CR>")
+nnoremap("<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
 tnoremap("<leader><Esc>", "<C-\\><C-n>")
 
 -- treesitter highlighting

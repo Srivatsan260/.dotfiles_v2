@@ -22,11 +22,8 @@ return require('packer').startup(function()
             'JoseConseco/telescope_sessions_picker.nvim'
         },
     }
-    use {
-        "akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
-        require("toggleterm").setup()
-        end
-    }
+    use 'voldikss/vim-floaterm'
+
     -- lsp
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
