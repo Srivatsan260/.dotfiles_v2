@@ -17,7 +17,7 @@ set nohlsearch
 set incsearch
 
 set scrolloff=8
-set signcolumn=number
+set signcolumn=yes
 set colorcolumn=100
 
 set noswapfile
@@ -81,6 +81,7 @@ call plug#begin()
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'voldikss/vim-floaterm'
     Plug 'mbbill/undotree'
+    Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
