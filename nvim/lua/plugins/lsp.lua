@@ -41,6 +41,8 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+local lspconfig = require('lspconfig')
+
 -- luasnip setup
 local luasnip = require 'luasnip'
 
@@ -95,7 +97,8 @@ local lsp_flags = {
   -- This is the default in Nvim 0.7+
   debounce_text_changes = 150,
 }
-require('lspconfig')['pyright'].setup{
+
+lspconfig['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
     capabilities = capabilities
@@ -120,7 +123,7 @@ rt.setup {
 }
 
 -- lua lsp setup
-require'lspconfig'.sumneko_lua.setup {
+lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
