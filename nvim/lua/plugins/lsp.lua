@@ -122,15 +122,26 @@ rt.setup {
     },
 }
 
+local runtime_path = vim.split(package.path, ";")
+table.insert(runtime_path, "lua/?.lua")
+table.insert(runtime_path, "lua/?/init.lua")
+
 -- lua lsp setup
 lspconfig.sumneko_lua.setup {
     settings = {
         Lua = {
             runtime = {
-                version = 'Lua 5.4.4',
-                path = {
-                    '?.lua',
-                }
+                version = 'LuaJIT',
+                path = runtime_path,
+            },
+            diagnostics = {
+                globals = { 'vim', 'use' },
+            },
+            workspace = {
+                library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+                enable = false,
             }
         }
     }
