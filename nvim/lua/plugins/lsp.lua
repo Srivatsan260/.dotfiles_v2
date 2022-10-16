@@ -18,7 +18,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', bufopts)
   vim.keymap.set('n', 'gs', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', '<C-,>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<leader>gw', vim.lsp.buf.document_symbol, bufopts)
@@ -117,7 +117,7 @@ rt.setup {
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
             vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
             vim.keymap.set('n', 'gs', vim.lsp.buf.implementation, bufopts)
-            vim.keymap.set('n', '<C-,>', vim.lsp.buf.signature_help, bufopts)
+            vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
             vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
         end,
     },
