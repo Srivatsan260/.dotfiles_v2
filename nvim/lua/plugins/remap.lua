@@ -4,8 +4,8 @@ local inoremap = require("plugins.keymap").inoremap
 local vnoremap = require("plugins.keymap").vnoremap
 
 -- copy file name to + register
-nnoremap("<leader>cf", ":let @+=@%<CR>") -- absolute filepath
-nnoremap("<leader>cF", ":let @+=expand('%:t')<CR>") -- filename
+nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
+nnoremap("<leader>cF", "<cmd>let @+=expand('%:t')<CR>") -- filename
 
 -- window switching
 -- nnoremap("<C-h>", "<C-w>h")
@@ -14,10 +14,10 @@ nnoremap("<leader>cF", ":let @+=expand('%:t')<CR>") -- filename
 -- nnoremap("<C-l>", "<C-w>l")
 
 -- tab switching
-nnoremap("<leader>tn", ":tabnew<CR>")
-nnoremap("<leader>t.", ":tabnext<CR>")
-nnoremap("<leader>t,", ":tabprev<CR>")
-nnoremap("<leader>tc", ":tabclose<CR>")
+nnoremap("<leader>tn", "<cmd>tabnew<CR>")
+nnoremap("<leader>t.", "<cmd>tabnext<CR>")
+nnoremap("<leader>t,", "<cmd>tabprev<CR>")
+nnoremap("<leader>tc", "<cmd>tabclose<CR>")
 
 -- netrw
 nnoremap("<leader>,", "<cmd>Ex<CR>")
@@ -47,18 +47,18 @@ nnoremap("<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
 nnoremap("<leader>tf", "<cmd>Telescope filetypes<CR>")
 
 -- buffers
-nnoremap("<leader>b", ":ls<CR>:b<space>")
+nnoremap("<leader>b", "<cmd>ls<CR>:b<space>")
 
 -- undotree
-nnoremap("<leader>u", ":UndotreeToggle<CR>")
+nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 
 -- sessions
-nnoremap("<leader>ss", string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-nnoremap("<leader>sr", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
+nnoremap("<leader>ss", string.format("<cmd>mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
+nnoremap("<leader>sr", string.format("<cmd>so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
 nnoremap("<leader>sp", "<cmd>Telescope sessions_picker<CR>")
 
 -- dap
-nnoremap("<leader>du", ":lua require('dapui').toggle()<CR>")
+nnoremap("<leader>du", "<cmd>lua require('dapui').toggle()<CR>")
 nnoremap("<leader>db", "<cmd>DapToggleBreakpoint<CR>")
 nnoremap("<leader>dc", "<cmd>DapContinue<CR>")
 nnoremap("<leader>di", "<cmd>DapStepInto<CR>")
