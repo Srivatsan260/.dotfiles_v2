@@ -28,7 +28,7 @@ vim.opt.termguicolors = true
 vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.g.mapleader = " "
-vim.opt.updatetime = 200
+vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "100"
 vim.opt.cmdheight = 1
