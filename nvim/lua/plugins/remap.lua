@@ -36,7 +36,7 @@ nnoremap("<C-p>", "<cmd>Telescope find_files hidden=True<CR>")
 -- nnoremap("<C-p>", "<cmd>Files<CR>")
 nnoremap("<leader>cs", "<cmd>Telescope colorscheme<CR>")
 nnoremap("<leader>ff", "<cmd>Telescope live_grep<CR>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<CR>")
+nnoremap("<leader>b", "<cmd>Telescope buffers<CR>")
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<CR>")
 nnoremap("<leader>ft", "<cmd>Telescope tags<CR>")
 nnoremap("<leader>gb", "<cmd>Telescope git_branches<CR>")
@@ -45,9 +45,6 @@ nnoremap("<leader>gf", "<cmd>GitFiles<CR>")
 -- nnoremap("<leader>gl", "<cmd>Telescope git_bcommits<CR>")
 nnoremap("<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
 nnoremap("<leader>tf", "<cmd>Telescope filetypes<CR>")
-
--- buffers
-nnoremap("<leader>b", "<cmd>ls<CR>:b<space>")
 
 -- undotree
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
