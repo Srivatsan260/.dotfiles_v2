@@ -23,6 +23,12 @@ do
 done
 
 cd $code_dir
+if [ -z $(ls -a | grep '\.git$') ]
+then
+    echo "$code_dir does not have a git repo"
+    exit 1
+fi
+
 worktree_exists=$(git worktree list | grep "\[$branch_name\]")
 if [[ -z $worktree_exists ]]
 then
