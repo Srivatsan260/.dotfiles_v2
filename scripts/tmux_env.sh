@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-set -e
-
 usage() {
     echo "Usage: tmux_env.sh -c code_dir -s session_name -b branch_name"
     exit 1
@@ -37,4 +35,9 @@ fi
 cd .worktrees/$session_name
 
 tmux new-session -A -d -s $session_name
-tmux switch -t $session_name
+if [ "$TERM_PROGRAM" = tmux ]
+then
+    tmux switch -t $session_name
+else
+    tmux attach -t $session_name
+fi
