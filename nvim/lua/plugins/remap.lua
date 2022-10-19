@@ -55,7 +55,7 @@ nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 -- sessions
 nnoremap("<leader>ss", string.format("<cmd>mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
 nnoremap("<leader>sr", string.format("<cmd>so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-nnoremap("<leader>sp", "<cmd>Telescope sessions_picker<CR>")
+nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
 -- dap
 nnoremap("<leader>du", "<cmd>lua require('dapui').toggle()<CR>")
