@@ -6,3 +6,7 @@ require'telescope'.setup{
     },
 }
 require('telescope').load_extension('sessions_picker')
+
+require('dir-telescope').setup {
+    respect_gitignore = true,
+}

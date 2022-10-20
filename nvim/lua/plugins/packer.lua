@@ -22,6 +22,10 @@ return require('packer').startup(function()
             'JoseConseco/telescope_sessions_picker.nvim'
         },
     }
+    use {
+        'princejoogie/dir-telescope.nvim',
+        requires = { 'nvim-telescope/telescope.nvim' }
+    }
     use 'voldikss/vim-floaterm'
 
     -- lsp
