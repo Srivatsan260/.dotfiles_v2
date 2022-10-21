@@ -78,4 +78,5 @@ return require('packer').startup(function()
     use 'kristijanhusak/vim-dadbod-completion'
     use 'ThePrimeagen/vim-be-good'
     use 'lewis6991/impatient.nvim'
+    use 'ThePrimeagen/harpoon'
 end)
