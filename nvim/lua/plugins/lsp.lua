@@ -113,14 +113,12 @@ local rt = require('rust-tools')
 rt.setup {
     server = {
         on_attach = function(_, buffer)
-            vim.keymap.set('n', '<leader>h', rt.hover_actions.hover_actions, { buffer = buffer })
+            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, { buffer = buffer })
             vim.keymap.set('n', '<leader>a', rt.code_action_group.code_action_group, { buffer = buffer })
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', bufopts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', bufopts)
             vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
             vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
         end,
