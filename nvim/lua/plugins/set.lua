@@ -17,6 +17,7 @@ vim.g['vimwiki_list'] = {{ path = '~/.vimwiki/'}}
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.showmatch = true
 vim.opt.belloff = "all"
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
