@@ -10,3 +10,4 @@ if string.find(vim.g['global_colorscheme'], 'tokyonight') then
     require("plugins.tokyonight")
 end
 require('plugins.impatient')
+require('plugins.cursorline')

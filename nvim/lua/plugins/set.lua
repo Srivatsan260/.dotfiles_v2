@@ -13,10 +13,13 @@ vim.g['floaterm_width'] = 0.5
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.belloff = "all"
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
 vim.opt.scrolloff = 8
@@ -25,13 +28,16 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
+vim.opt.undofile = true
+vim.opt.inccommand = "split"
+vim.opt.shada = { "!", "'1000", "<50", "s10", "h" }
 
 vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.g.mapleader = " "
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "100"
+vim.opt.colorcolumn = "81"
 vim.opt.cmdheight = 1
 vim.opt.splitright = false
 vim.opt.grepprg="rg --vimgrep --no-heading --smart-case"
@@ -41,3 +47,18 @@ vim.opt.winbar="%f %m"
 vim.opt.lazyredraw=true
 vim.opt.mouse="nvi"
 vim.opt.laststatus=3
+
+vim.opt.list = true
+vim.opt.listchars = { eol='↲', nbsp='␣', trail='•' }
+vim.opt.showbreak='↪'
+
+vim.opt.formatoptions = vim.opt.formatoptions
+    - "a" -- Auto formatting is BAD.
+    - "t" -- Don't auto format my code. I got linters for that.
+    + "c" -- When comments respect textwidth
+    + "q" -- Allow formatting comments w/ gq
+    - "o" -- O and o, don't continue comments
+    + "r" -- But do continue when pressing enter.
+    + "n" -- Indent past the formatlistpat, not underneath it.
+    + "j" -- Auto-remove comments if possible.
+    - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
