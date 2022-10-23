@@ -17,6 +17,7 @@ vim.g.vimwiki_list = {{ path = '~/.vimwiki/'}}
 if vim.g.neovide then
     vim.g.neovide_cursor_trail_length = 0
     vim.g.neovide_cursor_animation_length = 0
+    vim.g.neovide_transparency = 0.7
 end
 
 vim.opt.nu = true
