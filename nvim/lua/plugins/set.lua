@@ -1,18 +1,18 @@
-vim.g['netrw_altv'] = 1
-vim.g['netrw_banner'] = 0
-vim.g['netrw_browse_split'] = 0
-vim.g['netrw_winsize'] = 75
-vim.g['netrw_bufsettings'] = 'noma nomod nu nobl nowrap ro'
-vim.g['global_colorscheme'] = 'tokyonight'
-vim.g['sessions_dir'] = '~/.local/share/nvim/session'
-vim.g['lazygit_floating_window_winblend'] = 10
-vim.g['undotree_SetFocusWhenToggle'] = 1
-vim.g['floaterm_wintype'] = 'vsplit'
-vim.g['floaterm_width'] = 0.5
-vim.g['git_messenger_always_into_popup'] = true
-vim.g['git_messenger_floating_win_opts'] = { border = 'single' }
-vim.g['git_messenger_popup_content_margins'] = false
-vim.g['vimwiki_list'] = {{ path = '~/.vimwiki/'}}
+vim.g.netrw_altv = 1
+vim.g.netrw_banner = 0
+vim.g.netrw_browse_split = 0
+vim.g.netrw_winsize = 75
+vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+vim.g.global_colorscheme = 'tokyonight'
+vim.g.sessions_dir = '~/.local/share/nvim/session'
+vim.g.lazygit_floating_window_winblend = 10
+vim.g.undotree_SetFocusWhenToggle = 1
+vim.g.floaterm_wintype = 'vsplit'
+vim.g.floaterm_width = 0.5
+vim.g.git_messenger_always_into_popup = true
+vim.g.git_messenger_floating_win_opts = { border = 'single' }
+vim.g.git_messenger_popup_content_margins = false
+vim.g.vimwiki_list = {{ path = '~/.vimwiki/'}}
 
 if vim.g.neovide then
     vim.g.neovide_cursor_trail_length = 0
