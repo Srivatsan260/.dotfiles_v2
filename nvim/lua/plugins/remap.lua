@@ -1,7 +1,7 @@
-local nnoremap = require("plugins.keymap").nnoremap
-local tnoremap = require("plugins.keymap").tnoremap
-local inoremap = require("plugins.keymap").inoremap
-local vnoremap = require("plugins.keymap").vnoremap
+local nnoremap = require("plugins.functions").nnoremap
+local tnoremap = require("plugins.functions").tnoremap
+local inoremap = require("plugins.functions").inoremap
+local vnoremap = require("plugins.functions").vnoremap
 
 -- copy file name to + register
 nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
