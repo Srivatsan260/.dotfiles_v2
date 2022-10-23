@@ -3,6 +3,7 @@ local tnoremap = require("plugins.functions").tnoremap
 local inoremap = require("plugins.functions").inoremap
 local vnoremap = require("plugins.functions").vnoremap
 
+nnoremap("<leader>so", "<cmd> so ~/.config/nvim/init.lua<CR>")
 -- copy file name to + register
 nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
 nnoremap("<leader>cF", "<cmd>let @+=expand('%:t')<CR>") -- filename
@@ -56,8 +57,8 @@ nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 
 -- sessions
-nnoremap("<leader>ss", string.format("<cmd>mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-nnoremap("<leader>sr", string.format("<cmd>so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
+nnoremap("<leader>ss", string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
+nnoremap("<leader>sr", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
 nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
 -- dap
@@ -72,6 +73,8 @@ nnoremap("<leader>tr", "<cmd>TroubleToggle<CR>")
 
 -- save file with ctrl-s
 nnoremap("<C-s>", "<cmd>w<CR>")
+nnoremap("<leader>op", "<cmd>! open .<CR><CR>")
+
 -- harpoon
 nnoremap("<leader>H", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
 nnoremap("<leader>;", "<cmd>lua require('harpoon.mark').add_file()<CR>")
