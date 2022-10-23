@@ -80,4 +80,5 @@ return require('packer').startup(function()
     use 'lewis6991/impatient.nvim'
     use 'ThePrimeagen/harpoon'
     use 'rhysd/git-messenger.vim'
+    use 'vimwiki/vimwiki'
 end)

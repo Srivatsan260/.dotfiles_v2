@@ -3,7 +3,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
-vim.keymap.set('n', '<leader>wi', '<cmd>lua print(vim.inspect(vim.lsp.buf_get_clients()[1].server_capabilities))<CR>', opts)
+vim.keymap.set('n', '<leader>sc', '<cmd>lua print(vim.inspect(vim.lsp.buf_get_clients()[1].server_capabilities))<CR>', opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
