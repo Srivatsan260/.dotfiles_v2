@@ -14,6 +14,11 @@ vim.g['git_messenger_floating_win_opts'] = { border = 'single' }
 vim.g['git_messenger_popup_content_margins'] = false
 vim.g['vimwiki_list'] = {{ path = '~/.vimwiki/'}}
 
+if vim.g.neovide then
+    vim.g.neovide_cursor_trail_length = 0
+    vim.g.neovide_cursor_animation_length = 0
+end
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
