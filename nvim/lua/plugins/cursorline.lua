@@ -12,3 +12,4 @@ end
 
 set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
+set_cursorline("FileType", false, "TelescopePrompt")
