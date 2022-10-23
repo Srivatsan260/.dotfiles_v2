@@ -70,9 +70,6 @@ nnoremap("<leader>dO", "<cmd>DapStepOver<CR>")
 nnoremap("<leader>dt", "<cmd>DapTerminate<CR>")
 nnoremap("<leader>tr", "<cmd>TroubleToggle<CR>")
 
--- clipboard
-vnoremap("<C-c>", '"+y<CR>')
-
 -- save file with ctrl-s
 nnoremap("<C-s>", "<cmd>w<CR>")
 -- harpoon

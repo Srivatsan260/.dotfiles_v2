@@ -24,6 +24,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.termguicolors = true
+vim.opt.clipboard = "unnamedplus"
 
 vim.opt.smartindent = true
 vim.opt.wrap = true
