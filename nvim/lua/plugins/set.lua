@@ -46,7 +46,7 @@ vim.opt.shada = { "!", "'1000", "<50", "s10", "h" }
 vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.g.mapleader = " "
-vim.opt.updatetime = 50
+vim.opt.updatetime = 250
 
 vim.opt.colorcolumn = "81"
 vim.opt.cmdheight = 1
