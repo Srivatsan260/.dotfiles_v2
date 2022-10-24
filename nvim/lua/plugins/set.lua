@@ -13,6 +13,8 @@ vim.g.git_messenger_always_into_popup = true
 vim.g.git_messenger_floating_win_opts = { border = 'single' }
 vim.g.git_messenger_popup_content_margins = false
 vim.g.vimwiki_list = {{ path = '~/.vimwiki/'}}
+-- vim.g.loaded_netrw = 1
+-- vim.g.loaded_netrwPlugin = 1
 
 if vim.g.neovide then
     vim.g.neovide_cursor_trail_length = 0
