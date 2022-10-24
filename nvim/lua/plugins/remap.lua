@@ -85,3 +85,6 @@ nnoremap("<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
 nnoremap("<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
 nnoremap("<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
 nnoremap("<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
+
+-- nvim-tree
+-- nnoremap("<leader>,", "<cmd>NvimTreeToggle<CR>")
