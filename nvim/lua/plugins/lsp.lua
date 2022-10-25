@@ -94,6 +94,7 @@ cmp.setup {
     { name = 'buffer' },
     { name = 'path' },
     { name = 'vim-dadbod-completion' },
+    { name = 'conjure' },
   },
 }
 

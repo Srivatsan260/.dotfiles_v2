@@ -122,4 +122,8 @@ return require('packer').startup(function()
 
     -- notetaking
     use 'vimwiki/vimwiki'
+
+    -- interactive code evaluation
+    use 'Olical/conjure'
+    use 'PaterJason/cmp-conjure'
 end)
