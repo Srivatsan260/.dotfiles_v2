@@ -2,19 +2,41 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     use 'wbthomason/packer.nvim'
+    use 'nvim-lua/plenary.nvim'
+
+    -- themes
     use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
     use 'ful1e5/onedark.nvim'
+    use { 'EdenEast/nightfox.nvim',
+        config = function()
+            require('nightfox').setup {
+                options = {
+                    transparent = true,
+                }
+            }
+        end
+    }
+
+    -- icons
     use 'kyazdani42/nvim-web-devicons'
+
+    -- statusline
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
+
+    -- treesitter
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use { 'nvim-treesitter/nvim-treesitter-context', run = ':TSUpdate' }
     use { 'nvim-treesitter/nvim-treesitter-refactor', run = ':TSUpdate' }
     use { 'nvim-treesitter/playground', run = ':TSUpdate' }
+
+    -- lazygit
     use { 'kdheepak/lazygit.nvim' }
+
+    -- telescope
     use {
         'nvim-telescope/telescope.nvim',
         requires = {
@@ -26,6 +48,8 @@ return require('packer').startup(function()
         'princejoogie/dir-telescope.nvim',
         requires = { 'nvim-telescope/telescope.nvim' }
     }
+
+    -- floating terminal
     use 'voldikss/vim-floaterm'
 
     -- lsp
@@ -39,15 +63,22 @@ return require('packer').startup(function()
 
     -- rust
     use 'simrat39/rust-tools.nvim'
+
     -- Debugging
-    use 'nvim-lua/plenary.nvim'
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
 
+    -- project tree explorer
     use 'kyazdani42/nvim-tree.lua'
+
+    -- make vim change rootdir as expected
     use 'airblade/vim-rooter'
+
+    -- fzf
     use 'junegunn/fzf.vim'
     use 'junegunn/fzf'
+
+    -- display errors / warnings
     use {
       "folke/trouble.nvim",
       requires = "kyazdani42/nvim-web-devicons",
@@ -55,30 +86,40 @@ return require('packer').startup(function()
         require("trouble").setup {}
       end
     }
-    use { 'EdenEast/nightfox.nvim',
-        config = function()
-            require('nightfox').setup {
-                options = {
-                    transparent = true,
-                }
-            }
-        end
-    }
+
+    -- show git diffs in signcolumn
     use {
       'lewis6991/gitsigns.nvim',
       config = function()
         require('gitsigns').setup()
       end
     }
+
     use 'JoseConseco/telescope_sessions_picker.nvim'
+
+    -- undo superpowers
     use 'mbbill/undotree'
+
+    -- comments
     use { 'numToStr/Comment.nvim' }
+
+    -- sql
     use 'kristijanhusak/vim-dadbod-ui'
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-completion'
+
+    -- vim tut
     use 'ThePrimeagen/vim-be-good'
+
+    -- cache nvim modules
     use 'lewis6991/impatient.nvim'
+
+    -- harpoon!
     use 'ThePrimeagen/harpoon'
+
+    -- git blame but more
     use 'rhysd/git-messenger.vim'
+
+    -- notetaking
     use 'vimwiki/vimwiki'
 end)
