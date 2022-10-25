@@ -109,6 +109,20 @@ lspconfig['pyright'].setup{
     capabilities = capabilities
 }
 
+lspconfig['tsserver'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+lspconfig['html'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+lspconfig['cssls'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
+
 local rt = require('rust-tools')
 
 rt.setup {

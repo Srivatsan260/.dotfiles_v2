@@ -138,4 +138,18 @@ return require('packer').startup(function()
             })
         end
     }
+
+    -- nvim-colorizer
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require("colorizer").setup({
+                'css';
+                'javascript';
+                html = {
+                    mode = 'foreground';
+                }
+            })
+        end
+    }
 end)
