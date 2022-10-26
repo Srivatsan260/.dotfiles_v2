@@ -11,4 +11,5 @@ if string.find(vim.g['global_colorscheme'], 'tokyonight') then
 end
 require('plugins.impatient')
 require('plugins.cursorline')
+require('plugins.colorizer')
 -- require('plugins.nvim_tree')
