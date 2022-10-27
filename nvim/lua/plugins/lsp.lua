@@ -122,6 +122,10 @@ lspconfig['cssls'].setup {
     on_attach = on_attach,
     capabilities = capabilities,
 }
+lspconfig['emmet_ls'].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+}
 
 local rt = require('rust-tools')
 
