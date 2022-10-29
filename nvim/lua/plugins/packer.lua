@@ -144,4 +144,7 @@ return require('packer').startup(function()
 
     -- rest client
     use 'rest-nvim/rest.nvim'
+
+    -- which-key
+    use 'folke/which-key.nvim'
 end)
