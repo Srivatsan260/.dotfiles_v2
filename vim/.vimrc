@@ -42,6 +42,7 @@ set showbreak='↪'
 set backspace=indent,eol,start
 
 let mapleader=" "
+let maplocalleader="\\"
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -71,7 +72,7 @@ nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>so :so ~/.vimrc<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 
-tnoremap <leader><Esc> <C-\><C-n>
+tnoremap <localleader><Esc> <C-\><C-n>
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
