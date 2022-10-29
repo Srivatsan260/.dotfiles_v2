@@ -1,5 +1,14 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {"python", "rust", "sql", "yaml", "toml", "c"},
+    ensure_installed = {
+        "python",
+        "rust",
+        "sql",
+        "yaml",
+        "toml",
+        "c",
+        "http",
+        "json"
+    },
     sync_install = false,
 
     highlight = {

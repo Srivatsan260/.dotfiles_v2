@@ -141,4 +141,7 @@ return require('packer').startup(function()
 
     -- nvim-colorizer
     use 'norcalli/nvim-colorizer.lua'
+
+    -- rest client
+    use 'rest-nvim/rest.nvim'
 end)

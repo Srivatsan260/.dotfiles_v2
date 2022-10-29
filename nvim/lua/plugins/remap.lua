@@ -88,3 +88,8 @@ nnoremap("<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
 
 -- nvim-tree
 -- nnoremap("<leader>,", "<cmd>NvimTreeToggle<CR>")
+
+-- rest-nvim
+nnoremap("<localleader>rn", "<Plug>RestNvim<CR>")
+nnoremap("<localleader>rp", "<Plug>RestNvimPreview<CR>")
+nnoremap("<localleader>rl", "<Plug>RestNvimLast<CR>")

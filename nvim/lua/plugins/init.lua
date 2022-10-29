@@ -12,4 +12,5 @@ end
 require('plugins.impatient')
 require('plugins.cursorline')
 require('plugins.colorizer')
+require('plugins.rest')
 -- require('plugins.nvim_tree')
