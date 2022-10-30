@@ -40,6 +40,8 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
+require('neodev').setup {}
+
 local lspconfig = require('lspconfig')
 
 -- luasnip setup
@@ -150,6 +152,7 @@ table.insert(runtime_path, "lua/?/init.lua")
 
 -- lua lsp setup
 lspconfig.sumneko_lua.setup {
+    on_attach = on_attach,
     settings = {
         Lua = {
             runtime = {
@@ -164,6 +167,9 @@ lspconfig.sumneko_lua.setup {
             },
             telemetry = {
                 enable = false,
+            },
+            completion = {
+                callSnippet = 'Replace'
             }
         }
     }
