@@ -62,6 +62,12 @@ return require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'folke/neodev.nvim'
+    use {
+        'ray-x/lsp_signature.nvim',
+        config = function ()
+            require('lsp_signature').setup()
+        end
+    }
 
     -- rust
     use 'simrat39/rust-tools.nvim'
@@ -154,4 +160,8 @@ return require('packer').startup(function()
 
     -- async run
     use 'skywind3000/asyncrun.vim'
+
+    -- sad
+    use 'ray-x/sad.nvim'
+    use 'ray-x/guihua.lua'
 end)
