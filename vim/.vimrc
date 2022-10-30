@@ -98,6 +98,8 @@ call plug#begin()
     Plug 'mattn/vim-lsp-settings'
     Plug 'prabirshrestha/asyncomplete.vim'
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
+    Plug 'vim-test/vim-test'
+    Plug 'tpope/vim-surround'
 
 call plug#end()
 
@@ -123,6 +125,7 @@ let g:tokyonight_transparent_background = 1
 let g:floaterm_wintype = 'vsplit'
 let g:floaterm_width = 0.5
 let g:undotree_SetFocusWhenToggle = 1
+let g:test#strategy = 'floaterm'
 
 " }}}
 
