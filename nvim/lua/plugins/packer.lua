@@ -151,4 +151,7 @@ return require('packer').startup(function()
 
     -- tests
     use 'vim-test/vim-test'
+
+    -- async run
+    use 'skywind3000/asyncrun.vim'
 end)
