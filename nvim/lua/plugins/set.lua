@@ -14,6 +14,7 @@ vim.g.git_messenger_floating_win_opts = { border = 'single' }
 vim.g.git_messenger_popup_content_margins = false
 vim.g.vimwiki_list = {{ path = '~/.vimwiki/'}}
 vim.g['conjure#client_on_load'] = false
+vim.g['test#strategy'] = 'floaterm'
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
