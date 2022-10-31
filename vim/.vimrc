@@ -71,6 +71,11 @@ nnoremap <leader>t, :tabprev<CR>
 nnoremap <leader>tc :tabclose<CR>
 nnoremap <leader>so :so ~/.vimrc<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
+nnoremap <silent> <leader>ca :wa <bar> %bd <bar> e# <bar> bd# <CR><CR>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+nnoremap G Gzz
 
 tnoremap <localleader><Esc> <C-\><C-n>
 
