@@ -93,3 +93,11 @@ nnoremap("<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
 nnoremap("<localleader>rn", "<Plug>RestNvim<CR>")
 nnoremap("<localleader>rp", "<Plug>RestNvimPreview<CR>")
 nnoremap("<localleader>rl", "<Plug>RestNvimLast<CR>")
+
+-- delete all buffers except current
+nnoremap("<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>")
+
+-- fix C-d, C-u, G
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("G", "Gzz")
