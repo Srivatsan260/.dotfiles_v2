@@ -134,6 +134,7 @@ local rt = require('rust-tools')
 rt.setup {
     server = {
         on_attach = function(_, buffer)
+            local bufopts = { noremap=true, silent=true, buffer=buffer }
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, { buffer = buffer })
             vim.keymap.set('n', '<leader>a', rt.code_action_group.code_action_group, { buffer = buffer })
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
@@ -146,7 +147,7 @@ rt.setup {
     },
 }
 
-local runtime_path = vim.split(package.path, ";")
+local runtime_path = vim.split(package.path, ";", {})
 table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
