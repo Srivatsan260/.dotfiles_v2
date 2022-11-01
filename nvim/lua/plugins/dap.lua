@@ -2,7 +2,7 @@ local dap = require('dap')
 
 dap.adapters.python = {
   type = 'executable';
-  command = os.getenv("VIRTUAL_ENV");
+  command = os.getenv("VIRTUAL_ENV") .. '/bin/python';
   args = { '-m', 'debugpy.adapter' };
 }
 dap.configurations.python = {
@@ -11,7 +11,7 @@ dap.configurations.python = {
         request = "launch";
         name = "launch file";
         program = "${file}";
-        pythonPath = os.getenv("VIRTUAL_ENV")
+        pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python'
     }
 }
 
