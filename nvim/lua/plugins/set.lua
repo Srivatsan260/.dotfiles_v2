@@ -65,7 +65,7 @@ vim.opt.mouse="nvi"
 vim.opt.laststatus=3
 
 vim.opt.list = true
-vim.opt.listchars = { eol='↲', nbsp='␣', trail='•' }
+vim.opt.listchars = { eol='↲', tab='» ', nbsp='␣', trail='•' }
 vim.opt.showbreak='↪'
 
 vim.opt.formatoptions = vim.opt.formatoptions

@@ -36,7 +36,7 @@ set background="dark"
 set showmatch
 
 set list
-set listchars=eol:↲,nbsp:␣,trail:•
+set listchars=tab:»\ ,eol:↲,nbsp:␣,trail:•
 set showbreak='↪'
 
 set backspace=indent,eol,start
