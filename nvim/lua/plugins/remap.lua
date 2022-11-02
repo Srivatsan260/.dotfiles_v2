@@ -78,8 +78,6 @@ nnoremap("<leader>op", "<cmd>! open .<CR><CR>")
 -- harpoon
 nnoremap("<leader>H", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
 nnoremap("<leader>;", "<cmd>lua require('harpoon.mark').add_file()<CR>")
-nnoremap("<leader>/", "<cmd>lua require('harpoon.ui').nav_next()<CR>")
-nnoremap("<leader>.", "<cmd>lua require('harpoon.ui').nav_prev()<CR>")
 nnoremap("<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")
 nnoremap("<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
 nnoremap("<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
