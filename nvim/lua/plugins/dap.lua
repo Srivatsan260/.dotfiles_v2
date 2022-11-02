@@ -11,7 +11,8 @@ dap.configurations.python = {
         request = "launch";
         name = "launch file";
         program = "${file}";
-        pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python'
+        pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python',
+        justMyCode = false,
     }
 }
 
