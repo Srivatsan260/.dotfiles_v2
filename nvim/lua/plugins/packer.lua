@@ -68,7 +68,12 @@ return require('packer').startup(function()
             require('lsp_signature').setup()
         end
     }
-
+    use {
+        'j-hui/fidget.nvim',
+        config = function ()
+            require('fidget').setup {}
+        end
+    }
     -- rust
     use 'simrat39/rust-tools.nvim'
 
