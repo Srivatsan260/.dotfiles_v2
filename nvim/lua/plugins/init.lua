@@ -1,7 +1,7 @@
 require("plugins.set")
 require("plugins.packer")
 require("plugins.remap")
-require("plugins.lualine")
+-- require("plugins.lualine")
 require("plugins.lsp")
 require("plugins.lint")
 require("plugins.completion")
