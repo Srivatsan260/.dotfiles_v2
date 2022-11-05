@@ -131,6 +131,7 @@ let g:floaterm_wintype = 'vsplit'
 let g:floaterm_width = 0.5
 let g:undotree_SetFocusWhenToggle = 1
 let g:test#strategy = 'floaterm'
+let g:ctrlp_show_hidden = 1
 
 " }}}
 
