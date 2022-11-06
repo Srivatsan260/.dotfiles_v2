@@ -7,9 +7,7 @@ require("plugins.completion")
 require("plugins.telescope")
 require("plugins.dap")
 require("plugins.comment")
-if string.find(vim.g['global_colorscheme'], 'tokyonight') then
-    require("plugins.tokyonight")
-end
+require("plugins." .. vim.g['global_colorscheme'])
 require('plugins.impatient')
 require('plugins.cursorline')
 require('plugins.colorizer')
