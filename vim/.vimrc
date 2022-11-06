@@ -140,6 +140,7 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:test#strategy = 'floaterm'
 let g:ctrlp_show_hidden = 1
 let g:floaterm_giteditor = 'nvim'
+let g:lsp_diagnostics_echo_cursor = 1
 
 " }}}
 
