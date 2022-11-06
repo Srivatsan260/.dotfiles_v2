@@ -64,6 +64,7 @@ nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 -- dap
 nnoremap("<leader>du", "<cmd>lua require('dapui').toggle()<CR>")
 nnoremap("<leader>db", "<cmd>DapToggleBreakpoint<CR>")
+nnoremap("<leader>dB", "<cmd>lua require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))<CR>")
 nnoremap("<leader>dc", "<cmd>DapContinue<CR>")
 nnoremap("<leader>di", "<cmd>DapStepInto<CR>")
 nnoremap("<leader>do", "<cmd>DapStepOut<CR>")
