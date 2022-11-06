@@ -139,6 +139,7 @@ let g:floaterm_width = 0.5
 let g:undotree_SetFocusWhenToggle = 1
 let g:test#strategy = 'floaterm'
 let g:ctrlp_show_hidden = 1
+let g:floaterm_giteditor = 'nvim'
 
 " }}}
 
