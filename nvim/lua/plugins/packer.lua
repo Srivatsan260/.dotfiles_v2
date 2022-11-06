@@ -169,4 +169,7 @@ return require('packer').startup(function()
     -- sad
     use 'ray-x/sad.nvim'
     use 'ray-x/guihua.lua'
+
+    -- git-worktree
+    use 'ThePrimeagen/git-worktree.nvim'
 end)
