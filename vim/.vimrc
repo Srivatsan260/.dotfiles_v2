@@ -73,6 +73,12 @@ nnoremap <leader>so :so ~/.vimrc<CR>
 nnoremap <leader>u :UndotreeToggle<CR>
 nnoremap <silent> <leader>ca :wa <bar> %bd <bar> e# <bar> bd# <CR><CR>
 
+nnoremap gd :LspDefinition<CR>
+nnoremap gr :LspReferences<CR>
+nnoremap K :LspHover<CR>
+nnoremap ]d :LspNextDiagnostic<CR>
+nnoremap [d :LspPreviousDiagnostic<CR>
+
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap G Gzz
