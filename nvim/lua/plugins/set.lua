@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 vim.g.netrw_altv = 1
 vim.g.netrw_banner = 0
 vim.g.netrw_browse_split = 0
@@ -49,8 +51,6 @@ vim.opt.shada = { "!", "'1000", "<50", "s10", "h" }
 
 vim.opt.smartindent = true
 vim.opt.wrap = true
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 vim.opt.updatetime = 250
 
 vim.opt.colorcolumn = "81"
