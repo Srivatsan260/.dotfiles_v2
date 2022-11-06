@@ -7,7 +7,7 @@ return require('packer').startup(function()
     -- themes
     use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
-    use 'ful1e5/onedark.nvim'
+    use 'navarasu/onedark.nvim'
     use { 'EdenEast/nightfox.nvim',
         config = function()
             require('nightfox').setup {
