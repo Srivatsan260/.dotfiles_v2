@@ -111,6 +111,7 @@ call plug#begin()
     Plug 'prabirshrestha/asyncomplete-lsp.vim'
     Plug 'vim-test/vim-test'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
 
 call plug#end()
 
