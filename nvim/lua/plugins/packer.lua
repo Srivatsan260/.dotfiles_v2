@@ -172,4 +172,7 @@ return require('packer').startup(function()
 
     -- git-worktree
     use 'ThePrimeagen/git-worktree.nvim'
+
+    -- lua-formatter
+    use 'andrejlevkovitch/vim-lua-format'
 end)
