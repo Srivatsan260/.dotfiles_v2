@@ -40,6 +40,7 @@ set listchars=tab:»\ ,eol:↲,nbsp:␣,trail:•
 set showbreak='↪'
 
 set backspace=indent,eol,start
+set clipboard=unnamed
 
 let mapleader=" "
 let maplocalleader="\\"
