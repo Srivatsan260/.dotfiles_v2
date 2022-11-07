@@ -12,9 +12,9 @@ vim.g.undotree_SetFocusWhenToggle = 1
 vim.g.floaterm_wintype = 'vsplit'
 vim.g.floaterm_width = 0.5
 vim.g.git_messenger_always_into_popup = true
-vim.g.git_messenger_floating_win_opts = { border = 'single' }
+vim.g.git_messenger_floating_win_opts = {border = 'single'}
 vim.g.git_messenger_popup_content_margins = false
-vim.g.vimwiki_list = {{ path = '~/.vimwiki/'}}
+vim.g.vimwiki_list = {{path = '~/.vimwiki/'}}
 vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
 -- vim.g.loaded_netrw = 1
@@ -47,7 +47,7 @@ vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
 vim.opt.undofile = true
 vim.opt.inccommand = "split"
-vim.opt.shada = { "!", "'1000", "<50", "s10", "h" }
+vim.opt.shada = {"!", "'1000", "<50", "s10", "h"}
 
 vim.opt.smartindent = true
 vim.opt.wrap = true
@@ -56,24 +56,23 @@ vim.opt.updatetime = 250
 vim.opt.colorcolumn = "81"
 vim.opt.cmdheight = 1
 vim.opt.splitright = false
-vim.opt.grepprg="rg --vimgrep --no-heading --smart-case"
-vim.opt.grepformat="%f:%l:%c:%m"
+vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+vim.opt.grepformat = "%f:%l:%c:%m"
 
-vim.opt.winbar="%f %m"
-vim.opt.mouse="nvi"
-vim.opt.laststatus=3
+vim.opt.winbar = "%f %m"
+vim.opt.mouse = "nvi"
+vim.opt.laststatus = 3
 
 vim.opt.list = true
-vim.opt.listchars = { eol='↲', tab='» ', nbsp='␣', trail='•' }
-vim.opt.showbreak='↪'
+vim.opt.listchars = {eol = '↲', tab = '» ', nbsp = '␣', trail = '•'}
+vim.opt.showbreak = '↪'
 
-vim.opt.formatoptions = vim.opt.formatoptions
-    - "a" -- Auto formatting is BAD.
-    - "t" -- Don't auto format my code. I got linters for that.
-    + "c" -- When comments respect textwidth
-    + "q" -- Allow formatting comments w/ gq
-    - "o" -- O and o, don't continue comments
-    + "r" -- But do continue when pressing enter.
-    + "n" -- Indent past the formatlistpat, not underneath it.
-    + "j" -- Auto-remove comments if possible.
-    - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
+vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
+- "t" -- Don't auto format my code. I got linters for that.
++ "c" -- When comments respect textwidth
++ "q" -- Allow formatting comments w/ gq
+- "o" -- O and o, don't continue comments
++ "r" -- But do continue when pressing enter.
++ "n" -- Indent past the formatlistpat, not underneath it.
++ "j" -- Auto-remove comments if possible.
+- "2" -- Don't use indent of 2nd line of paragraph for the rest of it

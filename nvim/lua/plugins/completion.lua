@@ -4,26 +4,22 @@ local luasnip = require 'luasnip'
 luasnip.config.set_config {
     history = true,
     updateevents = "TextChanged,TextChangedI",
-    enable_autosnippets = true,
+    enable_autosnippets = true
 }
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
 cmp.setup {
-    snippet = {
-        expand = function(args)
-            luasnip.lsp_expand(args.body)
-        end,
-    },
+    snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
     mapping = cmp.mapping.preset.insert({
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-/>'] = cmp.mapping(cmp.mapping.complete({
-            reason = cmp.ContextReason.Auto,
-        }), { "i", "c" }),
+            reason = cmp.ContextReason.Auto
+        }), {"i", "c"}),
         ['<CR>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = true
         },
         ['<C-k>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -33,7 +29,7 @@ cmp.setup {
             else
                 fallback()
             end
-        end, { 'i', 's' }),
+        end, {'i', 's'}),
         ['<C-j>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -42,14 +38,10 @@ cmp.setup {
             else
                 fallback()
             end
-        end, { 'i', 's' }),
+        end, {'i', 's'})
     }),
     sources = {
-        { name = 'nvim_lsp' },
-        { name = 'luasnip' },
-        { name = 'buffer' },
-        { name = 'path' },
-        { name = 'vim-dadbod-completion' },
-        { name = 'conjure' },
-    },
+        {name = 'nvim_lsp'}, {name = 'luasnip'}, {name = 'buffer'},
+        {name = 'path'}, {name = 'vim-dadbod-completion'}, {name = 'conjure'}
+    }
 }

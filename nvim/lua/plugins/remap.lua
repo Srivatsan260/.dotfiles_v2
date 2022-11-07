@@ -26,7 +26,8 @@ nnoremap("<leader>,", "<cmd>Ex<CR>")
 -- Floaterm
 nnoremap("<leader>tt", "<cmd>FloatermToggle<CR>")
 nnoremap("<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
-nnoremap("<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
+nnoremap("<leader>fr",
+         "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
 tnoremap("<localleader><Esc>", "<C-\\><C-n>")
 
 -- treesitter highlighting
@@ -57,14 +58,17 @@ nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 
 -- sessions
-nnoremap("<leader>ss", string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-nnoremap("<leader>sr", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
+nnoremap("<leader>ss", string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>",
+                                     vim.g['sessions_dir']))
+nnoremap("<leader>sr", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>",
+                                     vim.g['sessions_dir']))
 nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
 -- dap
 nnoremap("<leader>du", "<cmd>lua require('dapui').toggle()<CR>")
 nnoremap("<leader>db", "<cmd>DapToggleBreakpoint<CR>")
-nnoremap("<leader>dB", "<cmd>lua require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))<CR>")
+nnoremap("<leader>dB",
+         "<cmd>lua require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))<CR>")
 nnoremap("<leader>dc", "<cmd>DapContinue<CR>")
 nnoremap("<leader>di", "<cmd>DapStepInto<CR>")
 nnoremap("<leader>do", "<cmd>DapStepOut<CR>")

@@ -8,13 +8,10 @@ return require('packer').startup(function()
     use 'folke/tokyonight.nvim'
     use 'ellisonleao/gruvbox.nvim'
     use 'navarasu/onedark.nvim'
-    use { 'EdenEast/nightfox.nvim',
+    use {
+        'EdenEast/nightfox.nvim',
         config = function()
-            require('nightfox').setup {
-                options = {
-                    transparent = true,
-                }
-            }
+            require('nightfox').setup {options = {transparent = true}}
         end
     }
 
@@ -24,18 +21,18 @@ return require('packer').startup(function()
     -- statusline
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = {'kyazdani42/nvim-web-devicons', opt = true}
     }
 
     -- treesitter
-    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-context', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-refactor', run = ':TSUpdate' }
-    use { 'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate' }
-    use { 'nvim-treesitter/playground', run = ':TSUpdate' }
+    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+    use {'nvim-treesitter/nvim-treesitter-context', run = ':TSUpdate'}
+    use {'nvim-treesitter/nvim-treesitter-refactor', run = ':TSUpdate'}
+    use {'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate'}
+    use {'nvim-treesitter/playground', run = ':TSUpdate'}
 
     -- lazygit
-    use { 'kdheepak/lazygit.nvim' }
+    use {'kdheepak/lazygit.nvim'}
 
     -- telescope
     use {
@@ -43,11 +40,11 @@ return require('packer').startup(function()
         requires = {
             'nvim-lua/plenary.nvim',
             'JoseConseco/telescope_sessions_picker.nvim'
-        },
+        }
     }
     use {
         'princejoogie/dir-telescope.nvim',
-        requires = { 'nvim-telescope/telescope.nvim' }
+        requires = {'nvim-telescope/telescope.nvim'}
     }
 
     -- floating terminal
@@ -64,15 +61,11 @@ return require('packer').startup(function()
     use 'folke/neodev.nvim'
     use {
         'ray-x/lsp_signature.nvim',
-        config = function ()
-            require('lsp_signature').setup()
-        end
+        config = function() require('lsp_signature').setup() end
     }
     use {
         'j-hui/fidget.nvim',
-        config = function ()
-            require('fidget').setup {}
-        end
+        config = function() require('fidget').setup {} end
     }
     -- rust
     use 'simrat39/rust-tools.nvim'
@@ -93,19 +86,15 @@ return require('packer').startup(function()
 
     -- display errors / warnings
     use {
-      "folke/trouble.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("trouble").setup {}
-      end
+        "folke/trouble.nvim",
+        requires = "kyazdani42/nvim-web-devicons",
+        config = function() require("trouble").setup {} end
     }
 
     -- show git diffs in signcolumn
     use {
-      'lewis6991/gitsigns.nvim',
-      config = function()
-        require('gitsigns').setup()
-      end
+        'lewis6991/gitsigns.nvim',
+        config = function() require('gitsigns').setup() end
     }
 
     use 'JoseConseco/telescope_sessions_picker.nvim'
@@ -114,7 +103,7 @@ return require('packer').startup(function()
     use 'mbbill/undotree'
 
     -- comments
-    use { 'numToStr/Comment.nvim' }
+    use {'numToStr/Comment.nvim'}
 
     -- sql
     use 'kristijanhusak/vim-dadbod-ui'

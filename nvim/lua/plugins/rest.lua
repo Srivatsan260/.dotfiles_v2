@@ -8,10 +8,7 @@ require("rest-nvim").setup({
     -- Encode URL before making request
     encode_url = true,
     -- Highlight request on run
-    highlight = {
-        enabled = true,
-        timeout = 150,
-    },
+    highlight = {enabled = true, timeout = 150},
     result = {
         -- toggle showing URL, HTTP info, headers at top the of result window
         show_url = true,
@@ -24,11 +21,11 @@ require("rest-nvim").setup({
             html = function(body)
                 return vim.fn.system({"tidy", "-i", "-q", "-"}, body)
             end
-        },
+        }
     },
     -- Jump to request line on run
     jump_to_request = false,
     env_file = '.env',
     custom_dynamic_variables = {},
-    yank_dry_run = true,
+    yank_dry_run = true
 })

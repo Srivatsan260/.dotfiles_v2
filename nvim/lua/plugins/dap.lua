@@ -1,25 +1,25 @@
 local dap = require('dap')
 
 dap.adapters.python = {
-    type = 'executable';
-    command = os.getenv("VIRTUAL_ENV") .. '/bin/python';
-    args = { '-m', 'debugpy.adapter' };
+    type = 'executable',
+    command = os.getenv("VIRTUAL_ENV") .. '/bin/python',
+    args = {'-m', 'debugpy.adapter'}
 }
 dap.configurations.python = {
     {
-        type = "python";
-        request = "launch";
-        name = "launch file";
-        program = "${file}";
+        type = "python",
+        request = "launch",
+        name = "launch file",
+        program = "${file}",
         pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python',
-        justMyCode = false,
+        justMyCode = false
     }
 }
 
 dap.adapters.lldb = {
     type = 'executable',
     command = '/usr/bin/lldb',
-    name = 'lldb',
+    name = 'lldb'
 }
 dap.configurations.rust = {
     {
@@ -27,25 +27,26 @@ dap.configurations.rust = {
         type = 'lldb',
         request = 'launch',
         program = function()
-            return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug', 'file')
+            return vim.fn.input('Path to executable: ',
+                                vim.fn.getcwd() .. '/target/debug', 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
-        args = {},
+        args = {}
     }
 }
 
 -- require('dapui').setup {}
 require("dapui").setup({
-    icons = { expanded = "▾", collapsed = "▸" },
+    icons = {expanded = "▾", collapsed = "▸"},
     mappings = {
         -- Use a table to apply multiple mappings
-        expand = { "<CR>", "<2-LeftMouse>" },
+        expand = {"<CR>", "<2-LeftMouse>"},
         open = "o",
         remove = "d",
         edit = "e",
         repl = "r",
-        toggle = "t",
+        toggle = "t"
     },
     -- Expand lines larger than the window
     -- Requires >= 0.7
@@ -61,34 +62,25 @@ require("dapui").setup({
         {
             elements = {
                 -- Elements can be strings or table with id and size keys.
-                { id = "scopes", size = 0.25 },
-                "breakpoints",
-                "stacks",
-                "watches",
+                {id = "scopes", size = 0.25}, "breakpoints", "stacks", "watches"
             },
             size = 40, -- 40 columns
-            position = "left",
-        },
-        {
-            elements = {
-                "repl",
-                "console",
-            },
+            position = "left"
+        }, {
+            elements = {"repl", "console"},
             size = 0.25, -- 25% of total lines
-            position = "bottom",
-        },
+            position = "bottom"
+        }
     },
     floating = {
         max_height = 0.3, -- These can be integers or a float between 0 and 1.
         max_width = 0.3, -- Floats will be treated as percentage of your screen.
         border = "single", -- Border style. Can be "single", "double" or "rounded"
-        mappings = {
-            close = { "q", "<Esc>" },
-        },
+        mappings = {close = {"q", "<Esc>"}}
     },
-    windows = { indent = 1 },
+    windows = {indent = 1},
     render = {
         max_type_length = nil, -- Can be integer or nil.
-        max_value_lines = 100, -- Can be integer or nil.
+        max_value_lines = 100 -- Can be integer or nil.
     }
 })

@@ -5,5 +5,5 @@ require('sad').setup({
     vsplit = false, -- split sad window the screen vertically, when set to number
     -- it is a threadhold when window is larger than the threshold sad will split vertically,
     height_ratio = 1, -- height ratio of sad window when split horizontally
-    width_ratio = 1, -- height ratio of sad window when split vertically
+    width_ratio = 1 -- height ratio of sad window when split vertically
 })

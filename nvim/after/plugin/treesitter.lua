@@ -1,33 +1,15 @@
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "python",
-        "rust",
-        "sql",
-        "yaml",
-        "toml",
-        "c",
-        "http",
-        "json"
+        "python", "rust", "sql", "yaml", "toml", "c", "http", "json"
     },
     sync_install = false,
 
-    highlight = {
-        enable = true,
-        additional_vim_regex_highlighting = false,
-    },
+    highlight = {enable = true, additional_vim_regex_highlighting = false},
 
     refactor = {
-        highlight_definitions = {
-            enable = true,
-            clear_on_cursor_move = true,
-        },
+        highlight_definitions = {enable = true, clear_on_cursor_move = true},
         -- highlight_current_scope = { enable = true },
-        smart_rename = {
-            enable = true,
-            keymaps = {
-                smart_rename = 'grr',
-            }
-        },
+        smart_rename = {enable = true, keymaps = {smart_rename = 'grr'}},
         navigation = {
             enable = true,
             keymaps = {
@@ -35,7 +17,7 @@ require'nvim-treesitter.configs'.setup {
                 list_definitions = 'gnd',
                 list_definitions_toc = 'gO',
                 goto_next_usage = '<a-*>',
-                goto_previous_usage = '<a-#>',
+                goto_previous_usage = '<a-#>'
             }
         }
     },
@@ -46,17 +28,17 @@ require'nvim-treesitter.configs'.setup {
         updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false, -- Whether the query persists across vim sessions
         keybindings = {
-          toggle_query_editor = 'o',
-          toggle_hl_groups = 'i',
-          toggle_injected_languages = 't',
-          toggle_anonymous_nodes = 'a',
-          toggle_language_display = 'I',
-          focus_language = 'f',
-          unfocus_language = 'F',
-          update = 'R',
-          goto_node = '<cr>',
-          show_help = '?',
-        },
+            toggle_query_editor = 'o',
+            toggle_hl_groups = 'i',
+            toggle_injected_languages = 't',
+            toggle_anonymous_nodes = 'a',
+            toggle_language_display = 'I',
+            focus_language = 'f',
+            unfocus_language = 'F',
+            update = 'R',
+            goto_node = '<cr>',
+            show_help = '?'
+        }
     },
 
     textobjects = {
@@ -73,7 +55,10 @@ require'nvim-treesitter.configs'.setup {
                 ["ac"] = "@class.outer",
                 -- You can optionally set descriptions to the mappings (used in the desc parameter of
                 -- nvim_buf_set_keymap) which plugins like which-key display
-                ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                ["ic"] = {
+                    query = "@class.inner",
+                    desc = "Select inner part of a class region"
+                }
             },
             -- You can choose the select mode (default is charwise 'v')
             --
@@ -85,7 +70,7 @@ require'nvim-treesitter.configs'.setup {
             selection_modes = {
                 ['@parameter.outer'] = 'v', -- charwise
                 ['@function.outer'] = 'V', -- linewise
-                ['@class.outer'] = '<c-v>', -- blockwise
+                ['@class.outer'] = '<c-v>' -- blockwise
             },
             -- If you set this to `true` (default is `false`) then any textobject is
             -- extended to include preceding or succeeding whitespace. Succeeding
@@ -96,9 +81,9 @@ require'nvim-treesitter.configs'.setup {
             -- * query_string: eg '@function.inner'
             -- * selection_mode: eg 'v'
             -- and should return true of false
-            include_surrounding_whitespace = true,
-        },
-    },
+            include_surrounding_whitespace = true
+        }
+    }
 }
 -- vim.cmd [[ autocmd BufReadPost,FileReadPost * normal zR ]]
 vim.cmd [[ autocmd BufRead * normal zx zR ]]
