@@ -4,3 +4,12 @@ repos:
   hooks:
     - id: trailing-whitespace
     - id: end-of-file-fixer
+- repo: local
+  hooks:
+    - id: lua-format
+      name: format lua files
+      language: lua
+      entry: "lua-format"
+      files: \.lua$
+      exclude: nvim/plugin/packer_compiled.lua
+      pass_filenames: true
