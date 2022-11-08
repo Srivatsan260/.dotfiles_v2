@@ -84,6 +84,9 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap G Gzz
 
+nnoremap <C-s> :w<CR>
+nnoremap <C-a> ggVG
+
 tnoremap <localleader><Esc> <C-\><C-n>
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
