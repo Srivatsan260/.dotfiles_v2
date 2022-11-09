@@ -77,7 +77,7 @@ nnoremap("<leader>dt", "<cmd>DapTerminate<CR>")
 nnoremap("<leader>tr", "<cmd>TroubleToggle<CR>")
 
 -- select all with ctrl-a
-nnoremap("<C-a>", "ggVG")
+-- nnoremap("<C-a>", "ggVG")
 -- save file with ctrl-s
 nnoremap("<C-s>", "<cmd>w<CR>")
 nnoremap("<leader>op", "<cmd>! open .<CR><CR>")

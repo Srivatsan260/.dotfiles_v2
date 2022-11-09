@@ -85,7 +85,7 @@ nnoremap <C-u> <C-u>zz
 nnoremap G Gzz
 
 nnoremap <C-s> :w<CR>
-nnoremap <C-a> ggVG
+" nnoremap <C-a> ggVG
 
 tnoremap <localleader><Esc> <C-\><C-n>
 
