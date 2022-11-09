@@ -74,7 +74,7 @@ nnoremap("<leader>di", "<cmd>DapStepInto<CR>")
 nnoremap("<leader>do", "<cmd>DapStepOut<CR>")
 nnoremap("<leader>dO", "<cmd>DapStepOver<CR>")
 nnoremap("<leader>dt", "<cmd>DapTerminate<CR>")
-nnoremap("<leader>tr", "<cmd>TroubleToggle<CR>")
+nnoremap("<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>")
 
 -- select all with ctrl-a
 -- nnoremap("<C-a>", "ggVG")
