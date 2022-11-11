@@ -3,7 +3,10 @@ local tnoremap = require("plugins.functions").tnoremap
 local inoremap = require("plugins.functions").inoremap
 local vnoremap = require("plugins.functions").vnoremap
 
-nnoremap("<leader>so", "<cmd> so ~/.config/nvim/init.lua<CR>")
+nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/init.lua<CR>")
+nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
+nnoremap("<leader><leader>s", "<cmd> so ~/.config/nvim/lua/plugins/set.lua<CR>")
+
 -- copy file name to + register
 nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
 nnoremap("<leader>cF", "<cmd>let @+=expand('%:t')<CR>") -- filename
