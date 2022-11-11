@@ -106,9 +106,9 @@ nnoremap("<localleader>rl", "<Plug>RestNvimLast<CR>")
 nnoremap("<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>")
 
 -- fix C-d, C-u, G
--- nnoremap("<C-d>", "<C-d>zz")
--- nnoremap("<C-u>", "<C-u>zz")
--- nnoremap("G", "Gzz")
+nnoremap("<C-d>", "<C-d>zz")
+nnoremap("<C-u>", "<C-u>zz")
+nnoremap("G", "Gzz")
 
 -- move lines around in visual mode
 vnoremap("J", ":m '>+1<CR>gv=gv")
