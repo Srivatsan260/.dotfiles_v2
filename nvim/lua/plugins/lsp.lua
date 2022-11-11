@@ -14,7 +14,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'gw', vim.lsp.buf.document_symbol, bufopts)
     vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, bufopts)
-    vim.keymap.set('n', '<leader>fa', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     if vim.bo.filetype == 'python' then
         vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts)
