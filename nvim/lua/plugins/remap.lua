@@ -1,7 +1,7 @@
-local nnoremap = require("plugins.functions").nnoremap
-local tnoremap = require("plugins.functions").tnoremap
-local inoremap = require("plugins.functions").inoremap
-local vnoremap = require("plugins.functions").vnoremap
+local nnoremap = require("plugins.keymap").nnoremap
+local tnoremap = require("plugins.keymap").tnoremap
+local inoremap = require("plugins.keymap").inoremap
+local vnoremap = require("plugins.keymap").vnoremap
 
 nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/init.lua<CR>")
 nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
