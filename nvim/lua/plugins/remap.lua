@@ -3,7 +3,7 @@ local tnoremap = require("plugins.keymap").tnoremap
 local inoremap = require("plugins.keymap").inoremap
 local vnoremap = require("plugins.keymap").vnoremap
 
-nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/init.lua<CR>")
+nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/lua/plugins/init.lua<CR>")
 nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
 nnoremap("<leader><leader>s", "<cmd> so ~/.config/nvim/lua/plugins/set.lua<CR>")
 nnoremap("<leader><leader>c", "<cmd> so ~/.config/nvim/after/plugin/color.lua<CR>")
