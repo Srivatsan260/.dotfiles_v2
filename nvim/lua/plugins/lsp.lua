@@ -85,6 +85,9 @@ rt.setup {
     server = {
         on_attach = function(_, buffer)
             local bufopts = {noremap = true, silent = true, buffer = buffer}
+            vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
+            vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
+            vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions,
                            {buffer = buffer})
             vim.keymap.set('n', '<leader>a',
