@@ -58,7 +58,9 @@ require'nvim-treesitter.configs'.setup {
                 ["ic"] = {
                     query = "@class.inner",
                     desc = "Select inner part of a class region"
-                }
+                },
+                ["il"] = "@loop.inner",
+                ["al"] = "@loop.outer",
             },
             -- You can choose the select mode (default is charwise 'v')
             --
