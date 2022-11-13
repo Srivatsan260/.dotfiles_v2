@@ -66,7 +66,7 @@ nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
 -- sessions
 nnoremap("<leader>ss", string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>",
                                      vim.g['sessions_dir']))
-nnoremap("<leader>sr", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>",
+nnoremap("<leader>st", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>",
                                      vim.g['sessions_dir']))
 nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
@@ -116,3 +116,6 @@ nnoremap("G", "Gzz")
 -- move lines around in visual mode
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
+
+-- ssr
+nnoremap("<leader>sr", "<cmd>lua require('ssr').open()<CR>")

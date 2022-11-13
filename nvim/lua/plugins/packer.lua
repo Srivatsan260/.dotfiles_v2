@@ -166,4 +166,10 @@ return require('packer').startup(function()
 
     -- lua-formatter
     use 'andrejlevkovitch/vim-lua-format'
+
+    -- structural find & replace
+    use {
+        "cshuaimin/ssr.nvim",
+        module = "ssr",
+    }
 end)
