@@ -139,6 +139,7 @@ return require('packer').startup(function()
             })
         end
     }
+    use 'michaeljsmith/vim-indent-object'
 
     -- nvim-colorizer
     use 'norcalli/nvim-colorizer.lua'
