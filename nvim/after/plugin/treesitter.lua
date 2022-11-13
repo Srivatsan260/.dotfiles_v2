@@ -59,6 +59,8 @@ require'nvim-treesitter.configs'.setup {
                     query = "@class.inner",
                     desc = "Select inner part of a class region"
                 },
+                ["ig"] = "@conditional.inner",
+                ["ag"] = "@conditional.outer",
                 ["il"] = "@loop.inner",
                 ["al"] = "@loop.outer",
             },
