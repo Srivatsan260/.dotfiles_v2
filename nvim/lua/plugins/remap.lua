@@ -119,3 +119,6 @@ vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- ssr
 nnoremap("<leader>sr", "<cmd>lua require('ssr').open()<CR>")
+
+-- delete without affecting registers
+nnoremap("<leader>D", "\"_d")
