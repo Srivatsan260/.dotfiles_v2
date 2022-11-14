@@ -172,4 +172,7 @@ return require('packer').startup(function()
         "cshuaimin/ssr.nvim",
         module = "ssr",
     }
+
+    -- avoid nested neovims
+    use "samjwill/nvim-unception"
 end)
