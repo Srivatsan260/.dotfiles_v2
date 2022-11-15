@@ -10,7 +10,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
     vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', bufopts)
     vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
-    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'gw', vim.lsp.buf.document_symbol, bufopts)
     vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, bufopts)
@@ -95,7 +95,7 @@ rt.setup {
                            {buffer = buffer})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
             vim.keymap.set('n', 'gr',
                            '<cmd>Telescope lsp_references theme=dropdown<CR>',
                            bufopts)
