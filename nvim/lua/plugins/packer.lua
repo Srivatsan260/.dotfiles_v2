@@ -175,4 +175,7 @@ return require('packer').startup(function()
 
     -- avoid nested neovims
     use "samjwill/nvim-unception"
+
+    -- winsep
+    use "nvim-zh/colorful-winsep.nvim"
 end)
