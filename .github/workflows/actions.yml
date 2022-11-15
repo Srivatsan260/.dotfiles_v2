@@ -3,6 +3,6 @@ run-name: ${{ github.actor }} test run
 on: [push]
 jobs:
   step-0:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - run: echo "This job was triggered by a ${{ github.event_name }} event"
