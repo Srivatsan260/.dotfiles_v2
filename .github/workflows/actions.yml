@@ -1,8 +1,0 @@
-name: CI
-run-name: ${{ github.actor }} test run
-on: [push]
-jobs:
-  step-0:
-    runs-on: self-hosted
-    steps:
-      - run: echo "This job was triggered by a ${{ github.event_name }} event"
