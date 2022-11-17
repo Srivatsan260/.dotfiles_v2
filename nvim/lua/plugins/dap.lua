@@ -1,20 +1,23 @@
 local dap = require('dap')
 
-dap.adapters.python = {
-    type = 'executable',
-    command = os.getenv("VIRTUAL_ENV") .. '/bin/python',
-    args = {'-m', 'debugpy.adapter'}
-}
-dap.configurations.python = {
-    {
-        type = "python",
-        request = "launch",
-        name = "launch file",
-        program = "${file}",
-        pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python',
-        justMyCode = false
+local py_virtual_env = os.getenv("VIRTUAL_ENV")
+if py_virtual_env ~= nil then
+    dap.adapters.python = {
+        type = 'executable',
+        command = os.getenv("VIRTUAL_ENV") .. '/bin/python',
+        args = {'-m', 'debugpy.adapter'}
     }
-}
+    dap.configurations.python = {
+        {
+            type = "python",
+            request = "launch",
+            name = "launch file",
+            program = "${file}",
+            pythonPath = os.getenv("VIRTUAL_ENV") .. '/bin/python',
+            justMyCode = false
+        }
+    }
+end
 
 dap.adapters.lldb = {
     type = 'executable',
