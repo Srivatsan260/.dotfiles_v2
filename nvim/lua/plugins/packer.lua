@@ -171,10 +171,7 @@ return require('packer').startup(function()
     use 'andrejlevkovitch/vim-lua-format'
 
     -- structural find & replace
-    use {
-        "cshuaimin/ssr.nvim",
-        module = "ssr",
-    }
+    use {"cshuaimin/ssr.nvim", module = "ssr"}
 
     -- avoid nested neovims
     use "samjwill/nvim-unception"
