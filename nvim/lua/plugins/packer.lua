@@ -34,6 +34,9 @@ return require('packer').startup(function()
     -- lazygit
     use {'kdheepak/lazygit.nvim'}
 
+    -- diffview
+    use 'sindrets/diffview.nvim'
+
     -- telescope
     use {
         'nvim-telescope/telescope.nvim',
