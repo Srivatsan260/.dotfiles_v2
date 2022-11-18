@@ -58,6 +58,10 @@ nnoremap("<leader>gr", "<cmd>Telescope grep_string<CR>")
 nnoremap("<leader>gs", "<cmd>Telescope git_status<CR>")
 -- nnoremap("<leader>gl", "<cmd>Telescope git_bcommits<CR>")
 nnoremap("<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
+nnoremap("<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>")
+nnoremap("<leader>dvH", ":DiffviewOpen HEAD~")
+nnoremap("<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
+nnoremap("<leader>dvo", "<cmd>DiffviewOpen<CR>")
 nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
 
 -- undotree
