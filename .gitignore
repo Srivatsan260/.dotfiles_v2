@@ -2,3 +2,4 @@
 brew_installs.txt
 lazygit/*.yml
 nvim/plugin/packer_compiled.lua
+.luarc.json
