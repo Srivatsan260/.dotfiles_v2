@@ -27,7 +27,7 @@ if vim.g.neovide then
 end
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.rnu = true
 
 vim.opt.showmatch = true
 vim.opt.belloff = "all"
