@@ -21,7 +21,7 @@ end
 
 dap.adapters.lldb = {
     type = 'executable',
-    command = '/usr/bin/lldb',
+    command = 'lldb-vscode',
     name = 'lldb'
 }
 dap.configurations.rust = {
