@@ -2,7 +2,7 @@
 
 set -e
 
-[ ! -L ~/.config/vim ] && [ ! -e ~/.config/vim ] && ln -s ~/dotfiles/vim ~/.config/vim
+[ ! -L ~/.vimrc ] && [ ! -e ~/.vimrc ] && ln -s ~/dotfiles/vim/.vimrc ~/.vimrc
 [ ! -L ~/.config/nvim ] && [ ! -e ~/.config/nvim ] && ln -s ~/dotfiles/nvim ~/.config/nvim
 [ ! -L ~/.config/kitty ] && [ ! -e ~/.config/kitty ] && ln -s ~/dotfiles/kitty ~/.config/kitty
 [ ! -L ~/.config/lazygit ] && [ ! -e ~/.config/lazygit ] && ln -s ~/dotfiles/lazygit ~/.config/lazygit
