@@ -62,7 +62,9 @@ let netrw_bufsettings='noma nomod nu nobl nowrap ro'
 " remaps {{{
 
 nnoremap <leader>, :Ex<CR>
-nnoremap <leader>fb :Buffers<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
 nnoremap <leader>gg :FloatermNew --wintype=float --height=0.9 --width=0.9 lazygit<CR>
 nnoremap <leader>fn :FloatermNew --wintype=float --height=0.9 --width=0.9
 nnoremap <leader>tn :tabnew<CR>
