@@ -40,6 +40,8 @@ tnoremap("<localleader><Esc>", "<C-\\><C-n>")
 nnoremap("<leader>th", "<cmd>TSBufToggle highlight<CR>")
 nnoremap("<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
 
+nnoremap("<leader>tj", "<cmd>TSJToggle<CR>")
+
 -- FZF / telescope / lazygit
 nnoremap("<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>")
 -- nnoremap("<C-p>", "<cmd>Files<CR>")

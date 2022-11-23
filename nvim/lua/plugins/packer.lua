@@ -31,6 +31,8 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', run = ':TSUpdate'}
 
+    use 'Wansmer/treesj'
+
     -- lazygit
     use {'kdheepak/lazygit.nvim'}
 
