@@ -51,6 +51,7 @@ nnoremap("<leader>fd", "<cmd>FileInDirectory<CR>")
 nnoremap("<leader>pd", "<cmd>GrepInDirectory<CR>")
 nnoremap("<leader>ff", "<cmd>Telescope live_grep<CR>")
 nnoremap("<leader>b", "<cmd>Telescope buffers<CR>")
+nnoremap("<leader>cd", "<cmd>Telescope zoxide list<CR>")
 
 -- TODO: make these not work in terminal buffers
 nnoremap("<Tab>", "<cmd>bn<CR>")
