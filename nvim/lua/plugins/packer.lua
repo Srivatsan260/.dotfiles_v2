@@ -19,10 +19,7 @@ return require('packer').startup(function()
     use 'kyazdani42/nvim-web-devicons'
 
     -- statusline
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use 'tamton-aquib/staline.nvim'
 
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
