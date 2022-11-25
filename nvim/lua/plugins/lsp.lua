@@ -101,6 +101,7 @@ rt.setup {
                            bufopts)
             vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
             vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
+            vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
         end
     }
 }
