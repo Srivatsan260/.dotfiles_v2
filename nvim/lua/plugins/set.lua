@@ -76,3 +76,6 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 + "n" -- Indent past the formatlistpat, not underneath it.
 + "j" -- Auto-remove comments if possible.
 - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
+
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
