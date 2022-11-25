@@ -181,4 +181,7 @@ return require('packer').startup(function()
 
     -- winsep
     use "nvim-zh/colorful-winsep.nvim"
+
+    -- dressing
+    use {'stevearc/dressing.nvim'}
 end)
