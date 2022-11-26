@@ -1,6 +1,14 @@
 local tsj = require('treesj')
+local tsj_utils = require('treesj.langs.utils')
 
-local langs = { --[[ configuration for languages ]] }
+local langs = {
+    python = {
+        dict = tsj_utils.set_preset_for_dict(),
+        list = tsj_utils.set_preset_for_list(),
+        args = tsj_utils.set_preset_for_args(),
+        parameters = tsj_utils.set_preset_for_args(),
+    }
+}
 
 tsj.setup({
     -- Use default keymaps
