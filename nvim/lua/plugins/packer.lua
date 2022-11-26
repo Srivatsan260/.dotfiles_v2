@@ -31,6 +31,7 @@ return require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', run = ':TSUpdate'}
 
+    -- toggle join / split items (args, lists, etc.)
     use 'Wansmer/treesj'
 
     -- lazygit
