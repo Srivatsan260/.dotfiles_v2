@@ -185,4 +185,7 @@ return require('packer').startup(function()
 
     -- dressing
     use {'stevearc/dressing.nvim'}
+
+    -- autopairs
+    use 'windwp/nvim-autopairs'
 end)
