@@ -188,4 +188,7 @@ return require('packer').startup(function()
 
     -- autopairs
     use 'windwp/nvim-autopairs'
+
+    -- icon picker
+    use 'ziontee113/icon-picker.nvim'
 end)
