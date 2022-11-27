@@ -191,4 +191,7 @@ return require('packer').startup(function()
 
     -- icon picker
     use 'ziontee113/icon-picker.nvim'
+
+    -- tagbar
+    use 'preservim/tagbar'
 end)

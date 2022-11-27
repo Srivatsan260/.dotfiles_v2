@@ -134,3 +134,6 @@ nnoremap("<leader>sr", "<cmd>lua require('ssr').open()<CR>")
 
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
+
+-- tagbar
+nnoremap("<leader>tb", "<cmd>TagbarToggle<CR>")
