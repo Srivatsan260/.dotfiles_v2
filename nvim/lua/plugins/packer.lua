@@ -200,4 +200,7 @@ return require('packer').startup(function()
 
     -- carbon.sh
     use 'ellisonleao/carbon-now.nvim'
+
+    -- colorutils
+    use 'nvim-colortils/colortils.nvim'
 end)
