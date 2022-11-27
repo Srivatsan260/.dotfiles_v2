@@ -197,4 +197,7 @@ return require('packer').startup(function()
 
     -- tagbar
     use 'preservim/tagbar'
+
+    -- carbon.sh
+    use 'ellisonleao/carbon-now.nvim'
 end)
