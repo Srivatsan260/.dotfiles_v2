@@ -180,9 +180,6 @@ return require('packer').startup(function()
     -- structural find & replace
     use {"cshuaimin/ssr.nvim", module = "ssr"}
 
-    -- avoid nested neovims
-    use "samjwill/nvim-unception"
-
     -- winsep
     use "nvim-zh/colorful-winsep.nvim"
 
