@@ -203,4 +203,8 @@ return require('packer').startup(function()
 
     -- colorutils
     use 'nvim-colortils/colortils.nvim'
+
+    -- regex explainer
+    use 'bennypowers/nvim-regexplainer'
+    use 'MunifTanjim/nui.nvim'
 end)
