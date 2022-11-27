@@ -77,6 +77,9 @@ return require('packer').startup(function()
     -- rust
     use 'simrat39/rust-tools.nvim'
 
+    -- linting
+    use 'mfussenegger/nvim-lint'
+
     -- Debugging
     use 'mfussenegger/nvim-dap'
     use 'rcarriga/nvim-dap-ui'
