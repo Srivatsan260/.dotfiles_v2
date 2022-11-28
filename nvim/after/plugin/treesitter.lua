@@ -62,7 +62,7 @@ require'nvim-treesitter.configs'.setup {
                 ["ig"] = "@conditional.inner",
                 ["ag"] = "@conditional.outer",
                 ["il"] = "@loop.inner",
-                ["al"] = "@loop.outer",
+                ["al"] = "@loop.outer"
             },
             -- You can choose the select mode (default is charwise 'v')
             --
@@ -89,5 +89,20 @@ require'nvim-treesitter.configs'.setup {
         }
     }
 }
--- vim.cmd [[ autocmd BufReadPost,FileReadPost * normal zR ]]
-vim.cmd [[ autocmd BufRead * normal zx zR ]]
+
+local group = vim.api.nvim_create_augroup("FoldControl", {clear = true})
+vim.api.nvim_create_autocmd({"BufRead"}, {
+    group = group,
+    pattern = "*",
+    callback = function()
+        vim.api.nvim_exec('normal zx zR', false)
+    end
+})
+vim.api.nvim_create_autocmd({"BufWritePost"}, {
+    group = group,
+    pattern = "*",
+    callback = function()
+        print('redo folds!')
+        vim.api.nvim_exec('normal zx', false)
+    end
+})
