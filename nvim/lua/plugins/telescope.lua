@@ -3,6 +3,9 @@ local telescope = require('telescope')
 local z_utils = require("telescope._extensions.zoxide.utils")
 
 telescope.setup {
+    defaults = {
+        prompt_prefix = ' ',
+    },
     extensions = {
         session_picker = {sessions_dir = vim.g['sessions_dir']},
         zoxide = {
