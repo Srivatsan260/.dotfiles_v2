@@ -8,7 +8,7 @@ require'regexplainer'.setup {
     -- filetypes (i.e. extensions) in which to run the autocommand
     filetypes = {
         'html', 'js', 'cjs', 'mjs', 'ts', 'jsx', 'tsx', 'cjsx', 'mjsx',
-        'python', 'sql', 'rust'
+        'python', 'sql', 'rust', 'yaml'
     },
 
     -- Whether to log debug messages
