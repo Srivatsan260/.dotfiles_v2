@@ -1,6 +1,7 @@
 local wezterm = require('wezterm')
 
 return {
+    max_fps = 120,
     hide_tab_bar_if_only_one_tab = true,
     window_background_opacity = 0.87,
     text_background_opacity = 0.87,
