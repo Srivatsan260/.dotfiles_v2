@@ -6,6 +6,9 @@ return {
     text_background_opacity = 0.87,
     window_decorations = "RESIZE",
     color_scheme = 'Tomorrow Night Bright',
-    font = wezterm.font('JetbrainsMono Nerd Font Mono'),
-    font_size = 15,
+    font = wezterm.font {
+        family = 'JetbrainsMono Nerd Font Mono',
+        weight = 'Medium'
+    },
+    font_size = 15
 }
