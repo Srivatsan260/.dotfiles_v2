@@ -27,7 +27,7 @@ nnoremap("<leader>t,", "<cmd>tabprev<CR>")
 nnoremap("<leader>tc", "<cmd>tabclose<CR>")
 
 -- netrw
-nnoremap("<leader>,", "<cmd>Ex<CR>")
+nnoremap("<leader>,", "<cmd>Explore<CR>")
 
 -- Floaterm
 nnoremap("<leader>tt", "<cmd>FloatermToggle<CR>")
