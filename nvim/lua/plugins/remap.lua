@@ -31,10 +31,12 @@ nnoremap("<leader>,", "<cmd>Ex<CR>")
 
 -- Floaterm
 nnoremap("<leader>tt", "<cmd>FloatermToggle<CR>")
+nnoremap("<leader>fl", "<cmd>Floaterms<CR>")
 nnoremap("<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
 nnoremap("<leader>fr",
          "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
 tnoremap("<localleader><Esc>", "<C-\\><C-n>")
+tnoremap("<localleader>tt", "<cmd>FloatermToggle<CR>")
 
 -- treesitter highlighting
 nnoremap("<leader>th", "<cmd>TSBufToggle highlight<CR>")
