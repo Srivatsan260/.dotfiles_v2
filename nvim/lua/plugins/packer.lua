@@ -206,4 +206,7 @@ return require('packer').startup(function()
     -- regex explainer
     use 'bennypowers/nvim-regexplainer'
     use 'MunifTanjim/nui.nvim'
+
+    -- exrc
+    use 'MunifTanjim/exrc.nvim'
 end)
