@@ -91,7 +91,7 @@ require'nvim-treesitter.configs'.setup {
 }
 
 local group = vim.api.nvim_create_augroup("FoldControl", {clear = true})
-vim.api.nvim_create_autocmd({"BufRead", "BufWritePost"}, {
+vim.api.nvim_create_autocmd({"BufRead"}, {
     group = group,
     pattern = "*",
     callback = function()
