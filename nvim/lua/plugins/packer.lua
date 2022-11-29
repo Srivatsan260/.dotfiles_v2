@@ -36,6 +36,7 @@ return require('packer').startup(function()
 
     -- lazygit
     use {'kdheepak/lazygit.nvim'}
+    use 'tpope/vim-fugitive'
 
     -- diffview
     use 'sindrets/diffview.nvim'
