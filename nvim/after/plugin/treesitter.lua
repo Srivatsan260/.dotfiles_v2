@@ -102,7 +102,6 @@ vim.api.nvim_create_autocmd({"BufWritePost"}, {
     group = group,
     pattern = "*",
     callback = function()
-        print('redo folds!')
-        vim.api.nvim_exec('normal zx', false)
+        vim.api.nvim_exec('normal zx zR', false)
     end
 })
