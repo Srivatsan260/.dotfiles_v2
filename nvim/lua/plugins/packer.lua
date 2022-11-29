@@ -56,6 +56,7 @@ return require('packer').startup(function()
 
     -- floating terminal
     use 'voldikss/vim-floaterm'
+    use 'voldikss/fzf-floaterm'
 
     -- lsp
     use 'neovim/nvim-lspconfig'
