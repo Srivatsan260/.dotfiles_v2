@@ -14,7 +14,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
     vim.keymap.set('n', 'gw', vim.lsp.buf.document_symbol, bufopts)
     vim.keymap.set('n', 'gW', vim.lsp.buf.workspace_symbol, bufopts)
-    vim.keymap.set('n', '<leader>a', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, bufopts)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     if vim.bo.filetype == 'python' then
         vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts)
@@ -90,12 +90,13 @@ rt.setup {
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions,
                            {buffer = buffer})
-            vim.keymap.set('n', '<leader>a',
+            vim.keymap.set('n', '<leader>ac',
                            rt.code_action_group.code_action_group,
                            {buffer = buffer})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation,
+                           bufopts)
             vim.keymap.set('n', 'gr',
                            '<cmd>Telescope lsp_references theme=dropdown<CR>',
                            bufopts)
