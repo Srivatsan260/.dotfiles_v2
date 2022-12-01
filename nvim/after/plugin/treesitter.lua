@@ -90,11 +90,19 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-local group = vim.api.nvim_create_augroup("FoldControl", {clear = true})
+local fold_control = vim.api.nvim_create_augroup("FoldControl", {clear = true})
 vim.api.nvim_create_autocmd({"BufRead"}, {
-    group = group,
+    group = fold_control,
     pattern = "*",
     callback = function()
         vim.api.nvim_exec('normal zx zR', false)
+    end
+})
+local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+    group = highlight_yank,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({higroup = 'Visual', timeout=200})
     end
 })
