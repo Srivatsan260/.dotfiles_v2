@@ -46,6 +46,7 @@ nnoremap("<leader>tj", "<cmd>TSJToggle<CR>")
 
 -- FZF / telescope / lazygit
 nnoremap("<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>")
+nnoremap("<leader>fb", "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>")
 -- nnoremap("<C-p>", "<cmd>Files<CR>")
 nnoremap("<leader>cs", "<cmd>Telescope colorscheme<CR>")
 nnoremap("<leader>ct", "<cmd>! ctags -R<CR>")

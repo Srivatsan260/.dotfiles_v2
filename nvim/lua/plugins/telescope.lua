@@ -33,6 +33,11 @@ telescope.setup {
                 -- edit
                 ["<CR>"] = {action = z_utils.create_basic_command("edit")}
             }
+        },
+        file_browser = {
+            -- theme = "dropdown",
+            hijack_netrw = false,
+            hidden = true,
         }
     },
     pickers = {
@@ -59,5 +64,6 @@ telescope.load_extension('sessions_picker')
 telescope.load_extension('harpoon')
 telescope.load_extension('git_worktree')
 telescope.load_extension('zoxide')
+telescope.load_extension('file_browser')
 
 require('dir-telescope').setup {respect_gitignore = true}

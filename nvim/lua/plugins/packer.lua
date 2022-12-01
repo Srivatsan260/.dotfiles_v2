@@ -55,6 +55,7 @@ return require('packer').startup(function()
         requires = {'nvim-telescope/telescope.nvim'}
     }
     use {'jvgrootveld/telescope-zoxide', requires = {'nvim-lua/popup.nvim'}}
+    use 'nvim-telescope/telescope-file-browser.nvim'
 
     -- floating terminal
     use 'voldikss/vim-floaterm'
