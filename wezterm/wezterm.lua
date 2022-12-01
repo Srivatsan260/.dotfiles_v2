@@ -10,11 +10,11 @@ return {
         {
             source = {File = home .. '/Documents/anime/green-eyes.jpg'},
             repeat_x = 'NoRepeat',
-            hsb = {brightness = 0.02}
+            hsb = {brightness = 0.03}
         }
     },
-    window_background_opacity = 0.87,
-    text_background_opacity = 0.87,
+    window_background_opacity = 0.85,
+    text_background_opacity = 0.90,
     window_decorations = "RESIZE",
 
     color_scheme = 'Tomorrow Night Bright',
