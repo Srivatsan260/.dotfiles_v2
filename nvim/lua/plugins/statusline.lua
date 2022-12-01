@@ -15,10 +15,11 @@ local branch = git_branch()
 if branch ~= nil then
     statusline = statusline .. '   ' .. branch
 end
-statusline = statusline .. '  ' .. '%f' -- file name
-statusline = statusline .. '%='
+statusline = statusline .. '%=' .. '%f' .. '%=' -- file name
+statusline = statusline .. ' '
 statusline = statusline .. '  ' .. '%y' -- file name
 statusline = statusline .. '  ' .. '%{&fileencoding?&fileencoding:&encoding}' -- file type
 statusline = statusline .. '  ' .. '[%{&fileformat}]' -- file type
 
 vim.opt.statusline = statusline
+vim.api.nvim_set_hl(0, "StatusLine", {bg = 'none', fg = '#78a9ff'})
