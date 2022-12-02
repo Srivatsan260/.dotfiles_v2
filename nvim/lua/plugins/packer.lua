@@ -27,7 +27,6 @@ return require('packer').startup(function()
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-context', run = ':TSUpdate'}
-    use {'nvim-treesitter/nvim-treesitter-refactor', run = ':TSUpdate'}
     use {'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate'}
     use {'nvim-treesitter/playground', run = ':TSUpdate'}
     -- autogenerate docstrings

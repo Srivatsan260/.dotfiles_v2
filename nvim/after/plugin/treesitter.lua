@@ -6,22 +6,6 @@ require'nvim-treesitter.configs'.setup {
 
     highlight = {enable = true, additional_vim_regex_highlighting = false},
 
-    refactor = {
-        highlight_definitions = {enable = true, clear_on_cursor_move = true},
-        -- highlight_current_scope = { enable = true },
-        smart_rename = {enable = false, keymaps = {smart_rename = 'grr'}},
-        navigation = {
-            enable = true,
-            keymaps = {
-                -- goto_definition = 'gd',
-                list_definitions = 'gnd',
-                list_definitions_toc = 'gO',
-                goto_next_usage = '<a-*>',
-                goto_previous_usage = '<a-#>'
-            }
-        }
-    },
-
     playground = {
         enable = true,
         disable = {},
