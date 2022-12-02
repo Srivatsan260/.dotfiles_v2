@@ -56,6 +56,7 @@ return require('packer').startup(function()
     }
     use {'jvgrootveld/telescope-zoxide', requires = {'nvim-lua/popup.nvim'}}
     use 'nvim-telescope/telescope-file-browser.nvim'
+    use 'JoseConseco/telescope_sessions_picker.nvim'
 
     -- floating terminal
     use 'voldikss/vim-floaterm'
@@ -110,8 +111,6 @@ return require('packer').startup(function()
         'lewis6991/gitsigns.nvim',
         config = function() require('gitsigns').setup() end
     }
-
-    use 'JoseConseco/telescope_sessions_picker.nvim'
 
     -- undo superpowers
     use 'mbbill/undotree'
