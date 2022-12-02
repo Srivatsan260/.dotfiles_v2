@@ -53,6 +53,7 @@ nnoremap("<leader>ct", "<cmd>! ctags -R<CR>")
 nnoremap("<leader>fd", "<cmd>FileInDirectory<CR>")
 nnoremap("<leader>pd", "<cmd>GrepInDirectory<CR>")
 nnoremap("<leader>ff", "<cmd>Telescope live_grep<CR>")
+nnoremap("<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>")
 nnoremap("<leader>b", "<cmd>Telescope buffers<CR>")
 nnoremap("<leader>cd", "<cmd>Telescope zoxide list<CR>")
 
