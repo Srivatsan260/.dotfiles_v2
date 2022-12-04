@@ -212,4 +212,7 @@ return require('packer').startup(function()
 
     -- exrc
     use 'MunifTanjim/exrc.nvim'
+
+    -- cellular automaton
+    use 'Eandrju/cellular-automaton.nvim'
 end)
