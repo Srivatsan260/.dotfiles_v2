@@ -57,7 +57,7 @@ vim.opt.smartindent = true
 vim.opt.wrap = true
 vim.opt.updatetime = 250
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "100"
 vim.opt.cmdheight = 1
 vim.opt.splitright = false
 vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
