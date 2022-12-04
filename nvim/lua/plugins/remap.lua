@@ -3,11 +3,30 @@ local tnoremap = require("plugins.keymap").tnoremap
 local inoremap = require("plugins.keymap").inoremap
 local vnoremap = require("plugins.keymap").vnoremap
 
+local function show_documentation()
+    local crates = require("crates")
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({'vim', 'help'}, filetype) then
+        vim.cmd('h ' .. vim.fn.expand('<cword>'))
+    elseif vim.tbl_contains({'man'}, filetype) then
+        vim.cmd('Man ' .. vim.fn.expand('<cword>'))
+    elseif vim.fn.expand('%:t') == 'Cargo.toml' and
+        crates.popup_available() then
+        crates.show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
+end
+nnoremap("K", show_documentation)
+
 nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/lua/plugins/init.lua<CR>")
-nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
+nnoremap("<leader><leader>r",
+         "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
 nnoremap("<leader><leader>s", "<cmd> so ~/.config/nvim/lua/plugins/set.lua<CR>")
-nnoremap("<leader><leader>c", "<cmd> so ~/.config/nvim/after/plugin/color.lua<CR>")
-nnoremap("<leader><leader>t", "<cmd> so ~/.config/nvim/after/plugin/treesitter.lua<CR>")
+nnoremap("<leader><leader>c",
+         "<cmd> so ~/.config/nvim/after/plugin/color.lua<CR>")
+nnoremap("<leader><leader>t",
+         "<cmd> so ~/.config/nvim/after/plugin/treesitter.lua<CR>")
 nnoremap("<leader><leader>l", "<cmd> so ~/.config/nvim/lua/plugins/lsp.lua<CR>")
 
 -- copy file name to + register
@@ -46,7 +65,8 @@ nnoremap("<leader>tj", "<cmd>TSJToggle<CR>")
 
 -- FZF / telescope / lazygit
 nnoremap("<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>")
-nnoremap("<leader>fb", "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>")
+nnoremap("<leader>fb",
+         "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>")
 -- nnoremap("<C-p>", "<cmd>Files<CR>")
 nnoremap("<leader>cs", "<cmd>Telescope colorscheme<CR>")
 nnoremap("<leader>ct", "<cmd>! ctags -R<CR>")
