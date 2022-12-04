@@ -10,19 +10,14 @@ return require('packer').startup(function()
     use 'navarasu/onedark.nvim'
     use {
         'EdenEast/nightfox.nvim',
-        config = function()
-            require('nightfox').setup {options = {transparent = true}}
-        end
+        config = function() require('nightfox').setup {options = {transparent = true}} end
     }
 
     -- icons
     use 'kyazdani42/nvim-web-devicons'
 
     -- statusline
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true}
-    }
+    use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
 
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -46,15 +41,9 @@ return require('packer').startup(function()
     -- telescope
     use {
         'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-lua/plenary.nvim',
-            'JoseConseco/telescope_sessions_picker.nvim'
-        }
+        requires = {'nvim-lua/plenary.nvim', 'JoseConseco/telescope_sessions_picker.nvim'}
     }
-    use {
-        'princejoogie/dir-telescope.nvim',
-        requires = {'nvim-telescope/telescope.nvim'}
-    }
+    use {'princejoogie/dir-telescope.nvim', requires = {'nvim-telescope/telescope.nvim'}}
     use {'jvgrootveld/telescope-zoxide', requires = {'nvim-lua/popup.nvim'}}
     use 'nvim-telescope/telescope-file-browser.nvim'
     use 'JoseConseco/telescope_sessions_picker.nvim'
@@ -72,14 +61,8 @@ return require('packer').startup(function()
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'folke/neodev.nvim'
-    use {
-        'ray-x/lsp_signature.nvim',
-        config = function() require('lsp_signature').setup() end
-    }
-    use {
-        'j-hui/fidget.nvim',
-        config = function() require('fidget').setup {} end
-    }
+    use {'ray-x/lsp_signature.nvim', config = function() require('lsp_signature').setup() end}
+    use {'j-hui/fidget.nvim', config = function() require('fidget').setup {} end}
     -- rust
     use 'simrat39/rust-tools.nvim'
     use 'saecki/crates.nvim'
@@ -109,10 +92,7 @@ return require('packer').startup(function()
     }
 
     -- show git diffs in signcolumn
-    use {
-        'lewis6991/gitsigns.nvim',
-        config = function() require('gitsigns').setup() end
-    }
+    use {'lewis6991/gitsigns.nvim', config = function() require('gitsigns').setup() end}
 
     -- undo superpowers
     use 'mbbill/undotree'

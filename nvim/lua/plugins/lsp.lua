@@ -27,8 +27,7 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '<leader>ai', vim.lsp.buf.incoming_calls, bufopts)
     vim.keymap.set('n', '<leader>ao', vim.lsp.buf.outgoing_calls, bufopts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
-                   bufopts)
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
     vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
@@ -36,9 +35,8 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '<leader>sc',
                    '<cmd>lua print(vim.inspect(vim.lsp.buf_get_clients()[1].server_capabilities))<CR>',
                    bufopts)
-    vim.keymap.set('n', '<leader>wl', function()
-        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end, bufopts)
+    vim.keymap.set('n', '<leader>wl',
+                   function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -58,11 +56,7 @@ local servers = {'pyright', 'tsserver', 'html', 'cssls', 'emmet_ls'}
 
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 for _, server in pairs(servers) do
-    lspconfig[server].setup {
-        on_attach = on_attach,
-        flags = lsp_flags,
-        capabilities = capabilities
-    }
+    lspconfig[server].setup {on_attach = on_attach, flags = lsp_flags, capabilities = capabilities}
 end
 
 -- lua lsp setup
@@ -88,18 +82,13 @@ rt.setup {
             vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
-            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions,
-                           {buffer = buffer})
-            vim.keymap.set('n', '<leader>ac',
-                           rt.code_action_group.code_action_group,
+            vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, {buffer = buffer})
+            vim.keymap.set('n', '<leader>ac', rt.code_action_group.code_action_group,
                            {buffer = buffer})
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation,
-                           bufopts)
-            vim.keymap.set('n', 'gr',
-                           '<cmd>Telescope lsp_references theme=dropdown<CR>',
-                           bufopts)
+            vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)
+            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references theme=dropdown<CR>', bufopts)
             vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts)
             vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
             vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
