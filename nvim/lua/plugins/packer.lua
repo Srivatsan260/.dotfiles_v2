@@ -206,6 +206,9 @@ return require('packer').startup(function()
     -- colorutils
     use 'nvim-colortils/colortils.nvim'
 
+    -- xterm-colors
+    use 'guns/xterm-color-table.vim'
+
     -- regex explainer
     use 'bennypowers/nvim-regexplainer'
     use 'MunifTanjim/nui.nvim'
