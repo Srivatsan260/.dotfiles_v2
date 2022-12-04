@@ -82,6 +82,7 @@ return require('packer').startup(function()
     }
     -- rust
     use 'simrat39/rust-tools.nvim'
+    use 'saecki/crates.nvim'
 
     -- linting
     use 'mfussenegger/nvim-lint'
