@@ -95,6 +95,12 @@ tnoremap <localleader><Esc> <C-\><C-n>
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
 
+" select all
+nnoremap <leader>va <cmd>normal ggVG<CR>
+
+" yank all
+nnoremap <leader>ya <cmd>normal ggyG<C-o>zz<CR>
+
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
