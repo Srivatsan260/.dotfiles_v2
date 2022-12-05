@@ -52,6 +52,8 @@ return require('packer').startup(function()
 
     -- lazygit
     use {'kdheepak/lazygit.nvim'}
+
+    -- fugitive
     use 'tpope/vim-fugitive'
     use 'tommcdo/vim-fubitive'
 
