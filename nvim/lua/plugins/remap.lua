@@ -159,4 +159,7 @@ nnoremap("<leader>D", "\"_d")
 nnoremap("<leader>tb", "<cmd>TagbarToggle<CR>")
 
 -- select all
+nnoremap("<leader>va", "<cmd>normal ggVG<CR>")
+
+-- yank all
 nnoremap("<leader>ya", "<cmd>normal ggyG<C-o>zz<CR>")
