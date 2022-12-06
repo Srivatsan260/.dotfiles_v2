@@ -6,6 +6,7 @@ local langs = {
         dict = tsj_utils.set_preset_for_dict(),
         list = tsj_utils.set_preset_for_list(),
         args = tsj_utils.set_preset_for_args(),
+        argument_list = tsj_utils.set_preset_for_args(),
         parameters = tsj_utils.set_preset_for_args(),
     }
 }
