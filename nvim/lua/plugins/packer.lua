@@ -75,14 +75,19 @@ return require('packer').startup(function()
     use 'voldikss/fzf-floaterm'
 
     -- lsp
+    use 'VonHeikemen/lsp-zero.nvim'
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-path' -- nvim-cmp source for filesystem paths
     use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+    use 'hrsh7th/cmp-nvim-lua' -- LSP source for nvim-cmp
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
     use 'folke/neodev.nvim'
+
     use {'ray-x/lsp_signature.nvim', config = function() require('lsp_signature').setup() end}
     use {'j-hui/fidget.nvim', config = function() require('fidget').setup {} end}
     -- rust
