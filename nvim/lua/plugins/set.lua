@@ -21,6 +21,8 @@ vim.g.git_messenger_popup_content_margins = false
 vim.g.vimwiki_list = {{path = '~/.vimwiki/'}}
 vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
+vim.g.tagbar_sort = 0
+vim.g.tagbar_foldlevel = 2
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_netrwPlugin = 1
 
