@@ -85,6 +85,15 @@ nnoremap("<leader>gr", "<cmd>Telescope grep_string<CR>")
 nnoremap("<leader>gs", "<cmd>Telescope git_status<CR>")
 -- nnoremap("<leader>gl", "<cmd>Telescope git_bcommits<CR>")
 nnoremap("<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
+nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end)
+nnoremap("<leader>gws",
+         function() require("telescope").extensions.git_worktree.create_git_worktree() end)
+nnoremap("<leader>gwc", function()
+    local path = vim.fn.input("Enter path: ")
+    local branch = vim.fn.input("Enter branch name: ")
+    local upstream = "origin"
+    require("git-worktree").create_worktree(path, branch, upstream)
+end)
 nnoremap("<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>")
 nnoremap("<leader>dvH", ":DiffviewOpen HEAD~")
 nnoremap("<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
@@ -101,10 +110,10 @@ nnoremap("<leader>st", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vi
 nnoremap("<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
 -- dap
-nnoremap("<leader>du", "<cmd>lua require('dapui').toggle()<CR>")
+nnoremap("<leader>du", function() require('dapui').toggle() end)
 nnoremap("<leader>db", "<cmd>DapToggleBreakpoint<CR>")
 nnoremap("<leader>dB",
-         "<cmd>lua require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))<CR>")
+         function() require('dap').set_breakpoint(vim.fn.input('breakpoint condition:')) end)
 nnoremap("<leader>dc", "<cmd>DapContinue<CR>")
 nnoremap("<leader>di", "<cmd>DapStepInto<CR>")
 nnoremap("<leader>do", "<cmd>DapStepOut<CR>")
@@ -119,13 +128,13 @@ nnoremap("<C-s>", "<cmd>w<CR>")
 nnoremap("<leader>op", "<cmd>! open .<CR><CR>")
 
 -- harpoon
-nnoremap("<leader>H", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
-nnoremap("<leader>;", "<cmd>lua require('harpoon.mark').add_file()<CR>")
-nnoremap("<leader>1", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")
-nnoremap("<leader>2", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
-nnoremap("<leader>3", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
-nnoremap("<leader>4", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
-nnoremap("<leader>5", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
+nnoremap("<leader>H", function() require('harpoon.ui').toggle_quick_menu() end)
+nnoremap("<leader>;", function() require('harpoon.mark').add_file() end)
+nnoremap("<leader>1", function() require('harpoon.ui').nav_file(1) end)
+nnoremap("<leader>2", function() require('harpoon.ui').nav_file(2) end)
+nnoremap("<leader>3", function() require('harpoon.ui').nav_file(3) end)
+nnoremap("<leader>4", function() require('harpoon.ui').nav_file(4) end)
+nnoremap("<leader>5", function() require('harpoon.ui').nav_file(5) end)
 
 -- nvim-tree
 -- nnoremap("<leader>,", "<cmd>NvimTreeToggle<CR>")
@@ -150,7 +159,7 @@ vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
 -- ssr
-nnoremap("<leader>sr", "<cmd>lua require('ssr').open()<CR>")
+nnoremap("<leader>sr", function() require('ssr').open() end)
 
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")

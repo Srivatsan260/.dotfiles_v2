@@ -3,9 +3,7 @@ local telescope = require('telescope')
 local z_utils = require("telescope._extensions.zoxide.utils")
 
 telescope.setup {
-    defaults = {
-        prompt_prefix = ' ',
-    },
+    defaults = {prompt_prefix = ' '},
     extensions = {
         session_picker = {sessions_dir = vim.g['sessions_dir']},
         zoxide = {
@@ -14,14 +12,11 @@ telescope.setup {
             mappings = {
                 default = {
                     after_action = function(selection)
-                        print("Update to (" .. selection.z_score .. ") " ..
-                                  selection.path)
+                        print("Update to (" .. selection.z_score .. ") " .. selection.path)
                     end
                 },
                 ["<C-s>"] = {
-                    before_action = function(_)
-                        print("before C-s")
-                    end,
+                    before_action = function(_) print("before C-s") end,
                     action = function(selection)
                         vim.cmd("edit " .. selection.path)
                     end
@@ -37,8 +32,9 @@ telescope.setup {
         file_browser = {
             -- theme = "dropdown",
             hijack_netrw = false,
-            hidden = true,
-        }
+            hidden = true
+        },
+        git_worktree = {theme = "dropdown"}
     },
     pickers = {
         buffers = {
@@ -67,3 +63,13 @@ telescope.load_extension('zoxide')
 telescope.load_extension('file_browser')
 
 require('dir-telescope').setup {respect_gitignore = true}
+
+local worktree = require("git-worktree")
+
+worktree.on_tree_change(function(_, _)
+    if vim.env.SET_PYTHON_PATH ~= nil then
+        vim.env.PYTHONPATH = vim.fn.getcwd()
+        vim.env.AIRFLOW__CORE__DAGS_FOLDER = vim.fn.getcwd() .. '/dags'
+        print(vim.env.PYTHONPATH, vim.env.AIRFLOW__CORE__DAGS_FOLDER)
+    end
+end)
