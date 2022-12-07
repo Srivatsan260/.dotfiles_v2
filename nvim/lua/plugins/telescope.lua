@@ -63,14 +63,3 @@ telescope.load_extension('zoxide')
 telescope.load_extension('file_browser')
 
 require('dir-telescope').setup {respect_gitignore = true}
-
-local worktree = require("git-worktree")
-
-worktree.on_tree_change(function(_, _)
-    if vim.env.SET_PYTHON_PATH ~= nil then
-        vim.env.PYTHONPATH = vim.fn.getcwd()
-        -- TODO: check if this can be moved to exrc or similar
-        vim.env.AIRFLOW__CORE__DAGS_FOLDER = vim.fn.getcwd() .. '/dags'
-        print(vim.env.PYTHONPATH, vim.env.AIRFLOW__CORE__DAGS_FOLDER)
-    end
-end)
