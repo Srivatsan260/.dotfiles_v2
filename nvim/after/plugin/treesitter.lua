@@ -80,5 +80,5 @@ require('neogen').setup({
         python = {template = {annotation_convention = 'google_docstrings'}},
         rust = {template = {annotation_convention = 'rustdoc'}}
     },
-    snippet_engine = 'luasnip'
+    -- snippet_engine = 'luasnip'
 })
