@@ -172,7 +172,7 @@ ctrl + alt + l
 
 # Launch terminal
 super + Return
-	kitty
+	wezterm-gui
 
 # Move floating window
 super + alt + {_,shift + }{Left,Down,Up,Right}
