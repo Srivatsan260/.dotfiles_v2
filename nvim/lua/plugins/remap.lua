@@ -23,7 +23,7 @@ nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>
 nnoremap("<leader><leader>s", "<cmd> so ~/.config/nvim/lua/plugins/set.lua<CR>")
 nnoremap("<leader><leader>c", "<cmd> so ~/.config/nvim/after/plugin/color.lua<CR>")
 nnoremap("<leader><leader>t", "<cmd> so ~/.config/nvim/after/plugin/treesitter.lua<CR>")
-nnoremap("<leader><leader>l", "<cmd> so ~/.config/nvim/lua/plugins/lsp.lua<CR>")
+nnoremap("<leader><leader>l", "<cmd> so ~/.config/nvim/lua/plugins/lsp_zero.lua<CR>")
 
 -- copy file name to + register
 nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
