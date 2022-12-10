@@ -3,7 +3,7 @@ local tnoremap = require("plugins.keymap").tnoremap
 local inoremap = require("plugins.keymap").inoremap
 local vnoremap = require("plugins.keymap").vnoremap
 
-local function show_documentation()
+nnoremap("K", function()
     local crates = require("crates")
     local filetype = vim.bo.filetype
     if vim.tbl_contains({'vim', 'help'}, filetype) then
@@ -15,8 +15,7 @@ local function show_documentation()
     else
         vim.lsp.buf.hover()
     end
-end
-nnoremap("K", show_documentation)
+end)
 
 nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/lua/plugins/init.lua<CR>")
 nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
