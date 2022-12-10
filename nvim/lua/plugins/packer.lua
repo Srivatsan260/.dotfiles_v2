@@ -51,7 +51,7 @@ return require('packer').startup(function()
     use 'Wansmer/treesj'
 
     -- lazygit
-    use {'kdheepak/lazygit.nvim'}
+    use 'kdheepak/lazygit.nvim'
 
     -- fugitive
     use 'tpope/vim-fugitive'
@@ -126,7 +126,7 @@ return require('packer').startup(function()
     use 'mbbill/undotree'
 
     -- comments
-    use {'numToStr/Comment.nvim'}
+    use 'numToStr/Comment.nvim'
 
     -- sql
     use 'kristijanhusak/vim-dadbod-ui'
@@ -180,10 +180,6 @@ return require('packer').startup(function()
     -- async run
     use 'skywind3000/asyncrun.vim'
 
-    -- sad
-    use 'ray-x/sad.nvim'
-    use 'ray-x/guihua.lua'
-
     -- git-worktree
     use 'ThePrimeagen/git-worktree.nvim'
 
@@ -197,7 +193,7 @@ return require('packer').startup(function()
     use "nvim-zh/colorful-winsep.nvim"
 
     -- dressing
-    use {'stevearc/dressing.nvim'}
+    use 'stevearc/dressing.nvim'
 
     -- autopairs
     use 'windwp/nvim-autopairs'
