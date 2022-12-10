@@ -103,10 +103,10 @@ nnoremap("<leader>gwc", function()
     if parent_branch == "" or parent_branch == nil then
         parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
     end
-    print("parent branch: " .. parent_branch)
     vim.cmd("!git branch " .. branch .. " " .. parent_branch)
     vim.cmd("!git worktree add ../" .. path .. " " .. branch)
 end)
+-- TODO check how to add telescope mapping and get rid of this
 nnoremap("<leader>gwu", function()
     local path = vim.fn.input({prompt = "Enter path: ", default = ""})
     if path == "" then return end
