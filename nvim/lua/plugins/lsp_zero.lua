@@ -57,9 +57,9 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, bufopts)
-    vim.keymap.set('n', '<leader>sc',
-                   '<cmd>lua print(vim.inspect(vim.lsp.buf_get_clients()[1].server_capabilities))<CR>',
-                   bufopts)
+    vim.keymap.set('n', '<leader>sc', function()
+        print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities))
+    end, bufopts)
     vim.keymap.set('n', '<leader>wl',
                    function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
 end)
