@@ -84,6 +84,12 @@ nnoremap("<leader>gr", "<cmd>Telescope grep_string<CR>")
 nnoremap("<leader>gs", "<cmd>Telescope git_status<CR>")
 -- nnoremap("<leader>gl", "<cmd>Telescope git_bcommits<CR>")
 nnoremap("<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
+nnoremap("<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>")
+nnoremap("<leader>dvH", ":DiffviewOpen HEAD~")
+nnoremap("<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
+nnoremap("<leader>dvo", "<cmd>DiffviewOpen<CR>")
+nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
+
 nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end)
 nnoremap("<leader>gws",
          function() require("telescope").extensions.git_worktree.create_git_worktree() end)
@@ -93,11 +99,12 @@ nnoremap("<leader>gwc", function()
     local upstream = "origin"
     require("git-worktree").create_worktree(path, branch, upstream)
 end)
-nnoremap("<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>")
-nnoremap("<leader>dvH", ":DiffviewOpen HEAD~")
-nnoremap("<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
-nnoremap("<leader>dvo", "<cmd>DiffviewOpen<CR>")
-nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
+nnoremap("<leader>gwu", function()
+    local path = vim.fn.input("Enter path: ")
+    local root = vim.fn.getcwd()
+    local cmd = "! cd " .. root .. "/" .. path .. " && git pull --ff-only"
+    vim.cmd(cmd)
+end)
 
 -- undotree
 nnoremap("<leader>u", "<cmd>UndotreeToggle<CR>")
