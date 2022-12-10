@@ -90,16 +90,22 @@ nnoremap("<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
 nnoremap("<leader>dvo", "<cmd>DiffviewOpen<CR>")
 nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
 
-nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end)
+nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end,
+         {silent = true})
 nnoremap("<leader>gws",
          function() require("telescope").extensions.git_worktree.create_git_worktree() end)
 nnoremap("<leader>gwc", function()
     local path = vim.fn.input({prompt = "Enter path: ", default = ""})
     if path == "" then return end
-    local branch = vim.fn.input({prompt = "Enter branch: ", default = ""})
+    local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
     if branch == "" then return end
-    local upstream = "origin"
-    require("git-worktree").create_worktree(path, branch, upstream)
+    local parent_branch = vim.fn.input({prompt = "Enter parent branch: ", default = ""})
+    if parent_branch == "" or parent_branch == nil then
+        parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
+    end
+    print("parent branch: " .. parent_branch)
+    vim.cmd("!git branch " .. branch .. " " .. parent_branch)
+    vim.cmd("!git worktree add ../" .. path .. " " .. branch)
 end)
 nnoremap("<leader>gwu", function()
     local path = vim.fn.input({prompt = "Enter path: ", default = ""})
