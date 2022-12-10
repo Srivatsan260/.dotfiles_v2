@@ -92,9 +92,20 @@ nnoremap("<leader>ft", "<cmd>Telescope filetypes<CR>")
 
 nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end,
          {silent = true})
-nnoremap("<leader>gws",
-         function() require("telescope").extensions.git_worktree.create_git_worktree() end)
+nnoremap("<leader>gws", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
+    end
+    require("telescope").extensions.git_worktree.create_git_worktree()
+end)
 nnoremap("<leader>gwc", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
+    end
     local path = vim.fn.input({prompt = "Enter path: ", default = ""})
     if path == "" then return end
     local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
@@ -108,6 +119,16 @@ nnoremap("<leader>gwc", function()
 end)
 -- TODO check how to add telescope mapping and get rid of this
 nnoremap("<leader>gwu", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
+    end
+    local is_git_dir = vim.fn.glob('.git')
+    if is_git_dir == "" then
+        print("use this remap only inside gitdirs!")
+        return
+    end
     local path = vim.fn.input({prompt = "Enter path: ", default = ""})
     if path == "" then return end
     local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
