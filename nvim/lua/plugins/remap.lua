@@ -187,3 +187,8 @@ nnoremap("<leader>va", "<cmd>normal ggVG<CR>")
 
 -- yank all
 nnoremap("<leader>ya", "<cmd>normal ggyG<C-o>zz<CR>")
+
+-- navigate quickfix
+nnoremap("<localleader>q", "<cmd>copen<CR>")
+nnoremap("<localleader>.", "<cmd>cnext<CR>")
+nnoremap("<localleader>,", "<cmd>cprev<CR>")
