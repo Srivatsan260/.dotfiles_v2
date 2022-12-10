@@ -217,8 +217,6 @@ return require('packer').startup(function()
     -- xterm-colors
     use 'guns/xterm-color-table.vim'
 
-    -- regex explainer
-    use 'bennypowers/nvim-regexplainer'
     use 'MunifTanjim/nui.nvim'
 
     -- exrc
