@@ -7,7 +7,7 @@ require('dressing').setup({
         default_prompt = "Input:",
 
         -- Can be 'left', 'right', or 'center'
-        prompt_align = "left",
+        prompt_align = "center",
 
         -- When true, <Esc> will close the modal
         insert_only = true,
