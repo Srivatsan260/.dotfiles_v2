@@ -94,16 +94,19 @@ nnoremap("<leader>gwl", function() require("telescope").extensions.git_worktree.
 nnoremap("<leader>gws",
          function() require("telescope").extensions.git_worktree.create_git_worktree() end)
 nnoremap("<leader>gwc", function()
-    local path = vim.fn.input("Enter path: ")
-    local branch = vim.fn.input("Enter branch name: ")
+    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    if path == "" then return end
+    local branch = vim.fn.input({prompt = "Enter branch: ", default = ""})
+    if branch == "" then return end
     local upstream = "origin"
     require("git-worktree").create_worktree(path, branch, upstream)
 end)
 nnoremap("<leader>gwu", function()
-    local path = vim.fn.input("Enter path: ")
-    local root = vim.fn.getcwd()
-    local cmd = "! cd " .. root .. "/" .. path .. " && git pull --ff-only"
+    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    if path == "" then return end
+    local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
     vim.cmd(cmd)
+    vim.cmd [[ copen ]]
 end)
 
 -- undotree
