@@ -13,7 +13,7 @@ local cmp = require 'cmp'
 cmp.setup {
     snippet = {expand = function(args) luasnip.lsp_expand(args.body) end},
     mapping = cmp.mapping.preset.insert({
-        ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-/>'] = cmp.mapping(cmp.mapping.complete({
             reason = cmp.ContextReason.Auto
