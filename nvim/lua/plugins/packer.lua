@@ -186,9 +186,6 @@ return require('packer').startup({
         -- lua-formatter
         use 'andrejlevkovitch/vim-lua-format'
 
-        -- structural find & replace
-        use {"cshuaimin/ssr.nvim", module = "ssr"}
-
         -- winsep
         use "nvim-zh/colorful-winsep.nvim"
 
