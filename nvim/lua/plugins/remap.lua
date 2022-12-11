@@ -133,7 +133,7 @@ nnoremap("<leader>gwu", function()
     if path == "" then return end
     local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
     vim.cmd(cmd)
-    vim.cmd [[ copen ]]
+    vim.cmd.copen()
 end)
 
 -- undotree

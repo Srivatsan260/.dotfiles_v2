@@ -6,7 +6,7 @@ local ensure_packer = function()
             'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
             install_path
         })
-        vim.cmd [[packadd packer.nvim]]
+        vim.cmd.packadd("packer.nvim")
         return true
     end
     return false
