@@ -50,6 +50,11 @@ nnoremap("<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
 nnoremap("<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
 tnoremap("<localleader><Esc>", "<C-\\><C-n>")
 tnoremap("<C-\\>", "<cmd>FloatermToggle<CR>")
+-- Floaterm window switching
+tnoremap("<C-h>", "<C-\\><C-n><C-w>h")
+tnoremap("<C-j>", "<C-\\><C-n><C-w>j")
+tnoremap("<C-k>", "<C-\\><C-n><C-w>k")
+tnoremap("<C-l>", "<C-\\><C-n><C-w>l")
 
 -- treesitter highlighting
 nnoremap("<leader>th", "<cmd>TSBufToggle highlight<CR>")
