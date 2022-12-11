@@ -194,9 +194,6 @@ nnoremap("N", "Nzzzv")
 vnoremap("J", ":m '>+1<CR>gv=gv")
 vnoremap("K", ":m '<-2<CR>gv=gv")
 
--- ssr
-nnoremap("<leader>sr", function() require('ssr').open() end)
-
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
 
