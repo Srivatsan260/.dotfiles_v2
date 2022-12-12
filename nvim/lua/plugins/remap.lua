@@ -181,6 +181,7 @@ nnoremap("<leader>hg", function()
     local harp_idx = tonumber(vim.fn.input({prompt = "Goto harpoon: ", default = ""}))
     if harp_idx == nil then return end
     require("harpoon.ui").nav_file(harp_idx)
+    vim.cmd [[ normal zz ]]
 end)
 
 -- nvim-tree
