@@ -171,7 +171,17 @@ nnoremap("<leader>op", "<cmd>! open .<CR><CR>")
 -- harpoon
 nnoremap("<leader>H", function() require('harpoon.ui').toggle_quick_menu() end)
 nnoremap("<leader>;", function() require('harpoon.mark').add_file() end)
-for i = 1, 5 do nnoremap("<leader>" .. i, function() require('harpoon.ui').nav_file(i) end) end
+for i = 1, 5 do
+    nnoremap("<leader>" .. i, function()
+        require('harpoon.ui').nav_file(i)
+        vim.cmd [[ normal zz ]]
+    end)
+end
+nnoremap("<leader>hg", function()
+    local harp_idx = tonumber(vim.fn.input({prompt = "Goto harpoon: ", default = ""}))
+    if harp_idx == nil then return end
+    require("harpoon.ui").nav_file(harp_idx)
+end)
 
 -- nvim-tree
 -- nnoremap("<leader>,", "<cmd>NvimTreeToggle<CR>")
