@@ -2,6 +2,7 @@ local nnoremap = require("plugins.keymap").nnoremap
 local tnoremap = require("plugins.keymap").tnoremap
 local inoremap = require("plugins.keymap").inoremap
 local vnoremap = require("plugins.keymap").vnoremap
+local cnoremap = require("plugins.keymap").cnoremap
 
 nnoremap("K", function()
     local crates = require("crates")
@@ -195,12 +196,16 @@ nnoremap("<localleader>rl", "<Plug>RestNvimLast<CR>")
 -- delete all buffers except current
 nnoremap("<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>")
 
--- fix C-d, C-u, G
+-- add zz to nav remaps
 nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 nnoremap("G", "Gzz")
 nnoremap("n", "nzzzv")
 nnoremap("N", "Nzzzv")
+nnoremap("<C-o>", "<C-o>zz")
+nnoremap("<C-i>", "<C-i>zz")
+cnoremap("<CR>", function() return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>' end,
+         {expr = true})
 
 -- move lines around in visual mode
 vnoremap("J", ":m '>+1<CR>gv=gv")
