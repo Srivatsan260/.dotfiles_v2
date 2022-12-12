@@ -212,10 +212,10 @@ nnoremap("<leader>D", "\"_d")
 nnoremap("<leader>tb", "<cmd>TagbarToggle<CR>")
 
 -- select all
-nnoremap("<leader>va", "<cmd>normal ggVG<CR>")
+nnoremap("<leader>va", "ggVG")
 
 -- yank all
-nnoremap("<leader>ya", "<cmd>normal ggyG<C-o>zz<CR>")
+nnoremap("<leader>ya", "ggyG<C-o>zz")
 
 -- navigate quickfix
 nnoremap("<localleader>q", "<cmd>copen<CR>")
