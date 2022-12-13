@@ -30,10 +30,10 @@ nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
 nnoremap("<leader>cF", "<cmd>let @+=expand('%:t')<CR>") -- filename
 
 -- window switching
--- nnoremap("<C-h>", "<C-w>h")
--- nnoremap("<C-j>", "<C-w>j")
--- nnoremap("<C-k>", "<C-w>k")
--- nnoremap("<C-l>", "<C-w>l")
+nnoremap("<C-h>", "<C-w>h")
+nnoremap("<C-j>", "<C-w>j")
+nnoremap("<C-k>", "<C-w>k")
+nnoremap("<C-l>", "<C-w>l")
 
 -- tab switching
 nnoremap("<leader>tn", "<cmd>tabnew<CR>")
