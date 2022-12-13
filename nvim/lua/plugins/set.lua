@@ -85,3 +85,5 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
