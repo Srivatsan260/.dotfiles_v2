@@ -18,12 +18,13 @@ nnoremap("K", function()
     end
 end)
 
-nnoremap("<leader><leader>i", "<cmd> so ~/.config/nvim/lua/plugins/init.lua<CR>")
-nnoremap("<leader><leader>r", "<cmd> so ~/.config/nvim/lua/plugins/remap.lua<CR>")
-nnoremap("<leader><leader>s", "<cmd> so ~/.config/nvim/lua/plugins/set.lua<CR>")
-nnoremap("<leader><leader>c", "<cmd> so ~/.config/nvim/after/plugin/color.lua<CR>")
-nnoremap("<leader><leader>t", "<cmd> so ~/.config/nvim/after/plugin/treesitter.lua<CR>")
-nnoremap("<leader><leader>l", "<cmd> so ~/.config/nvim/lua/plugins/lsp_zero.lua<CR>")
+local config_path = vim.fn.stdpath("config")
+nnoremap("<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>")
+nnoremap("<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plugins/remap.lua<CR>")
+nnoremap("<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>")
+nnoremap("<leader><leader>c", "<cmd> so " .. config_path .. "/after/plugin/color.lua<CR>")
+nnoremap("<leader><leader>t", "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>")
+nnoremap("<leader><leader>l", "<cmd> so " .. config_path .. "/lua/plugins/lsp_zero.lua<CR>")
 
 -- copy file name to + register
 nnoremap("<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
