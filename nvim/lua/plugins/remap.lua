@@ -52,10 +52,18 @@ nnoremap("<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.
 tnoremap("<localleader><Esc>", "<C-\\><C-n>")
 tnoremap("<C-\\>", "<cmd>FloatermToggle<CR>")
 -- Floaterm window switching
-tnoremap("<C-h>", "<C-\\><C-n><C-w>h")
-tnoremap("<C-j>", "<C-\\><C-n><C-w>j")
-tnoremap("<C-k>", "<C-\\><C-n><C-w>k")
-tnoremap("<C-l>", "<C-\\><C-n><C-w>l")
+tnoremap("<C-h>",
+         function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>" end,
+         {expr = true})
+tnoremap("<C-j>",
+         function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-j>" end,
+         {expr = true})
+tnoremap("<C-k>",
+         function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-k>" end,
+         {expr = true})
+tnoremap("<C-l>",
+         function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-l>" end,
+         {expr = true})
 
 -- treesitter highlighting
 nnoremap("<leader>th", "<cmd>TSBufToggle highlight<CR>")
