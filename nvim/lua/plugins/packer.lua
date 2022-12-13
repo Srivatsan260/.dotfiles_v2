@@ -148,6 +148,8 @@ return require('packer').startup({
         -- notetaking
         use 'vimwiki/vimwiki'
 
+        -- sniprun
+        use {'michaelb/sniprun', run = 'bash ./install.sh'}
 
         -- nvim-surround
         use {
