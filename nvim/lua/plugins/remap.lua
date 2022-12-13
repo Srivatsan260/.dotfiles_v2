@@ -226,3 +226,6 @@ nnoremap("<leader>ya", "ggyG<C-o>zz")
 nnoremap("<localleader>q", "<cmd>copen<CR>")
 nnoremap("<localleader>.", "<cmd>cnext<CR>")
 nnoremap("<localleader>,", "<cmd>cprev<CR>")
+
+-- coderunner
+nnoremap("<leader>x", "<cmd>RunFile<CR>")

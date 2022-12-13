@@ -217,6 +217,9 @@ return require('packer').startup({
 
         -- cellular automaton
         use 'Eandrju/cellular-automaton.nvim'
+
+        -- coderunner
+        use 'CRAG666/code_runner.nvim'
     end,
     config = {
         display = {
