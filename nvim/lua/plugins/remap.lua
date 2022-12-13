@@ -202,8 +202,10 @@ cnoremap("<CR>", function() return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or 
          {expr = true})
 
 -- move lines around in visual mode
-vnoremap("J", ":m '>+1<CR>gv=gv")
-vnoremap("K", ":m '<-2<CR>gv=gv")
+vnoremap("<A-j>", ":m '>+1<CR>gv=gv")
+vnoremap("<A-k>", ":m '<-2<CR>gv=gv")
+vnoremap("<", "<gv")
+vnoremap(">", ">gv")
 
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
