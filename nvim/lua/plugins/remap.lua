@@ -210,6 +210,9 @@ vnoremap(">", ">gv")
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
 
+-- paste without affecting registers
+vnoremap("p", "\"_dP")
+
 -- tagbar
 nnoremap("<leader>tb", "<cmd>TagbarToggle<CR>")
 
