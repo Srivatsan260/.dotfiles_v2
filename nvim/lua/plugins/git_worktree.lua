@@ -3,21 +3,22 @@ require("git-worktree").setup({
     update_on_change = true, -- default: true,
     update_on_change_command = "e .", -- default: "e .",
     clearjumps_on_change = true, -- default: true,
-    autopush = false, -- default: false,
+    autopush = false -- default: false,
 })
 
 local worktree = require("git-worktree")
 worktree.on_tree_change(function()
+    local branch_name = vim.fn.system("!git rev-parse --abbrev-ref HEAD")
     vim.cmd.clearjumps()
-    -- TODO fix the below code block
-    -- local bufs = vim.api.nvim_list_bufs()
-    -- local bufnr = vim.api.nvim_get_current_buf()
-    -- print("current_buf" .. bufnr)
-    -- for _, buf in ipairs(bufs) do
-    --     if vim.api.nvim_buf_is_loaded(buf) and buf ~= bufnr then
-    --         print("deleting " .. buf)
-    --         vim.api.nvim_buf_delete(buf, {})
-    --     end
-    -- end
-    -- vim.cmd [[ e ]]
+    local bufs = vim.api.nvim_list_bufs()
+    local bufnr = vim.api.nvim_get_current_buf()
+    for _, buf in ipairs(bufs) do
+        if vim.api.nvim_buf_is_loaded(buf) and buf ~= bufnr then
+            local buf_name = vim.api.nvim_buf_get_name(buf)
+            if not string.find(buf_name, branch_name) then
+                vim.api.nvim_buf_delete(buf, {})
+            end
+        end
+    end
+    vim.cmd [[ e ]]
 end)
