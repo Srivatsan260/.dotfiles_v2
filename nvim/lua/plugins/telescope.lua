@@ -63,17 +63,3 @@ telescope.load_extension('zoxide')
 telescope.load_extension('file_browser')
 
 require('dir-telescope').setup {respect_gitignore = true}
-
--- local worktree = require("git-worktree")
--- worktree.on_tree_change(function()
---     local bufs = vim.api.nvim_list_bufs()
---     local bufnr = vim.api.nvim_get_current_buf()
---     print("current_buf" .. bufnr)
---     for _, buf in ipairs(bufs) do
---         if vim.api.nvim_buf_is_loaded(buf) and buf ~= bufnr then
---             print("deleting " .. buf)
---             vim.api.nvim_buf_delete(buf, {})
---         end
---     end
---     vim.cmd [[ e ]]
--- end)
