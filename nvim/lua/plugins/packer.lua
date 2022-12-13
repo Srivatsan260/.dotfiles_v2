@@ -148,9 +148,6 @@ return require('packer').startup({
         -- notetaking
         use 'vimwiki/vimwiki'
 
-        -- interactive code evaluation
-        use 'Olical/conjure'
-        use 'PaterJason/cmp-conjure'
 
         -- nvim-surround
         use {
