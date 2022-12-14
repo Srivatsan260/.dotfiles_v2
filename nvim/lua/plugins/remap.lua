@@ -85,9 +85,12 @@ nnoremap("<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>")
 nnoremap("<leader>b", "<cmd>Telescope buffers<CR>")
 nnoremap("<leader>cd", "<cmd>Telescope zoxide list<CR>")
 
--- TODO: make these not work in terminal buffers
-nnoremap("<Tab>", "<cmd>bn<CR>")
-nnoremap("<S-Tab>", "<cmd>bp<CR>")
+nnoremap("<Tab>", function ()
+    return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
+end, {expr = true})
+nnoremap("<S-Tab>", function ()
+    return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
+end, {expr = true})
 
 nnoremap("<leader>fh", "<cmd>Telescope help_tags<CR>")
 nnoremap("<leader>tg", "<cmd>Telescope tags<CR>")
