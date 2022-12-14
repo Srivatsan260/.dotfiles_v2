@@ -222,10 +222,11 @@ vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
 -- resize splits
-nnoremap("<A-H>", "<cmd>vertical resize -2<CR>")
-nnoremap("<A-L>", "<cmd>vertical resize +2<CR>")
-nnoremap("<A-K>", "<cmd>resize -2<CR>")
-nnoremap("<A-J>", "<cmd>resize +2<CR>")
+-- TODO fix this for all splits
+nnoremap("<A-h>", "<cmd>vertical resize -2<CR>")
+nnoremap("<A-l>", "<cmd>vertical resize +2<CR>")
+nnoremap("<A-k>", "<cmd>resize -2<CR>")
+nnoremap("<A-j>", "<cmd>resize +2<CR>")
 
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
