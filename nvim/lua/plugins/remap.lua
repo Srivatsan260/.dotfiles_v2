@@ -131,6 +131,7 @@ nnoremap("<leader>gwc", function()
     end
     vim.cmd("!git branch " .. branch .. " " .. parent_branch)
     vim.cmd("!git worktree add ../" .. path .. " " .. branch)
+    require("git-worktree").switch_worktree(path)
 end)
 -- TODO check how to add telescope mapping and get rid of this
 nnoremap("<leader>gwu", function()
