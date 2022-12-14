@@ -221,6 +221,12 @@ vnoremap("<A-k>", ":m '<-2<CR>gv=gv")
 vnoremap("<", "<gv")
 vnoremap(">", ">gv")
 
+-- resize splits
+nnoremap("<A-H>", "<cmd>vertical resize -2<CR>")
+nnoremap("<A-L>", "<cmd>vertical resize +2<CR>")
+nnoremap("<A-K>", "<cmd>resize -2<CR>")
+nnoremap("<A-J>", "<cmd>resize +2<CR>")
+
 -- delete without affecting registers
 nnoremap("<leader>D", "\"_d")
 
