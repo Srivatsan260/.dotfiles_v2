@@ -85,6 +85,10 @@ nnoremap [d :LspPreviousDiagnostic<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap G Gzz
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap <C-o> <C-o>zz
+nnoremap <C-i> <C-i>zz
 
 nnoremap <C-s> :w<CR>
 " nnoremap <C-a> ggVG
@@ -94,6 +98,8 @@ tnoremap <localleader><Esc> <C-\><C-n>
 " move lines around in visual mode
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
+vnoremap > >gv
+vnoremap < <gv
 
 " select all
 nnoremap <leader>va <cmd>normal ggVG<CR>
@@ -104,6 +110,28 @@ nnoremap <leader>ya <cmd>normal ggyG<C-o>zz<CR>
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+" window switching
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Floaterm
+nnoremap <C-\> <cmd>FloatermToggle<CR>
+tnoremap <C-\> <cmd>FloatermToggle<CR>
+
+" delete without affecting registers
+nnoremap <leader>D "_d
+
+" paste without affecting registers
+vnoremap p "_dP
+
+" navigate quickfix
+nnoremap <localleader>q <cmd>copen<CR>
+nnoremap <localleader>. <cmd>cnext<CR>
+nnoremap <localleader>, <cmd>cprev<CR>
+
 
 " }}}
 
