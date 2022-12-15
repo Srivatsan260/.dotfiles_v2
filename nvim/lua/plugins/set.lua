@@ -1,3 +1,57 @@
+local opts = {
+    nu = true,
+    rnu = true,
+    showmatch = true,
+    belloff = "all",
+    tabstop = 4,
+    softtabstop = 4,
+    shiftwidth = 4,
+    expandtab = true,
+    ignorecase = true,
+    smartcase = true,
+    hlsearch = false,
+    incsearch = true,
+    scrolloff = 8,
+    signcolumn = "yes",
+    swapfile = false,
+    backup = false,
+    termguicolors = true,
+    clipboard = "unnamedplus",
+    undofile = true,
+    inccommand = "split",
+    shada = {"!", "'1000", "<50", "s10", "h"},
+    smartindent = true,
+    wrap = true,
+    updatetime = 250,
+    colorcolumn = "100",
+    cmdheight = 1,
+    splitright = false,
+    grepprg = "rg --vimgrep --no-heading --smart-case",
+    grepformat = "%f:%l:%c:%m",
+    winbar = "%f %m",
+    mouse = "nvi",
+    laststatus = 3,
+    list = true,
+    listchars = {eol = '﬋', tab = '» ', nbsp = '␣', trail = '•'},
+    showbreak = '↪',
+    foldmethod = 'expr',
+    foldexpr = 'nvim_treesitter#foldexpr()',
+    completeopt = {"menuone", "noselect"}
+}
+for key, value in pairs(opts) do vim.opt[key] = value end
+
+vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
+- "t" -- Don't auto format my code. I got linters for that.
++ "c" -- When comments respect textwidth
++ "q" -- Allow formatting comments w/ gq
+- "o" -- O and o, don't continue comments
++ "r" -- But do continue when pressing enter.
++ "n" -- Indent past the formatlistpat, not underneath it.
++ "j" -- Auto-remove comments if possible.
+- "2" -- Don't use indent of 2nd line of paragraph for the rest of it
+
+vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.netrw_altv = 1
@@ -31,60 +85,3 @@ if vim.g.neovide then
     vim.g.neovide_cursor_animation_length = 0.04
     vim.g.neovide_transparency = 0.9
 end
-
-vim.opt.nu = true
-vim.opt.rnu = true
-
-vim.opt.showmatch = true
-vim.opt.belloff = "all"
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.termguicolors = true
-vim.opt.clipboard = "unnamedplus"
-vim.opt.undofile = true
-vim.opt.inccommand = "split"
-vim.opt.shada = {"!", "'1000", "<50", "s10", "h"}
-
-vim.opt.smartindent = true
-vim.opt.wrap = true
-vim.opt.updatetime = 250
-
-vim.opt.colorcolumn = "100"
-vim.opt.cmdheight = 1
-vim.opt.splitright = false
-vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
-vim.opt.grepformat = "%f:%l:%c:%m"
-
-vim.opt.winbar = "%f %m"
-vim.opt.mouse = "nvi"
-vim.opt.laststatus = 3
-
-vim.opt.list = true
-vim.opt.listchars = {eol = '﬋', tab = '» ', nbsp = '␣', trail = '•'}
-vim.opt.showbreak = '↪'
-
-vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
-- "t" -- Don't auto format my code. I got linters for that.
-+ "c" -- When comments respect textwidth
-+ "q" -- Allow formatting comments w/ gq
-- "o" -- O and o, don't continue comments
-+ "r" -- But do continue when pressing enter.
-+ "n" -- Indent past the formatlistpat, not underneath it.
-+ "j" -- Auto-remove comments if possible.
-- "2" -- Don't use indent of 2nd line of paragraph for the rest of it
-
-vim.opt.foldmethod = 'expr'
-vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
-vim.opt.completeopt = { "menuone", "noselect" }
