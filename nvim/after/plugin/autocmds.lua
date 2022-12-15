@@ -29,3 +29,9 @@ vim.api.nvim_create_autocmd({"TextYankPost"}, {
         vim.highlight.on_yank({higroup = 'Visual', timeout=50})
     end
 })
+vim.api.nvim_create_autocmd({"VimResized"}, {
+    pattern = "*",
+    callback = function()
+        vim.cmd.wincmd("=")
+    end
+})
