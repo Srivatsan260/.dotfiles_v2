@@ -36,7 +36,7 @@ local opts = {
     undofile = true,
     updatetime = 250,
     winbar = "%f %m",
-    wrap = true,
+    wrap = true
 }
 for key, value in pairs(opts) do vim.opt[key] = value end
 
@@ -52,36 +52,42 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 
 vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
 
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-vim.g.netrw_altv = 1
-vim.g.netrw_banner = 0
-vim.g.netrw_browse_split = 0
-vim.g.netrw_winsize = 75
-vim.g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-vim.g.global_colorscheme = 'tokyonight'
-vim.g.sessions_dir = '~/.local/share/nvim/session'
-vim.g.lazygit_floating_window_winblend = 0
-vim.g.lazygit_floating_window_use_plenary = 0
-vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = '~/.config/lazygit/config.yml'
-vim.g.undotree_SetFocusWhenToggle = 1
-vim.g.floaterm_wintype = 'vsplit'
-vim.g.floaterm_width = 0.5
-vim.g.floaterm_autoclose = 0
-vim.g.git_messenger_always_into_popup = true
-vim.g.git_messenger_floating_win_opts = {border = 'single', width = 70}
-vim.g.git_messenger_popup_content_margins = false
-vim.g.vimwiki_list = {{path = '~/.vimwiki/'}}
+local gopts = {
+    mapleader = " ",
+    maplocalleader = "\\",
+    netrw_altv = 1,
+    netrw_banner = 0,
+    netrw_browse_split = 0,
+    netrw_winsize = 75,
+    netrw_bufsettings = 'noma nomod nu nobl nowrap ro',
+    global_colorscheme = 'tokyonight',
+    sessions_dir = '~/.local/share/nvim/session',
+    lazygit_floating_window_winblend = 0,
+    lazygit_floating_window_use_plenary = 0,
+    lazygit_use_custom_config_file_path = 1,
+    lazygit_config_file_path = '~/.config/lazygit/config.yml',
+    undotree_SetFocusWhenToggle = 1,
+    floaterm_wintype = 'vsplit',
+    floaterm_width = 0.5,
+    floaterm_autoclose = 0,
+    git_messenger_always_into_popup = true,
+    git_messenger_floating_win_opts = {border = 'single', width = 70},
+    git_messenger_popup_content_margins = false,
+    vimwiki_list = {{path = '~/.vimwiki/'}},
+    tagbar_sort = 0,
+    tagbar_foldlevel = 2
+    -- loaded_netrw = 1
+    -- loaded_netrwPlugin = 1
+}
+if vim.g.neovide then
+    table.insert(gopts, {
+        neovide_cursor_trail_length = 0.8,
+        neovide_cursor_animation_length = 0.04,
+        neovide_transparency = 0.9
+    })
+end
+
+for key, value in pairs(gopts) do vim.g[key] = value end
+
 vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
-vim.g.tagbar_sort = 0
-vim.g.tagbar_foldlevel = 2
--- vim.g.loaded_netrw = 1
--- vim.g.loaded_netrwPlugin = 1
-
-if vim.g.neovide then
-    vim.g.neovide_cursor_trail_length = 0.8
-    vim.g.neovide_cursor_animation_length = 0.04
-    vim.g.neovide_transparency = 0.9
-end
