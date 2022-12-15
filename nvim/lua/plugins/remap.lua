@@ -257,3 +257,7 @@ nnoremap("<localleader>,", "<cmd>cprev<CR>")
 
 -- coderunner
 nnoremap("<leader>x", "<cmd>RunFile<CR>")
+
+-- clearjumps
+nnoremap("<leader>cj", "<cmd>clearjumps<CR>")
+nnoremap("<leader>jj", "<cmd>jumps<CR>")
