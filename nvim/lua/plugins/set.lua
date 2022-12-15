@@ -53,29 +53,29 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
 
 local gopts = {
+    floaterm_autoclose = 0,
+    floaterm_width = 0.5,
+    floaterm_wintype = 'vsplit',
+    git_messenger_always_into_popup = true,
+    git_messenger_floating_win_opts = {border = 'single', width = 70},
+    git_messenger_popup_content_margins = false,
+    global_colorscheme = 'tokyonight',
+    lazygit_config_file_path = '~/.config/lazygit/config.yml',
+    lazygit_floating_window_use_plenary = 0,
+    lazygit_floating_window_winblend = 0,
+    lazygit_use_custom_config_file_path = 1,
     mapleader = " ",
     maplocalleader = "\\",
     netrw_altv = 1,
     netrw_banner = 0,
     netrw_browse_split = 0,
-    netrw_winsize = 75,
     netrw_bufsettings = 'noma nomod nu nobl nowrap ro',
-    global_colorscheme = 'tokyonight',
+    netrw_winsize = 75,
     sessions_dir = '~/.local/share/nvim/session',
-    lazygit_floating_window_winblend = 0,
-    lazygit_floating_window_use_plenary = 0,
-    lazygit_use_custom_config_file_path = 1,
-    lazygit_config_file_path = '~/.config/lazygit/config.yml',
-    undotree_SetFocusWhenToggle = 1,
-    floaterm_wintype = 'vsplit',
-    floaterm_width = 0.5,
-    floaterm_autoclose = 0,
-    git_messenger_always_into_popup = true,
-    git_messenger_floating_win_opts = {border = 'single', width = 70},
-    git_messenger_popup_content_margins = false,
-    vimwiki_list = {{path = '~/.vimwiki/'}},
+    tagbar_foldlevel = 2,
     tagbar_sort = 0,
-    tagbar_foldlevel = 2
+    undotree_SetFocusWhenToggle = 1,
+    vimwiki_list = {{path = '~/.vimwiki/'}}
     -- loaded_netrw = 1
     -- loaded_netrwPlugin = 1
 }
