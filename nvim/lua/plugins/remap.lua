@@ -97,6 +97,7 @@ nnoremap("<leader>tg", "<cmd>Telescope tags<CR>")
 nnoremap("<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>")
 nnoremap("]g", "<cmd>Gitsigns next_hunk<CR>")
 nnoremap("[g", "<cmd>Gitsigns prev_hunk<CR>")
+nnoremap("<leader>ph", "<cmd>Gitsigns preview_hunk<CR>")
 nnoremap("<leader>gg", "<cmd>LazyGit<CR>")
 nnoremap("<leader>gO", "<cmd>LazyGitConfig<CR>")
 nnoremap("<leader>gf", "<cmd>GitFiles<CR>")
@@ -126,6 +127,7 @@ nnoremap("<leader>gws", function()
     end
     require("telescope").extensions.git_worktree.create_git_worktree()
 end)
+-- TODO add git worktree fetch remap?
 nnoremap("<leader>gwc", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
