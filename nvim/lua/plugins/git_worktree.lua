@@ -21,5 +21,7 @@ worktree.on_tree_change(function()
             end
         end
     end
-    vim.cmd [[ e ]]
+    if vim.api.nvim_buf_get_name(bufnr) ~= "" then
+        vim.cmd [[ e ]]
+    end
 end)
