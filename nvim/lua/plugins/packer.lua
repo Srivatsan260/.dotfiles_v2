@@ -220,10 +220,13 @@ return require('packer').startup({
 
         -- coderunner
         use 'CRAG666/code_runner.nvim'
+
+        -- quickfix nav / edit
+        use {'kevinhwang91/nvim-bqf', ft = "qf"}
     end,
     config = {
-        display = {
-            open_fn = function() return require("packer.util").float({border = "none"}) end
-        }
+        display = {open_fn = function()
+            return require("packer.util").float({border = "none"})
+        end}
     }
 })
