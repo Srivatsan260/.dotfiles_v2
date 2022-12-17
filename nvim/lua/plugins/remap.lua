@@ -276,7 +276,7 @@ vim.keymap.set("n", "<leader>tb", "<cmd>TagbarToggle<CR>")
 vim.keymap.set("n", "<leader>va", "ggVG")
 
 -- yank all
-vim.keymap.set("n", "<leader>ya", "ggyG<C-o>zz")
+vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>")
 
 -- navigate quickfix
 vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>")
