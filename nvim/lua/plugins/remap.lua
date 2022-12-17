@@ -162,6 +162,8 @@ end)
 -- undotree
 vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
 
+-- search & replace current word
+vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- dap
 vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end)
