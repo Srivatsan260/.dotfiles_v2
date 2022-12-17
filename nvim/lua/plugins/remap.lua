@@ -93,6 +93,7 @@ vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>")
 vim.keymap.set("n", "<leader>pd", "<cmd>GrepInDirectory<CR>")
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>")
 vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>")
+vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles theme=ivy<CR>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>")
 
