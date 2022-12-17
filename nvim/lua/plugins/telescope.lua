@@ -62,4 +62,4 @@ telescope.load_extension('git_worktree')
 telescope.load_extension('zoxide')
 telescope.load_extension('file_browser')
 
-require('dir-telescope').setup {respect_gitignore = true}
+require('dir-telescope').setup {hidden = true}

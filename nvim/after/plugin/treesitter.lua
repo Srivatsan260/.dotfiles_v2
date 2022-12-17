@@ -1,7 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "python", "rust", "sql", "yaml", "toml", "c", "http", "json"
-    },
+    ensure_installed = {"python", "rust", "sql", "yaml", "toml", "c", "http", "json"},
     sync_install = false,
 
     highlight = {enable = true, additional_vim_regex_highlighting = false},
@@ -39,10 +37,7 @@ require'nvim-treesitter.configs'.setup {
                 ["ac"] = "@class.outer",
                 -- You can optionally set descriptions to the mappings (used in the desc parameter of
                 -- nvim_buf_set_keymap) which plugins like which-key display
-                ["ic"] = {
-                    query = "@class.inner",
-                    desc = "Select inner part of a class region"
-                },
+                ["ic"] = {query = "@class.inner", desc = "Select inner part of a class region"},
                 ["ig"] = "@conditional.inner",
                 ["ag"] = "@conditional.outer",
                 ["il"] = "@loop.inner",
@@ -74,11 +69,13 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-require('neogen').setup({
-    enabled = true,
-    languages = {
-        python = {template = {annotation_convention = 'google_docstrings'}},
-        rust = {template = {annotation_convention = 'rustdoc'}}
-    },
-    -- snippet_engine = 'luasnip'
-})
+require('neogen').setup(
+    {
+        enabled = true,
+        languages = {
+            python = {template = {annotation_convention = 'google_docstrings'}},
+            rust = {template = {annotation_convention = 'rustdoc'}}
+        }
+        -- snippet_engine = 'luasnip'
+    }
+)

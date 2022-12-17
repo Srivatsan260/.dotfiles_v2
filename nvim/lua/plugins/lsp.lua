@@ -32,11 +32,16 @@ local on_attach = function(_, bufnr)
     vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, bufopts)
-    vim.keymap.set('n', '<leader>sc', function()
-        print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities))
-    end, bufopts)
-    vim.keymap.set('n', '<leader>wl',
-                   function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+    vim.keymap.set(
+        'n', '<leader>sc',
+        function() print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities)) end,
+        bufopts
+    )
+    vim.keymap.set(
+        'n', '<leader>wl', function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, bufopts
+    )
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -83,8 +88,9 @@ rt.setup {
             vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
             vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
             vim.keymap.set('n', 'K', rt.hover_actions.hover_actions, {buffer = buffer})
-            vim.keymap.set('n', '<leader>ac', rt.code_action_group.code_action_group,
-                           {buffer = buffer})
+            vim.keymap.set(
+                'n', '<leader>ac', rt.code_action_group.code_action_group, {buffer = buffer}
+            )
             vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
             vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts)

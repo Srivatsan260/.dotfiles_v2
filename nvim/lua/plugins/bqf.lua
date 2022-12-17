@@ -10,16 +10,16 @@ require("bqf").setup {
         win_height = 25,
         win_vheight = 15,
         wrap = false,
-        buf_label = true,
+        buf_label = true
     },
     filter = {
         fzf = {
             action_for = {
                 ['ctrl-t'] = 'tabedit',
                 ['ctrl-v'] = 'vsplit',
-                ['ctrl-x'] =  'split',
-                ['ctrl-q'] =  'signtoggle',
-                ['ctrl-c'] =  'closeall'
+                ['ctrl-x'] = 'split',
+                ['ctrl-q'] = 'signtoggle',
+                ['ctrl-c'] = 'closeall'
             },
             extra_opts = {'--bind', 'ctrl-o:toggle-all'}
         }

@@ -64,9 +64,7 @@ require('lualine').setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch'},
-        lualine_c = {
-            '%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'
-        },
+        lualine_c = {'%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'},
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'location', 'progress'},
         lualine_z = {''}

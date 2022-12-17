@@ -80,11 +80,13 @@ local gopts = {
     -- loaded_netrwPlugin = 1
 }
 if vim.g.neovide then
-    table.insert(gopts, {
-        neovide_cursor_trail_length = 0.8,
-        neovide_cursor_animation_length = 0.04,
-        neovide_transparency = 0.9
-    })
+    table.insert(
+        gopts, {
+            neovide_cursor_trail_length = 0.8,
+            neovide_cursor_animation_length = 0.04,
+            neovide_transparency = 0.9
+        }
+    )
 end
 
 for key, value in pairs(gopts) do vim.g[key] = value end

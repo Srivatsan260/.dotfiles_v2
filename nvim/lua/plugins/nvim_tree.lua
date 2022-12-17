@@ -59,13 +59,7 @@ require("nvim-tree").setup {
         indent_markers = {
             enable = false,
             inline_arrows = true,
-            icons = {
-                corner = "└",
-                edge = "│",
-                item = "│",
-                bottom = "─",
-                none = " "
-            }
+            icons = {corner = "└", edge = "│", item = "│", bottom = "─", none = " "}
         },
         icons = {
             webdev_colors = true,
@@ -102,11 +96,7 @@ require("nvim-tree").setup {
         symlink_destination = true
     },
     hijack_directories = {enable = true, auto_open = true},
-    update_focused_file = {
-        enable = false,
-        update_root = false,
-        ignore_list = {}
-    },
+    update_focused_file = {enable = false, update_root = false, ignore_list = {}},
     ignore_ft_on_setup = {},
     system_open = {cmd = "", args = {}},
     diagnostics = {
@@ -138,10 +128,7 @@ require("nvim-tree").setup {
                 enable = true,
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
-                    filetype = {
-                        "notify", "packer", "qf", "diff", "fugitive",
-                        "fugitiveblame"
-                    },
+                    filetype = {"notify", "packer", "qf", "diff", "fugitive", "fugitiveblame"},
                     buftype = {"nofile", "terminal", "help"}
                 }
             }
