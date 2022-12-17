@@ -52,7 +52,7 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 
 vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
 
-local gopts = {
+local global_opts = {
     floaterm_autoclose = 0,
     floaterm_width = 0.5,
     floaterm_wintype = 'vsplit',
@@ -81,7 +81,7 @@ local gopts = {
 }
 if vim.g.neovide then
     table.insert(
-        gopts, {
+        global_opts, {
             neovide_cursor_trail_length = 0.8,
             neovide_cursor_animation_length = 0.04,
             neovide_transparency = 0.9
@@ -89,7 +89,7 @@ if vim.g.neovide then
     )
 end
 
-for key, value in pairs(gopts) do vim.g[key] = value end
+for key, value in pairs(global_opts) do vim.g[key] = value end
 
 vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
