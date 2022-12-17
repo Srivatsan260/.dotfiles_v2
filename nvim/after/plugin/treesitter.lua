@@ -4,6 +4,16 @@ require'nvim-treesitter.configs'.setup {
 
     highlight = {enable = true, additional_vim_regex_highlighting = false},
 
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = "<C-y>",
+            node_incremental = "<C-y>",
+            node_decremental = "<C-n>",
+            scope_incremental = "<C-s>",
+        }
+    },
+
     playground = {
         enable = true,
         disable = {},
