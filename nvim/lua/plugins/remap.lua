@@ -162,11 +162,6 @@ end)
 -- undotree
 vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
 
--- sessions
-vim.keymap.set("n", "<leader>ss",
-         string.format(":mks! %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-vim.keymap.set("n", "<leader>st", string.format(":so %s/*.vim<C-D><BS><BS><BS><BS><BS>", vim.g['sessions_dir']))
-vim.keymap.set("n", "<leader>sp", "<cmd>Telescope sessions_picker theme=dropdown<CR>")
 
 -- dap
 vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end)
