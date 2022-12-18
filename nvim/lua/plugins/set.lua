@@ -11,6 +11,7 @@ local opts = {
     grepformat = "%f:%l:%c:%m",
     grepprg = "rg --vimgrep --no-heading --smart-case",
     hlsearch = false,
+    guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
     ignorecase = true,
     inccommand = "split",
     incsearch = true,
