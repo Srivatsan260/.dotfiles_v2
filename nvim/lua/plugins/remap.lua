@@ -291,4 +291,4 @@ vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>")
 
 -- clearjumps
 vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>")
-vim.keymap.set("n", "<leader>jj", "<cmd>jumps<CR>")
+vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>")
