@@ -10,7 +10,7 @@ require'nvim-treesitter.configs'.setup {
             init_selection = "<C-y>",
             node_incremental = "<C-y>",
             node_decremental = "<C-n>",
-            scope_incremental = "<C-s>",
+            scope_incremental = "<C-s>"
         }
     },
 
@@ -79,13 +79,11 @@ require'nvim-treesitter.configs'.setup {
     }
 }
 
-require('neogen').setup(
-    {
-        enabled = true,
-        languages = {
-            python = {template = {annotation_convention = 'google_docstrings'}},
-            rust = {template = {annotation_convention = 'rustdoc'}}
-        }
-        -- snippet_engine = 'luasnip'
+require('neogen').setup({
+    enabled = true,
+    languages = {
+        python = {template = {annotation_convention = 'google_docstrings'}},
+        rust = {template = {annotation_convention = 'rustdoc'}}
     }
-)
+    -- snippet_engine = 'luasnip'
+})

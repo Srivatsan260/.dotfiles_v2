@@ -1,18 +1,16 @@
-vim.keymap.set(
-    "n", "K", function()
-        local crates = require("crates")
-        local filetype = vim.bo.filetype
-        if vim.tbl_contains({'vim', 'help'}, filetype) then
-            vim.cmd('h ' .. vim.fn.expand('<cword>'))
-        elseif vim.tbl_contains({'man'}, filetype) then
-            vim.cmd('Man ' .. vim.fn.expand('<cword>'))
-        elseif vim.fn.expand('%:t') == 'Cargo.toml' and crates.popup_available() then
-            crates.show_popup()
-        else
-            vim.lsp.buf.hover()
-        end
+vim.keymap.set("n", "K", function()
+    local crates = require("crates")
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({'vim', 'help'}, filetype) then
+        vim.cmd('h ' .. vim.fn.expand('<cword>'))
+    elseif vim.tbl_contains({'man'}, filetype) then
+        vim.cmd('Man ' .. vim.fn.expand('<cword>'))
+    elseif vim.fn.expand('%:t') == 'Cargo.toml' and crates.popup_available() then
+        crates.show_popup()
+    else
+        vim.lsp.buf.hover()
     end
-)
+end)
 
 local config_path = vim.fn.stdpath("config")
 vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>")
@@ -20,12 +18,10 @@ vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plu
 vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>")
 vim.keymap
     .set("n", "<leader><leader>c", "<cmd> so " .. config_path .. "/after/plugin/color.lua<CR>")
-vim.keymap.set(
-    "n", "<leader><leader>t", "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>"
-)
-vim.keymap.set(
-    "n", "<leader><leader>l", "<cmd> so " .. config_path .. "/lua/plugins/lsp_zero.lua<CR>"
-)
+vim.keymap.set("n", "<leader><leader>t",
+    "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>")
+vim.keymap.set("n", "<leader><leader>l",
+    "<cmd> so " .. config_path .. "/lua/plugins/lsp_zero.lua<CR>")
 
 -- copy file name to + register
 vim.keymap.set("n", "<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
@@ -50,32 +46,23 @@ vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>")
 vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<CR>")
 vim.keymap.set("n", "<leader>fl", "<cmd>Floaterms<CR>")
 vim.keymap.set("n", "<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
-vim.keymap.set(
-    "n", "<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>"
-)
+vim.keymap.set("n", "<leader>fr",
+    "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>")
 vim.keymap.set("t", "<C-\\>", "<cmd>FloatermToggle<CR>")
 -- Floaterm window switching
-vim.keymap.set(
-    "t", "<C-h>",
-    function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>" end,
-    {expr = true}
-)
-vim.keymap.set(
-    "t", "<C-j>",
-    function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-j>" end,
-    {expr = true}
-)
-vim.keymap.set(
-    "t", "<C-k>",
-    function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-k>" end,
-    {expr = true}
-)
-vim.keymap.set(
-    "t", "<C-l>",
-    function() return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-l>" end,
-    {expr = true}
-)
+vim.keymap.set("t", "<C-h>", function()
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>"
+end, {expr = true})
+vim.keymap.set("t", "<C-j>", function()
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-j>"
+end, {expr = true})
+vim.keymap.set("t", "<C-k>", function()
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-k>"
+end, {expr = true})
+vim.keymap.set("t", "<C-l>", function()
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-l>"
+end, {expr = true})
 
 -- treesitter highlighting
 vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>")
@@ -97,14 +84,12 @@ vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles theme=ivy<CR>")
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
 vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>")
 
-vim.keymap.set(
-    "n", "<Tab>", function() return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>" end,
-    {expr = true}
-)
-vim.keymap.set(
-    "n", "<S-Tab>",
-    function() return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>" end, {expr = true}
-)
+vim.keymap.set("n", "<Tab>", function()
+    return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
+end, {expr = true})
+vim.keymap.set("n", "<S-Tab>", function()
+    return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
+end, {expr = true})
 
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>tg", "<cmd>Telescope tags<CR>")
@@ -119,13 +104,11 @@ vim.keymap.set("n", "<leader>gO", "<cmd>LazyGitConfig<CR>")
 vim.keymap.set("n", "<leader>gf", "<cmd>GitFiles<CR>")
 vim.keymap.set("n", "<leader>gn", ":Git checkout -b ")
 vim.keymap.set("n", "<leader>gr", "<cmd>Telescope grep_string<CR>")
-vim.keymap.set(
-    "n", "<leader>gR", function()
-        local search = vim.fn.input({prompt = "Search for: ", default = ""})
-        if search == "" then return end
-        vim.cmd("Telescope grep_string search=" .. search)
-    end
-)
+vim.keymap.set("n", "<leader>gR", function()
+    local search = vim.fn.input({prompt = "Search for: ", default = ""})
+    if search == "" then return end
+    vim.cmd("Telescope grep_string search=" .. search)
+end)
 vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>")
 -- vim.keymap.set("n", "<leader>gl", "<cmd>Telescope git_bcommits<CR>")
 vim.keymap.set("n", "<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
@@ -135,61 +118,54 @@ vim.keymap.set("n", "<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
 vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen<CR>")
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope filetypes<CR>")
 
-vim.keymap.set(
-    "n", "<leader>gwl", function() require("telescope").extensions.git_worktree.git_worktrees() end,
-    {silent = true}
-)
-vim.keymap.set(
-    "n", "<leader>gws", function()
-        local is_bare_repo = vim.fn.system("git config --get core.bare")
-        if is_bare_repo ~= "true\n" then
-            print("use this remap only for bare repos!")
-            return
-        end
-        require("telescope").extensions.git_worktree.create_git_worktree()
+vim.keymap.set("n", "<leader>gwl", function()
+    require("telescope").extensions.git_worktree.git_worktrees()
+end, {silent = true})
+vim.keymap.set("n", "<leader>gws", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
     end
-)
+    require("telescope").extensions.git_worktree.create_git_worktree()
+end)
 -- TODO add git worktree fetch remap?
-vim.keymap.set(
-    "n", "<leader>gwc", function()
-        local is_bare_repo = vim.fn.system("git config --get core.bare")
-        if is_bare_repo ~= "true\n" then
-            print("use this remap only for bare repos!")
-            return
-        end
-        local path = vim.fn.input({prompt = "Enter path: ", default = ""})
-        if path == "" then return end
-        local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
-        if branch == "" then return end
-        local parent_branch = vim.fn.input({prompt = "Enter parent branch: ", default = ""})
-        if parent_branch == "" or parent_branch == nil then
-            parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
-        end
-        vim.cmd("!git branch " .. branch .. " " .. parent_branch)
-        vim.cmd("!git worktree add ../" .. path .. " " .. branch)
-        require("git-worktree").switch_worktree(path)
+vim.keymap.set("n", "<leader>gwc", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
     end
-)
+    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    if path == "" then return end
+    local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
+    if branch == "" then return end
+    local parent_branch = vim.fn.input({prompt = "Enter parent branch: ", default = ""})
+    if parent_branch == "" or parent_branch == nil then
+        parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
+    end
+    vim.cmd("!git branch " .. branch .. " " .. parent_branch)
+    vim.cmd("!git worktree add ../" .. path .. " " .. branch)
+    require("git-worktree").switch_worktree(path)
+end)
 -- TODO check how to add telescope mapping and get rid of this
-vim.keymap.set(
-    "n", "<leader>gwu", function()
-        local is_bare_repo = vim.fn.system("git config --get core.bare")
-        if is_bare_repo ~= "true\n" then
-            print("use this remap only for bare repos!")
-            return
-        end
-        local is_git_dir = vim.fn.glob('.git')
-        if is_git_dir == "" then
-            print("use this remap only inside gitdirs!")
-            return
-        end
-        local path = vim.fn.input({prompt = "Enter path: ", default = ""})
-        if path == "" then return end
-        local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
-        vim.cmd(cmd)
-        vim.cmd.copen()
+vim.keymap.set("n", "<leader>gwu", function()
+    local is_bare_repo = vim.fn.system("git config --get core.bare")
+    if is_bare_repo ~= "true\n" then
+        print("use this remap only for bare repos!")
+        return
     end
-)
+    local is_git_dir = vim.fn.glob('.git')
+    if is_git_dir == "" then
+        print("use this remap only inside gitdirs!")
+        return
+    end
+    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    if path == "" then return end
+    local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
+    vim.cmd(cmd)
+    vim.cmd.copen()
+end)
 
 -- undotree
 vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
@@ -198,12 +174,13 @@ vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
 vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 
 -- dap
-vim.keymap.set("n", "<leader>du", function() require('dapui').toggle() end)
+vim.keymap.set("n", "<leader>du", function()
+    require('dapui').toggle()
+end)
 vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
-vim.keymap.set(
-    "n", "<leader>dB",
-    function() require('dap').set_breakpoint(vim.fn.input('breakpoint condition:')) end
-)
+vim.keymap.set("n", "<leader>dB", function()
+    require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))
+end)
 vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>")
 vim.keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>")
 vim.keymap.set("n", "<leader>do", "<cmd>DapStepOut<CR>")
@@ -218,15 +195,17 @@ vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>")
 
 -- harpoon
-vim.keymap.set("n", "<leader>H", function() require('harpoon.ui').toggle_quick_menu() end)
-vim.keymap.set("n", "<leader>;", function() require('harpoon.mark').add_file() end)
+vim.keymap.set("n", "<leader>H", function()
+    require('harpoon.ui').toggle_quick_menu()
+end)
+vim.keymap.set("n", "<leader>;", function()
+    require('harpoon.mark').add_file()
+end)
 for i = 1, 9 do
-    vim.keymap.set(
-        "n", "<leader>" .. i, function()
-            require('harpoon.ui').nav_file(i)
-            vim.cmd [[ normal zz ]]
-        end
-    )
+    vim.keymap.set("n", "<leader>" .. i, function()
+        require('harpoon.ui').nav_file(i)
+        vim.cmd [[ normal zz ]]
+    end)
 end
 
 -- nvim-tree
@@ -248,10 +227,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "<C-o>", "<C-o>zz")
 vim.keymap.set("n", "<C-i>", "<C-i>zz")
-vim.keymap.set(
-    "c", "<CR>", function() return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>' end,
-    {expr = true}
-)
+vim.keymap.set("c", "<CR>", function()
+    return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>'
+end, {expr = true})
 
 -- move lines around in visual mode
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")

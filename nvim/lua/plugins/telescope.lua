@@ -16,7 +16,9 @@ telescope.setup {
                     end
                 },
                 ["<C-s>"] = {
-                    before_action = function(_) print("before C-s") end,
+                    before_action = function(_)
+                        print("before C-s")
+                    end,
                     action = function(selection)
                         vim.cmd("edit " .. selection.path)
                     end
