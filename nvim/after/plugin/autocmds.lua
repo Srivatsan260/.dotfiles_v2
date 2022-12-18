@@ -39,3 +39,14 @@ vim.api.nvim_create_autocmd(
     {"WinEnter", "BufEnter", "BufRead"},
     {pattern = "*", callback = function() vim.cmd.normal("zz") end}
 )
+
+local filetype_control = vim.api.nvim_create_augroup("FileTypeControl", {clear = true})
+vim.api.nvim_create_autocmd(
+    {"BufRead"}, {
+        group = filetype_control,
+        pattern = { "*shrc", "*sh" },
+        callback = function ()
+            vim.bo.filetype = "sh"
+        end
+    }
+)
