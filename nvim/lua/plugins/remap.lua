@@ -292,3 +292,7 @@ vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>")
 -- clearjumps
 vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>")
 vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>")
+
+-- open zshrc and zshenv
+vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>")
+vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>")

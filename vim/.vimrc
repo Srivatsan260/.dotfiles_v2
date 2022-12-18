@@ -132,6 +132,9 @@ nnoremap <localleader>q <cmd>copen<CR>
 nnoremap <localleader>. <cmd>cnext<CR>
 nnoremap <localleader>, <cmd>cprev<CR>
 
+" open zshrc and zshenv
+nnoremap <leader>nz :e ~/.zshrc<CR>
+nnoremap <leader>ne :e ~/.zshenv<CR>
 
 " }}}
 
