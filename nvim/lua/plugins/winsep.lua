@@ -1,6 +1,6 @@
 require("colorful-winsep").setup({
     -- highlight for Window separator
-    highlight = {guibg = "none", guifg = "#78a9ff"},
+    highlight = {bg = "none", fg = "#78a9ff"},
     -- timer refresh rate
     interval = 30,
     -- This plugin will not be activated for filetype in the following table.
