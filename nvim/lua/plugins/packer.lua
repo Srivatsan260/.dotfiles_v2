@@ -89,6 +89,7 @@ return require('packer').startup({
         use 'folke/neodev.nvim'
         use 'rafamadriz/friendly-snippets'
 
+        -- TODO add config file for this plugin
         use {
             'ray-x/lsp_signature.nvim',
             config = function()
