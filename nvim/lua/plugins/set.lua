@@ -1,4 +1,5 @@
 local opts = {
+    background = "dark",
     backup = false,
     belloff = "all",
     clipboard = "unnamedplus",
