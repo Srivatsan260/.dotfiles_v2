@@ -164,7 +164,6 @@ return require('packer').startup({
         use 'rhysd/git-messenger.vim'
 
         -- notetaking
-        -- TODO find a replacement for this which doesn't affect markdown
         use 'vimwiki/vimwiki'
 
         -- interactive code evaluation
