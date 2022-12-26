@@ -126,12 +126,7 @@ return require('packer').startup({
         }
 
         -- show git diffs in signcolumn
-        use {
-            'lewis6991/gitsigns.nvim',
-            config = function()
-                require('gitsigns').setup()
-            end
-        }
+        use 'lewis6991/gitsigns.nvim'
 
         -- undo superpowers
         use 'mbbill/undotree'
