@@ -76,6 +76,7 @@ return require('packer').startup({
         use 'voldikss/fzf-floaterm'
 
         -- lsp
+        use 'jose-elias-alvarez/null-ls.nvim'
         use 'VonHeikemen/lsp-zero.nvim'
         use 'williamboman/mason.nvim'
         use 'williamboman/mason-lspconfig.nvim'
