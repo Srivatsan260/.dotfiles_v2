@@ -88,14 +88,7 @@ return require('packer').startup({
         use 'L3MON4D3/LuaSnip' -- Snippets plugin
         use 'folke/neodev.nvim'
         use 'rafamadriz/friendly-snippets'
-
-        -- TODO add config file for this plugin
-        use {
-            'ray-x/lsp_signature.nvim',
-            config = function()
-                require('lsp_signature').setup()
-            end
-        }
+        use 'ray-x/lsp_signature.nvim'
         use {
             'j-hui/fidget.nvim',
             config = function()
