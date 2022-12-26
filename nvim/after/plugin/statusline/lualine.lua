@@ -80,5 +80,5 @@ require('lualine').setup {
     tabline = {},
     winbar = {},
     inactive_winbar = {},
-    extensions = {'fugitive', 'fzf', 'man', 'nvim-dap-ui', 'quickfix'},
+    extensions = {'fugitive', 'fzf', 'man', 'nvim-dap-ui', 'quickfix'}
 }

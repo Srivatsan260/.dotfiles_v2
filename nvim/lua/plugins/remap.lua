@@ -168,7 +168,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     vim.cmd.copen()
 end)
 local function async_git_op(op)
-    local fun = function ()
+    local fun = function()
         vim.cmd("AsyncRun -cwd=./ git " .. op)
         vim.cmd.copen()
     end
