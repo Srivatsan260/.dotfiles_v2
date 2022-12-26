@@ -166,6 +166,17 @@ vim.keymap.set("n", "<leader>gwu", function()
     vim.cmd(cmd)
     vim.cmd.copen()
 end)
+local function async_git_op(op)
+    local fun = function ()
+        vim.cmd("AsyncRun -cwd=./ git " .. op)
+        vim.cmd.copen()
+    end
+    return fun
+end
+vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>")
+vim.keymap.set("n", "<leader>gf", async_git_op("fetch"))
+vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"))
+vim.keymap.set("n", "<leader>gP", async_git_op("push"))
 
 -- undotree
 vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
