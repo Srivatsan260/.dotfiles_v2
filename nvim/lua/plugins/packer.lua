@@ -56,6 +56,7 @@ return require('packer').startup({
         -- fugitive
         use 'tpope/vim-fugitive'
         use 'tommcdo/vim-fubitive'
+        use 'tpope/vim-rhubarb'
 
         -- diffview
         use 'sindrets/diffview.nvim'
