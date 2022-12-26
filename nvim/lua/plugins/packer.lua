@@ -228,6 +228,9 @@ return require('packer').startup({
 
         -- quickfix nav / edit
         use {'kevinhwang91/nvim-bqf', ft = "qf"}
+
+        -- editorconfig
+        use 'gpanders/editorconfig.nvim'
     end,
     config = {
         display = {
