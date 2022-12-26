@@ -21,7 +21,7 @@ vim.keymap
 vim.keymap.set("n", "<leader><leader>t",
     "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>")
 vim.keymap.set("n", "<leader><leader>l",
-    "<cmd> so " .. config_path .. "/lua/plugins/lsp_zero.lua<CR>")
+    "<cmd> so " .. config_path .. "/after/plugin/lsp/lsp_zero.lua<CR>")
 
 -- copy file name to + register
 vim.keymap.set("n", "<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
