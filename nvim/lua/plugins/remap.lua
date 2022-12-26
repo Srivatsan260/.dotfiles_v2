@@ -274,3 +274,6 @@ vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>")
 -- open zshrc and zshenv
 vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>")
 vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>")
+
+-- diagnostic hover
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
