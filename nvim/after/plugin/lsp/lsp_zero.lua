@@ -65,15 +65,13 @@ lsp.on_attach(function(_, bufnr)
     end, bufopts)
 end)
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] =
-    vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-        -- Enable underline, use default values
-        underline = false,
-        -- Enable virtual text, override spacing to 4
-        virtual_text = {spacing = 4},
-        -- Use a function to dynamically turn signs off
-        -- and on, using buffer local variables
-        signs = true
-    })
-
 lsp.setup()
+
+vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    update_in_insert = false,
+    underline = false,
+    severity_sort = true,
+    float = true
+})
