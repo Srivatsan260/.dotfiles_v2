@@ -11,16 +11,16 @@ lsp.ensure_installed({
 lsp.set_preferences({
     set_lsp_keymaps = false,
     manage_nvim_cmp = false,
-    sign_icons = {error = 'E', warn = 'W', hint = 'H', info = 'I'}
+    sign_icons = { error = 'E', warn = 'W', hint = 'H', info = 'I' }
 })
 
 lsp.configure('sumneko_lua', {
     settings = {
         Lua = {
-            workspace = {library = vim.api.nvim_get_runtime_file("", true)},
-            diagnostics = {globals = {'vim', 'use'}},
-            telemetry = {enable = false},
-            completion = {callSnippet = 'Replace'}
+            workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+            diagnostics = { globals = { 'vim', 'use' } },
+            telemetry = { enable = false },
+            completion = { callSnippet = 'Replace' }
         }
     }
 
@@ -29,7 +29,7 @@ lsp.configure('sumneko_lua', {
 lsp.on_attach(function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local bufopts = {noremap = true, silent = true, buffer = bufnr}
+    local bufopts = { noremap = true, silent = true, buffer = bufnr }
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
