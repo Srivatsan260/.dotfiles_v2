@@ -10,5 +10,6 @@ null_ls.setup({
         null_ls.builtins.diagnostics.sqlfluff.with({
             extra_args = { "--dialect", "snowflake" },
         }),
+        null_ls.builtins.diagnostics.todo_comments,
     },
 })
