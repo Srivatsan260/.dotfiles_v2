@@ -17,5 +17,6 @@ null_ls.setup({
             extra_args = { "--dialect", "snowflake" },
         }),
         null_ls.builtins.diagnostics.todo_comments,
+        null_ls.builtins.hover.printenv,
     },
 })
