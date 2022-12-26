@@ -43,11 +43,8 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     if vim.bo.filetype == 'python' then
         vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts)
-    elseif vim.bo.filetype == 'lua' then
-        vim.keymap.set('n', '<leader>=', '<cmd>call LuaFormat()<CR>', bufopts)
-    else
-        vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
     end
+    vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts)
     vim.keymap.set('n', '<leader>ai', vim.lsp.buf.incoming_calls, bufopts)
     vim.keymap.set('n', '<leader>ao', vim.lsp.buf.outgoing_calls, bufopts)
     vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
