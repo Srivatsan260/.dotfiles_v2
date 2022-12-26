@@ -76,7 +76,8 @@ local global_opts = {
     tagbar_foldlevel = 2,
     tagbar_sort = 0,
     undotree_SetFocusWhenToggle = 1,
-    vimwiki_list = {{path = '~/.vimwiki/'}}
+    vimwiki_list = {{path = '~/.vimwiki/'}},
+    vimwiki_global_ext = 0
     -- loaded_netrw = 1
     -- loaded_netrwPlugin = 1
 }
