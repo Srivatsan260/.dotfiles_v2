@@ -287,5 +287,9 @@ vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>")
 vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>")
 vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>")
 
--- diagnostic hover
+-- diagnostic remaps
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
