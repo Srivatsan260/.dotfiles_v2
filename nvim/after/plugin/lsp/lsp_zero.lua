@@ -43,7 +43,6 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
     if vim.bo.filetype == 'python' then
         vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts)
-        vim.keymap.set('n', '<leader>=', '<cmd>!black %<CR>', bufopts)
     elseif vim.bo.filetype == 'lua' then
         vim.keymap.set('n', '<leader>=', '<cmd>call LuaFormat()<CR>', bufopts)
     else
