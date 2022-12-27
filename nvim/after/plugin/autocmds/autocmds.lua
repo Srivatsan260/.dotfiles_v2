@@ -41,7 +41,9 @@ vim.api.nvim_create_autocmd({"VimResized"}, {
 vim.api.nvim_create_autocmd({"BufEnter", "WinEnter"}, {
     pattern = "*",
     callback = function()
-        vim.cmd.normal("zz")
+        if vim.bo.filetype ~= "floaterm" then
+            vim.cmd.normal("zz")
+        end
     end
 })
 
