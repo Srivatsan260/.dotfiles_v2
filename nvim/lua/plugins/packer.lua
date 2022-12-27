@@ -111,13 +111,7 @@ return require('packer').startup({
         use 'junegunn/fzf'
 
         -- display errors / warnings
-        use {
-            "folke/trouble.nvim",
-            requires = "kyazdani42/nvim-web-devicons",
-            config = function()
-                require("trouble").setup {}
-            end
-        }
+        use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
         -- show git diffs in signcolumn
         use 'lewis6991/gitsigns.nvim'
