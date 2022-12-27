@@ -94,3 +94,16 @@ for key, value in pairs(global_opts) do vim.g[key] = value end
 
 vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
+
+vim.cmd [[
+    let g:firenvim_config = {
+        \ 'globalSettings': {
+            \ 'alt': 'all',
+        \  },
+        \ 'localSettings': {
+            \ '.*': {
+                \ 'selector': 'textarea',
+            \ },
+        \ }
+    \ }
+]]
