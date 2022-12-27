@@ -10,5 +10,7 @@ vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", {bg = 'none', fg = '#e0af68'
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", {bg = 'none', fg = '#0db9d7'})
 vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", {bg = 'none', fg = '#1abc9c'})
 
+vim.api.nvim_set_hl(0, "TroubleNormal", {bg = "none"})
+
 vim.cmd("Gitsigns toggle_linehl")
 vim.cmd("Gitsigns toggle_numhl")
