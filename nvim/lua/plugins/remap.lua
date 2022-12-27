@@ -303,3 +303,5 @@ vim.keymap.set({"o", "x"}, "iS", function () require("various-textobjs").subword
 vim.keymap.set({"o", "x"}, "aS", function () require("various-textobjs").subword(false) end)
 vim.keymap.set({"o", "x"}, "iv", function () require("various-textobjs").value(true) end)
 vim.keymap.set({"o", "x"}, "av", function () require("various-textobjs").value(false) end)
+vim.keymap.set({"o", "x"}, "in", function () require("various-textobjs").number(true) end)
+vim.keymap.set({"o", "x"}, "an", function () require("various-textobjs").number(false) end)
