@@ -1,3 +1,4 @@
+-- TODO move all plugin-specific remaps to after
 vim.keymap.set("n", "K", function()
     local crates = require("crates")
     local filetype = vim.bo.filetype
