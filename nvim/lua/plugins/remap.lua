@@ -297,3 +297,9 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 if vim.bo.filetype ~= "lua" then
     vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)
 end
+
+-- more textobjs
+vim.keymap.set({"o", "x"}, "iS", function () require("various-textobjs").subword(true) end)
+vim.keymap.set({"o", "x"}, "aS", function () require("various-textobjs").subword(false) end)
+vim.keymap.set({"o", "x"}, "iv", function () require("various-textobjs").value(true) end)
+vim.keymap.set({"o", "x"}, "av", function () require("various-textobjs").value(false) end)

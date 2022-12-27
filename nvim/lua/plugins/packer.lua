@@ -169,6 +169,8 @@ return require('packer').startup({
         }
         -- indent textobject
         use 'michaeljsmith/vim-indent-object'
+        -- more textobjects!
+        use 'chrisgrieser/nvim-various-textobjs'
 
         -- nvim-colorizer
         use 'norcalli/nvim-colorizer.lua'
