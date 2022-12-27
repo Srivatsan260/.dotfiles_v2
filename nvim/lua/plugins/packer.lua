@@ -91,12 +91,7 @@ return require('packer').startup({
         use 'folke/neodev.nvim'
         use 'rafamadriz/friendly-snippets'
         use 'ray-x/lsp_signature.nvim'
-        use {
-            'j-hui/fidget.nvim',
-            config = function()
-                require('fidget').setup {}
-            end
-        }
+        use 'j-hui/fidget.nvim'
         -- rust
         use 'simrat39/rust-tools.nvim'
         use 'saecki/crates.nvim'
