@@ -305,3 +305,5 @@ vim.keymap.set({"o", "x"}, "iv", function () require("various-textobjs").value(t
 vim.keymap.set({"o", "x"}, "av", function () require("various-textobjs").value(false) end)
 vim.keymap.set({"o", "x"}, "in", function () require("various-textobjs").number(true) end)
 vim.keymap.set({"o", "x"}, "an", function () require("various-textobjs").number(false) end)
+vim.keymap.set({"o", "x"}, "ii", function () require("various-textobjs").indentation(true, true) end)
+vim.keymap.set({"o", "x"}, "ai", function () require("various-textobjs").indentation(false, false) end)

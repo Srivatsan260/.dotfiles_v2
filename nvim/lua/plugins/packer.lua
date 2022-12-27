@@ -167,8 +167,7 @@ return require('packer').startup({
                 })
             end
         }
-        -- indent textobject
-        use 'michaeljsmith/vim-indent-object'
+
         -- more textobjects!
         use 'chrisgrieser/nvim-various-textobjs'
 
