@@ -1,4 +1,4 @@
--- TODO move all plugin-specific remaps to after
+-- TODO: move all plugin-specific remaps to after
 vim.keymap.set("n", "K", function()
     local crates = require("crates")
     local filetype = vim.bo.filetype
@@ -131,7 +131,7 @@ vim.keymap.set("n", "<leader>gws", function()
     end
     require("telescope").extensions.git_worktree.create_git_worktree()
 end)
--- TODO add git worktree fetch remap?
+-- TODO: add git worktree fetch remap?
 vim.keymap.set("n", "<leader>gwc", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
@@ -150,7 +150,7 @@ vim.keymap.set("n", "<leader>gwc", function()
     vim.cmd("!git worktree add ../" .. path .. " " .. branch)
     require("git-worktree").switch_worktree(path)
 end)
--- TODO check how to add telescope mapping and get rid of this
+-- TODO: check how to add telescope mapping and get rid of this
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
@@ -252,7 +252,7 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
 -- resize splits
--- TODO fix this for all splits
+-- TODO: fix this for all splits
 vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>")
 vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>")
 vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>")

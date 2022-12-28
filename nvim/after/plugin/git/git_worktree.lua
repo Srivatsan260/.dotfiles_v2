@@ -8,7 +8,7 @@ require("git-worktree").setup({
 
 local worktree = require("git-worktree")
 worktree.on_tree_change(function()
-    -- TODO handle open term buffers when switching
+    -- TODO: handle open term buffers when switching
     local branch_name = vim.fn.system("!git rev-parse --abbrev-ref HEAD")
     vim.cmd.clearjumps()
     local bufs = vim.api.nvim_list_bufs()

@@ -112,6 +112,7 @@ return require('packer').startup({
 
         -- display errors / warnings
         use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+        use 'folke/todo-comments.nvim'
 
         -- show git diffs in signcolumn
         use 'lewis6991/gitsigns.nvim'
