@@ -333,3 +333,6 @@ vim.keymap.set("n", "[t", function()
     require("todo-comments").jump_prev()
 end, {desc = "Previous todo comment"})
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs in telescope"})
+
+-- symbols outline
+vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})

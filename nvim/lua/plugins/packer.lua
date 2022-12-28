@@ -197,6 +197,9 @@ return require('packer').startup({
         -- tagbar
         use 'preservim/tagbar'
 
+        -- symbols-outline
+        use 'simrat39/symbols-outline.nvim'
+
         -- carbon.sh
         use 'ellisonleao/carbon-now.nvim'
 
