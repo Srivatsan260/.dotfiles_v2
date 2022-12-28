@@ -325,10 +325,10 @@ end)
 
 -- todo-comments
 vim.keymap.set("n", "]t", function()
-    require("todo-comments").jump_next()
+    require("todo-comments").jump_next({keywords = {"FIX", "INFO", "TODO"}})
 end, {desc = "Next todo comment"})
 vim.keymap.set("n", "[t", function()
-    require("todo-comments").jump_prev()
+    require("todo-comments").jump_prev({keywords = {"FIX", "INFO", "TODO"}})
 end, {desc = "Previous todo comment"})
 vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs in telescope"})
 
