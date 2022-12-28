@@ -1,4 +1,5 @@
 -- TODO: move all plugin-specific remaps to after
+-- TODO: add description for all remaps
 vim.keymap.set("n", "K", function()
     local crates = require("crates")
     local filetype = vim.bo.filetype
@@ -299,11 +300,36 @@ if vim.bo.filetype ~= "lua" then
 end
 
 -- more textobjs
-vim.keymap.set({"o", "x"}, "iS", function () require("various-textobjs").subword(true) end)
-vim.keymap.set({"o", "x"}, "aS", function () require("various-textobjs").subword(false) end)
-vim.keymap.set({"o", "x"}, "iv", function () require("various-textobjs").value(true) end)
-vim.keymap.set({"o", "x"}, "av", function () require("various-textobjs").value(false) end)
-vim.keymap.set({"o", "x"}, "in", function () require("various-textobjs").number(true) end)
-vim.keymap.set({"o", "x"}, "an", function () require("various-textobjs").number(false) end)
-vim.keymap.set({"o", "x"}, "ii", function () require("various-textobjs").indentation(true, true) end)
-vim.keymap.set({"o", "x"}, "ai", function () require("various-textobjs").indentation(false, false) end)
+vim.keymap.set({"o", "x"}, "iS", function()
+    require("various-textobjs").subword(true)
+end)
+vim.keymap.set({"o", "x"}, "aS", function()
+    require("various-textobjs").subword(false)
+end)
+vim.keymap.set({"o", "x"}, "iv", function()
+    require("various-textobjs").value(true)
+end)
+vim.keymap.set({"o", "x"}, "av", function()
+    require("various-textobjs").value(false)
+end)
+vim.keymap.set({"o", "x"}, "in", function()
+    require("various-textobjs").number(true)
+end)
+vim.keymap.set({"o", "x"}, "an", function()
+    require("various-textobjs").number(false)
+end)
+vim.keymap.set({"o", "x"}, "ii", function()
+    require("various-textobjs").indentation(true, true)
+end)
+vim.keymap.set({"o", "x"}, "ai", function()
+    require("various-textobjs").indentation(false, false)
+end)
+
+-- todo-comments
+
+vim.keymap.set("n", "]t", function()
+    require("todo-comments").jump_next()
+end, {desc = "Next todo comment"})
+vim.keymap.set("n", "[t", function()
+    require("todo-comments").jump_prev()
+end, {desc = "Previous todo comment"})
