@@ -18,8 +18,8 @@ local config_path = vim.fn.stdpath("config")
 vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>")
 vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plugins/remap.lua<CR>")
 vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>")
-vim.keymap
-    .set("n", "<leader><leader>c", "<cmd> so " .. config_path .. "/after/plugin/color.lua<CR>")
+vim.keymap.set("n", "<leader><leader>c",
+    "<cmd> so " .. config_path .. "/after/plugin/color/color.lua<CR>")
 vim.keymap.set("n", "<leader><leader>t",
     "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>")
 vim.keymap.set("n", "<leader><leader>l",
@@ -326,7 +326,6 @@ vim.keymap.set({"o", "x"}, "ai", function()
 end)
 
 -- todo-comments
-
 vim.keymap.set("n", "]t", function()
     require("todo-comments").jump_next()
 end, {desc = "Next todo comment"})
