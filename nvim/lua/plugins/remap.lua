@@ -267,9 +267,6 @@ vim.keymap.set("n", "<leader>D", "\"_d")
 -- paste without affecting registers
 vim.keymap.set("v", "p", "\"_dP")
 
--- tagbar
-vim.keymap.set("n", "<leader>tb", "<cmd>TagbarToggle<CR>")
-
 -- select all
 vim.keymap.set("n", "<leader>va", "ggVG")
 

@@ -194,9 +194,6 @@ return require('packer').startup({
         -- icon picker
         use 'ziontee113/icon-picker.nvim'
 
-        -- tagbar
-        use 'preservim/tagbar'
-
         -- symbols-outline
         use 'simrat39/symbols-outline.nvim'
 
