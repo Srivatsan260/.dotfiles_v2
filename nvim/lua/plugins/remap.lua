@@ -295,9 +295,7 @@ vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-if vim.bo.filetype ~= "lua" then
-    vim.keymap.set('n', '<leader>=', vim.lsp.buf.format)
-end
+if vim.bo.filetype ~= "lua" then vim.keymap.set('n', '<leader>=', vim.lsp.buf.format) end
 
 -- more textobjs
 vim.keymap.set({"o", "x"}, "iS", function()
