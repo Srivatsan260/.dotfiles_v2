@@ -13,7 +13,6 @@ local sources = {
     null_ls.builtins.diagnostics.mypy, null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.rstcheck,
     null_ls.builtins.diagnostics.sqlfluff.with({extra_args = {"--dialect", "snowflake"}}),
-    null_ls.builtins.diagnostics.todo_comments,
     -- hovers
     null_ls.builtins.hover.printenv
 }
