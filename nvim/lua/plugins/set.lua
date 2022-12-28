@@ -7,6 +7,7 @@ local opts = {
     colorcolumn = "100",
     completeopt = {"menuone", "noselect"},
     expandtab = true,
+    exrc = true,
     foldexpr = 'nvim_treesitter#foldexpr()',
     foldmethod = 'expr',
     grepformat = "%f:%l:%c:%m",

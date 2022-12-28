@@ -208,9 +208,6 @@ return require('packer').startup({
 
         use 'MunifTanjim/nui.nvim'
 
-        -- exrc
-        use 'MunifTanjim/exrc.nvim'
-
         -- cellular automaton
         use 'Eandrju/cellular-automaton.nvim'
 
