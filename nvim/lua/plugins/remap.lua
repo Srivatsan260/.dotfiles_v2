@@ -94,7 +94,7 @@ vim.keymap.set("n", "<S-Tab>", function()
 end, {expr = true})
 
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
-vim.keymap.set("n", "<leader>tg", "<cmd>Telescope tags<CR>")
+vim.keymap.set("n", "<leader>tg", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>")
 vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>")
 vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>")
