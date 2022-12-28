@@ -96,15 +96,15 @@ vim.g['conjure#client_on_load'] = false
 vim.g['test#strategy'] = 'floaterm'
 
 -- TODO: write this in lua
-vim.cmd [[
-    let g:firenvim_config = {
-        \ 'globalSettings': {
-            \ 'alt': 'all',
-        \  },
-        \ 'localSettings': {
-            \ '.*': {
-                \ 'selector': 'textarea',
-            \ },
-        \ }
-    \ }
-]]
+-- vim.cmd [[
+--     let g:firenvim_config = {
+--         \ 'globalSettings': {
+--             \ 'alt': 'all',
+--         \  },
+--         \ 'localSettings': {
+--             \ '.*': {
+--                 \ 'selector': 'textarea',
+--             \ },
+--         \ }
+--     \ }
+-- ]]

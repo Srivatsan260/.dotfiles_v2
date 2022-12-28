@@ -224,12 +224,12 @@ return require('packer').startup({
         use 'gpanders/editorconfig.nvim'
 
         -- firenvim
-        use {
-            'glacambre/firenvim',
-            run = function()
-                vim.fn['firenvim#install'](0)
-            end
-        }
+        -- use {
+        --     'glacambre/firenvim',
+        --     run = function()
+        --         vim.fn['firenvim#install'](0)
+        --     end
+        -- }
     end,
     config = {
         display = {
