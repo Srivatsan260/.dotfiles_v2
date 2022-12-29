@@ -12,46 +12,55 @@ vim.keymap.set("n", "K", function()
     else
         vim.lsp.buf.hover()
     end
-end)
+end, {desc = "Man / Cargo help"})
 
 local config_path = vim.fn.stdpath("config")
-vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>")
-vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plugins/remap.lua<CR>")
-vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>")
+vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>",
+    {desc = "source init.lua"})
+vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plugins/remap.lua<CR>",
+    {desc = "source remap.lua"})
+vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>",
+    {desc = "source set.lua"})
 vim.keymap.set("n", "<leader><leader>c",
-    "<cmd> so " .. config_path .. "/after/plugin/color/color.lua<CR>")
+    "<cmd> so " .. config_path .. "/after/plugin/color/color.lua<CR>", {desc = "source color.lua"})
 vim.keymap.set("n", "<leader><leader>t",
-    "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>")
+    "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>",
+    {desc = "source treesitter.lua"})
 vim.keymap.set("n", "<leader><leader>l",
-    "<cmd> so " .. config_path .. "/after/plugin/lsp/lsp_zero.lua<CR>")
+    "<cmd> so " .. config_path .. "/after/plugin/lsp/lsp_zero.lua<CR>",
+    {desc = "source lsp_zero.lua"})
 
 -- copy file name to + register
-vim.keymap.set("n", "<leader>cf", "<cmd>let @+=@%<CR>") -- absolute filepath
-vim.keymap.set("n", "<leader>cF", "<cmd>let @+=expand('%:t')<CR>") -- filename
+vim.keymap.set("n", "<leader>cf", "<cmd>let @+=@%<CR>",
+    {desc = "copy file name including path from cwd root to clipboard"}) -- absolute filepath
+vim.keymap.set("n", "<leader>cF", "<cmd>let @+=expand('%:t')<CR>",
+    {desc = "copy file name to clipboard"}) -- filename
 
 -- window switching
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-h>", "<C-w>h", {desc = "window left"})
+vim.keymap.set("n", "<C-j>", "<C-w>j", {desc = "window down"})
+vim.keymap.set("n", "<C-k>", "<C-w>k", {desc = "window up"})
+vim.keymap.set("n", "<C-l>", "<C-w>l", {desc = "window right"})
 
 -- tab switching
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>")
-vim.keymap.set("n", "<leader>t.", "<cmd>tabnext<CR>")
-vim.keymap.set("n", "<leader>t,", "<cmd>tabprev<CR>")
-vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>")
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", {desc = "open new tab"})
+vim.keymap.set("n", "<leader>t.", "<cmd>tabnext<CR>", {desc = "next tab"})
+vim.keymap.set("n", "<leader>t,", "<cmd>tabprev<CR>", {desc = "previous tab"})
+vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", {desc = "close current tab"})
 
 -- netrw
-vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>")
+vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", {desc = "open netrw"})
 
 -- Floaterm
-vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<CR>")
-vim.keymap.set("n", "<leader>fl", "<cmd>Floaterms<CR>")
-vim.keymap.set("n", "<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ")
+vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<CR>", {desc = "toggle floaterm window"})
+vim.keymap.set("n", "<leader>fl", "<cmd>Floaterms<CR>", {desc = "list floaterms"})
+vim.keymap.set("n", "<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ",
+    {desc = "new floaterm window with custom command"})
 vim.keymap.set("n", "<leader>fr",
-    "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>")
+    "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>",
+    {desc = "open ranger in a new floaterm window"})
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-\\>", "<cmd>FloatermToggle<CR>")
+vim.keymap.set("t", "<C-\\>", "<cmd>FloatermToggle<CR>", {desc = "toggle floaterm window"})
 -- Floaterm window switching
 vim.keymap.set("t", "<C-h>", function()
     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>"
@@ -67,31 +76,31 @@ vim.keymap.set("t", "<C-l>", function()
 end, {expr = true, desc = "window right (terminal mode)"})
 
 -- treesitter highlighting
-vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>")
-vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>")
+vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>", {desc = "toggle treesitter highlights"})
+vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>", {desc = "toggle treesitter playground"})
 
-vim.keymap.set("n", "<leader>tj", "<cmd>TSJToggle<CR>")
+vim.keymap.set("n", "<leader>tj", "<cmd>TSJToggle<CR>", {desc = "toggle treesj join"})
 
 -- FZF / telescope / lazygit
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>")
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>")
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>", {desc = "Telescope find_files"})
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>", {desc = "Telescope file_browser"})
 -- vim.keymap.set("n", "<C-p>", "<cmd>Files<CR>")
-vim.keymap.set("n", "<leader>cs", "<cmd>Telescope colorscheme<CR>")
-vim.keymap.set("n", "<leader>ct", "<cmd>! ctags -R<CR>")
-vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>")
-vim.keymap.set("n", "<leader>pd", "<cmd>GrepInDirectory<CR>")
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>")
-vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles theme=ivy<CR>")
-vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>")
-vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>")
+vim.keymap.set("n", "<leader>cs", "<cmd>Telescope colorscheme<CR>", {desc = "List colorschemes in telescope"})
+vim.keymap.set("n", "<leader>ct", "<cmd>! ctags -R<CR>", {desc = "generate ctags"})
+vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>", {desc = "find file in directory"})
+vim.keymap.set("n", "<leader>pd", "<cmd>GrepInDirectory<CR>", {desc = "grep in directory"})
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", {desc = "grep in workspace"})
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>", {desc = "fuzzy find in current buffer"})
+vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles theme=ivy<CR>", {desc = "show recent files using telescope"})
+vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>", {desc = "list open buffers"})
+vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>", {desc = "list directories using zoxide"})
 
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
-end, {expr = true})
+end, {expr = true, desc = "next buffer"})
 vim.keymap.set("n", "<S-Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
-end, {expr = true})
+end, {expr = true, desc = "previous buffer"})
 
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
 -- INFO: This remap works only if LSP is running (obviously) :/
