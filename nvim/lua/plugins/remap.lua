@@ -55,16 +55,16 @@ vim.keymap.set("t", "<C-\\>", "<cmd>FloatermToggle<CR>")
 -- Floaterm window switching
 vim.keymap.set("t", "<C-h>", function()
     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>"
-end, {expr = true})
+end, {expr = true, desc = "window left (terminal mode)"})
 vim.keymap.set("t", "<C-j>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-j>"
-end, {expr = true})
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>j" or "<C-j>"
+end, {expr = true, desc = "window down (terminal mode)"})
 vim.keymap.set("t", "<C-k>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-k>"
-end, {expr = true})
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>k" or "<C-k>"
+end, {expr = true, desc = "window up (terminal mode)"})
 vim.keymap.set("t", "<C-l>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-l>"
-end, {expr = true})
+    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>l" or "<C-l>"
+end, {expr = true, desc = "window right (terminal mode)"})
 
 -- treesitter highlighting
 vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>")
