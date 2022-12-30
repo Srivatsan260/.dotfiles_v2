@@ -36,6 +36,7 @@ local opts = {
     swapfile = false,
     tabstop = 4,
     termguicolors = true,
+    timeoutlen = 250,
     undofile = true,
     updatetime = 250,
     winbar = "%f %m",
