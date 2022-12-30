@@ -39,7 +39,7 @@ local opts = {
     timeoutlen = 250,
     undofile = true,
     updatetime = 250,
-    winbar = "%f %m",
+    -- winbar = "%f %m",
     wrap = true
 }
 for key, value in pairs(opts) do vim.opt[key] = value end
