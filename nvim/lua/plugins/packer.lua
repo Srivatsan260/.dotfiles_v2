@@ -18,8 +18,6 @@ return require('packer').startup({
     function(use)
         use 'wbthomason/packer.nvim'
 
-        if packer_bootstrap then require("packer").sync() end
-
         use 'nvim-lua/plenary.nvim'
 
         -- themes
@@ -227,6 +225,8 @@ return require('packer').startup({
         --         vim.fn['firenvim#install'](0)
         --     end
         -- }
+
+        if packer_bootstrap then require("packer").sync() end
     end,
     config = {
         display = {
