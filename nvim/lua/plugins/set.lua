@@ -12,8 +12,8 @@ local opts = {
     foldmethod = 'expr',
     grepformat = "%f:%l:%c:%m",
     grepprg = "rg --vimgrep --no-heading --smart-case",
-    hlsearch = false,
     guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
+    hlsearch = false,
     ignorecase = true,
     inccommand = "split",
     incsearch = true,
@@ -79,8 +79,8 @@ local global_opts = {
     tagbar_foldlevel = 2,
     tagbar_sort = 0,
     undotree_SetFocusWhenToggle = 1,
-    vimwiki_list = {{path = '~/.vimwiki/'}},
-    vimwiki_global_ext = 0
+    vimwiki_global_ext = 0,
+    vimwiki_list = {{path = '~/.vimwiki/'}}
     -- loaded_netrw = 1
     -- loaded_netrwPlugin = 1
 }
