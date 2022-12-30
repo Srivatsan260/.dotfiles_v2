@@ -68,7 +68,7 @@ lualine.setup {
         lualine_a = {'mode'},
         lualine_b = {'branch'},
         lualine_c = {
-            '%=', {'filename', path = 1, newfile_status = true}, 'filesize', 'diff', 'diagnostics'
+            '%=', {'filename', path = 0, newfile_status = true}, 'filesize', 'diff', 'diagnostics'
         },
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'location', 'progress'},
