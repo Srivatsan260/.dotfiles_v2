@@ -268,71 +268,71 @@ vim.keymap.set("v", ">", ">gv", {desc = "indent visual selection right and retai
 
 -- resize splits
 -- TODO: fix this for all splits
-vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>")
-vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>")
-vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>")
-vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>")
+vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>", {desc = "reduce vertical split size"})
+vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", {desc = "increase vertical split size"})
+vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>", {desc = "decrease horizontal split size"})
+vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>", {desc = "increase horizontal split size"})
 
 -- delete without affecting registers
-vim.keymap.set("n", "<leader>D", "\"_d")
+vim.keymap.set("n", "<leader>D", "\"_d", {desc = "delete but using _ register"})
 
 -- paste without affecting registers
-vim.keymap.set("v", "p", "\"_dP")
+vim.keymap.set("v", "p", "\"_dP", {desc = "paste but using _ register"})
 
 -- select all
-vim.keymap.set("n", "<leader>va", "ggVG")
+vim.keymap.set("n", "<leader>va", "ggVG", {desc = "visual select all"})
 
 -- yank all
-vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>")
+vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 
 -- navigate quickfix
-vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>")
-vim.keymap.set("n", "<localleader>.", "<cmd>cnext<CR>")
-vim.keymap.set("n", "<localleader>,", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", {desc = "open quickfix list"})
+vim.keymap.set("n", "<localleader>.", "<cmd>cnext<CR>", {desc = "next quickfix item"})
+vim.keymap.set("n", "<localleader>,", "<cmd>cprev<CR>", {desc = "previous quickfix item"})
 
 -- coderunner
-vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>", {desc = "run current file using coderunner"})
 
 -- clearjumps
-vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>")
-vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>")
+vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>", {desc = "clear jumplist"})
+vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>", {desc = "open jumplist in Telescope"})
 
 -- open zshrc and zshenv
-vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>")
-vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>")
+vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>", {desc = "open .zshrc"})
+vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>", {desc = "open .zshenv"})
 
 -- universal diagnostic / lsp remaps
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
-if vim.bo.filetype ~= "lua" then vim.keymap.set('n', '<leader>=', vim.lsp.buf.format) end
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, {desc = "open diagnostic float"})
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {desc = "goto previous diagnostic"})
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {desc = "goto next diagnostic"})
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, {desc = "add buffer diagnostics to loclist"})
+if vim.bo.filetype ~= "lua" then vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, {desc = "lsp buf format"}) end
 
 -- more textobjs
 vim.keymap.set({"o", "x"}, "iS", function()
     require("various-textobjs").subword(true)
-end)
+end, {desc = "visual select in subword"})
 vim.keymap.set({"o", "x"}, "aS", function()
     require("various-textobjs").subword(false)
-end)
+end, {desc = "visual select around subword"})
 vim.keymap.set({"o", "x"}, "iv", function()
     require("various-textobjs").value(true)
-end)
+end, {desc = "visual select in value"})
 vim.keymap.set({"o", "x"}, "av", function()
     require("various-textobjs").value(false)
-end)
+end, {desc = "visual select around value"})
 vim.keymap.set({"o", "x"}, "in", function()
     require("various-textobjs").number(true)
-end)
+end, {desc = "visual select in number"})
 vim.keymap.set({"o", "x"}, "an", function()
     require("various-textobjs").number(false)
-end)
+end, {desc = "visual select around number"})
 vim.keymap.set({"o", "x"}, "ii", function()
     require("various-textobjs").indentation(true, true)
-end)
+end, {desc = "visual select in indent"})
 vim.keymap.set({"o", "x"}, "ai", function()
     require("various-textobjs").indentation(false, false)
-end)
+end, {desc = "visual select around indent"})
 
 -- todo-comments
 vim.keymap.set("n", "]t", function()
