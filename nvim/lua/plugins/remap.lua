@@ -345,3 +345,6 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs 
 
 -- symbols outline
 vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
+
+-- escape with jk
+vim.keymap.set("i", "jk", "<Esc>")
