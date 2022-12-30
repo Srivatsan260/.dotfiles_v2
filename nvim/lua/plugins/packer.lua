@@ -226,9 +226,6 @@ return require('packer').startup({
         --     end
         -- }
 
-        -- better-escape
-        use 'max397574/better-escape.nvim'
-
         if packer_bootstrap then require("packer").sync() end
     end,
     config = {

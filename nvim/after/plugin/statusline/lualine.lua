@@ -51,10 +51,6 @@ local theme = {
     }
 }
 
-local function escape_status()
-    local ok, m = pcall(require, 'better_escape')
-    return ok and m.waiting and '✺' or ""
-end
 
 lualine.setup {
     -- "┃", "█", "", "", "", "", "", "", "●"
@@ -73,7 +69,7 @@ lualine.setup {
         lualine_a = {'mode'},
         lualine_b = {'branch'},
         lualine_c = {'%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'},
-        lualine_x = {escape_status, 'encoding', 'fileformat', 'filetype'},
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'location', 'progress'},
         lualine_z = {''}
     },
