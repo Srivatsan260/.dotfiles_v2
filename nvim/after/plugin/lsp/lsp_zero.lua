@@ -2,7 +2,7 @@ local lsp_ok, lsp = pcall(require, "lsp-zero")
 
 -- neovim code helper
 local neodev_ok, neodev = pcall(require, "neodev")
-if neodev_ok then require('neodev').setup {} end
+if neodev_ok then neodev.setup {} end
 
 if not lsp_ok then return end
 
