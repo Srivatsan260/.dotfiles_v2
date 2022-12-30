@@ -102,40 +102,40 @@ vim.keymap.set("n", "<S-Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
 end, {expr = true, desc = "previous buffer"})
 
-vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>")
+vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", {desc = "show help tags in Telescope"})
 -- INFO: This remap works only if LSP is running (obviously) :/
-vim.keymap.set("n", "<leader>tg", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>")
-vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>")
-vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>")
-vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>")
-vim.keymap.set("n", "<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>")
-vim.keymap.set("n", "<leader>R", "<cmd>Gitsigns reset_hunk<CR>")
-vim.keymap.set("n", "<leader>S", "<cmd>Gitsigns stage_hunk<CR>")
-vim.keymap.set("v", "<leader>S", ":'<,'>Gitsigns stage_hunk<CR>")
-vim.keymap.set("n", "<leader>U", "<cmd>Gitsigns undo_stage_hunk<CR>")
-vim.keymap.set("v", "<leader>U", ":'<,'>Gitsigns undo_stage_hunk<CR>")
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>")
-vim.keymap.set("n", "<leader>gO", "<cmd>LazyGitConfig<CR>")
-vim.keymap.set("n", "<leader>gf", "<cmd>GitFiles<CR>")
-vim.keymap.set("n", "<leader>gn", ":Git checkout -b ")
-vim.keymap.set("n", "<leader>gr", "<cmd>Telescope grep_string<CR>")
+vim.keymap.set("n", "<leader>tg", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", {desc = "list all symbols in workspace (uses LSP)"})
+vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>", {desc = "list git branches"})
+vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>", {desc = "next hunk in buffer"})
+vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", {desc = "prev hunk in buffer"})
+vim.keymap.set("n", "<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>", {desc = "preview current hunk inline"})
+vim.keymap.set("n", "<leader>R", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset current hunk"})
+vim.keymap.set("n", "<leader>S", "<cmd>Gitsigns stage_hunk<CR>", {desc = "stage current hunk"})
+vim.keymap.set("v", "<leader>S", ":'<,'>Gitsigns stage_hunk<CR>", {desc = "stage current hunk (visual mode)"})
+vim.keymap.set("n", "<leader>U", "<cmd>Gitsigns undo_stage_hunk<CR>", {desc = "unstage current hunk"})
+vim.keymap.set("v", "<leader>U", ":'<,'>Gitsigns undo_stage_hunk<CR>", {desc = "unstage current hunk (visual mode)"})
+vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", {desc = "Open lazygit"})
+vim.keymap.set("n", "<leader>gO", "<cmd>LazyGitConfig<CR>", {desc = "Open lazygit config file"})
+vim.keymap.set("n", "<leader>gf", "<cmd>GitFiles<CR>", {desc = "list git files (FZF)"})
+vim.keymap.set("n", "<leader>gn", ":Git checkout -b ", {desc = "checkout new branch"})
+vim.keymap.set("n", "<leader>gr", "<cmd>Telescope grep_string<CR>", {desc = "grep for cword in workspace"})
 vim.keymap.set("n", "<leader>gR", function()
     local search = vim.fn.input({prompt = "Search for: ", default = ""})
     if search == "" then return end
     vim.cmd("Telescope grep_string search=" .. search)
-end)
-vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>")
+end, {desc = "grep for user input in workspace"})
+vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>", {desc = "show git status in Telescope"})
 -- vim.keymap.set("n", "<leader>gl", "<cmd>Telescope git_bcommits<CR>")
-vim.keymap.set("n", "<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>")
-vim.keymap.set("n", "<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>")
-vim.keymap.set("n", "<leader>dvH", ":DiffviewOpen HEAD~")
-vim.keymap.set("n", "<leader>dvl", "<cmd>DiffviewFileHistory<CR>")
-vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen<CR>")
-vim.keymap.set("n", "<leader>ft", "<cmd>Telescope filetypes<CR>")
+vim.keymap.set("n", "<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>", {desc = "show git log for current file in lazygit"})
+vim.keymap.set("n", "<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>", {desc = "dif HEAD with HEAD~1"})
+vim.keymap.set("n", "<leader>dvH", ":DiffviewOpen HEAD~", {desc = "diff HEAD with HEAD~n"})
+vim.keymap.set("n", "<leader>dvl", "<cmd>DiffviewFileHistory<CR>", {desc = "git log in diff window"})
+vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen<CR>", {desc = "open Diffview"})
+vim.keymap.set("n", "<leader>ft", "<cmd>Telescope filetypes<CR>", {desc = "list available filetypes in Telescope"})
 
 vim.keymap.set("n", "<leader>gwl", function()
     require("telescope").extensions.git_worktree.git_worktrees()
-end, {silent = true})
+end, {silent = true, desc = "list git worktrees in Telescope"})
 vim.keymap.set("n", "<leader>gws", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
@@ -143,7 +143,7 @@ vim.keymap.set("n", "<leader>gws", function()
         return
     end
     require("telescope").extensions.git_worktree.create_git_worktree()
-end)
+end, {desc = "switch to another git worktree using Telescope"})
 -- TODO: add git worktree fetch remap?
 vim.keymap.set("n", "<leader>gwc", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
@@ -162,7 +162,7 @@ vim.keymap.set("n", "<leader>gwc", function()
     vim.cmd("!git branch " .. branch .. " " .. parent_branch)
     vim.cmd("!git worktree add ../" .. path .. " " .. branch)
     require("git-worktree").switch_worktree(path)
-end)
+end, {desc = "create new git worktree using Telescope"})
 -- TODO: check how to add telescope mapping and get rid of this
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
@@ -180,7 +180,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
     vim.cmd(cmd)
     vim.cmd.copen()
-end)
+end, {desc = "update git worktree"})
 local function async_git_op(op)
     local fun = function()
         vim.cmd("AsyncRun -cwd=./ git " .. op)
@@ -188,55 +188,57 @@ local function async_git_op(op)
     end
     return fun
 end
-vim.keymap.set("n", "<leader>G", "<cmd>Git<CR>")
-vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>")
-vim.keymap.set("n", "<leader>gf", async_git_op("fetch"))
-vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"))
-vim.keymap.set("n", "<leader>gP", async_git_op("push"))
+vim.keymap.set("n", "<leader>G", "<cmd>Git<CR>", {desc = "open fugitive"})
+vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>", {desc = "commit using fugitive"})
+vim.keymap.set("n", "<leader>gf", async_git_op("fetch"), {desc = "async git fetch"})
+vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"), {desc = "async git pull"})
+vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"})
 
 -- undotree
-vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>")
+vim.keymap.set("n", "<leader>u", "<cmd>UndotreeToggle<CR>", {desc = "toggle undotree"})
 
 -- search & replace current word
-vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", {desc = "search and replace cword in buffer"})
 
 -- dap
 vim.keymap.set("n", "<leader>du", function()
     require('dapui').toggle()
-end)
-vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
+end, {desc = "toggle dap ui"})
+vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", {desc = "toggle debug breakpoint"})
 vim.keymap.set("n", "<leader>dB", function()
     require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))
-end)
-vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>")
-vim.keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>")
-vim.keymap.set("n", "<leader>do", "<cmd>DapStepOut<CR>")
-vim.keymap.set("n", "<leader>dO", "<cmd>DapStepOver<CR>")
-vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>")
-vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>")
+end, {desc = "toggle conditional breakpoint"})
+vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", {desc = "debug continue"})
+vim.keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>", {desc = "debug step into"})
+vim.keymap.set("n", "<leader>do", "<cmd>DapStepOut<CR>", {desc = "debug step out"})
+vim.keymap.set("n", "<leader>dO", "<cmd>DapStepOver<CR>", {desc = "debug step over"})
+vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>", {desc = "terminate current debug session"})
+
+-- Trouble
+vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>", {desc = "show document_diagnostics in Trouble window"})
 
 -- select all with ctrl-a
 -- vim.keymap.set("n", "<C-a>", "ggVG")
 -- save file with ctrl-s
-vim.keymap.set("n", "<C-s>", "<cmd>w<CR>")
-vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>")
+vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
+vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
 
 -- harpoon
 vim.keymap.set("n", "<leader>H", function()
     require('harpoon.ui').toggle_quick_menu()
-end)
+end, {desc = "open Harpoon"})
 vim.keymap.set("n", "<leader>;", function()
     require('harpoon.mark').add_file()
-end)
+end, {desc = "set harpoon mark"})
 for i = 1, 9 do
     vim.keymap.set("n", "<leader>" .. i, function()
         require('harpoon.ui').nav_file(i)
         vim.cmd [[ normal zz ]]
-    end)
+    end, {desc = "goto harpoon " .. i})
 end
 
 -- nvim-tree
--- vim.keymap.set("n", "<leader>,", "<cmd>NvimTreeToggle<CR>")
+-- vim.keymap.set("n", "<leader>,", "<cmd>NvimTreeToggle<CR>", {desc = "toggle nvim-tree"})
 
 -- rest-nvim
 vim.keymap.set("n", "<localleader>rn", "<Plug>RestNvim<CR>")
@@ -244,25 +246,25 @@ vim.keymap.set("n", "<localleader>rp", "<Plug>RestNvimPreview<CR>")
 vim.keymap.set("n", "<localleader>rl", "<Plug>RestNvimLast<CR>")
 
 -- delete all buffers except current
-vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>")
+vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>", {desc = "delete all buffers except current"})
 
 -- add zz to nav remaps
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "G", "Gzz")
-vim.keymap.set("n", "n", "nzzzv")
-vim.keymap.set("n", "N", "Nzzzv")
-vim.keymap.set("n", "<C-o>", "<C-o>zz")
-vim.keymap.set("n", "<C-i>", "<C-i>zz")
+vim.keymap.set("n", "<C-d>", "<C-d>zz", {desc = "ctrl-d and center"})
+vim.keymap.set("n", "<C-u>", "<C-u>zz", {desc = "ctrl-u and center"})
+vim.keymap.set("n", "G", "Gzz", {desc = "G and center"})
+vim.keymap.set("n", "n", "nzzzv", {desc = "next search result and center while not opening all the folds"})
+vim.keymap.set("n", "N", "Nzzzv", {desc = "previous search result and center while not opening all the folds"})
+vim.keymap.set("n", "<C-o>", "<C-o>zz", {desc = "older position in jumplist and center"})
+vim.keymap.set("n", "<C-i>", "<C-i>zz", {desc = "newer position in jumplist and center"})
 vim.keymap.set("c", "<CR>", function()
     return vim.fn.getcmdtype() == '/' and '<CR>zzzv' or '<CR>'
-end, {expr = true})
+end, {expr = true, desc = {"center after hitting first search result"}})
 
 -- move lines around in visual mode
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<", "<gv")
-vim.keymap.set("v", ">", ">gv")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", {desc = "move visual selection down"})
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", {desc = "move visual selection up"})
+vim.keymap.set("v", "<", "<gv", {desc = "indent visual selection left and retain selection"})
+vim.keymap.set("v", ">", ">gv", {desc = "indent visual selection right and retain selection"})
 
 -- resize splits
 -- TODO: fix this for all splits
