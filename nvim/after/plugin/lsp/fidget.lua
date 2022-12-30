@@ -1,4 +1,7 @@
-require("fidget").setup({
+local fidget_ok, fidget = pcall(require, "fidget")
+if not fidget_ok then return end
+
+fidget.setup({
     text = {
         spinner = "meter", -- animation shown when tasks are ongoing
         done = "✔", -- character shown when all tasks are complete

@@ -1,4 +1,7 @@
-require("todo-comments").setup({
+local t_ok, todo = pcall(require, "todo-comments")
+if not t_ok then return end
+
+todo.setup({
     signs = true, -- show icons in the signs column
     sign_priority = 8, -- sign priority
     -- keywords recognized as todo comments
@@ -33,7 +36,7 @@ require("todo-comments").setup({
         keyword = "wide", -- "fg", "bg", "wide", "wide_bg", "wide_fg" or empty. (wide and wide_bg is the same as bg, but will also highlight surrounding characters, wide_fg acts accordingly but with fg)
         after = "fg", -- "fg" or "bg" or empty
         -- TODO: Fix highlighting
-        pattern = [[.*<(KEYWORDS)\s*:]], -- pattern or table of patterns, used for highlightng (vim regex)
+        pattern = [[.*\-\- (KEYWORDS).*]], -- pattern or table of patterns, used for highlightng (vim regex)
         comments_only = true, -- uses treesitter to match keywords in comments only
         max_line_len = 400, -- ignore lines longer than this
         exclude = {} -- list of file types to exclude highlighting

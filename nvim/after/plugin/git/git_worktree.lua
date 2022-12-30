@@ -1,4 +1,7 @@
-require("git-worktree").setup({
+local worktree_ok, worktree = pcall(require, "git-worktree")
+if not worktree_ok then return end
+
+worktree.setup({
     change_directory_command = "cd", -- default: "cd",
     update_on_change = true, -- default: true,
     update_on_change_command = "e .", -- default: "e .",
@@ -6,7 +9,6 @@ require("git-worktree").setup({
     autopush = false -- default: false,
 })
 
-local worktree = require("git-worktree")
 worktree.on_tree_change(function()
     -- TODO: handle open term buffers when switching
     local branch_name = vim.fn.system("!git rev-parse --abbrev-ref HEAD")

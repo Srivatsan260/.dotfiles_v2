@@ -1,4 +1,7 @@
-require("rest-nvim").setup({
+local r_ok, rest_nvim = pcall(require, "rest-nvim")
+if not r_ok then return end
+
+rest_nvim.setup({
     -- Open request results in a horizontal split
     result_split_horizontal = false,
     -- Keep the http file buffer above|left when split horizontal|vertical

@@ -1,4 +1,6 @@
-local tsj = require('treesj')
+local tsj_ok, tsj = pcall(require, "treesj")
+if not tsj_ok then return end
+
 local tsj_utils = require('treesj.langs.utils')
 
 local langs = {

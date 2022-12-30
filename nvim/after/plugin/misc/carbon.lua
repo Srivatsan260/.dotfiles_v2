@@ -1,4 +1,7 @@
-require('carbon-now').setup {
+local c_ok, carbon = pcall(require, "carbon-now")
+if not c_ok then return end
+
+carbon.setup {
     base_url = "https://carbon.now.sh/",
     open_cmd = "open",
     options = {

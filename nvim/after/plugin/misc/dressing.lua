@@ -1,4 +1,7 @@
-require('dressing').setup({
+local d_ok, dressing = pcall(require, "dressing")
+if not d_ok then return end
+
+dressing.setup({
     input = {
         -- Set to false to disable the vim.ui.input implementation
         enabled = true,

@@ -1,4 +1,7 @@
-require('crates').setup {
+local crates_ok, crates = pcall(require, "crates")
+if not crates_ok then return end
+
+crates.setup {
     smart_insert = true,
     insert_closing_quote = true,
     avoid_prerelease = true,

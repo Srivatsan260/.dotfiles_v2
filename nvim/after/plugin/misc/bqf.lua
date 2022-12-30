@@ -1,4 +1,7 @@
-require("bqf").setup {
+local b_ok, bqf = pcall(require ,"bqf")
+if not b_ok then return end
+
+bqf.setup {
     auto_enable = true,
     magic_window = true,
     auto_resize_height = false,

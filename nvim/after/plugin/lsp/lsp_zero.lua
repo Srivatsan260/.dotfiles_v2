@@ -1,7 +1,10 @@
-local lsp = require('lsp-zero')
+local lsp_ok, lsp = pcall(require, "lsp-zero")
 
 -- neovim code helper
-require('neodev').setup {}
+local neodev_ok, neodev = pcall(require, "neodev")
+if neodev_ok then require('neodev').setup {} end
+
+if not lsp_ok then return end
 
 lsp.preset('recommended')
 lsp.ensure_installed({

@@ -1,4 +1,7 @@
-require("colorful-winsep").setup({
+local w_ok, winsep = pcall(require, "colorful-winsep")
+if not w_ok then return end
+
+winsep.setup({
     -- highlight for Window separator
     highlight = {bg = "none", fg = "#78a9ff"},
     -- timer refresh rate

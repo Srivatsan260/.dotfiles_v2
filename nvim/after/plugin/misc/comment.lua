@@ -1,4 +1,7 @@
-require('Comment').setup {
+local c_ok, comment = pcall(require, "Comment")
+if not c_ok then return end
+
+comment.setup {
     ---Add a space b/w comment and the line
     padding = true,
     ---Whether the cursor should stay at its position

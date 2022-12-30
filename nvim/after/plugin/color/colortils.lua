@@ -1,4 +1,7 @@
-require("colortils").setup({
+local colortils_ok, colortils = pcall(require, "colortils")
+if not colortils_ok then return end
+
+colortils.setup({
     -- Register in which color codes will be copied
     register = "+",
     -- Preview for colors, if it contains `%s` this will be replaced with a hex color code of the color

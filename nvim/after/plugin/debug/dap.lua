@@ -1,4 +1,5 @@
-local dap = require('dap')
+local dap_ok, dap = pcall(require, 'dap')
+if not dap_ok then return end
 
 local py_virtual_env = os.getenv("VIRTUAL_ENV")
 if py_virtual_env ~= nil then
@@ -35,7 +36,10 @@ dap.configurations.rust = {
 }
 
 -- require('dapui').setup {}
-require("dapui").setup({
+local dapui_ok, dapui = pcall(require, "dapui")
+if not dapui_ok then return end
+
+dapui.setup({
     icons = {expanded = "▾", collapsed = "▸"},
     mappings = {
         -- Use a table to apply multiple mappings

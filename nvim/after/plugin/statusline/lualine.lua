@@ -1,3 +1,6 @@
+local lualine_ok, lualine = pcall(require, "lualine")
+if not lualine_ok then return end
+
 local colors = {
     black = "#000000",
     default = "#78A9FF",
@@ -53,7 +56,7 @@ local function escape_status()
     return ok and m.waiting and '✺' or ""
 end
 
-require('lualine').setup {
+lualine.setup {
     -- "┃", "█", "", "", "", "", "", "", "●"
     options = {
         icons_enabled = true,

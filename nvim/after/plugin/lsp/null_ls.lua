@@ -1,4 +1,5 @@
-local null_ls = require("null-ls")
+local null_ok, null_ls = pcall(require, "null-ls")
+if not null_ok then return end
 
 local sources = {
     -- code actions
