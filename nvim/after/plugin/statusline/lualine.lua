@@ -51,7 +51,6 @@ local theme = {
     }
 }
 
-
 lualine.setup {
     -- "┃", "█", "", "", "", "", "", "", "●"
     options = {
@@ -68,7 +67,9 @@ lualine.setup {
     sections = {
         lualine_a = {'mode'},
         lualine_b = {'branch'},
-        lualine_c = {'%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'},
+        lualine_c = {
+            '%=', {'filename', path = 1, newfile_status = true}, 'filesize', 'diff', 'diagnostics'
+        },
         lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'location', 'progress'},
         lualine_z = {''}
@@ -85,7 +86,7 @@ lualine.setup {
     winbar = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = {{'filename', path = 1}},
+        lualine_c = {{'filename', path = 1, newfile_status = true}},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {}
