@@ -31,13 +31,6 @@ local theme_opts = {
     on_highlights = function(highlights, colors)
         highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
         highlights.Folded = {bg = "none", fg = "#78a9ff"}
-        highlights.TelescopeNormal = {bg = "none", fg = colors.fg_float}
-        highlights.TelescopeBorder = {bg = "none", fg = "none"}
-        highlights.TelescopePromptNormal = {bg = "none"}
-        highlights.TelescopePromptBorder = {bg = "none", fg = "none"}
-        highlights.TelescopePromptTitle = {bg = "none", fg = "none"}
-        highlights.TelescopePreviewTitle = {bg = "none", fg = "none"}
-        highlights.TelescopeResultsTitle = {bg = "none", fg = "none"}
         highlights.DiagnosticVirtualTextError = {bg = "none", fg = "#db4b4b"}
         highlights.DiagnosticVirtualTextWarn = {bg = "none", fg = "#e0af68"}
         highlights.DiagnosticVirtualTextInfo = {bg = "none", fg = "#0db9d7"}
