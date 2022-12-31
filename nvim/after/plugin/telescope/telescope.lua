@@ -38,7 +38,7 @@ end
 telescope.setup {
     defaults = {prompt_prefix = ' '},
     extensions = {
-        session_picker = {sessions_dir = vim.g['sessions_dir']},
+        session_picker = {sessions_dir = vim.g.sessions_dir},
         zoxide = zoxide_opts,
         file_browser = {
             -- theme = "dropdown",
