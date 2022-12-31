@@ -41,6 +41,7 @@ local theme_opts = {
 
 M.setup = function()
     require("tokyonight").setup(theme_opts)
+    vim.cmd("colorscheme tokyonight")
 end
 
 return M

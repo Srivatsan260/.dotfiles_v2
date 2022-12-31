@@ -42,6 +42,7 @@ local theme_opts = {
 
 M.setup = function()
     require("onedark").setup(theme_opts)
+    vim.cmd("colorscheme onedark")
 end
 
 return M
