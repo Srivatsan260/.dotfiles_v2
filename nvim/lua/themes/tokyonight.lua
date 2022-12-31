@@ -21,4 +21,24 @@ require("tokyonight").setup({
     hide_inactive_statusline = false, -- Enabling this option, will hide inactive statuslines and replace them with a thin border instead. Should work with the standard **StatusLine** and **LuaLine**.
     dim_inactive = false, -- dims inactive windows
     lualine_bold = true, -- When `true`, section headers in the lualine theme will be bold
+
+    --- You can override specific highlights to use other groups or a hex color
+    --- function will be called with a Highlights and ColorScheme table
+    ---@param highlights Highlights
+    ---@param colors ColorScheme
+    on_highlights = function(highlights, colors)
+        highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
+        highlights.Folded = {bg = "none", fg = "#78a9ff"}
+        highlights.TelescopeNormal = {bg = "none", fg = colors.fg_float}
+        highlights.TelescopeBorder = {bg = "none", fg = "none"}
+        highlights.TelescopePromptNormal = {bg = "none"}
+        highlights.TelescopePromptBorder = {bg = "none", fg = "none"}
+        highlights.TelescopePromptTitle = {bg = "none", fg = "none"}
+        highlights.TelescopePreviewTitle = {bg = "none", fg = "none"}
+        highlights.TelescopeResultsTitle = {bg = "none", fg = "none"}
+        highlights.DiagnosticVirtualTextError = {bg = "none", fg = "#db4b4b"}
+        highlights.DiagnosticVirtualTextWarn = {bg = "none", fg = "#e0af68"}
+        highlights.DiagnosticVirtualTextInfo = {bg = "none", fg = "#0db9d7"}
+        highlights.DiagnosticVirtualTextHint = {bg = "none", fg = "#1abc9c"}
+    end
 })
