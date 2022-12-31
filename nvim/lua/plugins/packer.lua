@@ -30,6 +30,7 @@ return require('packer').startup({
                 require('nightfox').setup {options = {transparent = true}}
             end
         }
+        use {'rose-pine/neovim', as = 'rose-pine'}
 
         -- icons
         use 'kyazdani42/nvim-web-devicons'
