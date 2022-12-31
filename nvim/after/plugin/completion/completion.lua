@@ -1,13 +1,13 @@
 -- luasnip setup
 local luasnip_ok, luasnip = pcall(require, "luasnip")
-if luasnip_ok then
-    luasnip.config.set_config {
-        history = true,
-        updateevents = "TextChanged,TextChangedI",
-        enable_autosnippets = true
-    }
-    require("luasnip.loaders.from_vscode").lazy_load()
-end
+if not luasnip_ok then return end
+luasnip.config.set_config {
+    history = true,
+    updateevents = "TextChanged,TextChangedI",
+    enable_autosnippets = true
+}
+local f_ok, friendly_snippets = pcall(require, "luasnip.loaders.from_vscode")
+if f_ok then friendly_snippets.lazy_load() end
 
 -- nvim-cmp setup
 local cmp_ok, cmp = pcall(require, "cmp")
@@ -21,7 +21,8 @@ if cmp_ok then
         mapping = cmp.mapping.preset.insert({
             ['<C-b>'] = cmp.mapping.scroll_docs(-4),
             ['<C-f>'] = cmp.mapping.scroll_docs(4),
-            ['<C-/>'] = cmp.mapping(cmp.mapping.complete({reason = cmp.ContextReason.Auto}), {"i", "c"}),
+            ['<C-/>'] = cmp.mapping(cmp.mapping.complete({reason = cmp.ContextReason.Auto}),
+                {"i", "c"}),
             ['<CR>'] = cmp.mapping.confirm {behavior = cmp.ConfirmBehavior.Replace, select = true},
             ['<C-k>'] = cmp.mapping(function(fallback)
                 if cmp.visible() then
