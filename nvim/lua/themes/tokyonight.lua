@@ -1,4 +1,6 @@
-require("tokyonight").setup({
+local M = {}
+
+local theme_opts = {
     -- your configuration comes here
     -- or leave it empty to use the default settings
     style = "night", -- The theme comes in three styles, `storm`, `moon`, a darker variant `night` and `day`
@@ -41,4 +43,10 @@ require("tokyonight").setup({
         highlights.DiagnosticVirtualTextInfo = {bg = "none", fg = "#0db9d7"}
         highlights.DiagnosticVirtualTextHint = {bg = "none", fg = "#1abc9c"}
     end
-})
+    }
+
+M.setup = function()
+    require("tokyonight").setup(theme_opts)
+end
+
+return M

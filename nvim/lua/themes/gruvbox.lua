@@ -1,4 +1,6 @@
-require("gruvbox").setup({
+local M = {}
+
+local theme_opts = {
     undercurl = true,
     underline = true,
     bold = true,
@@ -14,4 +16,10 @@ require("gruvbox").setup({
     overrides = {},
     dim_inactive = false,
     transparent_mode = true
-})
+}
+
+M.setup = function()
+    require("gruvbox").setup(theme_opts)
+end
+
+return M

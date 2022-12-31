@@ -1,5 +1,6 @@
--- Lua
-require('onedark').setup {
+local M = {}
+
+local theme_opts = {
     -- Main options --
     style = 'dark', -- Default theme style. Choose between 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer' and 'light'
     transparent = true, -- Show/hide background
@@ -38,3 +39,9 @@ require('onedark').setup {
         background = true -- use background color for virtual text
     }
 }
+
+M.setup = function()
+    require("onedark").setup(theme_opts)
+end
+
+return M
