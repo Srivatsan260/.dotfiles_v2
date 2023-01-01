@@ -182,9 +182,6 @@ return require('packer').startup({
         -- lua-formatter
         use 'andrejlevkovitch/vim-lua-format'
 
-        -- winsep
-        use "nvim-zh/colorful-winsep.nvim"
-
         -- dressing
         use 'stevearc/dressing.nvim'
 
