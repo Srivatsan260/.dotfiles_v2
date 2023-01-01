@@ -240,8 +240,8 @@ vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>",
 vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>",
     {desc = "show document_diagnostics in Trouble window"})
 
--- select all with ctrl-a
--- vim.keymap.set("n", "<C-a>", "ggVG")
+-- yank all
+vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 -- save file with ctrl-s
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
@@ -308,8 +308,6 @@ vim.keymap.set("v", "p", "\"_dP", {desc = "paste but using _ register"})
 -- select all
 vim.keymap.set("n", "<leader>va", "ggVG", {desc = "visual select all"})
 
--- yank all
-vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 
 -- navigate quickfix
 vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", {desc = "open quickfix list"})
