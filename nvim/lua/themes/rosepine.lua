@@ -34,6 +34,7 @@ local theme_opts = {
 
 M.setup = function ()
     require("rose-pine").setup(theme_opts)
+    vim.cmd.colorscheme("rose-pine")
 end
 
 return M

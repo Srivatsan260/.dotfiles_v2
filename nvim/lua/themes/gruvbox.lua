@@ -20,7 +20,7 @@ local theme_opts = {
 
 M.setup = function()
     require("gruvbox").setup(theme_opts)
-    vim.cmd("colorscheme gruvbox")
+    vim.cmd.colorscheme("gruvbox")
 end
 
 return M
