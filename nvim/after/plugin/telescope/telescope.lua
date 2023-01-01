@@ -67,11 +67,16 @@ telescope.setup {
         }
     }
 }
-pcall(telescope.load_extension, 'sessions_picker')
-pcall(telescope.load_extension, 'harpoon')
-pcall(telescope.load_extension, 'git_worktree')
-pcall(telescope.load_extension, 'zoxide')
-pcall(telescope.load_extension, 'file_browser')
+local extensions = {
+    'sessions_picker',
+    'harpoon',
+    'git_worktree',
+    'zoxide',
+    'file_browser',
+}
+for _, ext in pairs(extensions) do
+    pcall(telescope.load_extension, ext)
+end
 
 local dir_ok, dir_telescope = pcall(require, "dir-telescope")
 if dir_ok then dir_telescope.setup {hidden = true} end
