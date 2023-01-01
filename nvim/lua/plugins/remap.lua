@@ -1,4 +1,4 @@
--- TODO: move all plugin-specific remaps to after
+-- TODO: apply remaps only if plugins are installed?
 vim.keymap.set("n", "K", function()
     local crates = require("crates")
     local filetype = vim.bo.filetype
