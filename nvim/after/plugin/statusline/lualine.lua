@@ -1,18 +1,24 @@
 local lualine_ok, lualine = pcall(require, "lualine")
 if not lualine_ok then return end
 
-local colors = {
-    black = "#000000",
-    default = "#78A9FF",
-    innerbg = nil,
-    outerbg = nil,
-    normal = "#78A9FF",
-    insert = "#98EE6C",
-    visual = "#FF90C9",
-    replace = "#E46876",
-    command = "#FFC07A",
-    terminal = '#00FFFF'
-}
+local colors
+local ok, theme_mod = pcall(require, "themes." .. vim.g.global_colorscheme)
+if ok then
+    colors = theme_mod.lualine_colors
+else
+    colors = {
+        black = "#000000",
+        default = "#78A9FF",
+        innerbg = nil,
+        outerbg = nil,
+        normal = "#78A9FF",
+        insert = "#98EE6C",
+        visual = "#FF90C9",
+        replace = "#E46876",
+        command = "#FFC07A",
+        terminal = '#00FFFF'
+    }
+end
 local theme = {
     inactive = {
         a = {fg = colors.default, bg = colors.outerbg, gui = "bold"},

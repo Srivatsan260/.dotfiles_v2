@@ -46,4 +46,17 @@ M.setup = function()
     vim.cmd.colorscheme("tokyonight")
 end
 
+M.lualine_colors = {
+    black = "#000000",
+    default = "#78A9FF",
+    innerbg = nil,
+    outerbg = nil,
+    normal = "#78A9FF",
+    insert = "#98EE6C",
+    visual = "#FF90C9",
+    replace = "#E46876",
+    command = "#FFC07A",
+    terminal = '#00FFFF'
+}
+
 return M
