@@ -234,7 +234,7 @@ return require('packer').startup({
         use 'tpope/vim-speeddating'
 
         -- convert numbers between base 2, 8, 10, 16
-        use { 'glts/vim-radical', requires = { 'glts/vim-magnum' } }
+        use {'glts/vim-radical', requires = {'glts/vim-magnum'}}
 
         if packer_bootstrap then require("packer").sync() end
     end,
