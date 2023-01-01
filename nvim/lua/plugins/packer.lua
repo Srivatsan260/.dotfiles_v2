@@ -227,6 +227,9 @@ return require('packer').startup({
         --     end
         -- }
 
+        -- tmux integration
+        use 'aserowy/tmux.nvim'
+
         if packer_bootstrap then require("packer").sync() end
     end,
     config = {
