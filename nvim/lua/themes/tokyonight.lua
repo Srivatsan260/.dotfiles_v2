@@ -27,8 +27,7 @@ local theme_opts = {
     --- You can override specific highlights to use other groups or a hex color
     --- function will be called with a Highlights and ColorScheme table
     ---@param highlights Highlights
-    ---@param colors ColorScheme
-    on_highlights = function(highlights, colors)
+    on_highlights = function(highlights, _)
         highlights.WinSeparator = {bg = "none", fg = "#78a9ff"}
         highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
         highlights.Folded = {bg = "none", fg = "#78a9ff"}
