@@ -36,6 +36,8 @@ local theme_opts = {
         highlights.DiagnosticVirtualTextInfo = {bg = "none", fg = "#0db9d7"}
         highlights.DiagnosticVirtualTextHint = {bg = "none", fg = "#1abc9c"}
         highlights.TroubleNormal = {bg = "none"}
+        highlights.Tabline = {bg = "none"}
+        highlights.TablineFill = {bg = "none"}
     end
     }
 
