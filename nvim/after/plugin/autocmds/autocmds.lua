@@ -55,3 +55,22 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
         vim.bo.filetype = "sh"
     end
 })
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+    callback = function ()
+        local hl_groups = {
+            "CursorLineNr",
+            "Folded",
+            "DiagnosticVirtualTextError",
+            "DiagnosticVirtualTextWarn",
+            "DiagnosticVirtualTextInfo",
+            "DiagnosticVirtualTextHint",
+            "TroubleNormal",
+            "Tabline",
+            "TablineFill"
+        }
+        for _, hl in pairs(hl_groups) do
+            vim.cmd.highlight(hl .. " ctermbg=none guibg=none")
+        end
+    end
+})

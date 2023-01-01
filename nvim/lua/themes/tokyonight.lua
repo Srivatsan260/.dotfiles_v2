@@ -31,13 +31,13 @@ local theme_opts = {
     on_highlights = function(highlights, colors)
         highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
         highlights.Folded = {bg = "none", fg = "#78a9ff"}
-        highlights.DiagnosticVirtualTextError = {bg = "none", fg = "#db4b4b"}
-        highlights.DiagnosticVirtualTextWarn = {bg = "none", fg = "#e0af68"}
-        highlights.DiagnosticVirtualTextInfo = {bg = "none", fg = "#0db9d7"}
-        highlights.DiagnosticVirtualTextHint = {bg = "none", fg = "#1abc9c"}
-        highlights.TroubleNormal = {bg = "none"}
-        highlights.Tabline = {bg = "none"}
-        highlights.TablineFill = {bg = "none"}
+        -- highlights.lualine_a_normal = {bg = "none", fg = "#ff0000"}
+        -- highlights.lualine_b_normal = {bg = "none"}
+        -- highlights.lualine_c_normal = {bg = "none"}
+        -- highlights.lualine_a_visual = {bg = "none"}
+        -- highlights.lualine_b_visual = {bg = "none"}
+        -- highlights.lualine_c_visual = {bg = "none"}
+        -- highlights.lualine_a_insert = {bg = "none"}
     end
     }
 
