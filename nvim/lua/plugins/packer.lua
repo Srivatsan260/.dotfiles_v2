@@ -230,6 +230,9 @@ return require('packer').startup({
         -- tmux integration
         use 'aserowy/tmux.nvim'
 
+        -- speeddating
+        use 'tpope/vim-speeddating'
+
         if packer_bootstrap then require("packer").sync() end
     end,
     config = {
