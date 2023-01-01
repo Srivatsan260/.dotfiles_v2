@@ -29,6 +29,7 @@ local theme_opts = {
     ---@param highlights Highlights
     ---@param colors ColorScheme
     on_highlights = function(highlights, colors)
+        highlights.WinSeparator = {bg = "none", fg = "#78a9ff"}
         highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
         highlights.Folded = {bg = "none", fg = "#78a9ff"}
         -- highlights.lualine_a_normal = {bg = "none", fg = "#ff0000"}
