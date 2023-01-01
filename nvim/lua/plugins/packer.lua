@@ -31,6 +31,7 @@ return require('packer').startup({
             end
         }
         use {'rose-pine/neovim', as = 'rose-pine'}
+        use 'rebelot/kanagawa.nvim'
 
         -- icons
         use 'kyazdani42/nvim-web-devicons'
