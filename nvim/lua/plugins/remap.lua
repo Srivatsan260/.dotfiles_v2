@@ -122,6 +122,8 @@ vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", {desc = "prev hu
 vim.keymap.set("n", "<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>",
     {desc = "preview current hunk inline"})
 vim.keymap.set("n", "<leader>R", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset current hunk"})
+vim.keymap.set("v", "<leader>R", ":'<,'>Gitsigns reset_hunk<CR>",
+    {desc = "reset current hunk (visual mode)"})
 vim.keymap.set("n", "<leader>S", "<cmd>Gitsigns stage_hunk<CR>", {desc = "stage current hunk"})
 vim.keymap.set("v", "<leader>S", ":'<,'>Gitsigns stage_hunk<CR>",
     {desc = "stage current hunk (visual mode)"})
