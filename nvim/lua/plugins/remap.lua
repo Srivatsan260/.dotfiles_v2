@@ -21,7 +21,8 @@ vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plu
 vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>",
     {desc = "source set.lua"})
 vim.keymap.set("n", "<leader><leader>c",
-    "<cmd> so " .. config_path .. "/after/plugin/color/colorscheme.lua<CR>", {desc = "source color.lua"})
+    "<cmd> so " .. config_path .. "/after/plugin/color/colorscheme.lua<CR>",
+    {desc = "source color.lua"})
 vim.keymap.set("n", "<leader><leader>t",
     "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>",
     {desc = "source treesitter.lua"})
@@ -307,7 +308,6 @@ vim.keymap.set("v", "p", "\"_dP", {desc = "paste but using _ register"})
 
 -- select all
 vim.keymap.set("n", "<leader>va", "ggVG", {desc = "visual select all"})
-
 
 -- navigate quickfix
 vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", {desc = "open quickfix list"})
