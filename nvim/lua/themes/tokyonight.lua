@@ -30,7 +30,6 @@ local theme_opts = {
     on_highlights = function(highlights, _)
         highlights.WinSeparator = {bg = "none", fg = "#78a9ff"}
         highlights.CursorLineNr = {bg = "none", fg = "#78a9ff"}
-        highlights.Folded = {bg = "none", fg = "#78a9ff"}
         -- highlights.lualine_a_normal = {bg = "none", fg = "#ff0000"}
         -- highlights.lualine_b_normal = {bg = "none"}
         -- highlights.lualine_c_normal = {bg = "none"}
