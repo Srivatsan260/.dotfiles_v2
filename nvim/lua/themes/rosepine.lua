@@ -1,4 +1,4 @@
-local M ={}
+local M = {}
 
 local theme_opts = {
     --- @usage 'main' | 'moon'
@@ -26,13 +26,13 @@ local theme_opts = {
         headings = {h1 = 'iris', h2 = 'foam', h3 = 'rose', h4 = 'gold', h5 = 'pine', h6 = 'foam'}
         -- or set all headings at once
         -- headings = 'subtle'
-    },
+    }
 
     -- Change specific vim highlight groups
     -- highlight_groups = {ColorColumn = {bg = 'rose'}}
 }
 
-M.setup = function ()
+M.setup = function()
     require("rose-pine").setup(theme_opts)
     vim.cmd.colorscheme("rose-pine")
 end
