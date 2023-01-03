@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader><leader>c",
     "<cmd> so " .. config_path .. "/after/plugin/color/colorscheme.lua<CR>",
     {desc = "source color.lua"})
 vim.keymap.set("n", "<leader><leader>t",
-    "<cmd> so " .. config_path .. "/after/plugin/treesitter.lua<CR>",
+    "<cmd> so " .. config_path .. "/after/plugin/treesitter/treesitter.lua<CR>",
     {desc = "source treesitter.lua"})
 vim.keymap.set("n", "<leader><leader>l",
     "<cmd> so " .. config_path .. "/after/plugin/lsp/lsp_zero.lua<CR>",
