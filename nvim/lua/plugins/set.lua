@@ -56,6 +56,8 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 
 vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
 
+local themes = require("themes").themes
+
 local global_opts = {
     floaterm_autoclose = 0,
     floaterm_width = 0.5,
@@ -63,7 +65,7 @@ local global_opts = {
     git_messenger_always_into_popup = true,
     git_messenger_floating_win_opts = {border = 'single', width = 70},
     git_messenger_popup_content_margins = false,
-    global_colorscheme = 'tokyonight',
+    global_colorscheme = themes.tokyonight,
     lazygit_config_file_path = '~/.config/lazygit/config.yml',
     lazygit_floating_window_use_plenary = 0,
     lazygit_floating_window_winblend = 0,
