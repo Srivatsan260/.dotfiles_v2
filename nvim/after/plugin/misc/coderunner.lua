@@ -5,5 +5,8 @@ coderunner.setup({
     mode = 'term',
     focus = true,
     border = 'single',
-    filetype = {python = "python -u"}
+    filetype = {
+        python = "python -u",
+        rust = "cargo build && cargo run"
+    }
 })
