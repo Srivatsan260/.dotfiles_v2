@@ -24,14 +24,14 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
         vim.api.nvim_exec('normal zx zR', false)
     end
 })
-local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
-vim.api.nvim_create_autocmd({"TextYankPost"}, {
-    group = highlight_yank,
-    pattern = "*",
-    callback = function()
-        vim.highlight.on_yank({higroup = 'Visual', timeout = 50})
-    end
-})
+-- local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
+-- vim.api.nvim_create_autocmd({"TextYankPost"}, {
+--     group = highlight_yank,
+--     pattern = "*",
+--     callback = function()
+--         vim.highlight.on_yank({higroup = 'Visual', timeout = 50})
+--     end
+-- })
 vim.api.nvim_create_autocmd({"VimResized"}, {
     pattern = "*",
     callback = function()
