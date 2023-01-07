@@ -24,12 +24,6 @@ return require('packer').startup({
         use 'folke/tokyonight.nvim'
         use 'ellisonleao/gruvbox.nvim'
         use 'navarasu/onedark.nvim'
-        use {
-            'EdenEast/nightfox.nvim',
-            config = function()
-                require('nightfox').setup {options = {transparent = true}}
-            end
-        }
         use {'rose-pine/neovim', as = 'rose-pine'}
         use 'rebelot/kanagawa.nvim'
         use 'catppuccin/nvim'
