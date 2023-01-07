@@ -81,8 +81,6 @@ vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>",
 vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>",
     {desc = "toggle treesitter playground"})
 
-vim.keymap.set("n", "<leader>tj", "<cmd>TSJToggle<CR>", {desc = "toggle treesj join"})
-
 -- FZF / telescope / lazygit
 vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>",
     {desc = "Telescope find_files"})
@@ -375,3 +373,6 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs 
 
 -- symbols outline
 vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
+
+-- ts-node-action
+vim.keymap.set("n", "<leader>ta", require("ts-node-action").node_action, { desc = "Trigger Node Action" })

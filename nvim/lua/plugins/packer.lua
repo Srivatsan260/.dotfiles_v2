@@ -39,11 +39,10 @@ return require('packer').startup({
         use {'nvim-treesitter/nvim-treesitter-context', run = ':TSUpdate'}
         use {'nvim-treesitter/nvim-treesitter-textobjects', run = ':TSUpdate'}
         use {'nvim-treesitter/playground', run = ':TSUpdate'}
+        use 'ckolkey/ts-node-action'
+
         -- autogenerate docstrings
         use 'danymat/neogen'
-
-        -- toggle join / split items (args, lists, etc.)
-        use 'Wansmer/treesj'
 
         -- lazygit
         use 'kdheepak/lazygit.nvim'
