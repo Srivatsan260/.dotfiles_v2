@@ -28,6 +28,7 @@ local opts = {
     shiftwidth = 4,
     showbreak = '↪',
     showmatch = true,
+    showmode = false,
     signcolumn = "yes",
     smartcase = true,
     smartindent = true,
