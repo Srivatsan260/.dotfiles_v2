@@ -228,6 +228,9 @@ return require('packer').startup({
         -- convert numbers between base 2, 8, 10, 16
         use {'glts/vim-radical', requires = {'glts/vim-magnum'}}
 
+        -- UNIX ops
+        use 'tpope/vim-eunuch'
+
         if packer_bootstrap then require("packer").sync() end
     end,
     config = {
