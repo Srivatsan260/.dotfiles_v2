@@ -375,4 +375,5 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs 
 vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 
 -- ts-node-action
-vim.keymap.set("n", "<leader>ta", require("ts-node-action").node_action, { desc = "Trigger Node Action" })
+vim.keymap.set("n", "<leader>ta", require("ts-node-action").node_action,
+    {desc = "Trigger Node Action"})
