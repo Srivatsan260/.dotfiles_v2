@@ -110,9 +110,9 @@ end, {expr = true, desc = "previous buffer"})
 
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",
     {desc = "show help tags in Telescope"})
--- INFO: This remap works only if LSP is running (obviously) :/
-vim.keymap.set("n", "<leader>tg", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
-    {desc = "list all symbols in workspace (uses LSP)"})
+vim.keymap.set("n", "<leader>tg", function()
+    require("telescope.builtin").tags({ctags_file = "./tags"})
+end, {desc = "List all tags in workspace"})
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>",
     {desc = "list git branches"})
 vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>", {desc = "next hunk in buffer"})
