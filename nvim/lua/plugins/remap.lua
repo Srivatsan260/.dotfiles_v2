@@ -82,9 +82,9 @@ vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>",
     {desc = "toggle treesitter playground"})
 
 -- FZF / telescope / lazygit
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True theme=dropdown<CR>",
+vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True<CR>",
     {desc = "Telescope find_files"})
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=True theme=dropdown<CR>",
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=True<CR>",
     {desc = "Telescope file_browser"})
 -- vim.keymap.set("n", "<C-p>", "<cmd>Files<CR>")
 vim.keymap.set("n", "<leader>cs", "<cmd>Telescope colorscheme<CR>",
@@ -93,9 +93,9 @@ vim.keymap.set("n", "<leader>ct", "<cmd>! ctags -R<CR>", {desc = "generate ctags
 vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>", {desc = "find file in directory"})
 vim.keymap.set("n", "<leader>pd", "<cmd>GrepInDirectory<CR>", {desc = "grep in directory"})
 vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", {desc = "grep in workspace"})
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find theme=ivy<CR>",
+vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>",
     {desc = "fuzzy find in current buffer"})
-vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles theme=ivy<CR>",
+vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles<CR>",
     {desc = "show recent files using telescope"})
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>", {desc = "list open buffers"})
 vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>",
@@ -113,7 +113,7 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",
 vim.keymap.set("n", "<leader>tg", function()
     require("telescope.builtin").tags({ctags_file = "./tags"})
 end, {desc = "List all tags in workspace"})
-vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches theme=ivy<CR>",
+vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>",
     {desc = "list git branches"})
 vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>", {desc = "next hunk in buffer"})
 vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", {desc = "prev hunk in buffer"})

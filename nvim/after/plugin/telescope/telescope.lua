@@ -36,22 +36,22 @@ else
 end
 
 telescope.setup {
-    defaults = {prompt_prefix = ' '},
+    defaults = {
+        prompt_prefix = ' ',
+        layout_strategy = "current_buffer",
+    },
     extensions = {
         session_picker = {sessions_dir = vim.g.sessions_dir},
         zoxide = zoxide_opts,
         file_browser = {
-            -- theme = "dropdown",
             hijack_netrw = false,
             hidden = true
         },
-        git_worktree = {theme = "dropdown"}
     },
     pickers = {
         buffers = {
             show_all_buffers = true,
             sort_lastused = true,
-            theme = "ivy",
             mappings = {
                 i = {
                     ["<c-d>"] = actions.delete_buffer,
