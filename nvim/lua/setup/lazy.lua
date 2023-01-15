@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require('lazy').setup({
+    -- TODO: move to a plugins folder
     'nvim-lua/plenary.nvim',
 
     -- themes
