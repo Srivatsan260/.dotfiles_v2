@@ -1,0 +1,15 @@
+return {
+    'gpanders/editorconfig.nvim',
+    'kyazdani42/nvim-web-devicons',
+    'danymat/neogen',
+    'numToStr/Comment.nvim',
+    'chrisgrieser/nvim-various-textobjs',
+    {'kevinhwang91/nvim-bqf', ft = "qf"},
+    'airblade/vim-rooter',
+    'windwp/nvim-autopairs',
+    {"kylechui/nvim-surround", version = "*"},
+    'folke/todo-comments.nvim',
+    'mbbill/undotree',
+    'folke/which-key.nvim',
+    'ThePrimeagen/harpoon',
+}

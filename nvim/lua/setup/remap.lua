@@ -264,11 +264,6 @@ end
 -- nvim-tree
 -- vim.keymap.set("n", "<leader>,", "<cmd>NvimTreeToggle<CR>", {desc = "toggle nvim-tree"})
 
--- rest-nvim
-vim.keymap.set("n", "<localleader>rn", "<Plug>RestNvim<CR>")
-vim.keymap.set("n", "<localleader>rp", "<Plug>RestNvimPreview<CR>")
-vim.keymap.set("n", "<localleader>rl", "<Plug>RestNvimLast<CR>")
-
 -- delete all buffers except current
 vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>",
     {desc = "delete all buffers except current"})
