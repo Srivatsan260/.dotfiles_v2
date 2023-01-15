@@ -1,4 +1,3 @@
-require('plugins.impatient')
 require("plugins.set")
 require("plugins.remap")
-require("plugins.packer")
+require("plugins.lazy")
