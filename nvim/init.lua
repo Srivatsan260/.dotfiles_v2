@@ -1,3 +1,3 @@
-require('plugins')
+require('setup')
 
 -- print("Hello World")
