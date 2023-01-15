@@ -14,11 +14,11 @@ vim.keymap.set("n", "K", function()
 end, {desc = "Man / Cargo help"})
 
 local config_path = vim.fn.stdpath("config")
-vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/plugins/init.lua<CR>",
+vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/setup/init.lua<CR>",
     {desc = "source init.lua"})
-vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/plugins/remap.lua<CR>",
+vim.keymap.set("n", "<leader><leader>r", "<cmd> so " .. config_path .. "/lua/setup/remap.lua<CR>",
     {desc = "source remap.lua"})
-vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/plugins/set.lua<CR>",
+vim.keymap.set("n", "<leader><leader>s", "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
     {desc = "source set.lua"})
 vim.keymap.set("n", "<leader><leader>c",
     "<cmd> so " .. config_path .. "/after/plugin/color/colorscheme.lua<CR>",
