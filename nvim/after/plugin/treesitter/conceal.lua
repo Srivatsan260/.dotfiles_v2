@@ -23,7 +23,3 @@ conceal.setup({
         }
     },
 })
-
--- generate the scm queries
--- only need to be run when the Configuration changes
-conceal.generate_conceals()
