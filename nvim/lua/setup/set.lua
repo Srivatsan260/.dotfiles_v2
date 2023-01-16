@@ -6,6 +6,7 @@ local opts = {
     cmdheight = 1,
     colorcolumn = "100",
     completeopt = {"menuone", "noselect"},
+    conceallevel = 1,
     expandtab = true,
     exrc = true,
     foldexpr = 'nvim_treesitter#foldexpr()',
