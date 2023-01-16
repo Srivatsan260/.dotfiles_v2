@@ -4,4 +4,5 @@ return {
     {'nvim-treesitter/nvim-treesitter-textobjects', build = ':TSUpdate'},
     {'nvim-treesitter/playground', build = ':TSUpdate'},
     'ckolkey/ts-node-action',
+    'Jxstxs/conceal.nvim',
 }

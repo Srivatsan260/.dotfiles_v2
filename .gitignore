@@ -5,3 +5,4 @@ nvim/plugin/packer_compiled.lua
 .luarc.json
 test.lua
 lazy-lock.json
+nvim/after/queries

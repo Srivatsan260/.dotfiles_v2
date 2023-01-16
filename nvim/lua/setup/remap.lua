@@ -113,8 +113,7 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",
 vim.keymap.set("n", "<leader>tg", function()
     require("telescope.builtin").tags({ctags_file = "./tags"})
 end, {desc = "List all tags in workspace"})
-vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>",
-    {desc = "list git branches"})
+vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", {desc = "list git branches"})
 vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>", {desc = "next hunk in buffer"})
 vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", {desc = "prev hunk in buffer"})
 vim.keymap.set("n", "<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>",
@@ -370,5 +369,12 @@ vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs 
 vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 
 -- ts-node-action
-vim.keymap.set("n", "<leader>ta", function() require("ts-node-action").node_action() end,
-    {desc = "Trigger Node Action"})
+vim.keymap.set("n", "<leader>ta", function()
+    require("ts-node-action").node_action()
+end, {desc = "Trigger Node Action"})
+
+-- conceal
+-- bind a <leader>tc to toggle the concealing level
+vim.keymap.set("n", "<leader>cc", function()
+    require("conceal").toggle_conceal(1)
+end, {silent = true, desc = "Toggle conceals"})
