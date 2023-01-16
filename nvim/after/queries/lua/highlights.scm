@@ -1,0 +1,15 @@
+;; extends
+
+(("local" @keyword) (#set! conceal "l"))
+(("and" @keyword.function) (#set! conceal "&"))
+(("return" @keyword.function) (#set! conceal "R"))
+(("then" @conditional) (#set! conceal "t"))
+(("else" @conditional) (#set! conceal "e"))
+(("elseif" @conditional) (#set! conceal "e"))
+((function_call name: (identifier) @function.builtin (#eq? @function.builtin "require")) (#set! conceal "r"))
+(("end" @keyword.function) (#set! conceal "E"))
+(("for" @repeat) (#set! conceal "F"))
+(("function" @keyword.function) (#set! conceal "f"))
+(("do" @repeat) (#set! conceal "d"))
+(("if" @conditional) (#set! conceal "?"))
+(("in" @keyword) (#set! conceal "i"))
