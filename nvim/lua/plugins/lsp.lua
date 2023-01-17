@@ -15,7 +15,7 @@ return {
     'rafamadriz/friendly-snippets',
     'ray-x/lsp_signature.nvim',
     'j-hui/fidget.nvim',
-    'simrat39/rust-tools.nvim',
+    {'simrat39/rust-tools.nvim', ft = "rust"},
     'saecki/crates.nvim',
     'simrat39/symbols-outline.nvim',
     {"folke/trouble.nvim", dependencies = "kyazdani42/nvim-web-devicons"},
