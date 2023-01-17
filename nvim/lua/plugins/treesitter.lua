@@ -5,4 +5,5 @@ return {
     {'nvim-treesitter/playground', build = ':TSUpdate'},
     'ckolkey/ts-node-action',
     'Jxstxs/conceal.nvim',
+    'mrjones2014/nvim-ts-rainbow',
 }

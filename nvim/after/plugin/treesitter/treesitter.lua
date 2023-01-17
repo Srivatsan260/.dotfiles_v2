@@ -71,5 +71,10 @@ require'nvim-treesitter.configs'.setup {
             -- and should return true of false
             include_surrounding_whitespace = false
         }
+    },
+
+    rainbow = {
+        enable = true,
+        extended_mode = true,
     }
 }
