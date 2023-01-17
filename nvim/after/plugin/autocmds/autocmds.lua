@@ -5,7 +5,6 @@ local set_cursorline = function(event, value, pattern)
         pattern = pattern,
         callback = function()
             vim.opt_local.cursorline = value
-            vim.opt_local.cursorcolumn = value
         end
     })
 end
