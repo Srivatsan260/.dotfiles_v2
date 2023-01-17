@@ -1,4 +1,4 @@
-require'lsp_signature'.setup({
+require('lsp_signature').setup({
     debug = false,
     log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log",
     verbose = false,
