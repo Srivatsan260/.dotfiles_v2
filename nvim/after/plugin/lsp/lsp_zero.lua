@@ -32,7 +32,7 @@ lsp.configure('sumneko_lua', {
 lsp.on_attach(function(_, bufnr)
     vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-    local bufopts = function (desc)
+    local bufopts = function(desc)
         return {noremap = true, silent = true, buffer = bufnr, desc = desc}
     end
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts("goto declaration"))
@@ -42,8 +42,10 @@ lsp.on_attach(function(_, bufnr)
     vim.keymap.set('n', '<leader>g,', vim.lsp.buf.signature_help, bufopts("signature help"))
     vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts("goto implementation"))
     vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts("goto type definition"))
-    vim.keymap.set('n', '<leader>ds', vim.lsp.buf.document_symbol, bufopts("list document lsp symbols"))
-    vim.keymap.set('n', '<leader>dS', vim.lsp.buf.workspace_symbol, bufopts("list workspace lsp symbols"))
+    vim.keymap.set('n', '<leader>ds', vim.lsp.buf.document_symbol,
+        bufopts("list document lsp symbols"))
+    vim.keymap.set('n', '<leader>dS', vim.lsp.buf.workspace_symbol,
+        bufopts("list workspace lsp symbols"))
     vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, bufopts("code actions"))
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts("rename current symbol"))
     if vim.bo.filetype == 'python' then
@@ -55,8 +57,10 @@ lsp.on_attach(function(_, bufnr)
     end
     vim.keymap.set('n', '<leader>ai', vim.lsp.buf.incoming_calls, bufopts("list incoming calls"))
     vim.keymap.set('n', '<leader>ao', vim.lsp.buf.outgoing_calls, bufopts("list outgoing calls"))
-    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts("add workspace folder"))
-    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts("remove workspace folder"))
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder,
+        bufopts("add workspace folder"))
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
+        bufopts("remove workspace folder"))
     vim.keymap.set('n', '<leader>sc', function()
         print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities))
     end, bufopts("list lsp server capabilities"))
