@@ -27,8 +27,6 @@ return {
     text_background_opacity = 0.90,
     window_decorations = "RESIZE",
 
-    force_reverse_video_cursor = true,
-
     color_scheme = 'Tomorrow Night Bright',
     font = wezterm.font {family = 'JetbrainsMono Nerd Font Mono', weight = 'Medium'},
     font_size = 15
