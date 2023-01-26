@@ -20,10 +20,14 @@ return {
     max_fps = 120,
 
     hide_tab_bar_if_only_one_tab = true,
+    use_fancy_tab_bar = false,
+    tab_bar_at_bottom = true,
     background = get_background(),
     window_background_opacity = 0.85,
     text_background_opacity = 0.90,
     window_decorations = "RESIZE",
+
+    force_reverse_video_cursor = true,
 
     color_scheme = 'Tomorrow Night Bright',
     font = wezterm.font {family = 'JetbrainsMono Nerd Font Mono', weight = 'Medium'},
