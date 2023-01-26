@@ -7,4 +7,5 @@ return {
     {'jvgrootveld/telescope-zoxide', dependencies = {'nvim-lua/popup.nvim'}},
     'nvim-telescope/telescope-file-browser.nvim',
     'JoseConseco/telescope_sessions_picker.nvim',
+    {'nvim-telescope/telescope-frecency.nvim', dependencies = {'kkharji/sqlite.lua'}},
 }

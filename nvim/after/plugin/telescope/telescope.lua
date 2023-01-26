@@ -76,6 +76,7 @@ local extensions = {
     'git_worktree',
     'zoxide',
     'file_browser',
+    'frecency',
 }
 for _, ext in pairs(extensions) do
     pcall(telescope.load_extension, ext)
