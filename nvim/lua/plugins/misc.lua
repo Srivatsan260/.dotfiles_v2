@@ -6,4 +6,5 @@ return {
     'tpope/vim-speeddating',
     {'glts/vim-radical', dependencies = {'glts/vim-magnum'}},
     'tpope/vim-eunuch',
+    'RaafatTurki/hex.nvim',
 }
