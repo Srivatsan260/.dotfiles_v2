@@ -161,8 +161,20 @@ vim.keymap.set("n", "<leader>gws", function()
         print("use this remap only for bare repos!")
         return
     end
-    require("telescope").extensions.git_worktree.create_git_worktree()
-end, {desc = "switch to another git worktree using Telescope"})
+    local branches = vim.fn.system("git branch -r")
+    local branches_tbl = {}
+    local idx = 1
+    for i in string.gmatch(branches, "[^\r\n]+") do
+        branches_tbl[idx] = string.gsub(i, "origin/", "")
+        idx = idx + 1
+    end
+    vim.ui.select(branches_tbl, {prompt = "select branch"}, function(branch)
+        local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+        if path == "" then return end
+        vim.fn.system("git worktree add ../" .. path .. " " .. branch)
+        require("git-worktree").switch_worktree(path)
+    end)
+end, {desc = "switch to new worktree"})
 -- TODO: add git worktree fetch remap?
 vim.keymap.set("n", "<leader>gwc", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
@@ -178,10 +190,10 @@ vim.keymap.set("n", "<leader>gwc", function()
     if parent_branch == "" or parent_branch == nil then
         parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
     end
-    vim.cmd("!git branch " .. branch .. " " .. parent_branch)
-    vim.cmd("!git worktree add ../" .. path .. " " .. branch)
+    vim.fn.system("git branch " .. branch .. " " .. parent_branch)
+    vim.fn.system("git worktree add ../" .. path .. " " .. branch)
     require("git-worktree").switch_worktree(path)
-end, {desc = "create new git worktree using Telescope"})
+end, {desc = "create new git worktree"})
 -- TODO: check how to add telescope mapping and get rid of this
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
@@ -200,7 +212,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     vim.cmd(cmd)
     vim.cmd.copen()
 end, {desc = "update git worktree"})
-vim.keymap.set("n", "<leader>gwf", function ()
+vim.keymap.set("n", "<leader>gwf", function()
     vim.cmd("AsyncRun git fetch --all")
     vim.cmd.copen()
 end, {desc = "git fetch --all"})
