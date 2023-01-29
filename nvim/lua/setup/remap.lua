@@ -100,6 +100,8 @@ vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles<CR>",
 vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>", {desc = "list open buffers"})
 vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>",
     {desc = "list directories using zoxide"})
+vim.keymap.set("n", "<leader>tR", "<cmd>Telescope resume<CR>",
+    {desc = "resume last telescope search"})
 
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
