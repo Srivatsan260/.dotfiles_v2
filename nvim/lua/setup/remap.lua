@@ -179,7 +179,6 @@ vim.keymap.set("n", "<leader>gws", function()
         require("git-worktree").switch_worktree(path)
     end)
 end, {desc = "switch to new worktree"})
--- TODO: add git worktree fetch remap?
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
@@ -202,7 +201,6 @@ vim.keymap.set("n", "<leader>gwc", function()
         require("git-worktree").switch_worktree(path)
     end)
 end, {desc = "create new git worktree"})
--- TODO: check how to add telescope mapping and get rid of this
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
