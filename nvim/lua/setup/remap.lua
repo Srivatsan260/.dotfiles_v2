@@ -1,3 +1,5 @@
+local cmd_to_table = require("utils").cmd_to_table
+
 -- TODO: apply remaps only if plugins are installed?
 vim.keymap.set("n", "K", function()
     local crates = require("crates")
@@ -179,22 +181,26 @@ vim.keymap.set("n", "<leader>gws", function()
 end, {desc = "switch to new worktree"})
 -- TODO: add git worktree fetch remap?
 vim.keymap.set("n", "<leader>gwc", function()
-    local is_bare_repo = vim.fn.system("git config --get core.bare")
-    if is_bare_repo ~= "true\n" then
-        print("use this remap only for bare repos!")
+    local root = string.gsub(
+        vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
+        "[\n\r]",
+        ""
+    )
+    if root == nil then
+        print("error getting bare repo root!")
         return
     end
-    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    local path = vim.fn.input({prompt = "Enter worktree path from bare root: ", default = ""})
     if path == "" then return end
+    local full_path = root .. "/" .. path
     local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
     if branch == "" then return end
-    local parent_branch = vim.fn.input({prompt = "Enter parent branch: ", default = ""})
-    if parent_branch == "" or parent_branch == nil then
-        parent_branch = vim.fn.system("! git rev-parse --abbrev-ref HEAD")
-    end
-    vim.fn.system("git branch " .. branch .. " " .. parent_branch)
-    vim.fn.system("git worktree add ../" .. path .. " " .. branch)
-    require("git-worktree").switch_worktree(path)
+    local branches = cmd_to_table("git branch -a")
+    vim.ui.select(branches, {prompt = "select parent branch"}, function(parent_branch)
+        vim.fn.system("git branch " .. branch .. " " .. parent_branch)
+        vim.fn.system("git worktree add " .. full_path .. " " .. branch)
+        require("git-worktree").switch_worktree(path)
+    end)
 end, {desc = "create new git worktree"})
 -- TODO: check how to add telescope mapping and get rid of this
 vim.keymap.set("n", "<leader>gwu", function()
@@ -216,15 +222,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     if path == "" then return end
     local full_path = root .. "/" .. path
     print("full path" .. full_path)
-    local paths = {}
-    local f = io.popen("ls " .. full_path)
-    if f then
-        local idx = 1
-        for line in f:lines() do
-            paths[idx] = line
-            idx = idx + 1
-        end
-    end
+    local paths = cmd_to_table("ls " .. full_path)
     if rawequal(next(paths), nil) then
         print("no worktrees found in path")
         return
