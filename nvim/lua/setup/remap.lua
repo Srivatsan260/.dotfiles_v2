@@ -203,16 +203,38 @@ vim.keymap.set("n", "<leader>gwu", function()
         print("use this remap only for bare repos!")
         return
     end
-    local is_git_dir = vim.fn.glob('.git')
-    if is_git_dir == "" then
-        print("use this remap only inside gitdirs!")
+    local root = string.gsub(
+        vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
+        "[\n\r]",
+        ""
+    )
+    if root == nil then
+        print("not a bare repo!")
         return
     end
-    local path = vim.fn.input({prompt = "Enter path: ", default = ""})
+    local path = vim.fn.input({prompt = "Enter worktree path from bare root: ", default = ""})
     if path == "" then return end
-    local cmd = "AsyncRun -cwd=../" .. path .. " git pull --ff-only"
-    vim.cmd(cmd)
-    vim.cmd.copen()
+    local full_path = root .. "/" .. path
+    print("full path" .. full_path)
+    local paths = {}
+    local f = io.popen("ls " .. full_path)
+    if f then
+        local idx = 1
+        for line in f:lines() do
+            paths[idx] = line
+            idx = idx + 1
+        end
+    end
+    if rawequal(next(paths), nil) then
+        print("no worktrees found in path")
+        return
+    end
+    vim.ui.select(paths, {prompt = "select path to update", default = ""}, function(p)
+        if p == "" or p == nil then return end
+        local cmd = "AsyncRun -cwd=" .. root .. "/" .. path .."/" .. p .. " git pull --ff-only"
+        vim.cmd(cmd)
+        vim.cmd.copen()
+    end)
 end, {desc = "update git worktree"})
 vim.keymap.set("n", "<leader>gwf", function()
     vim.cmd("AsyncRun git fetch --all")
