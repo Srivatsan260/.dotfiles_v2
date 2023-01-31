@@ -220,6 +220,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     if path == "" then return end
     local full_path = root .. "/" .. path
     print("full path" .. full_path)
+    -- TODO: list only files here
     local paths = cmd_to_table("ls " .. full_path)
     if rawequal(next(paths), nil) then
         print("no worktrees found in path")
@@ -324,7 +325,6 @@ vim.keymap.set("v", "<", "<gv", {desc = "indent visual selection left and retain
 vim.keymap.set("v", ">", ">gv", {desc = "indent visual selection right and retain selection"})
 
 -- resize splits
--- TODO: fix this for all splits
 vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>", {desc = "reduce vertical split size"})
 vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", {desc = "increase vertical split size"})
 vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>", {desc = "decrease horizontal split size"})
