@@ -422,3 +422,8 @@ end, {desc = "Generate conceals"})
 if vim.fn.has("nvim-0.9.0") == 1 then
     vim.keymap.set("n", "<leader>hh", vim.show_pos, {desc = "Inspect position under cursor"})
 end
+
+-- treehopper
+vim.keymap.set({"n", "v"}, "<leader><CR>", function ()
+    require("tsht").nodes()
+end, {desc = "hop nodes"})

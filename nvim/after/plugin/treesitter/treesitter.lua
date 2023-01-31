@@ -5,7 +5,7 @@ require('nvim-treesitter.configs').setup {
     highlight = {enable = true, additional_vim_regex_highlighting = false},
 
     incremental_selection = {
-        enable = true,
+        enable = false,
         keymaps = {
             init_selection = "<leader><CR>",
             node_incremental = "<CR>",

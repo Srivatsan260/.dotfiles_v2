@@ -6,4 +6,5 @@ return {
     'ckolkey/ts-node-action',
     'Jxstxs/conceal.nvim',
     'mrjones2014/nvim-ts-rainbow',
+    'mfussenegger/nvim-treehopper'
 }
