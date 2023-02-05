@@ -427,3 +427,9 @@ end
 vim.keymap.set({"n", "v"}, "<leader><CR>", function ()
     require("tsht").nodes()
 end, {desc = "hop nodes"})
+
+-- map arrow keys in insert mode?
+vim.keymap.set("i", "<C-h>", "<Left>", {desc = "move left in insert mode"})
+vim.keymap.set("i", "<C-j>", "<Down>", {desc = "move down in insert mode"})
+vim.keymap.set("i", "<C-k>", "<Up>", {desc = "move up in insert mode"})
+vim.keymap.set("i", "<C-l>", "<Right>", {desc = "move right in insert mode"})
