@@ -46,9 +46,9 @@ lsp.on_attach(function(_, bufnr)
         bufopts("list workspace lsp symbols"))
     vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, bufopts("code actions"))
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts("rename current symbol"))
-    if vim.bo.filetype == 'python' then
-        vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts("isort"))
-    elseif vim.bo.filetype == 'lua' then
+    -- if vim.bo.filetype == 'python' then
+    --     vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts("isort"))
+    if vim.bo.filetype == 'lua' then
         vim.keymap.set('n', '<leader>=', '<cmd>call LuaFormat()<CR>', bufopts("luaformat"))
     else
         vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts("format document"))

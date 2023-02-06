@@ -330,6 +330,9 @@ vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", {desc = "increase ve
 vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>", {desc = "decrease horizontal split size"})
 vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>", {desc = "increase horizontal split size"})
 
+vim.keymap.set("n", "<leader>|", "<cmd>vsp<CR>", {desc = "open vertical split"})
+vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", {desc = "open horizontal split"})
+
 -- delete without affecting registers
 vim.keymap.set("n", "<leader>D", "\"_d", {desc = "delete but using _ register"})
 
