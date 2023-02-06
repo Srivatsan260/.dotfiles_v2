@@ -324,14 +324,15 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", {desc = "move visual selection 
 vim.keymap.set("v", "<", "<gv", {desc = "indent visual selection left and retain selection"})
 vim.keymap.set("v", ">", ">gv", {desc = "indent visual selection right and retain selection"})
 
+-- open splits
+vim.keymap.set("n", "<leader>|", "<cmd>vsp<CR>", {desc = "open vertical split"})
+vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", {desc = "open horizontal split"})
+
 -- resize splits
 vim.keymap.set("n", "<A-h>", "<cmd>vertical resize -2<CR>", {desc = "reduce vertical split size"})
 vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", {desc = "increase vertical split size"})
 vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>", {desc = "decrease horizontal split size"})
 vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>", {desc = "increase horizontal split size"})
-
-vim.keymap.set("n", "<leader>|", "<cmd>vsp<CR>", {desc = "open vertical split"})
-vim.keymap.set("n", "<leader>-", "<cmd>sp<CR>", {desc = "open horizontal split"})
 
 -- delete without affecting registers
 vim.keymap.set("n", "<leader>D", "\"_d", {desc = "delete but using _ register"})
