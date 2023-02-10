@@ -12,4 +12,5 @@ return {
     'mbbill/undotree',
     'folke/which-key.nvim',
     'ThePrimeagen/harpoon',
+    'windwp/nvim-spectre',
 }
