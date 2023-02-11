@@ -1,3 +1,5 @@
+if vim.fn.has("nvim-0.9.0") ~= 1 then return end
+
 local s_ok, statuscol = pcall(require, "statuscol")
 if not s_ok then return end
 
