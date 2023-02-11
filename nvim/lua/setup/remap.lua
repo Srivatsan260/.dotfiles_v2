@@ -299,9 +299,6 @@ for i = 1, 9 do
     end, {desc = "goto harpoon " .. i})
 end
 
--- nvim-tree
--- vim.keymap.set("n", "<leader>,", "<cmd>NvimTreeToggle<CR>", {desc = "toggle nvim-tree"})
-
 -- delete all buffers except current
 vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>",
     {desc = "delete all buffers except current"})
