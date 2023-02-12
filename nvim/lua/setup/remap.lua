@@ -197,20 +197,6 @@ vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
 
--- harpoon
-vim.keymap.set("n", "<leader>H", function()
-    require('harpoon.ui').toggle_quick_menu()
-end, {desc = "open Harpoon"})
-vim.keymap.set("n", "<leader>;", function()
-    require('harpoon.mark').add_file()
-end, {desc = "set harpoon mark"})
-for i = 1, 9 do
-    vim.keymap.set("n", "<leader>" .. i, function()
-        require('harpoon.ui').nav_file(i)
-        vim.cmd [[ normal zz ]]
-    end, {desc = "goto harpoon " .. i})
-end
-
 -- delete all buffers except current
 vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>",
     {desc = "delete all buffers except current"})
@@ -301,15 +287,6 @@ end, {desc = "visual select in indent"})
 vim.keymap.set({"o", "x"}, "ai", function()
     require("various-textobjs").indentation(false, false)
 end, {desc = "visual select around indent"})
-
--- todo-comments
-vim.keymap.set("n", "]t", function()
-    require("todo-comments").jump_next({keywords = {"FIX", "INFO", "TODO"}})
-end, {desc = "Next todo comment"})
-vim.keymap.set("n", "[t", function()
-    require("todo-comments").jump_prev({keywords = {"FIX", "INFO", "TODO"}})
-end, {desc = "Previous todo comment"})
-vim.keymap.set("n", "<leader>td", "<cmd>TodoTelescope<CR>", {desc = "Open TODOs in telescope"})
 
 -- symbols outline
 vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
