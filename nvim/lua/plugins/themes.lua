@@ -1,8 +1,8 @@
 return {
-    {'folke/tokyonight.nvim', lazy = true},
-    {'ellisonleao/gruvbox.nvim', lazy = true},
-    {'navarasu/onedark.nvim', lazy = true},
-    {'rose-pine/neovim', name = 'rose-pine', lazy = true},
-    {'rebelot/kanagawa.nvim', lazy = true},
-    {'catppuccin/nvim', lazy = true},
+    {'folke/tokyonight.nvim', event = "ColorSchemePre"},
+    {'ellisonleao/gruvbox.nvim', event = "ColorSchemePre"},
+    {'navarasu/onedark.nvim', event = "ColorSchemePre"},
+    {'rose-pine/neovim', name = 'rose-pine', event = "ColorSchemePre"},
+    {'rebelot/kanagawa.nvim', event = "ColorSchemePre"},
+    {'catppuccin/nvim', event = "ColorSchemePre"},
 }
