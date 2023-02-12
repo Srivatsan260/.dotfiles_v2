@@ -38,29 +38,6 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", {desc = "close current ta
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", {desc = "open netrw"})
 
--- Floaterm
-vim.keymap.set("n", "<C-\\>", "<cmd>FloatermToggle<CR>", {desc = "toggle floaterm window"})
-vim.keymap.set("n", "<leader>fl", "<cmd>Floaterms<CR>", {desc = "list floaterms"})
-vim.keymap.set("n", "<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ",
-    {desc = "new floaterm window with custom command"})
-vim.keymap.set("n", "<leader>fr",
-    "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>",
-    {desc = "open ranger in a new floaterm window"})
-vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-\\>", "<cmd>FloatermToggle<CR>", {desc = "toggle floaterm window"})
--- Floaterm window switching
-vim.keymap.set("t", "<C-h>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>"
-end, {expr = true, desc = "window left (terminal mode)"})
-vim.keymap.set("t", "<C-j>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>j" or "<C-j>"
-end, {expr = true, desc = "window down (terminal mode)"})
-vim.keymap.set("t", "<C-k>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>k" or "<C-k>"
-end, {expr = true, desc = "window up (terminal mode)"})
-vim.keymap.set("t", "<C-l>", function()
-    return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>l" or "<C-l>"
-end, {expr = true, desc = "window right (terminal mode)"})
 
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
@@ -68,8 +45,6 @@ end, {expr = true, desc = "next buffer"})
 vim.keymap.set("n", "<S-Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
 end, {expr = true, desc = "previous buffer"})
-
-
 
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
@@ -224,11 +199,6 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist,
 if vim.bo.filetype ~= "lua" then
     vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, {desc = "lsp buf format"})
 end
-
--- ts-node-action
-vim.keymap.set("n", "<leader>ta", function()
-    require("ts-node-action").node_action()
-end, {desc = "Trigger Node Action"})
 
 -- conceal
 -- bind a <leader>tc to toggle the concealing level
