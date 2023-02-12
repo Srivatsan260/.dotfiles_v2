@@ -171,21 +171,6 @@ vim.keymap.set("n", "<leader>u", function()
     end
 end, {desc = "toggle undotree", expr = true})
 
--- dap
-vim.keymap.set("n", "<leader>du", function()
-    require('dapui').toggle()
-end, {desc = "toggle dap ui"})
-vim.keymap
-    .set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>", {desc = "toggle debug breakpoint"})
-vim.keymap.set("n", "<leader>dB", function()
-    require('dap').set_breakpoint(vim.fn.input('breakpoint condition:'))
-end, {desc = "toggle conditional breakpoint"})
-vim.keymap.set("n", "<leader>dc", "<cmd>DapContinue<CR>", {desc = "debug continue"})
-vim.keymap.set("n", "<leader>di", "<cmd>DapStepInto<CR>", {desc = "debug step into"})
-vim.keymap.set("n", "<leader>do", "<cmd>DapStepOut<CR>", {desc = "debug step out"})
-vim.keymap.set("n", "<leader>dO", "<cmd>DapStepOver<CR>", {desc = "debug step over"})
-vim.keymap.set("n", "<leader>dt", "<cmd>DapTerminate<CR>",
-    {desc = "terminate current debug session"})
 
 -- Trouble
 vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>",
@@ -261,35 +246,6 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist,
 if vim.bo.filetype ~= "lua" then
     vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, {desc = "lsp buf format"})
 end
-
--- more textobjs
-vim.keymap.set({"o", "x"}, "iS", function()
-    require("various-textobjs").subword(true)
-end, {desc = "visual select in subword"})
-vim.keymap.set({"o", "x"}, "aS", function()
-    require("various-textobjs").subword(false)
-end, {desc = "visual select around subword"})
-vim.keymap.set({"o", "x"}, "iv", function()
-    require("various-textobjs").value(true)
-end, {desc = "visual select in value"})
-vim.keymap.set({"o", "x"}, "av", function()
-    require("various-textobjs").value(false)
-end, {desc = "visual select around value"})
-vim.keymap.set({"o", "x"}, "in", function()
-    require("various-textobjs").number(true)
-end, {desc = "visual select in number"})
-vim.keymap.set({"o", "x"}, "an", function()
-    require("various-textobjs").number(false)
-end, {desc = "visual select around number"})
-vim.keymap.set({"o", "x"}, "ii", function()
-    require("various-textobjs").indentation(true, true)
-end, {desc = "visual select in indent"})
-vim.keymap.set({"o", "x"}, "ai", function()
-    require("various-textobjs").indentation(false, false)
-end, {desc = "visual select around indent"})
-
--- symbols outline
-vim.keymap.set("n", "<leader>so", "<cmd>SymbolsOutline<CR>", {desc = "Symbols Outline"})
 
 -- ts-node-action
 vim.keymap.set("n", "<leader>ta", function()
