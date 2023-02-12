@@ -41,7 +41,7 @@ return {
         config = function()
             local lsp = require("lsp-zero")
             lsp.preset('recommended')
-            lsp.ensure_installed({'pyright', 'tsserver', 'html', 'cssls', 'emmet_ls', 'sumneko_lua'})
+            lsp.ensure_installed({'pyright', 'tsserver', 'html', 'cssls', 'emmet_ls', 'lua_ls'})
             lsp.set_preferences({
                 set_lsp_keymaps = false,
                 manage_nvim_cmp = false,
