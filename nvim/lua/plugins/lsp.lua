@@ -26,17 +26,18 @@ return {
 
     {
         'VonHeikemen/lsp-zero.nvim',
+        event = {"BufReadPre", "BufNewFile"},
         dependencies = {
-            'williamboman/mason.nvim',
-            'williamboman/mason-lspconfig.nvim',
-            'neovim/nvim-lspconfig',
-            'folke/neodev.nvim',
+            {
+                'neovim/nvim-lspconfig',
+                dependencies = {'williamboman/mason.nvim'},
+            },
+            {'folke/neodev.nvim', config = function() require("neodev").setup() end},
             'ray-x/lsp_signature.nvim',
             'j-hui/fidget.nvim',
             'simrat39/symbols-outline.nvim',
             "folke/trouble.nvim"
         },
-        ft = {"python", "html", "css", "lua"},
         config = function()
             local lsp = require("lsp-zero")
             lsp.preset('recommended')
@@ -46,7 +47,7 @@ return {
                 manage_nvim_cmp = false,
                 sign_icons = {error = 'E', warn = 'W', hint = 'H', info = 'I'}
             })
-            lsp.configure('sumneko_lua', {
+            lsp.configure('lua_ls', {
                 settings = {
                     Lua = {
                         workspace = {library = vim.api.nvim_get_runtime_file("", true)},
@@ -106,6 +107,15 @@ return {
                 float = true
             })
         end
+    },
+
+    {
+        'williamboman/mason.nvim',
+        dependencies = {'williamboman/mason-lspconfig.nvim'},
+        keys = {
+            {"<leader>M", "<cmd>Mason<CR>", desc = "open Mason"}
+        },
+        lazy = true,
     },
 
     {
@@ -248,5 +258,4 @@ return {
             }
         },
     },
-    'saecki/crates.nvim',
 }
