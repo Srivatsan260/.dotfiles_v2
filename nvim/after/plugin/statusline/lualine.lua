@@ -50,15 +50,6 @@ else
     theme = vim.g.colors_name
 end
 
-
-local wpm_ok, wpm = pcall(require, "wpm")
-local lualine_x
-if not wpm_ok then
-    lualine_x = {'encoding', 'fileformat', 'filetype'}
-else
-    lualine_x = {wpm.wpm, wpm.historic_graph, 'encoding', 'fileformat', 'filetype'}
-end
-
 lualine.setup {
     -- "┃", "█", "", "", "", "", "", "", "●"
     options = {
@@ -78,7 +69,7 @@ lualine.setup {
         lualine_c = {
             '%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'
         },
-        lualine_x = lualine_x,
+        lualine_x = {'encoding', 'fileformat', 'filetype'},
         lualine_y = {'location', 'progress'},
         lualine_z = {''}
     },
