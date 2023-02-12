@@ -259,9 +259,6 @@ vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", {desc = "open quickfix l
 vim.keymap.set("n", "<localleader>.", "<cmd>cnext<CR>", {desc = "next quickfix item"})
 vim.keymap.set("n", "<localleader>,", "<cmd>cprev<CR>", {desc = "previous quickfix item"})
 
--- coderunner
-vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>", {desc = "run current file using coderunner"})
-
 -- clearjumps
 vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>", {desc = "clear jumplist"})
 

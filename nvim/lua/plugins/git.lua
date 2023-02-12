@@ -140,7 +140,7 @@ return {
                         vim.fn.system("git worktree add " .. full_path .. " " .. branch)
                         require("git-worktree").switch_worktree(full_path)
                     end)
-                end, {desc = "checkout existing branch as a new worktree"}
+                end, desc = "checkout existing branch as a new worktree"
             }
         },
         config = function ()
