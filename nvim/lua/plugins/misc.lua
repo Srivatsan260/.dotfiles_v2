@@ -13,7 +13,11 @@ return {
             {"<leader>cau", ":CellularAutomaton ", desc = "cellular automaton"},
         }
     },
-    'tpope/vim-speeddating',
+    {
+        'tpope/vim-speeddating',
+        lazy = true,
+        keys = {"<C-a>", "<C-x>", "g<C-a>", "g<C-x>"}
+    },
     {
         'glts/vim-radical',
         dependencies = {'glts/vim-magnum'},

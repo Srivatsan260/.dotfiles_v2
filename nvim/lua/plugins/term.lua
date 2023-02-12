@@ -46,7 +46,17 @@ return {
                 end,
                 expr = true, desc = "window right (terminal mode)", mode = "t"
             }
-        }
+        },
+        config = function ()
+            local g_opts = {
+                floaterm_autoclose = 0,
+                floaterm_width = 0.5,
+                floaterm_wintype = 'vsplit',
+            }
+            for k, v in pairs(g_opts) do
+                vim.g[k] = v
+            end
+        end
     },
     {
         'aserowy/tmux.nvim',

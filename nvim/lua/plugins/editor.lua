@@ -1,4 +1,10 @@
 return {
-    'gpanders/editorconfig.nvim',
-    'airblade/vim-rooter',
+    {
+        'gpanders/editorconfig.nvim',
+        event = "VeryLazy",
+    },
+    {
+        'airblade/vim-rooter',
+        event = "VeryLazy",
+    },
 }

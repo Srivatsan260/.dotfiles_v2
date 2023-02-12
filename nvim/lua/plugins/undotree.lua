@@ -14,5 +14,13 @@ return {
             desc = "toggle undotree",
             expr = true
         }
-    }
+    },
+    config = function ()
+        local g_opts = {
+            undotree_SetFocusWhenToggle = 1
+        }
+        for k, v in pairs(g_opts) do
+            vim.g[k] = v
+        end
+    end
 }

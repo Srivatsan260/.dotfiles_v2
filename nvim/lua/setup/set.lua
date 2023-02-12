@@ -61,17 +61,7 @@ vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
 local themes = require("themes").themes
 
 local global_opts = {
-    floaterm_autoclose = 0,
-    floaterm_width = 0.5,
-    floaterm_wintype = 'vsplit',
-    git_messenger_always_into_popup = true,
-    git_messenger_floating_win_opts = {border = 'single', width = 70},
-    git_messenger_popup_content_margins = false,
     global_colorscheme = themes.tokyonight,
-    lazygit_config_file_path = '~/.config/lazygit/config.yml',
-    lazygit_floating_window_use_plenary = 0,
-    lazygit_floating_window_winblend = 0,
-    lazygit_use_custom_config_file_path = 1,
     mapleader = " ",
     maplocalleader = "\\",
     netrw_altv = 1,
@@ -80,13 +70,6 @@ local global_opts = {
     netrw_bufsettings = 'noma nomod nu nobl nowrap ro',
     netrw_winsize = 75,
     sessions_dir = '~/.local/share/nvim/session',
-    tagbar_foldlevel = 2,
-    tagbar_sort = 0,
-    undotree_SetFocusWhenToggle = 1,
-    vimwiki_global_ext = 0,
-    vimwiki_list = {{path = '~/.vimwiki/'}}
-    -- loaded_netrw = 1
-    -- loaded_netrwPlugin = 1
 }
 if vim.g.neovide then
     table.insert(global_opts, {
@@ -97,9 +80,6 @@ if vim.g.neovide then
 end
 
 for key, value in pairs(global_opts) do vim.g[key] = value end
-
-vim.g['conjure#client_on_load'] = false
-vim.g['test#strategy'] = 'floaterm'
 
 -- TODO: write this in lua
 -- vim.cmd [[

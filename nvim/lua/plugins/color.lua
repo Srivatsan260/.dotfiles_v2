@@ -48,7 +48,13 @@ return {
             }
         }
     },
-    'guns/xterm-color-table.vim',
+    {
+        'guns/xterm-color-table.vim',
+        lazy = true,
+        keys = {
+            {"<leader>x", "<cmd>XtermColorTable<CR>", desc = "xterm color table"},
+        }
+    },
     {
         'norcalli/nvim-colorizer.lua',
         opts = {
@@ -56,6 +62,7 @@ return {
             'javascript',
             html = {mode = 'foreground'},
             '*'
-        }
+        },
+        event = {"BufReadPost", "BufNewFile"},
     },
 }

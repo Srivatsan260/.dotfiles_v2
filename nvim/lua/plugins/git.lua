@@ -74,7 +74,7 @@ return {
             {"<leader>U", "<cmd>Gitsigns undo_stage_hunk<CR>", desc = "unstage current hunk"},
             {"<leader>U", ":'<,'>Gitsigns undo_stage_hunk<CR>", desc = "unstage current hunk (visual mode)", mode = "v"},
         },
-        lazy = false,
+        event = {"BufReadPre", "BufNewFile"},
     },
     {
         'kdheepak/lazygit.nvim',
@@ -83,7 +83,18 @@ return {
             {"<leader>gO", "<cmd>LazyGitConfig<CR>", desc = "open lazygit config"},
             {"<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>", desc = "open git log in lazygit"},
         },
-        lazy = true
+        lazy = true,
+        config = function ()
+            local g_opts = {
+                lazygit_config_file_path = '~/.config/lazygit/config.yml',
+                lazygit_floating_window_use_plenary = 0,
+                lazygit_floating_window_winblend = 0,
+                lazygit_use_custom_config_file_path = 1,
+            }
+            for k, v in pairs(g_opts) do
+                vim.g[k] = v
+            end
+        end
     },
     {
         'tpope/vim-fugitive',
@@ -114,6 +125,16 @@ return {
             {"<leader>gm", "<cmd>GitMessenger<CR>", desc = "open git commit message"},
         },
         lazy = true,
+        config = function()
+            local g_opts = {
+                git_messenger_always_into_popup = true,
+                git_messenger_floating_win_opts = {border = 'single', width = 70},
+                git_messenger_popup_content_margins = false,
+            }
+            for k, v in pairs(g_opts) do
+                vim.g[k] = v
+            end
+        end
     },
     {
         'ThePrimeagen/git-worktree.nvim',
