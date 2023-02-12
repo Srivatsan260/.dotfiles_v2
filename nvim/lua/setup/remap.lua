@@ -1,20 +1,5 @@
 local cmd_to_table = require("utils").cmd_to_table
 
--- TODO: apply remaps only if plugins are installed?
-vim.keymap.set("n", "K", function()
-    local crates = require("crates")
-    local filetype = vim.bo.filetype
-    if vim.tbl_contains({'vim', 'help'}, filetype) then
-        vim.cmd('h ' .. vim.fn.expand('<cword>'))
-    elseif vim.tbl_contains({'man'}, filetype) then
-        vim.cmd('Man ' .. vim.fn.expand('<cword>'))
-    elseif vim.fn.expand('%:t') == 'Cargo.toml' and crates.popup_available() then
-        crates.show_popup()
-    else
-        vim.lsp.buf.hover()
-    end
-end, {desc = "Man / Cargo help"})
-
 local config_path = vim.fn.stdpath("config")
 vim.keymap.set("n", "<leader><leader>i", "<cmd> so " .. config_path .. "/lua/setup/init.lua<CR>",
     {desc = "source init.lua"})
