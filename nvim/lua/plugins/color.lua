@@ -49,7 +49,6 @@ return {
         }
     },
     'guns/xterm-color-table.vim',
-    'MunifTanjim/nui.nvim',
     {
         'norcalli/nvim-colorizer.lua',
         opts = {
