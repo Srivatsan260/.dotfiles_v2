@@ -118,24 +118,6 @@ vim.keymap.set("n", "<leader>tg", function()
     require("telescope.builtin").tags({ctags_file = "./tags"})
 end, {desc = "List all tags in workspace"})
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", {desc = "list git branches"})
-vim.keymap.set({"n", "v"}, "]g", "<cmd>Gitsigns next_hunk<CR>", {desc = "next hunk in buffer"})
-vim.keymap.set({"n", "v"}, "[g", "<cmd>Gitsigns prev_hunk<CR>", {desc = "prev hunk in buffer"})
-vim.keymap.set("n", "<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>",
-    {desc = "preview current hunk inline"})
-vim.keymap.set("n", "<leader>R", "<cmd>Gitsigns reset_hunk<CR>", {desc = "reset current hunk"})
-vim.keymap.set("v", "<leader>R", ":'<,'>Gitsigns reset_hunk<CR>",
-    {desc = "reset current hunk (visual mode)"})
-vim.keymap.set("n", "<leader>S", "<cmd>Gitsigns stage_hunk<CR>", {desc = "stage current hunk"})
-vim.keymap.set("v", "<leader>S", ":'<,'>Gitsigns stage_hunk<CR>",
-    {desc = "stage current hunk (visual mode)"})
-vim.keymap.set("n", "<leader>U", "<cmd>Gitsigns undo_stage_hunk<CR>",
-    {desc = "unstage current hunk"})
-vim.keymap.set("v", "<leader>U", ":'<,'>Gitsigns undo_stage_hunk<CR>",
-    {desc = "unstage current hunk (visual mode)"})
-vim.keymap.set("n", "<leader>gg", "<cmd>LazyGit<CR>", {desc = "Open lazygit"})
-vim.keymap.set("n", "<leader>gO", "<cmd>LazyGitConfig<CR>", {desc = "Open lazygit config file"})
-vim.keymap.set("n", "<leader>gf", "<cmd>GitFiles<CR>", {desc = "list git files (FZF)"})
-vim.keymap.set("n", "<leader>gn", ":Git checkout -b ", {desc = "checkout new branch"})
 vim.keymap.set("n", "<leader>gr", "<cmd>Telescope grep_string<CR>",
     {desc = "grep for cword in workspace"})
 vim.keymap.set("n", "<leader>gR", function()
@@ -145,40 +127,12 @@ vim.keymap.set("n", "<leader>gR", function()
 end, {desc = "grep for user input in workspace"})
 vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>",
     {desc = "show git status in Telescope"})
--- vim.keymap.set("n", "<leader>gl", "<cmd>Telescope git_bcommits<CR>")
-vim.keymap.set("n", "<leader>gl", "<cmd>LazyGitFilterCurrentFile<CR>",
-    {desc = "show git log for current file in lazygit"})
-vim.keymap.set("n", "<leader>dvh", "<cmd>DiffviewOpen HEAD~1<CR>", {desc = "dif HEAD with HEAD~1"})
-vim.keymap.set("n", "<leader>dvH", ":DiffviewOpen HEAD~", {desc = "diff HEAD with HEAD~n"})
-vim.keymap
-    .set("n", "<leader>dvl", "<cmd>DiffviewFileHistory<CR>", {desc = "git log in diff window"})
-vim.keymap.set("n", "<leader>dvo", "<cmd>DiffviewOpen<CR>", {desc = "open Diffview"})
 vim.keymap.set("n", "<leader>ft", "<cmd>Telescope filetypes<CR>",
     {desc = "list available filetypes in Telescope"})
 
 vim.keymap.set("n", "<leader>gwl", function()
     require("telescope").extensions.git_worktree.git_worktrees()
 end, {silent = true, desc = "list git worktrees in Telescope"})
-vim.keymap.set("n", "<leader>gws", function()
-    local is_bare_repo = vim.fn.system("git config --get core.bare")
-    if is_bare_repo ~= "true\n" then
-        print("use this remap only for bare repos!")
-        return
-    end
-    local branches = vim.fn.system("git branch -r")
-    local branches_tbl = {}
-    local idx = 1
-    for i in string.gmatch(branches, "[^\r\n]+") do
-        branches_tbl[idx] = string.gsub(i, "origin/", "")
-        idx = idx + 1
-    end
-    vim.ui.select(branches_tbl, {prompt = "select branch"}, function(branch)
-        local path = vim.fn.input({prompt = "Enter path: ", default = ""})
-        if path == "" then return end
-        vim.fn.system("git worktree add ../" .. path .. " " .. branch)
-        require("git-worktree").switch_worktree(path)
-    end)
-end, {desc = "switch to new worktree"})
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
@@ -244,8 +198,6 @@ local function async_git_op(op)
     end
     return fun
 end
-vim.keymap.set("n", "<leader>G", "<cmd>Git<CR>", {desc = "open fugitive"})
-vim.keymap.set("n", "<leader>gc", "<cmd>Git commit<CR>", {desc = "commit using fugitive"})
 vim.keymap.set("n", "<leader>gf", async_git_op("fetch"), {desc = "async git fetch"})
 vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"), {desc = "async git pull"})
 vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"})
