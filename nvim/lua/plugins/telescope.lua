@@ -34,8 +34,8 @@ return {
                 if search == "" then return end
                 vim.cmd("Telescope grep_string search=" .. search)
             end, desc = "grep for user input in workspace"},
-            {"n", "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "show git status in Telescope"},
-            {"n", "<leader>ft", "<cmd>Telescope filetypes<CR>", desc = "list available filetypes in Telescope"},
+            {"<leader>gs", "<cmd>Telescope git_status<CR>", desc = "show git status in Telescope"},
+            {"<leader>ft", "<cmd>Telescope filetypes<CR>", desc = "list available filetypes in Telescope"},
             {"<leader>jj", "<cmd>Telescope jumplist<CR>", desc = "open jumplist in Telescope"},
             {
                 "<leader>gwl", function()
