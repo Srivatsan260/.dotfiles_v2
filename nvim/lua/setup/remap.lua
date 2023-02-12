@@ -115,16 +115,6 @@ vim.keymap.set("n", "<leader>gf", async_git_op("fetch"), {desc = "async git fetc
 vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"), {desc = "async git pull"})
 vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"})
 
--- undotree
-vim.keymap.set("n", "<leader>u", function()
-    if vim.o.modifiable or vim.bo.filetype == "undotree" then
-        return "<cmd>UndotreeToggle<CR>"
-    else
-        return ""
-    end
-end, {desc = "toggle undotree", expr = true})
-
-
 -- Trouble
 vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>",
     {desc = "show document_diagnostics in Trouble window"})
