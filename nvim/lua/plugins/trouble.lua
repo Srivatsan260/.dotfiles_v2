@@ -1,5 +1,6 @@
 return {
     "folke/trouble.nvim",
+    lazy = true,
     opts = {
         position = "bottom", -- position of the list can be: bottom, top, left, right
         height = 10, -- height of the trouble list when position is top or bottom
@@ -44,5 +45,12 @@ return {
             other = "﫠"
         },
         use_diagnostic_signs = false -- enabling this will use the signs defined in your lsp client
+    },
+    keys = {
+        {
+            "<leader>tr",
+            "<cmd>TroubleToggle document_diagnostics<CR>",
+            desc = "show document_diagnostics in Trouble window"
+        }
     }
 }

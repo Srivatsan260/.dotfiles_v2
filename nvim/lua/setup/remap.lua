@@ -115,10 +115,6 @@ vim.keymap.set("n", "<leader>gf", async_git_op("fetch"), {desc = "async git fetc
 vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"), {desc = "async git pull"})
 vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"})
 
--- Trouble
-vim.keymap.set("n", "<leader>tr", "<cmd>TroubleToggle document_diagnostics<CR>",
-    {desc = "show document_diagnostics in Trouble window"})
-
 -- yank all
 vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 -- save file with ctrl-s
@@ -194,11 +190,6 @@ end
 if vim.fn.has("nvim-0.9.0") == 1 then
     vim.keymap.set("n", "<leader>hh", vim.show_pos, {desc = "Inspect position under cursor"})
 end
-
--- treehopper
-vim.keymap.set({"n", "v"}, "<leader><CR>", function ()
-    require("tsht").nodes()
-end, {desc = "hop nodes"})
 
 -- map arrow keys in insert mode?
 vim.keymap.set("i", "<C-h>", "<Left>", {desc = "move left in insert mode"})
