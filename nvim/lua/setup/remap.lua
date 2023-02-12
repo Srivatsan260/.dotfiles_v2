@@ -83,27 +83,6 @@ vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>",
 vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>",
     {desc = "toggle treesitter playground"})
 
--- FZF / telescope / lazygit
-vim.keymap.set("n", "<C-p>", "<cmd>Telescope find_files hidden=True<CR>",
-    {desc = "Telescope find_files"})
-vim.keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser hidden=True<CR>",
-    {desc = "Telescope file_browser"})
--- vim.keymap.set("n", "<C-p>", "<cmd>Files<CR>")
-vim.keymap.set("n", "<leader>cs", "<cmd>Telescope colorscheme<CR>",
-    {desc = "List colorschemes in telescope"})
-vim.keymap.set("n", "<leader>ct", "<cmd>! ctags -R<CR>", {desc = "generate ctags"})
-vim.keymap.set("n", "<leader>fd", "<cmd>FileInDirectory<CR>", {desc = "find file in directory"})
-vim.keymap.set("n", "<leader>pd", "<cmd>GrepInDirectory<CR>", {desc = "grep in directory"})
-vim.keymap.set("n", "<leader>ff", "<cmd>Telescope live_grep<CR>", {desc = "grep in workspace"})
-vim.keymap.set("n", "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>",
-    {desc = "fuzzy find in current buffer"})
-vim.keymap.set("n", "<leader>?", "<cmd>Telescope oldfiles<CR>",
-    {desc = "show recent files using telescope"})
-vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<CR>", {desc = "list open buffers"})
-vim.keymap.set("n", "<leader>cd", "<cmd>Telescope zoxide list<CR>",
-    {desc = "list directories using zoxide"})
-vim.keymap.set("n", "<leader>tR", "<cmd>Telescope resume<CR>",
-    {desc = "resume last telescope search"})
 
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
@@ -112,27 +91,8 @@ vim.keymap.set("n", "<S-Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
 end, {expr = true, desc = "previous buffer"})
 
-vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>",
-    {desc = "show help tags in Telescope"})
-vim.keymap.set("n", "<leader>tg", function()
-    require("telescope.builtin").tags({ctags_file = "./tags"})
-end, {desc = "List all tags in workspace"})
-vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>", {desc = "list git branches"})
-vim.keymap.set("n", "<leader>gr", "<cmd>Telescope grep_string<CR>",
-    {desc = "grep for cword in workspace"})
-vim.keymap.set("n", "<leader>gR", function()
-    local search = vim.fn.input({prompt = "Search for: ", default = ""})
-    if search == "" then return end
-    vim.cmd("Telescope grep_string search=" .. search)
-end, {desc = "grep for user input in workspace"})
-vim.keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<CR>",
-    {desc = "show git status in Telescope"})
-vim.keymap.set("n", "<leader>ft", "<cmd>Telescope filetypes<CR>",
-    {desc = "list available filetypes in Telescope"})
 
-vim.keymap.set("n", "<leader>gwl", function()
-    require("telescope").extensions.git_worktree.git_worktrees()
-end, {silent = true, desc = "list git worktrees in Telescope"})
+
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
@@ -304,8 +264,6 @@ vim.keymap.set("n", "<leader>x", "<cmd>RunFile<CR>", {desc = "run current file u
 
 -- clearjumps
 vim.keymap.set("n", "<leader>cj", "<cmd>clearjumps<CR>", {desc = "clear jumplist"})
-vim.keymap.set("n", "<leader>jj", "<cmd>Telescope jumplist<CR>",
-    {desc = "open jumplist in Telescope"})
 
 -- open zshrc and zshenv
 vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>", {desc = "open .zshrc"})
