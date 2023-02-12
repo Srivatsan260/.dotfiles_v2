@@ -2,9 +2,9 @@ return {
     {
         'nvim-treesitter/nvim-treesitter',
         dependencies = {
-            'nvim-treesitter/nvim-treesitter-context',
-            'nvim-treesitter/nvim-treesitter-textobjects',
-            'nvim-treesitter/playground'
+            {'nvim-treesitter/nvim-treesitter-context', build = ":TSUpdate"},
+            {'nvim-treesitter/nvim-treesitter-textobjects', build = ":TSUpdate"},
+            {'nvim-treesitter/playground', build = ":TSUpdate"}
         },
         build = ':TSUpdate',
         config = function()
@@ -88,7 +88,4 @@ return {
             {"<leader>tp", "<cmd>TSPlaygroundToggle<CR>", desc = "toggle treesitter playground"},
         }
     },
-    {'nvim-treesitter/nvim-treesitter-context', build = ":TSUpdate"},
-    {'nvim-treesitter/nvim-treesitter-textobjects', build = ":TSUpdate"},
-    {'nvim-treesitter/playground', build = ":TSUpdate"}
 }
