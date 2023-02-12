@@ -62,13 +62,6 @@ vim.keymap.set("t", "<C-l>", function()
     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>l" or "<C-l>"
 end, {expr = true, desc = "window right (terminal mode)"})
 
--- treesitter highlighting
-vim.keymap.set("n", "<leader>th", "<cmd>TSBufToggle highlight<CR>",
-    {desc = "toggle treesitter highlights"})
-vim.keymap.set("n", "<leader>tp", "<cmd>TSPlaygroundToggle<CR>",
-    {desc = "toggle treesitter playground"})
-
-
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
 end, {expr = true, desc = "next buffer"})
