@@ -20,6 +20,6 @@ return {
         }
     },
     keys = {
-        {"<leader>cr", "<cmd>CarbonNow<CR>", desc = {"Carbon Now"}},
+        {"<leader>cr", "<cmd>CarbonNow<CR>", desc = "Carbon Now"},
     }
 }

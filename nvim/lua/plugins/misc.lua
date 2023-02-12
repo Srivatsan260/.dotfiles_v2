@@ -14,6 +14,10 @@ return {
         }
     },
     'tpope/vim-speeddating',
-    {'glts/vim-radical', dependencies = {'glts/vim-magnum'}},
-    'tpope/vim-eunuch',
+    {
+        'glts/vim-radical',
+        dependencies = {'glts/vim-magnum'},
+        lazy = true,
+        keys = {"cr", "gA"}
+    },
 }

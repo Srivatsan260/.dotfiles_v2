@@ -1,3 +1,7 @@
 return {
-    'vimwiki/vimwiki',
+    {
+        'vimwiki/vimwiki',
+        lazy = true,
+        keys = "<leader>w",
+    },
 }

@@ -38,7 +38,6 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", {desc = "close current ta
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", {desc = "open netrw"})
 
-
 vim.keymap.set("n", "<Tab>", function()
     return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
 end, {expr = true, desc = "next buffer"})
