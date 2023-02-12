@@ -24,5 +24,13 @@ return {
                 highlight = "keyword" -- to set the Highlight group to "@keyword"
             }
         },
+    },
+    keys = {
+        {"<leader>cc", function()
+            require("conceal").toggle_conceal(1)
+        end, silent = true, desc = "Toggle conceals"},
+        {"<leader>cg", function()
+            require("conceal").generate_conceals()
+        end, desc = "Generate conceals"},
     }
 }

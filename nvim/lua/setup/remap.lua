@@ -190,15 +190,6 @@ if vim.bo.filetype ~= "lua" then
     vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, {desc = "lsp buf format"})
 end
 
--- conceal
--- bind a <leader>tc to toggle the concealing level
-vim.keymap.set("n", "<leader>cc", function()
-    require("conceal").toggle_conceal(1)
-end, {silent = true, desc = "Toggle conceals"})
-vim.keymap.set("n", "<leader>cg", function()
-    require("conceal").generate_conceals()
-end, {desc = "Generate conceals"})
-
 -- highlights under cursor
 if vim.fn.has("nvim-0.9.0") == 1 then
     vim.keymap.set("n", "<leader>hh", vim.show_pos, {desc = "Inspect position under cursor"})
