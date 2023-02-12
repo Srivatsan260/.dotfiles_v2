@@ -277,11 +277,6 @@ vim.keymap.set("i", "<C-j>", "<Down>", {desc = "move down in insert mode"})
 vim.keymap.set("i", "<C-k>", "<Up>", {desc = "move up in insert mode"})
 vim.keymap.set("i", "<C-l>", "<Right>", {desc = "move right in insert mode"})
 
--- spectre
-vim.keymap.set("n", "<leader>sr", function ()
-    require("spectre").open()
-end, {desc = "open spectre"})
-
 -- search & replace current word
 vim.keymap.set("n", "<leader>sw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
     {desc = "search and replace cword in buffer"})
