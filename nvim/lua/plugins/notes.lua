@@ -3,7 +3,7 @@ return {
         'vimwiki/vimwiki',
         lazy = true,
         keys = "<leader>w",
-        config = function ()
+        init = function ()
             local g_opts = {
                 vimwiki_global_ext = 0,
                 vimwiki_list = {{path = '~/.vimwiki/'}}
