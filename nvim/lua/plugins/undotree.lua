@@ -15,7 +15,7 @@ return {
             expr = true
         }
     },
-    config = function ()
+    init = function ()
         local g_opts = {
             undotree_SetFocusWhenToggle = 1
         }
