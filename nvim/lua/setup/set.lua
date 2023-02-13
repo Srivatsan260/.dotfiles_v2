@@ -1,52 +1,55 @@
-local opts = {
-    background = "dark",
-    backup = false,
-    belloff = "all",
-    clipboard = "unnamedplus",
-    cmdheight = 1,
-    colorcolumn = "100",
-    completeopt = {"menuone", "noselect"},
-    conceallevel = 1,
-    expandtab = true,
-    exrc = true,
-    foldexpr = 'nvim_treesitter#foldexpr()',
-    foldmethod = 'expr',
-    grepformat = "%f:%l:%c:%m",
-    grepprg = "rg --vimgrep --no-heading --smart-case",
-    guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20",
-    hlsearch = false,
-    ignorecase = true,
-    inccommand = "split",
-    incsearch = true,
-    laststatus = 3,
-    list = true,
-    listchars = {eol = '﬋', tab = '» ', nbsp = '␣', trail = '•'},
-    mouse = "nvi",
-    nu = true,
-    rnu = true,
-    scrolloff = 8,
-    shada = {"!", "'1000", "<50", "s10", "h"},
-    shiftwidth = 4,
-    showbreak = '↪',
-    showmatch = true,
-    showmode = false,
-    signcolumn = "yes",
-    smartcase = true,
-    smartindent = true,
-    softtabstop = 4,
-    splitright = false,
-    swapfile = false,
-    tabstop = 4,
-    termguicolors = true,
-    timeoutlen = 250,
-    undofile = true,
-    updatetime = 250,
-    -- winbar = "%f %m",
-    wrap = true
-}
-for key, value in pairs(opts) do vim.opt[key] = value end
+local opt = vim.opt
+local g = vim.g
 
-vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
+opt.background = "dark"
+opt.backup = false
+opt.belloff = "all"
+opt.clipboard = "unnamedplus"
+opt.cmdheight = 1
+opt.colorcolumn = "100"
+opt.completeopt = {"menuone", "noselect"}
+opt.conceallevel = 1
+opt.expandtab = true
+opt.exrc = true
+opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldmethod = 'expr'
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep --no-heading --smart-case"
+opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20"
+opt.hlsearch = false
+opt.ignorecase = true
+opt.inccommand = "split"
+opt.incsearch = true
+opt.laststatus = 3
+opt.list = true
+opt.listchars = {eol = '﬋', tab = '» ', nbsp = '␣', trail = '•'}
+opt.mouse = "nvi"
+opt.nu = true
+opt.rnu = true
+opt.scrolloff = 8
+opt.shada = {"!", "'1000", "<50", "s10", "h"}
+opt.shiftwidth = 4
+opt.showbreak = '↪'
+opt.showmatch = true
+opt.showmode = false
+opt.signcolumn = "yes"
+opt.smartcase = true
+opt.smartindent = true
+opt.softtabstop = 4
+opt.splitright = false
+opt.swapfile = false
+opt.tabstop = 4
+opt.termguicolors = true
+opt.timeoutlen = 250
+opt.undofile = true
+opt.updatetime = 250
+-- opt.winbar = "%f %m",
+opt.wrap = true
+if vim.fn.has("nvim-0.9.0") == 1 then
+    opt.splitkeep = "screen"
+end
+
+opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.
 - "t" -- Don't auto format my code. I got linters for that.
 + "c" -- When comments respect textwidth
 + "q" -- Allow formatting comments w/ gq
@@ -56,41 +59,20 @@ vim.opt.formatoptions = vim.opt.formatoptions - "a" -- Auto formatting is BAD.
 + "j" -- Auto-remove comments if possible.
 - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
 
-vim.opt.jumpoptions = vim.opt.jumpoptions + "stack"
-
 local themes = require("themes").themes
 
-local global_opts = {
-    global_colorscheme = themes.tokyonight,
-    mapleader = " ",
-    maplocalleader = "\\",
-    netrw_altv = 1,
-    netrw_banner = 0,
-    netrw_browse_split = 0,
-    netrw_bufsettings = 'noma nomod nu nobl nowrap ro',
-    netrw_winsize = 75,
-    sessions_dir = '~/.local/share/nvim/session',
-}
-if vim.g.neovide then
-    table.insert(global_opts, {
-        neovide_cursor_trail_length = 0.8,
-        neovide_cursor_animation_length = 0.04,
-        neovide_transparency = 0.9
-    })
+g.global_colorscheme = themes.tokyonight
+g.mapleader = " "
+g.maplocalleader = "\\"
+g.netrw_altv = 1
+g.netrw_banner = 0
+g.netrw_browse_split = 0
+g.netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+g.netrw_winsize = 75
+g.sessions_dir = '~/.local/share/nvim/session'
+
+if g.neovide then
+    g.neovide_cursor_trail_length = 0.8
+    g.neovide_cursor_animation_length = 0.04
+    g.neovide_transparency = 0.9
 end
-
-for key, value in pairs(global_opts) do vim.g[key] = value end
-
--- TODO: write this in lua
--- vim.cmd [[
---     let g:firenvim_config = {
---         \ 'globalSettings': {
---             \ 'alt': 'all',
---         \  },
---         \ 'localSettings': {
---             \ '.*': {
---                 \ 'selector': 'textarea',
---             \ },
---         \ }
---     \ }
--- ]]
