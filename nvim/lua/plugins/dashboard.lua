@@ -1,3 +1,4 @@
+-- TODO: try dashboard.nvim instead of alpha-nvim
 return {
     {
         "goolord/alpha-nvim",
