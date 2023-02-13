@@ -58,8 +58,10 @@ return {
             local buttons = {
                 type = "group",
                 val = {
+                    button("SPC ,", "פּ  Open Netrw", "<cmd>Ex<CR>"),
                     button("e", "  New file", "<cmd>ene <CR>"),
-                    button("<C-p>", "  Find file"), button("SPC ?", "  Recently opened files")
+                    button("<C-p>", "  Find file"),
+                    button("SPC ?", "  Recently opened files")
                 },
                 opts = {spacing = 1}
             }
