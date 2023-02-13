@@ -1,7 +1,7 @@
 return {
     {
         'jose-elias-alvarez/null-ls.nvim',
-        ft = {"python", "sql", "sh", "bash", "zsh", "lua"},
+        event = {"BufReadPost", "BufNewFile"},
         config = function ()
             local null_ls = require("null-ls")
             local sources = {
