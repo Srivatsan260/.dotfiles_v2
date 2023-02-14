@@ -20,6 +20,6 @@ return {
         }
     },
     keys = {
-        {"<leader>cr", "<cmd>CarbonNow<CR>", desc = "Carbon Now"},
+        {"<leader>cr", ":CarbonNow<CR>", desc = "Carbon Now", mode = {"n", "x"}},
     }
 }
