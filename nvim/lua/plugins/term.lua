@@ -12,11 +12,18 @@ return {
         },
         lazy = true,
         keys = {
-            {"<C-\\>", "<cmd>FloatermToggle<CR>", desc = "toggle floaterm window", mode = {"n", "t"}},
+            {
+                "<C-\\>",
+                function()
+                   return vim.bo.filetype ~= "lazygit" and "<cmd>FloatermToggle<CR>" or ""
+                end,
+                expr = true,
+                desc = "toggle floaterm window",
+                mode = {"n", "t"}
+            },
             {"<leader>fl", "<cmd>Floaterms<CR>", desc = "list floaterms"},
             {"<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ", desc = "new floaterm window with custom command"},
             {"<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>", desc = "open ranger in a new floaterm window"},
-            {"<localleader><Esc>", "<C-\\><C-n>", desc = "escape terminal mode", mode = "t"},
             -- Floaterm window switching
             {
                 "<C-h>",

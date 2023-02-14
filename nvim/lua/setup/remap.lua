@@ -35,6 +35,9 @@ vim.keymap.set("n", "<leader>t.", "<cmd>tabnext<CR>", {desc = "next tab"})
 vim.keymap.set("n", "<leader>t,", "<cmd>tabprev<CR>", {desc = "previous tab"})
 vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", {desc = "close current tab"})
 
+-- escape terminal mode
+vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", {desc = "escape terminal mode"})
+
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", {desc = "open netrw"})
 
