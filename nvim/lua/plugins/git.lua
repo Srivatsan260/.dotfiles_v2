@@ -107,6 +107,7 @@ return {
             {"<leader>gn", ":Git checkout -b ", desc = "checkout new branch"},
             {"<leader>gc", "<cmd>Git commit<CR>", desc = "commit using fugitive"},
         },
+        cmd = "Git",
         lazy = true,
     },
     {
