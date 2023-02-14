@@ -1,7 +1,7 @@
 return {
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = {"BufReadPre", "BufNewFile"},
+        event = {"BufEnter", "BufNewFile"},
         opts = {
             -- char = "▏",
             char = "│",
@@ -16,6 +16,7 @@ return {
                 "undotree",
                 "qf",
                 "netrw",
+                "floaterm",
             },
             show_trailing_blankline_indent = false,
             show_current_context = false
@@ -24,7 +25,7 @@ return {
     {
         "echasnovski/mini.indentscope",
         version = false, -- wait till new 0.7.0 release to put it back on semver
-        event = {"BufReadPre", "BufNewFile"},
+        event = {"BufEnter", "BufNewFile"},
         opts = {
             -- symbol = "▏",
             symbol = "│",
@@ -43,6 +44,7 @@ return {
                     "undotree",
                     "qf",
                     "netrw",
+                    "floaterm",
                 },
                 callback = function()
                     vim.b.miniindentscope_disable = true
