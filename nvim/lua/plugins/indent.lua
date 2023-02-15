@@ -17,6 +17,7 @@ return {
                 "qf",
                 "netrw",
                 "floaterm",
+                "fugitive",
             },
             show_trailing_blankline_indent = false,
             show_current_context = false
@@ -45,6 +46,7 @@ return {
                     "qf",
                     "netrw",
                     "floaterm",
+                    "fugitive",
                 },
                 callback = function()
                     vim.b.miniindentscope_disable = true
