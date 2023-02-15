@@ -193,12 +193,6 @@ if vim.fn.has("nvim-0.9.0") == 1 then
     vim.keymap.set("n", "<leader>hh", vim.show_pos, {desc = "Inspect position under cursor"})
 end
 
--- map arrow keys in insert mode?
-vim.keymap.set("i", "<C-h>", "<Left>", {desc = "move left in insert mode"})
-vim.keymap.set("i", "<C-j>", "<Down>", {desc = "move down in insert mode"})
-vim.keymap.set("i", "<C-k>", "<Up>", {desc = "move up in insert mode"})
-vim.keymap.set("i", "<C-l>", "<Right>", {desc = "move right in insert mode"})
-
 -- search & replace current word
 vim.keymap.set("n", "<leader>sw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
     {desc = "search and replace cword in buffer"})
