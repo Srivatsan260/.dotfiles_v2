@@ -18,7 +18,7 @@ return {
                 null_ls.builtins.diagnostics.rstcheck,
                 null_ls.builtins.diagnostics.sqlfluff.with({extra_args = {"--dialect", "snowflake"}}),
                 -- hovers
-                null_ls.builtins.hover.printenv
+                -- null_ls.builtins.hover.printenv
             }
             null_ls.setup({sources = sources})
         end
@@ -30,7 +30,15 @@ return {
         dependencies = {
             {
                 'neovim/nvim-lspconfig',
-                dependencies = {'williamboman/mason.nvim'},
+                dependencies = {
+                    'williamboman/mason.nvim',
+                    dependencies = {'williamboman/mason-lspconfig.nvim'},
+                    keys = {
+                        {"<leader>M", "<cmd>Mason<CR>", desc = "open Mason"}
+                    },
+                    event = {"BufReadPre", "BufNewFile"},
+                    cmd = "Mason",
+                },
             },
             {'folke/neodev.nvim', config = function() require("neodev").setup() end},
             'ray-x/lsp_signature.nvim',
@@ -107,15 +115,6 @@ return {
                 float = true
             })
         end
-    },
-
-    {
-        'williamboman/mason.nvim',
-        dependencies = {'williamboman/mason-lspconfig.nvim'},
-        keys = {
-            {"<leader>M", "<cmd>Mason<CR>", desc = "open Mason"}
-        },
-        lazy = true,
     },
 
     {
