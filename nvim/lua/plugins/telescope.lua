@@ -16,7 +16,6 @@ return {
             {"<C-p>", "<cmd>Telescope find_files hidden=True<CR>", desc = "Telescope find_files"},
             {"<leader>fb", "<cmd>Telescope file_browser hidden=True<CR>", desc = "Telescope file_browser"},
             {"<leader>cs", "<cmd>Telescope colorscheme<CR>", desc = "List colorschemes in telescope"},
-            {"<leader>ct", "<cmd>! ctags -R<CR>", desc = "generate ctags"},
             {"<leader>fd", "<cmd>FileInDirectory<CR>", desc = "find file in directory"},
             {"<leader>pd", "<cmd>GrepInDirectory<CR>", desc = "grep in directory"},
             {"<leader>ff", "<cmd>Telescope live_grep<CR>", desc = "grep in workspace"},

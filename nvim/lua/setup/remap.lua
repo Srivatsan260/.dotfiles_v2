@@ -196,3 +196,6 @@ end
 -- search & replace current word
 vim.keymap.set("n", "<leader>sw", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>",
     {desc = "search and replace cword in buffer"})
+
+-- ctags
+vim.keymap.set("n", "<leader>ct", "<cmd>AsyncRun ctags -R<CR>", {desc = "generate ctags"})
