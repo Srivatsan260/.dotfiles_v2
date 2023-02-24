@@ -121,6 +121,7 @@ vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"
 vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 -- save file with ctrl-s
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
+-- TODO check if this is a duplicate of gx
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
 
 -- delete all buffers except current
