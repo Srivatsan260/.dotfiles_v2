@@ -101,7 +101,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     end
     vim.ui.select(paths, {prompt = "select path to update", default = ""}, function(p)
         if p == "" or p == nil then return end
-        local cmd = "AsyncRun -cwd=" .. root .. "/" .. path .."/" .. p .. " git pull --ff-only"
+        local cmd = "AsyncRun -cwd=" .. root .. "/" .. path .. "/" .. p .. " git pull --ff-only"
         vim.cmd(cmd)
         vim.cmd.copen()
     end)
