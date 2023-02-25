@@ -49,27 +49,31 @@ vim.keymap.set("n", "<S-Tab>", function()
 end, {expr = true, desc = "previous buffer"})
 
 vim.keymap.set("n", "<leader>gwc", function()
-    local root = string.gsub(
-        vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
-        "[\n\r]",
-        ""
-    )
+    local root = string.gsub(vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
+        "[\n\r]", "")
     if root == nil then
         print("error getting bare repo root!")
         return
     end
-    local path = vim.fn.input({prompt = "Enter worktree path from bare root: ", default = ""})
-    if path == "" then return end
-    local full_path = root .. "/" .. path
-    local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
-    if branch == "" then return end
     local branches = cmd_to_table("git branch -a")
-    vim.ui.select(branches, {prompt = "select parent branch"}, function(parent_branch)
+    if rawequal(next(branches), nil) then
+        print("no branches!")
+        return
+    end
+    vim.ui.select(branches, {prompt = "select parent branch"}, function(pb)
+        if pb == nil then return end
+        local parent_branch = string.gsub(pb, "[*+]", "")
+        local path = vim.fn.input({prompt = "Enter worktree path from bare root: ", default = ""})
+        if path == "" then return end
+        local full_path = root .. "/" .. path
+        local branch = vim.fn.input({prompt = "Enter new branch name: ", default = ""})
+        if branch == "" then return end
+        print('running git cmds')
         vim.fn.system("git branch " .. branch .. " " .. parent_branch)
         vim.fn.system("git worktree add " .. full_path .. " " .. branch)
-        require("git-worktree").switch_worktree(path)
+        -- require("git-worktree").switch_worktree(full_path)
     end)
-end, {desc = "create new git worktree"})
+end, {desc = "create new branch and checkout as a git worktree"})
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")
     if is_bare_repo ~= "true\n" then
