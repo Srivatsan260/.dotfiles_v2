@@ -61,6 +61,7 @@ opt.formatoptions = opt.formatoptions - "a" -- Auto formatting is BAD.
 
 local themes = require("themes").themes
 
+-- TODO: get rid of unused themes and simplify theme selection
 g.global_colorscheme = themes.tokyonight
 g.mapleader = " "
 g.maplocalleader = "\\"
