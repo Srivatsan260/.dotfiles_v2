@@ -1,7 +1,10 @@
 return {
     {
         'nvim-lualine/lualine.nvim',
-        dependencies = {'kyazdani42/nvim-web-devicons', lazy = true},
+        dependencies = {
+            'kyazdani42/nvim-web-devicons',
+            'folke/noice.nvim'
+        },
         event = "VeryLazy",
         config = function ()
             local lualine = require("lualine")
@@ -72,7 +75,15 @@ return {
                     lualine_c = {
                         '%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'
                     },
-                    lualine_x = {'encoding', 'fileformat', 'filetype'},
+                    lualine_x = {
+                        'encoding',
+                        'fileformat',
+                        'filetype',
+                        {
+                            require("noice").api.statusline.mode.get,
+                            cond = require("noice").api.statusline.mode.has
+                        },
+                    },
                     lualine_y = {'location', 'progress'},
                     lualine_z = {''}
                 },
