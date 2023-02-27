@@ -71,7 +71,14 @@ return {
                 },
                 sections = {
                     lualine_a = {'mode'},
-                    lualine_b = {'branch'},
+                    lualine_b = {
+                        'branch',
+                        {
+                            require("noice").api.statusline.mode.get,
+                            cond = require("noice").api.statusline.mode.has,
+                            color = { fg = "#ff0312" }
+                        }
+                    },
                     lualine_c = {
                         '%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'
                     },
@@ -79,10 +86,6 @@ return {
                         'encoding',
                         'fileformat',
                         'filetype',
-                        {
-                            require("noice").api.statusline.mode.get,
-                            cond = require("noice").api.statusline.mode.has
-                        },
                     },
                     lualine_y = {'location', 'progress'},
                     lualine_z = {''}
