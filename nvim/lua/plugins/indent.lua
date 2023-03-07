@@ -19,6 +19,7 @@ return {
                 "floaterm",
                 "fugitive",
                 "Outline",
+                "gitmessengerpopup",
             },
             show_trailing_blankline_indent = false,
             show_current_context = false
@@ -49,6 +50,7 @@ return {
                     "floaterm",
                     "fugitive",
                     "Outline",
+                    "gitmessengerpopup",
                 },
                 callback = function()
                     vim.b.miniindentscope_disable = true
