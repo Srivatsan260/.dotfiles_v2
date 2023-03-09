@@ -42,7 +42,7 @@ return {
             },
             {'folke/neodev.nvim', config = function() require("neodev").setup() end},
             'ray-x/lsp_signature.nvim',
-            -- 'j-hui/fidget.nvim',
+            'j-hui/fidget.nvim',
             'simrat39/symbols-outline.nvim',
             "folke/trouble.nvim"
         },
