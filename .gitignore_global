@@ -6,3 +6,4 @@ tags
 .git/*
 .exrc
 .exrc.lua
+typings/*
