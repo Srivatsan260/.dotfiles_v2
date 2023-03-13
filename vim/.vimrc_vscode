@@ -1,0 +1,42 @@
+set noerrorbells
+set nu
+set relativenumber
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set smartindent
+set wrap
+
+set nohlsearch
+set incsearch
+
+set scrolloff=8
+set signcolumn=yes
+set colorcolumn=100
+
+set noswapfile
+set nobackup
+
+set termguicolors
+set updatetime=200
+set cmdheight=1
+set nosplitright
+
+set grepprg="rg --vimgrep --no-heading --smart-case"
+set grepformat="%f:%l:%c:%m"
+
+set laststatus=2
+set background="dark"
+set showmatch
+
+set list
+set listchars=tab:»\ ,eol:↲,nbsp:␣,trail:•
+set showbreak='↪'
+
+set backspace=indent,eol,start
+set clipboard=unnamed
+
+let mapleader=" "
+let maplocalleader="\\"
