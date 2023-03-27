@@ -38,15 +38,6 @@ vim.api.nvim_create_autocmd({"VimResized"}, {
     end
 })
 
-vim.api.nvim_create_autocmd({"BufEnter", "WinEnter"}, {
-    pattern = "*",
-    callback = function()
-        if vim.bo.filetype ~= "floaterm" then
-            vim.cmd.normal("zz")
-        end
-    end
-})
-
 local filetype_control = vim.api.nvim_create_augroup("FileTypeControl", {clear = true})
 vim.api.nvim_create_autocmd({"BufRead"}, {
     group = filetype_control,
