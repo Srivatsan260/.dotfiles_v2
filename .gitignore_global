@@ -8,3 +8,4 @@ tags
 .exrc.lua
 typings/*
 .databricks/*
+.vscode/*
