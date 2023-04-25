@@ -128,7 +128,7 @@ vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
 
 -- delete all buffers except current
-vim.keymap.set("n", "<leader>ca", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>",
+vim.keymap.set("n", "<leader>cab", ":wa <bar> %bd <bar> e# <bar> bd# <CR><CR>",
     {desc = "delete all buffers except current"})
 
 -- add zz to nav remaps
