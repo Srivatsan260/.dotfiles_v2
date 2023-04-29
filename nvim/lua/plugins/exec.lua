@@ -7,7 +7,8 @@ return {
             border = 'single',
             filetype = {
                 python = "python -u",
-                rust = "cargo build && cargo run"
+                rust = "cargo build && cargo run",
+                go = "go run .",
             }
         },
         keys = {
