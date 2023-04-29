@@ -54,26 +54,17 @@ return {
                     list_command = "zoxide query -ls",
                     mappings = {
                         default = {
-                            after_action = function(selection)
-                                print("Update to (" .. selection.z_score .. ") " .. selection.path)
-                            end
-                        },
-                        ["<C-s>"] = {
-                            before_action = function(_)
-                                print("before C-s")
-                            end,
                             action = function(selection)
-                                vim.cmd("edit " .. selection.path)
+                                vim.cmd.edit(selection.path)
+                            end,
+                            after_action = function(selection)
+                                print("Directory changed to " .. selection.path)
                             end
                         },
-                        -- Opens the selected entry in a new split
-                        ["<C-q>"] = {action = z_utils.create_basic_command("split")},
-                        -- cd
-                        ["<C-d>"] = {action = z_utils.create_basic_command("cd")},
-                        -- edit
-                        ["<CR>"] = {action = z_utils.create_basic_command("edit")}
-                    }
-                }
+                        ["<C-s>"] = { action = z_utils.create_basic_command("split") },
+                        ["<C-v>"] = { action = z_utils.create_basic_command("vsplit") },
+                        ["<C-e>"] = { action = z_utils.create_basic_command("edit") },
+                    }}
             else
                 zoxide_opts = {}
             end
@@ -81,7 +72,7 @@ return {
             telescope.setup {
                 defaults = {
                     prompt_prefix = ' ',
-                    layout_strategy = "current_buffer",
+                    -- layout_strategy = "float",
                 },
                 extensions = {
                     session_picker = {sessions_dir = vim.g.sessions_dir},
