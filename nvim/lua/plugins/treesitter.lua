@@ -56,7 +56,8 @@ return {
                 end
             },
             {'nvim-treesitter/nvim-treesitter-textobjects', build = ":TSUpdate"},
-            {'nvim-treesitter/playground', build = ":TSUpdate"}
+            {'nvim-treesitter/playground', build = ":TSUpdate"},
+            {'yioneko/nvim-yati'}
         },
         build = ':TSUpdate',
         config = function()
@@ -64,6 +65,21 @@ return {
                 -- ensure_installed = {"python", "rust", "sql", "yaml", "toml", "c", "http", "json"},
                 sync_install = false,
                 highlight = {enable = true, additional_vim_regex_highlighting = false},
+                indent = {
+                    enable = false,
+                },
+                yati = {
+                    enable = true,
+                    -- Whether to enable lazy mode (recommend to enable this if bad indent happens frequently)
+                    default_lazy = true,
+
+                    -- Determine the fallback method used when we cannot calculate indent by tree-sitter
+                    --   "auto": fallback to vim auto indent
+                    --   "asis": use current indent as-is
+                    --   "cindent": see `:h cindent()`
+                    -- Or a custom function return the final indent result.
+                    default_fallback = "auto"
+                },
                 incremental_selection = {
                     enable = false,
                     keymaps = {
