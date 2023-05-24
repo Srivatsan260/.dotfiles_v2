@@ -26,7 +26,7 @@ return {
         },
     },
     keys = {
-        {"<leader>cc", function()
+        {"<localleader>cc", function()
             require("conceal").toggle_conceal(1)
         end, silent = true, desc = "Toggle conceals"},
         {"<leader>cg", function()
