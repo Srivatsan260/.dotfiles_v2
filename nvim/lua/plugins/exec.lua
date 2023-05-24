@@ -36,11 +36,15 @@ return {
         cmd = "AsyncRun",
     },
     {
-        'Olical/conjure',
-        dependencies = 'PaterJason/cmp-conjure',
-        ft = "python",
-        config = function ()
-            vim.g['conjure#client_on_load'] = false
-        end
+        'luk400/vim-jukit',
+        ft = {"json", "python"},
+        keys = {
+            -- TODO add more keymaps here
+            {"<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>"},
+            -- {"<leader>ht", "<cmd>call jukit#convert#save_nb_to_file(0,1,'html')<cr>"},
+            -- {"<leader>rht", "<cmd>call jukit#convert#save_nb_to_file(1,1,'html')<cr>"},
+            -- {"<leader>pd", "<cmd>call jukit#convert#save_nb_to_file(0,1,'pdf')<cr>"},
+            -- {"<leader>rpd", "<cmd>call jukit#convert#save_nb_to_file(1,1,'pdf')<cr>"},
+        }
     }
 }
