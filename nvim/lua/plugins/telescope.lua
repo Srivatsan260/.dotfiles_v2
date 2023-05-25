@@ -17,7 +17,7 @@ return {
             {"<leader>fb", "<cmd>Telescope file_browser hidden=True<CR>", desc = "Telescope file_browser"},
             {"<leader>cs", "<cmd>Telescope colorscheme<CR>", desc = "List colorschemes in telescope"},
             {"<leader>fd", "<cmd>FileInDirectory<CR>", desc = "find file in directory"},
-            {"<leader>pd", "<cmd>GrepInDirectory<CR>", desc = "grep in directory"},
+            {"<leader>dg", "<cmd>GrepInDirectory<CR>", desc = "grep in directory"},
             {"<leader>ff", "<cmd>Telescope live_grep<CR>", desc = "grep in workspace"},
             {"<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "fuzzy find in current buffer"},
             {"<leader>?", "<cmd>Telescope oldfiles<CR>", desc = "show recent files using telescope"},
