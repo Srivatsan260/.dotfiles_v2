@@ -20,17 +20,17 @@ vim.api.nvim_create_autocmd({"BufRead"}, {
     group = fold_control,
     pattern = "*",
     callback = function()
-        vim.api.nvim_exec('normal zx zR', false)
+        vim.cmd.normal("zx zR")
     end
 })
--- local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
--- vim.api.nvim_create_autocmd({"TextYankPost"}, {
---     group = highlight_yank,
---     pattern = "*",
---     callback = function()
---         vim.highlight.on_yank({higroup = 'Visual', timeout = 50})
---     end
--- })
+local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
+vim.api.nvim_create_autocmd({"TextYankPost"}, {
+    group = highlight_yank,
+    pattern = "*",
+    callback = function()
+        vim.highlight.on_yank({higroup = 'Visual', timeout = 75})
+    end
+})
 vim.api.nvim_create_autocmd({"VimResized"}, {
     pattern = "*",
     callback = function()
