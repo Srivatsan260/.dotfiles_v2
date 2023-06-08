@@ -4,7 +4,6 @@ local g = vim.g
 opt.background = "dark"
 opt.backup = false
 opt.belloff = "all"
-opt.clipboard = "unnamedplus"
 opt.cmdheight = 1
 opt.colorcolumn = "100"
 opt.completeopt = {"menuone", "noselect"}
