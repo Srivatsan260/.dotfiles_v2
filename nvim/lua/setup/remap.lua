@@ -121,8 +121,6 @@ vim.keymap.set("n", "<leader>gf", async_git_op("fetch"), {desc = "async git fetc
 vim.keymap.set("n", "<leader>gp", async_git_op("pull --ff-only"), {desc = "async git pull"})
 vim.keymap.set("n", "<leader>gP", async_git_op("push"), {desc = "async git push"})
 
--- yank all
-vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 -- save file with ctrl-s
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", {desc = "save current file"})
 vim.keymap.set("n", "<leader>op", "<cmd>! open .<CR><CR>", {desc = "open cwd in Finder"})
@@ -161,8 +159,11 @@ vim.keymap.set("n", "<A-l>", "<cmd>vertical resize +2<CR>", {desc = "increase ve
 vim.keymap.set("n", "<A-k>", "<cmd>resize -2<CR>", {desc = "decrease horizontal split size"})
 vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>", {desc = "increase horizontal split size"})
 
+-- yank all
+vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
+
 -- yank to system clipboard
-vim.keymap.set({"n", "v"}, "<leader>y", '"+y', {desc = "yank to clipboard"})
+vim.keymap.set("x", "<leader>y", '"+y', {desc = "yank to clipboard"})
 vim.keymap.set("n", "<leader>Y", '"+Y', {desc = "yank till end of line to clipboard"})
 vim.keymap.set({"n", "v"}, "<leader>P", '"+p', {desc = "paste from system clipboard"})
 
