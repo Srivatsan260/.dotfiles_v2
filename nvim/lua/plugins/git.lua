@@ -66,7 +66,7 @@ return {
         keys = {
             {"]g", "<cmd>Gitsigns next_hunk<CR>", desc = "next hunk in buffer", mode = {"n", "v"}},
             {"[g", "<cmd>Gitsigns prev_hunk<CR>", desc = "prev hunk in buffer", mode = {"n", "v"}},
-            {"<leader>P", "<cmd>Gitsigns preview_hunk_inline<CR>", desc = "preview current hunk inline"},
+            {"<leader>H", "<cmd>Gitsigns preview_hunk_inline<CR>", desc = "preview current hunk inline"},
             {"<leader>R", ":Gitsigns reset_hunk<CR>", desc = "reset current hunk", mode = {"n", "x"}},
             {"<leader>S", ":Gitsigns stage_hunk<CR>", desc = "stage current hunk", mode = {"n", "x"}},
             {"<leader>U", ":Gitsigns undo_stage_hunk<CR>", desc = "unstage current hunk", mode = {"n", "x"}},

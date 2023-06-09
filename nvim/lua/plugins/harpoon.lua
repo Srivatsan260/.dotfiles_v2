@@ -2,7 +2,7 @@ return {
     'ThePrimeagen/harpoon',
     opts = {menu = {width = math.floor(vim.api.nvim_win_get_width(0) / 2)}},
     keys = {
-        {"<leader>H", function() require('harpoon.ui').toggle_quick_menu() end, desc = "open Harpoon"},
+        {"<leader><leader>h", function() require('harpoon.ui').toggle_quick_menu() end, desc = "open Harpoon"},
         {"<leader>;", function() require('harpoon.mark').add_file() end, desc = "set harpoon mark"},
         {"<leader>1", function() require("harpoon.ui").nav_file(1) end, desc = "goto harpoon 1"},
         {"<leader>2", function() require("harpoon.ui").nav_file(2) end, desc = "goto harpoon 2"},
