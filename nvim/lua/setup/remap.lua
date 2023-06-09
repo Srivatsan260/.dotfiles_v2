@@ -163,15 +163,15 @@ vim.keymap.set("n", "<A-j>", "<cmd>resize +2<CR>", {desc = "increase horizontal 
 vim.keymap.set("n", "<leader>ya", "<cmd>%y+<CR>", {desc = "yank all"})
 
 -- yank to system clipboard
-vim.keymap.set("x", "<leader>y", '"+y', {desc = "yank to clipboard"})
+vim.keymap.set({"x", "o"}, "<leader>y", '"+y', {desc = "yank to clipboard"})
 vim.keymap.set("n", "<leader>Y", '"+Y', {desc = "yank till end of line to clipboard"})
-vim.keymap.set({"n", "v"}, "<leader>P", '"+p', {desc = "paste from system clipboard"})
+vim.keymap.set({"n", "v"}, "<leader>p", '"+p', {desc = "paste from system clipboard"})
 
 -- delete without affecting registers
 vim.keymap.set("n", "<leader>D", "\"_d", {desc = "delete but using _ register"})
 
 -- paste without affecting registers
-vim.keymap.set("x", "<leader>p", "\"_dP", {desc = "paste but using _ register"})
+vim.keymap.set("x", "<leader>P", "\"_dP", {desc = "paste but using _ register"})
 
 -- select all
 vim.keymap.set("n", "<leader>va", "ggVG", {desc = "visual select all"})
