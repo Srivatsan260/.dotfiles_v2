@@ -53,7 +53,10 @@ return {
                         -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
                         separator = nil
                     })
-                end
+                end,
+                keys = {
+                    {"<leader>tx", "<cmd>TSContextToggle<CR>", desc = "toggle treesitter-context"},
+                }
             },
             {'nvim-treesitter/nvim-treesitter-textobjects', build = ":TSUpdate"},
             {'nvim-treesitter/playground', build = ":TSUpdate"},
