@@ -1,16 +1,10 @@
-# TODO: check why this doesn't work as expected
 repos:
 - repo: https://github.com/pre-commit/pre-commit-hooks
   rev: v2.4.0
   hooks:
     - id: trailing-whitespace
     - id: end-of-file-fixer
-- repo: local
+- repo: https://github.com/JohnnyMorganz/StyLua
+  rev: v0.18.1
   hooks:
-    - id: lua-format
-      name: format lua files
-      language: lua
-      entry: "lua-format"
-      files: \.lua$
-      exclude: nvim/plugin/packer_compiled.lua
-      pass_filenames: true
+    - id: stylua
