@@ -196,6 +196,8 @@ vim.keymap.set("n", "<C-i>", "<C-i>zz", { desc = "newer position in jumplist and
 vim.keymap.set("c", "<CR>", function()
     return vim.fn.getcmdtype() == "/" and "<CR>zzzv" or "<CR>"
 end, { expr = true, desc = "center after hitting first search result" })
+vim.keymap.set("n", "<C-e>", "<C-e><C-e><C-e>")
+vim.keymap.set("n", "<C-y>", "<C-y><C-y><C-y>")
 
 -- move lines around in visual mode
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { desc = "move visual selection down" })
