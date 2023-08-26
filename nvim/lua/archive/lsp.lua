@@ -20,7 +20,7 @@ local on_attach = function(_, bufnr)
         vim.keymap.set("n", "<leader>-", "<cmd>!isort %<CR>", bufopts)
         vim.keymap.set("n", "<leader>=", "<cmd>!black %<CR>", bufopts)
     elseif vim.bo.filetype == "lua" then
-        vim.keymap.set("n", "<leader>=", "<cmd>call LuaFormat()<CR>", bufopts)
+        vim.keymap.set("n", "<leader>=", "<cmd>!stylua %<CR>", bufopts)
     else
         vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, bufopts)
     end

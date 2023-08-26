@@ -101,12 +101,7 @@ return {
                 -- if vim.bo.filetype == 'python' then
                 --     vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts("isort"))
                 if vim.bo.filetype == "lua" then
-                    vim.keymap.set(
-                        "n",
-                        "<leader>=",
-                        "<cmd>call LuaFormat()<CR>",
-                        bufopts("luaformat")
-                    )
+                    vim.keymap.set("n", "<leader>=", "<cmd>!stylua %<CR>", bufopts("stylua"))
                 else
                     vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, bufopts("format document"))
                 end
