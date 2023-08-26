@@ -1,5 +1,5 @@
 return {
-    'saecki/crates.nvim',
+    "saecki/crates.nvim",
     ft = "toml",
     opts = {
         smart_insert = true,
@@ -11,7 +11,7 @@ return {
         date_format = "%Y-%m-%d",
         thousands_separator = ".",
         notification_title = "Crates",
-        curl_args = {"-sL", "--retry", "1"},
+        curl_args = { "-sL", "--retry", "1" },
         disable_invalid_feature_diagnostic = false,
         text = {
             loading = "   Loading",
@@ -20,7 +20,7 @@ return {
             yanked = "   %s",
             nomatch = "   No match",
             upgrade = "   %s",
-            error = "   Error fetching crate"
+            error = "   Error fetching crate",
         },
         highlight = {
             loading = "CratesNvimLoading",
@@ -29,7 +29,7 @@ return {
             yanked = "CratesNvimYanked",
             nomatch = "CratesNvimNoMatch",
             upgrade = "CratesNvimUpgrade",
-            error = "CratesNvimError"
+            error = "CratesNvimError",
         },
         popup = {
             autofocus = false,
@@ -75,7 +75,7 @@ return {
                 dependency = "  %s",
                 optional = " %s",
                 dependency_version = "  %s",
-                loading = "  "
+                loading = "  ",
             },
             highlight = {
                 title = "CratesNvimPopupTitle",
@@ -111,26 +111,26 @@ return {
                 dependency = "CratesNvimPopupDependency",
                 optional = "CratesNvimPopupOptional",
                 dependency_version = "CratesNvimPopupDependencyVersion",
-                loading = "CratesNvimPopupLoading"
+                loading = "CratesNvimPopupLoading",
             },
             keys = {
-                hide = {"q", "<esc>"},
-                open_url = {"<cr>"},
-                select = {"<cr>"},
-                select_alt = {"s"},
-                toggle_feature = {"<cr>"},
-                copy_value = {"yy"},
-                goto_item = {"gd", "K", "<C-LeftMouse>"},
-                jump_forward = {"<c-i>"},
-                jump_back = {"<c-o>", "<C-RightMouse>"}
-            }
+                hide = { "q", "<esc>" },
+                open_url = { "<cr>" },
+                select = { "<cr>" },
+                select_alt = { "s" },
+                toggle_feature = { "<cr>" },
+                copy_value = { "yy" },
+                goto_item = { "gd", "K", "<C-LeftMouse>" },
+                jump_forward = { "<c-i>" },
+                jump_back = { "<c-o>", "<C-RightMouse>" },
+            },
         },
         src = {
             insert_closing_quote = true,
-            text = {prerelease = "  pre-release ", yanked = "  yanked "},
-            coq = {enabled = false, name = "Crates"}
+            text = { prerelease = "  pre-release ", yanked = "  yanked " },
+            coq = { enabled = false, name = "Crates" },
         },
-        null_ls = {enabled = false, name = "Crates"}
+        null_ls = { enabled = false, name = "Crates" },
     },
     keys = {
         {
@@ -138,17 +138,17 @@ return {
             function()
                 local crates = require("crates")
                 local filetype = vim.bo.filetype
-                if vim.tbl_contains({'vim', 'help'}, filetype) then
-                    vim.cmd('h ' .. vim.fn.expand('<cword>'))
-                elseif vim.tbl_contains({'man'}, filetype) then
-                    vim.cmd('Man ' .. vim.fn.expand('<cword>'))
-                elseif vim.fn.expand('%:t') == 'Cargo.toml' and crates.popup_available() then
+                if vim.tbl_contains({ "vim", "help" }, filetype) then
+                    vim.cmd("h " .. vim.fn.expand("<cword>"))
+                elseif vim.tbl_contains({ "man" }, filetype) then
+                    vim.cmd("Man " .. vim.fn.expand("<cword>"))
+                elseif vim.fn.expand("%:t") == "Cargo.toml" and crates.popup_available() then
                     crates.show_popup()
                 else
                     vim.lsp.buf.hover()
                 end
             end,
-            desc = "Man / Cargo help"
-        }
-    }
+            desc = "Man / Cargo help",
+        },
+    },
 }

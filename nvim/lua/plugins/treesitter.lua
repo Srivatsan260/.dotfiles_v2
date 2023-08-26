@@ -1,15 +1,15 @@
 return {
     {
-        'nvim-treesitter/nvim-treesitter',
+        "nvim-treesitter/nvim-treesitter",
         dependencies = {
             {
-                'nvim-treesitter/nvim-treesitter-context',
+                "nvim-treesitter/nvim-treesitter-context",
                 build = ":TSUpdate",
                 config = function()
-                    require('treesitter-context').setup({
+                    require("treesitter-context").setup({
                         enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
                         max_lines = 0, -- How many lines the window should span. Values <= 0 mean no limit.
-                        trim_scope = 'outer', -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
+                        trim_scope = "outer", -- Which context lines to discard if `max_lines` is exceeded. Choices: 'inner', 'outer'
                         min_window_height = 0, -- Minimum editor window height to enable context. Values <= 0 mean no limit.
                         patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
                             -- For all filetypes
@@ -17,25 +17,44 @@ return {
                             -- By setting the 'default' entry below, you can control which nodes you want to
                             -- appear in the context window.
                             default = {
-                                'class', 'function', 'method', 'for', 'while', 'if', 'switch',
-                                'case', 'interface', 'struct', 'enum'
+                                "class",
+                                "function",
+                                "method",
+                                "for",
+                                "while",
+                                "if",
+                                "switch",
+                                "case",
+                                "interface",
+                                "struct",
+                                "enum",
                             },
                             -- Patterns for specific filetypes
                             -- If a pattern is missing, *open a PR* so everyone can benefit.
-                            tex = {'chapter', 'section', 'subsection', 'subsubsection'},
-                            haskell = {'adt'},
-                            rust = {'impl_item'},
-                            terraform = {'block', 'object_elem', 'attribute'},
-                            scala = {'object_definition'},
-                            vhdl = {'process_statement', 'architecture_body', 'entity_declaration'},
-                            markdown = {'section'},
-                            elixir = {
-                                'anonymous_function', 'arguments', 'block', 'do_block', 'list',
-                                'map', 'tuple', 'quoted_content'
+                            tex = { "chapter", "section", "subsection", "subsubsection" },
+                            haskell = { "adt" },
+                            rust = { "impl_item" },
+                            terraform = { "block", "object_elem", "attribute" },
+                            scala = { "object_definition" },
+                            vhdl = {
+                                "process_statement",
+                                "architecture_body",
+                                "entity_declaration",
                             },
-                            json = {'pair'},
-                            typescript = {'export_statement'},
-                            yaml = {'block_mapping_pair'}
+                            markdown = { "section" },
+                            elixir = {
+                                "anonymous_function",
+                                "arguments",
+                                "block",
+                                "do_block",
+                                "list",
+                                "map",
+                                "tuple",
+                                "quoted_content",
+                            },
+                            json = { "pair" },
+                            typescript = { "export_statement" },
+                            yaml = { "block_mapping_pair" },
                         },
                         exact_patterns = {
                             -- Example for a specific filetype with Lua patterns
@@ -48,26 +67,30 @@ return {
                         --     you can safely ignore them.
 
                         zindex = 20, -- The Z-index of the context window
-                        mode = 'cursor', -- Line used to calculate context. Choices: 'cursor', 'topline'
+                        mode = "cursor", -- Line used to calculate context. Choices: 'cursor', 'topline'
                         -- Separator between context and content. Should be a single character string, like '-'.
                         -- When separator is set, the context will only show up when there are at least 2 lines above cursorline.
-                        separator = nil
+                        separator = nil,
                     })
                 end,
                 keys = {
-                    {"<leader>tx", "<cmd>TSContextToggle<CR>", desc = "toggle treesitter-context"},
-                }
+                    {
+                        "<leader>tx",
+                        "<cmd>TSContextToggle<CR>",
+                        desc = "toggle treesitter-context",
+                    },
+                },
             },
-            {'nvim-treesitter/nvim-treesitter-textobjects', build = ":TSUpdate"},
-            {'nvim-treesitter/playground', build = ":TSUpdate"},
-            {'yioneko/nvim-yati'}
+            { "nvim-treesitter/nvim-treesitter-textobjects", build = ":TSUpdate" },
+            { "nvim-treesitter/playground", build = ":TSUpdate" },
+            { "yioneko/nvim-yati" },
         },
-        build = ':TSUpdate',
+        build = ":TSUpdate",
         config = function()
-            require('nvim-treesitter.configs').setup {
+            require("nvim-treesitter.configs").setup({
                 -- ensure_installed = {"python", "rust", "sql", "yaml", "toml", "c", "http", "json"},
                 sync_install = false,
-                highlight = {enable = true, additional_vim_regex_highlighting = false},
+                highlight = { enable = true, additional_vim_regex_highlighting = false },
                 indent = {
                     enable = false,
                 },
@@ -81,15 +104,15 @@ return {
                     --   "asis": use current indent as-is
                     --   "cindent": see `:h cindent()`
                     -- Or a custom function return the final indent result.
-                    default_fallback = "auto"
+                    default_fallback = "auto",
                 },
                 incremental_selection = {
                     enable = false,
                     keymaps = {
                         init_selection = "<leader><CR>",
                         node_incremental = "<CR>",
-                        node_decremental = "-"
-                    }
+                        node_decremental = "-",
+                    },
                 },
                 playground = {
                     enable = true,
@@ -97,17 +120,17 @@ return {
                     updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
                     persist_queries = false, -- Whether the query persists across vim sessions
                     keybindings = {
-                        toggle_query_editor = 'o',
-                        toggle_hl_groups = 'i',
-                        toggle_injected_languages = 't',
-                        toggle_anonymous_nodes = 'a',
-                        toggle_language_display = 'I',
-                        focus_language = 'f',
-                        unfocus_language = 'F',
-                        update = 'R',
-                        goto_node = '<cr>',
-                        show_help = '?'
-                    }
+                        toggle_query_editor = "o",
+                        toggle_hl_groups = "i",
+                        toggle_injected_languages = "t",
+                        toggle_anonymous_nodes = "a",
+                        toggle_language_display = "I",
+                        focus_language = "f",
+                        unfocus_language = "F",
+                        update = "R",
+                        goto_node = "<cr>",
+                        show_help = "?",
+                    },
                 },
                 textobjects = {
                     select = {
@@ -123,12 +146,12 @@ return {
                             -- nvim_buf_set_keymap) which plugins like which-key display
                             ["ic"] = {
                                 query = "@class.inner",
-                                desc = "Select inner part of a class region"
+                                desc = "Select inner part of a class region",
                             },
                             ["ig"] = "@conditional.inner",
                             ["ag"] = "@conditional.outer",
                             ["il"] = "@loop.inner",
-                            ["al"] = "@loop.outer"
+                            ["al"] = "@loop.outer",
                         },
                         -- You can choose the select mode (default is charwise 'v')
                         --
@@ -138,9 +161,9 @@ return {
                         -- and should return the mode ('v', 'V', or '<c-v>') or a table
                         -- mapping query_strings to modes.
                         selection_modes = {
-                            ['@parameter.outer'] = 'v', -- charwise
-                            ['@function.outer'] = 'V', -- linewise
-                            ['@class.outer'] = 'V' -- linewise
+                            ["@parameter.outer"] = "v", -- charwise
+                            ["@function.outer"] = "V", -- linewise
+                            ["@class.outer"] = "V", -- linewise
                         },
                         -- If you set this to `true` (default is `false`) then any textobject is
                         -- extended to include preceding or succeeding whitespace. Succeeding
@@ -151,16 +174,20 @@ return {
                         -- * query_string: eg '@function.inner'
                         -- * selection_mode: eg 'v'
                         -- and should return true of false
-                        include_surrounding_whitespace = false
-                    }
+                        include_surrounding_whitespace = false,
+                    },
                 },
-                rainbow = {enable = true, extended_mode = true}
-            }
+                rainbow = { enable = true, extended_mode = true },
+            })
         end,
         keys = {
-            {"<leader>th", "<cmd>TSBufToggle highlight<CR>", desc = "toggle treesitter highlights"},
-            {"<leader>tp", "<cmd>TSPlaygroundToggle<CR>", desc = "toggle treesitter playground"}
+            {
+                "<leader>th",
+                "<cmd>TSBufToggle highlight<CR>",
+                desc = "toggle treesitter highlights",
+            },
+            { "<leader>tp", "<cmd>TSPlaygroundToggle<CR>", desc = "toggle treesitter playground" },
         },
-        event = {"BufReadPost"}
-    }
+        event = { "BufReadPost" },
+    },
 }

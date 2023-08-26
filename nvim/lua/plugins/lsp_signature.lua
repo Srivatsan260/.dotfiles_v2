@@ -1,5 +1,5 @@
 return {
-    'ray-x/lsp_signature.nvim',
+    "ray-x/lsp_signature.nvim",
     event = "InsertEnter",
     opts = {
         debug = false,
@@ -21,18 +21,18 @@ return {
         hint_prefix = "🐼 ",
         hint_scheme = "String",
         hi_parameter = "LspSignatureActiveParameter",
-        handler_opts = {border = "single"},
+        handler_opts = { border = "single" },
         always_trigger = false,
         auto_close_after = nil,
         extra_trigger_chars = {},
         zindex = 200,
-        padding = '',
+        padding = "",
         transparency = nil,
         shadow_blend = 36,
-        shadow_guibg = 'Black',
+        shadow_guibg = "Black",
         timer_interval = 200,
         toggle_key = "<C-s>",
         select_signature_key = nil,
-        move_cursor_key = nil
-    }
+        move_cursor_key = nil,
+    },
 }

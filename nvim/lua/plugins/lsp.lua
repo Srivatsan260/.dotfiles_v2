@@ -1,82 +1,143 @@
 return {
     {
-        'VonHeikemen/lsp-zero.nvim',
-        event = {"BufReadPre", "BufNewFile"},
+        "VonHeikemen/lsp-zero.nvim",
+        event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             {
-                'neovim/nvim-lspconfig',
+                "neovim/nvim-lspconfig",
                 dependencies = {
-                    'williamboman/mason.nvim',
-                    dependencies = {'williamboman/mason-lspconfig.nvim'},
+                    "williamboman/mason.nvim",
+                    dependencies = { "williamboman/mason-lspconfig.nvim" },
                     keys = {
-                        {"<leader>M", "<cmd>Mason<CR>", desc = "open Mason"}
+                        { "<leader>M", "<cmd>Mason<CR>", desc = "open Mason" },
                     },
-                    event = {"BufReadPre", "BufNewFile"},
+                    event = { "BufReadPre", "BufNewFile" },
                     cmd = "Mason",
                 },
             },
-            {'folke/neodev.nvim', config = function() require("neodev").setup() end},
-            'ray-x/lsp_signature.nvim',
-            'j-hui/fidget.nvim',
-            'simrat39/symbols-outline.nvim',
+            {
+                "folke/neodev.nvim",
+                config = function()
+                    require("neodev").setup()
+                end,
+            },
+            "ray-x/lsp_signature.nvim",
+            "j-hui/fidget.nvim",
+            "simrat39/symbols-outline.nvim",
             "folke/trouble.nvim",
             "mfussenegger/nvim-jdtls",
         },
         config = function()
             local lsp = require("lsp-zero")
-            lsp.preset('recommended')
-            lsp.ensure_installed({'pyright', 'tsserver', 'html', 'cssls', 'emmet_ls', 'lua_ls'})
+            lsp.preset("recommended")
+            lsp.ensure_installed({ "pyright", "tsserver", "html", "cssls", "emmet_ls", "lua_ls" })
             lsp.set_preferences({
                 set_lsp_keymaps = false,
                 manage_nvim_cmp = false,
-                sign_icons = {error = 'E', warn = 'W', hint = 'H', info = 'I'}
+                sign_icons = { error = "E", warn = "W", hint = "H", info = "I" },
             })
-            lsp.configure('lua_ls', {
+            lsp.configure("lua_ls", {
                 settings = {
                     Lua = {
-                        workspace = {library = vim.api.nvim_get_runtime_file("", true)},
-                        diagnostics = {globals = {'vim'}},
-                        telemetry = {enable = false},
-                        completion = {callSnippet = 'Replace'}
-                    }
-                }
+                        workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+                        diagnostics = { globals = { "vim" } },
+                        telemetry = { enable = false },
+                        completion = { callSnippet = "Replace" },
+                    },
+                },
             })
             lsp.on_attach(function(_, bufnr)
-                vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+                vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
                 local bufopts = function(desc)
-                    return {noremap = true, silent = true, buffer = bufnr, desc = desc}
+                    return { noremap = true, silent = true, buffer = bufnr, desc = desc }
                 end
-                vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts("goto declaration"))
-                vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts("goto definition"))
-                vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts("help"))
-                vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', bufopts("find lsp references"))
-                vim.keymap.set('n', '<leader>g,', vim.lsp.buf.signature_help, bufopts("signature help"))
-                vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts("goto implementation"))
-                vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts("goto type definition"))
-                vim.keymap.set('n', '<leader>ds', vim.lsp.buf.document_symbol,
-                bufopts("list document lsp symbols"))
-                vim.keymap.set('n', '<leader>dS', vim.lsp.buf.workspace_symbol,
-                bufopts("list workspace lsp symbols"))
-                vim.keymap.set('n', '<leader>ac', vim.lsp.buf.code_action, bufopts("code actions"))
-                vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts("rename current symbol"))
+                vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts("goto declaration"))
+                vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts("goto definition"))
+                vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts("help"))
+                vim.keymap.set(
+                    "n",
+                    "gr",
+                    "<cmd>Telescope lsp_references<CR>",
+                    bufopts("find lsp references")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>g,",
+                    vim.lsp.buf.signature_help,
+                    bufopts("signature help")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>gi",
+                    vim.lsp.buf.implementation,
+                    bufopts("goto implementation")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>gt",
+                    vim.lsp.buf.type_definition,
+                    bufopts("goto type definition")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>ds",
+                    vim.lsp.buf.document_symbol,
+                    bufopts("list document lsp symbols")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>dS",
+                    vim.lsp.buf.workspace_symbol,
+                    bufopts("list workspace lsp symbols")
+                )
+                vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action, bufopts("code actions"))
+                vim.keymap.set(
+                    "n",
+                    "<leader>rn",
+                    vim.lsp.buf.rename,
+                    bufopts("rename current symbol")
+                )
                 -- if vim.bo.filetype == 'python' then
                 --     vim.keymap.set('n', '<leader>-', '<cmd>!isort %<CR>', bufopts("isort"))
-                if vim.bo.filetype == 'lua' then
-                    vim.keymap.set('n', '<leader>=', '<cmd>call LuaFormat()<CR>', bufopts("luaformat"))
+                if vim.bo.filetype == "lua" then
+                    vim.keymap.set(
+                        "n",
+                        "<leader>=",
+                        "<cmd>call LuaFormat()<CR>",
+                        bufopts("luaformat")
+                    )
                 else
-                    vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts("format document"))
+                    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, bufopts("format document"))
                 end
-                vim.keymap.set('n', '<leader>ai', vim.lsp.buf.incoming_calls, bufopts("list incoming calls"))
-                vim.keymap.set('n', '<leader>ao', vim.lsp.buf.outgoing_calls, bufopts("list outgoing calls"))
-                vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder,
-                bufopts("add workspace folder"))
-                vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
-                bufopts("remove workspace folder"))
-                vim.keymap.set('n', '<leader>sc', function()
+                vim.keymap.set(
+                    "n",
+                    "<leader>ai",
+                    vim.lsp.buf.incoming_calls,
+                    bufopts("list incoming calls")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>ao",
+                    vim.lsp.buf.outgoing_calls,
+                    bufopts("list outgoing calls")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>wa",
+                    vim.lsp.buf.add_workspace_folder,
+                    bufopts("add workspace folder")
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>wr",
+                    vim.lsp.buf.remove_workspace_folder,
+                    bufopts("remove workspace folder")
+                )
+                vim.keymap.set("n", "<leader>sc", function()
                     print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities))
                 end, bufopts("list lsp server capabilities"))
-                vim.keymap.set('n', '<leader>wl', function()
+                vim.keymap.set("n", "<leader>wl", function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, bufopts("list workspace folders"))
             end)
@@ -88,14 +149,14 @@ return {
                 update_in_insert = false,
                 underline = true,
                 severity_sort = true,
-                float = true
+                float = true,
             })
 
             -- java lsp setup
-            local java_cmds = vim.api.nvim_create_augroup('java_cmds', {clear = true})
+            local java_cmds = vim.api.nvim_create_augroup("java_cmds", { clear = true })
             local cache_vars = {}
 
-            local root_files = {'.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle'}
+            local root_files = { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }
 
             local features = {
                 -- change this to `true` to enable codelens
@@ -103,27 +164,31 @@ return {
 
                 -- change this to `true` if you have `nvim-dap`,
                 -- `java-test` and `java-debug-adapter` installed
-                debugger = false
+                debugger = false,
             }
 
             local function get_jdtls_paths()
-                if cache_vars.paths then return cache_vars.paths end
+                if cache_vars.paths then
+                    return cache_vars.paths
+                end
 
                 local path = {}
 
-                path.data_dir = vim.fn.stdpath('cache') .. '/nvim-jdtls'
+                path.data_dir = vim.fn.stdpath("cache") .. "/nvim-jdtls"
 
-                local jdtls_install = require('mason-registry').get_package('jdtls'):get_install_path()
+                local jdtls_install =
+                    require("mason-registry").get_package("jdtls"):get_install_path()
 
-                path.java_agent = jdtls_install .. '/lombok.jar'
-                path.launcher_jar = vim.fn.glob(jdtls_install .. '/plugins/org.eclipse.equinox.launcher_*.jar')
+                path.java_agent = jdtls_install .. "/lombok.jar"
+                path.launcher_jar =
+                    vim.fn.glob(jdtls_install .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 
-                if vim.fn.has('mac') == 1 then
-                    path.platform_config = jdtls_install .. '/config_mac'
-                elseif vim.fn.has('unix') == 1 then
-                    path.platform_config = jdtls_install .. '/config_linux'
-                elseif vim.fn.has('win32') == 1 then
-                    path.platform_config = jdtls_install .. '/config_win'
+                if vim.fn.has("mac") == 1 then
+                    path.platform_config = jdtls_install .. "/config_mac"
+                elseif vim.fn.has("unix") == 1 then
+                    path.platform_config = jdtls_install .. "/config_linux"
+                elseif vim.fn.has("win32") == 1 then
+                    path.platform_config = jdtls_install .. "/config_win"
                 end
 
                 path.bundles = {}
@@ -131,24 +196,32 @@ return {
                 ---
                 -- Include java-test bundle if present
                 ---
-                local java_test_path = require('mason-registry').get_package('java-test'):get_install_path()
+                local java_test_path =
+                    require("mason-registry").get_package("java-test"):get_install_path()
 
-                local java_test_bundle = vim.split(vim.fn.glob(java_test_path .. '/extension/server/*.jar'),
-                    '\n')
+                local java_test_bundle =
+                    vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar"), "\n")
 
-                if java_test_bundle[1] ~= '' then vim.list_extend(path.bundles, java_test_bundle) end
+                if java_test_bundle[1] ~= "" then
+                    vim.list_extend(path.bundles, java_test_bundle)
+                end
 
                 ---
                 -- Include java-debug-adapter bundle if present
                 ---
                 local java_debug_path =
-                    require('mason-registry').get_package('java-debug-adapter'):get_install_path()
+                    require("mason-registry").get_package("java-debug-adapter"):get_install_path()
 
-                local java_debug_bundle = vim.split(vim.fn.glob(java_debug_path ..
-                                                                    '/extension/server/com.microsoft.java.debug.plugin-*.jar'),
-                    '\n')
+                local java_debug_bundle = vim.split(
+                    vim.fn.glob(
+                        java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar"
+                    ),
+                    "\n"
+                )
 
-                if java_debug_bundle[1] ~= '' then vim.list_extend(path.bundles, java_debug_bundle) end
+                if java_debug_bundle[1] ~= "" then
+                    vim.list_extend(path.bundles, java_debug_bundle)
+                end
 
                 cache_vars.paths = path
 
@@ -158,69 +231,118 @@ return {
             local function enable_codelens(bufnr)
                 pcall(vim.lsp.codelens.refresh)
 
-                vim.api.nvim_create_autocmd('BufWritePost', {
+                vim.api.nvim_create_autocmd("BufWritePost", {
                     buffer = bufnr,
                     group = java_cmds,
-                    desc = 'refresh codelens',
+                    desc = "refresh codelens",
                     callback = function()
                         pcall(vim.lsp.codelens.refresh)
-                    end
+                    end,
                 })
             end
 
             local function enable_debugger(bufnr)
-                require('jdtls').setup_dap({hotcodereplace = 'auto'})
-                require('jdtls.dap').setup_dap_main_class_configs()
+                require("jdtls").setup_dap({ hotcodereplace = "auto" })
+                require("jdtls.dap").setup_dap_main_class_configs()
 
-                local opts = {buffer = bufnr}
-                vim.keymap.set('n', '<leader>df', "<cmd>lua require('jdtls').test_class()<cr>", opts)
-                vim.keymap.set('n', '<leader>dn', "<cmd>lua require('jdtls').test_nearest_method()<cr>", opts)
+                local opts = { buffer = bufnr }
+                vim.keymap.set(
+                    "n",
+                    "<leader>df",
+                    "<cmd>lua require('jdtls').test_class()<cr>",
+                    opts
+                )
+                vim.keymap.set(
+                    "n",
+                    "<leader>dn",
+                    "<cmd>lua require('jdtls').test_nearest_method()<cr>",
+                    opts
+                )
             end
 
             local function jdtls_on_attach(client, bufnr)
-                if features.debugger then enable_debugger(bufnr) end
+                if features.debugger then
+                    enable_debugger(bufnr)
+                end
 
-                if features.codelens then enable_codelens(bufnr) end
+                if features.codelens then
+                    enable_codelens(bufnr)
+                end
 
                 -- The following mappings are based on the suggested usage of nvim-jdtls
                 -- https://github.com/mfussenegger/nvim-jdtls#usage
 
-                local opts = {buffer = bufnr}
-                vim.keymap.set('n', '<A-o>', "<cmd>lua require('jdtls').organize_imports()<cr>", opts)
-                vim.keymap.set('n', 'crv', "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
-                vim.keymap.set('x', 'crv', "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>", opts)
-                vim.keymap.set('n', 'crc', "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
-                vim.keymap.set('x', 'crc', "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>", opts)
-                vim.keymap.set('x', 'crm', "<esc><Cmd>lua require('jdtls').extract_method(true)<cr>", opts)
+                local opts = { buffer = bufnr }
+                vim.keymap.set(
+                    "n",
+                    "<A-o>",
+                    "<cmd>lua require('jdtls').organize_imports()<cr>",
+                    opts
+                )
+                vim.keymap.set("n", "crv", "<cmd>lua require('jdtls').extract_variable()<cr>", opts)
+                vim.keymap.set(
+                    "x",
+                    "crv",
+                    "<esc><cmd>lua require('jdtls').extract_variable(true)<cr>",
+                    opts
+                )
+                vim.keymap.set("n", "crc", "<cmd>lua require('jdtls').extract_constant()<cr>", opts)
+                vim.keymap.set(
+                    "x",
+                    "crc",
+                    "<esc><cmd>lua require('jdtls').extract_constant(true)<cr>",
+                    opts
+                )
+                vim.keymap.set(
+                    "x",
+                    "crm",
+                    "<esc><Cmd>lua require('jdtls').extract_method(true)<cr>",
+                    opts
+                )
             end
 
             local function jdtls_setup(event)
-                local jdtls = require('jdtls')
+                local jdtls = require("jdtls")
 
                 local path = get_jdtls_paths()
-                local data_dir = path.data_dir .. '/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
+                local data_dir = path.data_dir
+                    .. "/"
+                    .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
 
                 if cache_vars.capabilities == nil then
                     jdtls.extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
-                    local ok_cmp, cmp_lsp = pcall(require, 'cmp_nvim_lsp')
-                    cache_vars.capabilities = vim.tbl_deep_extend('force',
+                    local ok_cmp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+                    cache_vars.capabilities = vim.tbl_deep_extend(
+                        "force",
                         vim.lsp.protocol.make_client_capabilities(),
-                        ok_cmp and cmp_lsp.default_capabilities() or {})
+                        ok_cmp and cmp_lsp.default_capabilities() or {}
+                    )
                 end
 
                 -- The command that starts the language server
                 -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
                 local cmd = {
                     -- 💀
-                    'java', '-Declipse.application=org.eclipse.jdt.ls.core.id1',
-                    '-Dosgi.bundles.defaultStartLevel=4', '-Declipse.product=org.eclipse.jdt.ls.core.product',
-                    '-Dlog.protocol=true', '-Dlog.level=ALL', '-javaagent:' .. path.java_agent, '-Xms1g',
-                    '--add-modules=ALL-SYSTEM', '--add-opens', 'java.base/java.util=ALL-UNNAMED', '--add-opens',
-                    'java.base/java.lang=ALL-UNNAMED', -- 💀
-                    '-jar', path.launcher_jar, -- 💀
-                    '-configuration', path.platform_config, -- 💀
-                    '-data', data_dir
+                    "java",
+                    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+                    "-Dosgi.bundles.defaultStartLevel=4",
+                    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+                    "-Dlog.protocol=true",
+                    "-Dlog.level=ALL",
+                    "-javaagent:" .. path.java_agent,
+                    "-Xms1g",
+                    "--add-modules=ALL-SYSTEM",
+                    "--add-opens",
+                    "java.base/java.util=ALL-UNNAMED",
+                    "--add-opens",
+                    "java.base/java.lang=ALL-UNNAMED", -- 💀
+                    "-jar",
+                    path.launcher_jar, -- 💀
+                    "-configuration",
+                    path.platform_config, -- 💀
+                    "-data",
+                    data_dir,
                 }
 
                 local lsp_settings = {
@@ -230,41 +352,49 @@ return {
                         --     vmargs = "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m"
                         --   }
                         -- },
-                        eclipse = {downloadSources = true},
-                        configuration = {updateBuildConfiguration = 'interactive', runtimes = path.runtimes},
-                        maven = {downloadSources = true},
-                        implementationsCodeLens = {enabled = true},
-                        referencesCodeLens = {enabled = true},
+                        eclipse = { downloadSources = true },
+                        configuration = {
+                            updateBuildConfiguration = "interactive",
+                            runtimes = path.runtimes,
+                        },
+                        maven = { downloadSources = true },
+                        implementationsCodeLens = { enabled = true },
+                        referencesCodeLens = { enabled = true },
                         -- inlayHints = {
                         --   parameterNames = {
                         --     enabled = 'all' -- literals, all, none
                         --   }
                         -- },
                         format = {
-                            enabled = true
+                            enabled = true,
                             -- settings = {
                             --   profile = 'asdf'
                             -- },
-                        }
+                        },
                     },
-                    signatureHelp = {enabled = true},
+                    signatureHelp = { enabled = true },
                     completion = {
                         favoriteStaticMembers = {
-                            'org.hamcrest.MatcherAssert.assertThat', 'org.hamcrest.Matchers.*',
-                            'org.hamcrest.CoreMatchers.*', 'org.junit.jupiter.api.Assertions.*',
-                            'java.util.Objects.requireNonNull', 'java.util.Objects.requireNonNullElse',
-                            'org.mockito.Mockito.*'
-                        }
+                            "org.hamcrest.MatcherAssert.assertThat",
+                            "org.hamcrest.Matchers.*",
+                            "org.hamcrest.CoreMatchers.*",
+                            "org.junit.jupiter.api.Assertions.*",
+                            "java.util.Objects.requireNonNull",
+                            "java.util.Objects.requireNonNullElse",
+                            "org.mockito.Mockito.*",
+                        },
                     },
-                    contentProvider = {preferred = 'fernflower'},
+                    contentProvider = { preferred = "fernflower" },
                     extendedClientCapabilities = jdtls.extendedClientCapabilities,
-                    sources = {organizeImports = {starThreshold = 9999, staticStarThreshold = 9999}},
+                    sources = {
+                        organizeImports = { starThreshold = 9999, staticStarThreshold = 9999 },
+                    },
                     codeGeneration = {
                         toString = {
-                            template = '${object.className}{${member.name()}=${member.value}, ${otherMembers}}'
+                            template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
                         },
-                        useBlocks = true
-                    }
+                        useBlocks = true,
+                    },
                 }
 
                 -- This starts a new client & server,
@@ -275,59 +405,68 @@ return {
                     on_attach = jdtls_on_attach,
                     capabilities = cache_vars.capabilities,
                     root_dir = jdtls.setup.find_root(root_files),
-                    flags = {allow_incremental_sync = true},
-                    init_options = {bundles = path.bundles}
+                    flags = { allow_incremental_sync = true },
+                    init_options = { bundles = path.bundles },
                 })
             end
 
-            vim.api.nvim_create_autocmd('FileType', {
+            vim.api.nvim_create_autocmd("FileType", {
                 group = java_cmds,
-                pattern = {'java'},
-                desc = 'Setup jdtls',
-                callback = jdtls_setup
+                pattern = { "java" },
+                desc = "Setup jdtls",
+                callback = jdtls_setup,
             })
-        end
+        end,
     },
 
     {
-        'hrsh7th/nvim-cmp',
+        "hrsh7th/nvim-cmp",
         dependencies = {
-            'hrsh7th/cmp-path',
-            'hrsh7th/cmp-buffer',
-            'hrsh7th/cmp-nvim-lsp',
-            'hrsh7th/cmp-nvim-lua',
-            'saadparwaiz1/cmp_luasnip',
+            "hrsh7th/cmp-path",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-nvim-lua",
+            "saadparwaiz1/cmp_luasnip",
             "L3MON4D3/LuaSnip",
-            'rafamadriz/friendly-snippets'
+            "rafamadriz/friendly-snippets",
         },
         event = "InsertEnter",
-        config = function ()
+        config = function()
             local luasnip_ok, luasnip = pcall(require, "luasnip")
-            if not luasnip_ok then return end
-            luasnip.config.set_config {
+            if not luasnip_ok then
+                return
+            end
+            luasnip.config.set_config({
                 history = true,
                 updateevents = "TextChanged,TextChangedI",
-                enable_autosnippets = true
-            }
+                enable_autosnippets = true,
+            })
             local f_ok, friendly_snippets = pcall(require, "luasnip.loaders.from_vscode")
-            if f_ok then friendly_snippets.lazy_load() end
+            if f_ok then
+                friendly_snippets.lazy_load()
+            end
 
             -- nvim-cmp setup
             local cmp_ok, cmp = pcall(require, "cmp")
             if cmp_ok then
-                cmp.setup {
+                cmp.setup({
                     snippet = {
                         expand = function(args)
                             luasnip.lsp_expand(args.body)
-                        end
+                        end,
                     },
                     mapping = cmp.mapping.preset.insert({
-                        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-                        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-                        ['<C-/>'] = cmp.mapping(cmp.mapping.complete({reason = cmp.ContextReason.Auto}),
-                        {"i", "c"}),
-                        ['<CR>'] = cmp.mapping.confirm {behavior = cmp.ConfirmBehavior.Replace, select = true},
-                        ['<C-k>'] = cmp.mapping(function(fallback)
+                        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+                        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+                        ["<C-/>"] = cmp.mapping(
+                            cmp.mapping.complete({ reason = cmp.ContextReason.Auto }),
+                            { "i", "c" }
+                        ),
+                        ["<CR>"] = cmp.mapping.confirm({
+                            behavior = cmp.ConfirmBehavior.Replace,
+                            select = true,
+                        }),
+                        ["<C-k>"] = cmp.mapping(function(fallback)
                             if cmp.visible() then
                                 cmp.select_next_item()
                             elseif luasnip.expand_or_jumpable() then
@@ -335,8 +474,8 @@ return {
                             else
                                 fallback()
                             end
-                        end, {'i', 's'}),
-                        ['<C-j>'] = cmp.mapping(function(fallback)
+                        end, { "i", "s" }),
+                        ["<C-j>"] = cmp.mapping(function(fallback)
                             if cmp.visible() then
                                 cmp.select_prev_item()
                             elseif luasnip.jumpable(-1) then
@@ -344,52 +483,123 @@ return {
                             else
                                 fallback()
                             end
-                        end, {'i', 's'})
+                        end, { "i", "s" }),
                     }),
                     sources = {
-                        {name = 'nvim_lsp'}, {name = 'nvim_lua'}, {name = 'luasnip'}, {name = 'buffer'},
-                        {name = 'path'}, {name = 'vim-dadbod-completion'}, {name = 'conjure'}, {name = 'crates'}
-                    }
-                }
+                        { name = "nvim_lsp" },
+                        { name = "nvim_lua" },
+                        { name = "luasnip" },
+                        { name = "buffer" },
+                        { name = "path" },
+                        { name = "vim-dadbod-completion" },
+                        { name = "conjure" },
+                        { name = "crates" },
+                    },
+                })
             end
-        end
+        end,
     },
 
     {
-        'simrat39/rust-tools.nvim',
+        "simrat39/rust-tools.nvim",
         -- ft = "rust",
         opts = {
             server = {
                 on_attach = function(_, bufnr)
-                    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+                    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
                     local bufopts = function(desc)
-                        return {noremap = true, silent = true, buffer = bufnr, desc = desc}
+                        return { noremap = true, silent = true, buffer = bufnr, desc = desc }
                     end
-                    vim.keymap.set('n', 'K', require("rust-tools").hover_actions.hover_actions, bufopts("hover actions"))
-                    vim.keymap.set('n', '<leader>ac', require("rust-tools").code_action_group.code_action_group, bufopts(""))
-                    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts("goto declaration"))
-                    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts("goto definition"))
-                    vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts("goto implementation"))
-                    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', bufopts("find lsp references"))
-                    vim.keymap.set('n', 'g,', vim.lsp.buf.signature_help, bufopts("signature help"))
-                    vim.keymap.set('n', '<leader>=', vim.lsp.buf.format, bufopts("format document"))
-                    vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts("rename symbol"))
-                    vim.keymap.set('n', '<leader>ai', vim.lsp.buf.incoming_calls, bufopts("list incoming calls"))
-                    vim.keymap.set('n', '<leader>ao', vim.lsp.buf.outgoing_calls, bufopts("list outgoing calls"))
-                    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts("add workspace folder"))
-                    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts("remove workspace folder"))
-                    vim.keymap.set('n', '<leader>sc', function()
+                    vim.keymap.set(
+                        "n",
+                        "K",
+                        require("rust-tools").hover_actions.hover_actions,
+                        bufopts("hover actions")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ac",
+                        require("rust-tools").code_action_group.code_action_group,
+                        bufopts("")
+                    )
+                    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts("goto declaration"))
+                    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts("goto definition"))
+                    vim.keymap.set(
+                        "n",
+                        "<leader>gi",
+                        vim.lsp.buf.implementation,
+                        bufopts("goto implementation")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "gr",
+                        "<cmd>Telescope lsp_references<CR>",
+                        bufopts("find lsp references")
+                    )
+                    vim.keymap.set("n", "g,", vim.lsp.buf.signature_help, bufopts("signature help"))
+                    vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, bufopts("format document"))
+                    vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts("rename symbol"))
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ai",
+                        vim.lsp.buf.incoming_calls,
+                        bufopts("list incoming calls")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ao",
+                        vim.lsp.buf.outgoing_calls,
+                        bufopts("list outgoing calls")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>wa",
+                        vim.lsp.buf.add_workspace_folder,
+                        bufopts("add workspace folder")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>wr",
+                        vim.lsp.buf.remove_workspace_folder,
+                        bufopts("remove workspace folder")
+                    )
+                    vim.keymap.set("n", "<leader>sc", function()
                         print(vim.inspect(vim.lsp.get_active_clients()[1].server_capabilities))
                     end, bufopts("list lsp server capabilities"))
-                    vim.keymap.set('n', '<leader>wl', function()
+                    vim.keymap.set("n", "<leader>wl", function()
                         print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                     end, bufopts("list workspace folders"))
-                    vim.keymap.set('n', '<leader>g,', vim.lsp.buf.signature_help, bufopts("signature help"))
-                    vim.keymap.set('n', '<leader>gi', vim.lsp.buf.implementation, bufopts("goto implementation"))
-                    vim.keymap.set('n', '<leader>gt', vim.lsp.buf.type_definition, bufopts("goto type definition"))
-                    vim.keymap.set('n', '<leader>ds', vim.lsp.buf.document_symbol, bufopts("list document lsp symbols"))
-                    vim.keymap.set('n', '<leader>dS', vim.lsp.buf.workspace_symbol, bufopts("list workspace lsp symbols"))
-                end
+                    vim.keymap.set(
+                        "n",
+                        "<leader>g,",
+                        vim.lsp.buf.signature_help,
+                        bufopts("signature help")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>gi",
+                        vim.lsp.buf.implementation,
+                        bufopts("goto implementation")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>gt",
+                        vim.lsp.buf.type_definition,
+                        bufopts("goto type definition")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>ds",
+                        vim.lsp.buf.document_symbol,
+                        bufopts("list document lsp symbols")
+                    )
+                    vim.keymap.set(
+                        "n",
+                        "<leader>dS",
+                        vim.lsp.buf.workspace_symbol,
+                        bufopts("list workspace lsp symbols")
+                    )
+                end,
             },
             tools = {
                 inlay_hints = {
@@ -418,7 +628,7 @@ return {
                     -- The color of the hints
                     highlight = "Comment",
                 },
-            }
+            },
         },
     },
 
@@ -428,7 +638,7 @@ return {
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
-        config = function ()
+        config = function()
             local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
             vim.api.nvim_create_autocmd("FileType", {
                 pattern = { "scala", "sbt", "java" },
@@ -437,6 +647,6 @@ return {
                 end,
                 group = nvim_metals_group,
             })
-        end
-    }
+        end,
+    },
 }

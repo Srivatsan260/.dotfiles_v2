@@ -2,12 +2,12 @@ local M = {}
 
 local theme_opts = {
     undercurl = true, -- enable undercurls
-    commentStyle = {italic = true},
+    commentStyle = { italic = true },
     functionStyle = {},
-    keywordStyle = {italic = true},
-    statementStyle = {bold = true},
+    keywordStyle = { italic = true },
+    statementStyle = { bold = true },
     typeStyle = {},
-    variablebuiltinStyle = {italic = true},
+    variablebuiltinStyle = { italic = true },
     specialReturn = true, -- special highlight for the return keyword
     specialException = true, -- special highlight for exception handling keywords
     transparent = true, -- do not set background color
@@ -16,10 +16,10 @@ local theme_opts = {
     terminalColors = true, -- define vim.g.terminal_color_{0,17}
     colors = {},
     overrides = {},
-    theme = "default" -- Load "default" theme or the experimental "light" theme
+    theme = "default", -- Load "default" theme or the experimental "light" theme
 }
 
-M.setup = function ()
+M.setup = function()
     require("kanagawa").setup(theme_opts)
     vim.cmd.colorscheme("kanagawa")
 end
@@ -34,7 +34,7 @@ M.lualine_colors = {
     visual = "#FF90C9",
     replace = "#E46876",
     command = "#FFC07A",
-    terminal = '#00FFFF'
+    terminal = "#00FFFF",
 }
 
 return M

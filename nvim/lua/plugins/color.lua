@@ -1,9 +1,9 @@
 return {
     {
-        'nvim-colortils/colortils.nvim',
+        "nvim-colortils/colortils.nvim",
         lazy = true,
         keys = {
-            {"<leader>clr", ":Colortils ", desc = "colortils"}
+            { "<leader>clr", ":Colortils ", desc = "colortils" },
         },
         opts = {
             -- Register in which color codes will be copied
@@ -44,25 +44,25 @@ return {
                 -- toggle transparency
                 transparency = "T",
                 -- choose the background (for transparent colors)
-                choose_background = "B"
-            }
-        }
+                choose_background = "B",
+            },
+        },
     },
     {
-        'guns/xterm-color-table.vim',
+        "guns/xterm-color-table.vim",
         lazy = true,
         keys = {
-            {"<leader>X", "<cmd>XtermColorTable<CR>", desc = "xterm color table"},
-        }
+            { "<leader>X", "<cmd>XtermColorTable<CR>", desc = "xterm color table" },
+        },
     },
     {
-        'norcalli/nvim-colorizer.lua',
+        "norcalli/nvim-colorizer.lua",
         opts = {
-            css = {hsl_fn = true, rgb_fn = true, names = true},
-            'javascript',
-            html = {mode = 'foreground'},
-            '*'
+            css = { hsl_fn = true, rgb_fn = true, names = true },
+            "javascript",
+            html = { mode = "foreground" },
+            "*",
         },
-        event = {"BufReadPost", "BufNewFile"},
+        event = { "BufReadPost", "BufNewFile" },
     },
 }

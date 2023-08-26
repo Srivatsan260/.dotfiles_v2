@@ -1,4 +1,4 @@
-local cursor_line_control = vim.api.nvim_create_augroup("CursorLineControl", {clear = true})
+local cursor_line_control = vim.api.nvim_create_augroup("CursorLineControl", { clear = true })
 local set_cursorline = function(event, value, pattern)
     vim.api.nvim_create_autocmd(event, {
         group = cursor_line_control,
@@ -6,7 +6,7 @@ local set_cursorline = function(event, value, pattern)
         callback = function()
             vim.opt_local.cursorline = value
             vim.opt_local.cursorcolumn = value
-        end
+        end,
     })
 end
 
@@ -16,40 +16,40 @@ set_cursorline("BufLeave", false)
 set_cursorline("BufEnter", true)
 set_cursorline("FileType", false, "TelescopePrompt")
 
-local fold_control = vim.api.nvim_create_augroup("FoldControl", {clear = true})
-vim.api.nvim_create_autocmd({"BufRead"}, {
+local fold_control = vim.api.nvim_create_augroup("FoldControl", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead" }, {
     group = fold_control,
     pattern = "*",
     callback = function()
         vim.cmd.normal("zx zR")
-    end
+    end,
 })
-local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", {clear = true})
-vim.api.nvim_create_autocmd({"TextYankPost"}, {
+local highlight_yank = vim.api.nvim_create_augroup("HighlightYank", { clear = true })
+vim.api.nvim_create_autocmd({ "TextYankPost" }, {
     group = highlight_yank,
     pattern = "*",
     callback = function()
-        vim.highlight.on_yank({higroup = 'Visual', timeout = 75})
-    end
+        vim.highlight.on_yank({ higroup = "Visual", timeout = 75 })
+    end,
 })
-vim.api.nvim_create_autocmd({"VimResized"}, {
+vim.api.nvim_create_autocmd({ "VimResized" }, {
     pattern = "*",
     callback = function()
         vim.cmd.wincmd("=")
-    end
+    end,
 })
 
-local filetype_control = vim.api.nvim_create_augroup("FileTypeControl", {clear = true})
-vim.api.nvim_create_autocmd({"BufRead"}, {
+local filetype_control = vim.api.nvim_create_augroup("FileTypeControl", { clear = true })
+vim.api.nvim_create_autocmd({ "BufRead" }, {
     group = filetype_control,
-    pattern = {"*shrc", "*sh"},
+    pattern = { "*shrc", "*sh" },
     callback = function()
         vim.bo.filetype = "sh"
-    end
+    end,
 })
 
 vim.api.nvim_create_autocmd("ColorScheme", {
-    callback = function ()
+    callback = function()
         local hl_groups = {
             "CursorLineNr",
             "Folded",
@@ -59,10 +59,10 @@ vim.api.nvim_create_autocmd("ColorScheme", {
             "DiagnosticVirtualTextHint",
             "TroubleNormal",
             "Tabline",
-            "TablineFill"
+            "TablineFill",
         }
         for _, hl in pairs(hl_groups) do
             vim.cmd.highlight(hl .. " ctermbg=none guibg=none")
         end
-    end
+    end,
 })

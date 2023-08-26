@@ -2,7 +2,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         enabled = false,
-        event = {"BufEnter", "BufNewFile"},
+        event = { "BufEnter", "BufNewFile" },
         opts = {
             -- char = "▏",
             char = "│",
@@ -23,18 +23,18 @@ return {
                 "gitmessengerpopup",
             },
             show_trailing_blankline_indent = false,
-            show_current_context = false
-        }
+            show_current_context = false,
+        },
     },
     {
         "echasnovski/mini.indentscope",
         enabled = false,
         version = false, -- wait till new 0.7.0 release to put it back on semver
-        event = {"BufEnter", "BufNewFile"},
+        event = { "BufEnter", "BufNewFile" },
         opts = {
             -- symbol = "▏",
             symbol = "│",
-            options = {try_as_border = true}
+            options = { try_as_border = true },
         },
         config = function(_, opts)
             vim.api.nvim_create_autocmd("FileType", {
@@ -56,9 +56,9 @@ return {
                 },
                 callback = function()
                     vim.b.miniindentscope_disable = true
-                end
+                end,
             })
             require("mini.indentscope").setup(opts)
-        end
-    }
+        end,
+    },
 }

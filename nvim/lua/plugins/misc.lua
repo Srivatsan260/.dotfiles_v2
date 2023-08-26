@@ -1,27 +1,27 @@
 return {
     {
-        'ThePrimeagen/vim-be-good',
+        "ThePrimeagen/vim-be-good",
         lazy = true,
         keys = {
-            {"<leader>vbg", "<cmd>VimBeGood<CR>", desc = "vimbegood"},
-        }
+            { "<leader>vbg", "<cmd>VimBeGood<CR>", desc = "vimbegood" },
+        },
     },
     {
-        'Eandrju/cellular-automaton.nvim',
+        "Eandrju/cellular-automaton.nvim",
         lazy = true,
         keys = {
-            {"<leader>cau", ":CellularAutomaton ", desc = "cellular automaton"},
-        }
+            { "<leader>cau", ":CellularAutomaton ", desc = "cellular automaton" },
+        },
     },
     {
-        'tpope/vim-speeddating',
+        "tpope/vim-speeddating",
         lazy = true,
-        keys = {"<C-a>", "<C-x>", "g<C-a>", "g<C-x>"}
+        keys = { "<C-a>", "<C-x>", "g<C-a>", "g<C-x>" },
     },
     {
-        'glts/vim-radical',
-        dependencies = {'glts/vim-magnum'},
+        "glts/vim-radical",
+        dependencies = { "glts/vim-magnum" },
         lazy = true,
-        keys = {"cr", "gA"}
+        keys = { "cr", "gA" },
     },
 }

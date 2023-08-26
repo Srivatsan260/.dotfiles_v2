@@ -5,70 +5,86 @@ return {
             {
                 "voldikss/fzf-floaterm",
                 dependencies = {
-                    'junegunn/fzf.vim',
-                    'junegunn/fzf',
-                }
-            }
+                    "junegunn/fzf.vim",
+                    "junegunn/fzf",
+                },
+            },
         },
         lazy = true,
         keys = {
             {
                 "<C-\\>",
                 function()
-                   return vim.bo.filetype ~= "lazygit" and "<cmd>FloatermToggle<CR>" or ""
+                    return vim.bo.filetype ~= "lazygit" and "<cmd>FloatermToggle<CR>" or ""
                 end,
                 expr = true,
                 desc = "toggle floaterm window",
-                mode = {"n", "t"}
+                mode = { "n", "t" },
             },
-            {"<leader>fl", "<cmd>Floaterms<CR>", desc = "list floaterms"},
-            {"<leader>fn", ":FloatermNew --wintype=float --height=0.9 --width=0.9 ", desc = "new floaterm window with custom command"},
-            {"<leader>fr", "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>", desc = "open ranger in a new floaterm window"},
+            { "<leader>fl", "<cmd>Floaterms<CR>", desc = "list floaterms" },
+            {
+                "<leader>fn",
+                ":FloatermNew --wintype=float --height=0.9 --width=0.9 ",
+                desc = "new floaterm window with custom command",
+            },
+            {
+                "<leader>fr",
+                "<cmd>FloatermNew --wintype=float --height=0.9 --width=0.9 ranger<CR>",
+                desc = "open ranger in a new floaterm window",
+            },
             -- Floaterm window switching
             {
                 "<C-h>",
                 function()
                     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>h" or "<C-h>"
                 end,
-                expr = true, desc = "window left (terminal mode)", mode = "t"
+                expr = true,
+                desc = "window left (terminal mode)",
+                mode = "t",
             },
             {
                 "<C-j>",
                 function()
                     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>j" or "<C-j>"
                 end,
-                expr = true, desc = "window down (terminal mode)", mode = "t"
+                expr = true,
+                desc = "window down (terminal mode)",
+                mode = "t",
             },
             {
                 "<C-k>",
                 function()
                     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>k" or "<C-k>"
                 end,
-                expr = true, desc = "window up (terminal mode)", mode = "t"
+                expr = true,
+                desc = "window up (terminal mode)",
+                mode = "t",
             },
             {
                 "<C-l>",
                 function()
                     return vim.bo.filetype == "floaterm" and "<C-\\><C-n><C-w>l" or "<C-l>"
                 end,
-                expr = true, desc = "window right (terminal mode)", mode = "t"
-            }
+                expr = true,
+                desc = "window right (terminal mode)",
+                mode = "t",
+            },
         },
-        config = function ()
+        config = function()
             local g_opts = {
                 floaterm_autoclose = 0,
                 floaterm_width = 0.5,
-                floaterm_wintype = 'vsplit',
+                floaterm_wintype = "vsplit",
             }
             for k, v in pairs(g_opts) do
                 vim.g[k] = v
             end
-        end
+        end,
     },
     {
-        'aserowy/tmux.nvim',
+        "aserowy/tmux.nvim",
         lazy = true,
-        keys = {"<C-h>", "<C-j>", "<C-k>", "<C-l>"},
+        keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
         opts = {
             copy_sync = {
                 -- enables copy sync. by default, all registers are synchronized.
@@ -78,7 +94,7 @@ return {
                 -- ignore specific tmux buffers e.g. buffer0 = true to ignore the
                 -- first buffer or named_buffer_name = true to ignore a named tmux
                 -- buffer with name named_buffer_name
-                ignore_buffers = {empty = false},
+                ignore_buffers = { empty = false },
 
                 -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
                 -- clipboard by tmux
@@ -102,7 +118,7 @@ return {
                 sync_deletes = true,
 
                 -- syncs the unnamed register with the first buffer entry from tmux.
-                sync_unnamed = true
+                sync_unnamed = true,
             },
             navigation = {
                 -- cycles to opposite pane while navigating into the border
@@ -112,7 +128,7 @@ return {
                 enable_default_keybindings = true,
 
                 -- prevents unzoom tmux when navigating beyond vim border
-                persist_zoom = false
+                persist_zoom = false,
             },
             resize = {
                 -- enables default keybindings (A-hjkl) for normal mode
@@ -122,8 +138,8 @@ return {
                 resize_step_x = 1,
 
                 -- sets resize steps for y axis
-                resize_step_y = 1
-            }
-        }
+                resize_step_y = 1,
+            },
+        },
     },
 }

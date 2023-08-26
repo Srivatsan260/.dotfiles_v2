@@ -1,7 +1,7 @@
 return {
-    'Jxstxs/conceal.nvim',
+    "Jxstxs/conceal.nvim",
     dependencies = {
-        'nvim-treesitter/nvim-treesitter'
+        "nvim-treesitter/nvim-treesitter",
     },
     opts = {
         --[[ ["language"] = {
@@ -18,19 +18,28 @@ return {
                 conceal = "l",
             },
             ["return"] = {
-                conceal = "R" -- to set the concealing to "R"
+                conceal = "R", -- to set the concealing to "R"
             },
             ["for"] = {
-                highlight = "keyword" -- to set the Highlight group to "@keyword"
-            }
+                highlight = "keyword", -- to set the Highlight group to "@keyword"
+            },
         },
     },
     keys = {
-        {"<localleader>cc", function()
-            require("conceal").toggle_conceal(1)
-        end, silent = true, desc = "Toggle conceals"},
-        {"<leader>cg", function()
-            require("conceal").generate_conceals()
-        end, desc = "Generate conceals"},
-    }
+        {
+            "<localleader>cc",
+            function()
+                require("conceal").toggle_conceal(1)
+            end,
+            silent = true,
+            desc = "Toggle conceals",
+        },
+        {
+            "<leader>cg",
+            function()
+                require("conceal").generate_conceals()
+            end,
+            desc = "Generate conceals",
+        },
+    },
 }

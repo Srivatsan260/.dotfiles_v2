@@ -1,12 +1,12 @@
 return {
     {
-        'nvim-lualine/lualine.nvim',
+        "nvim-lualine/lualine.nvim",
         dependencies = {
-            'kyazdani42/nvim-web-devicons',
-            'folke/noice.nvim'
+            "kyazdani42/nvim-web-devicons",
+            "folke/noice.nvim",
         },
         event = "VeryLazy",
-        config = function ()
+        config = function()
             local lualine = require("lualine")
             local colors, theme
             local ok, theme_mod = pcall(require, "themes." .. vim.g.global_colorscheme)
@@ -15,40 +15,40 @@ return {
                 if not rawequal(next(colors), nil) then
                     theme = {
                         inactive = {
-                            a = {fg = colors.default, bg = colors.outerbg, gui = "bold"},
-                            b = {fg = colors.default, bg = colors.outerbg},
-                            c = {fg = colors.default, bg = colors.innerbg}
+                            a = { fg = colors.default, bg = colors.outerbg, gui = "bold" },
+                            b = { fg = colors.default, bg = colors.outerbg },
+                            c = { fg = colors.default, bg = colors.innerbg },
                         },
                         visual = {
-                            a = {fg = colors.black, bg = colors.visual, gui = "bold"},
-                            b = {fg = colors.visual, bg = colors.outerbg},
-                            c = {fg = colors.visual, bg = colors.innerbg}
+                            a = { fg = colors.black, bg = colors.visual, gui = "bold" },
+                            b = { fg = colors.visual, bg = colors.outerbg },
+                            c = { fg = colors.visual, bg = colors.innerbg },
                         },
                         replace = {
-                            a = {fg = colors.black, bg = colors.replace, gui = "bold"},
-                            b = {fg = colors.replace, bg = colors.outerbg},
-                            c = {fg = colors.replace, bg = colors.innerbg}
+                            a = { fg = colors.black, bg = colors.replace, gui = "bold" },
+                            b = { fg = colors.replace, bg = colors.outerbg },
+                            c = { fg = colors.replace, bg = colors.innerbg },
                         },
                         normal = {
-                            a = {fg = colors.black, bg = colors.normal, gui = "bold"},
-                            b = {fg = colors.normal, bg = colors.outerbg},
-                            c = {fg = colors.normal, bg = colors.innerbg}
+                            a = { fg = colors.black, bg = colors.normal, gui = "bold" },
+                            b = { fg = colors.normal, bg = colors.outerbg },
+                            c = { fg = colors.normal, bg = colors.innerbg },
                         },
                         insert = {
-                            a = {fg = colors.black, bg = colors.insert, gui = "bold"},
-                            b = {fg = colors.insert, bg = colors.outerbg},
-                            c = {fg = colors.insert, bg = colors.innerbg}
+                            a = { fg = colors.black, bg = colors.insert, gui = "bold" },
+                            b = { fg = colors.insert, bg = colors.outerbg },
+                            c = { fg = colors.insert, bg = colors.innerbg },
                         },
                         command = {
-                            a = {fg = colors.black, bg = colors.command, gui = "bold"},
-                            b = {fg = colors.command, bg = colors.outerbg},
-                            c = {fg = colors.command, bg = colors.innerbg}
+                            a = { fg = colors.black, bg = colors.command, gui = "bold" },
+                            b = { fg = colors.command, bg = colors.outerbg },
+                            c = { fg = colors.command, bg = colors.innerbg },
                         },
                         terminal = {
-                            a = {fg = colors.black, bg = colors.terminal, gui = "bold"},
-                            b = {fg = colors.terminal, bg = colors.outerbg},
-                            c = {fg = colors.terminal, bg = colors.innerbg}
-                        }
+                            a = { fg = colors.black, bg = colors.terminal, gui = "bold" },
+                            b = { fg = colors.terminal, bg = colors.outerbg },
+                            c = { fg = colors.terminal, bg = colors.innerbg },
+                        },
                     }
                 else
                     theme = vim.g.colors_name
@@ -56,23 +56,23 @@ return {
             else
                 theme = vim.g.colors_name
             end
-            lualine.setup {
+            lualine.setup({
                 -- "┃", "█", "", "", "", "", "", "", "●"
                 options = {
                     icons_enabled = true,
                     theme = theme,
-                    component_separators = {left = '', right = ''},
-                    section_separators = {left = '', right = ''},
-                    disabled_filetypes = {statusline = {}, winbar = {}},
+                    component_separators = { left = "", right = "" },
+                    section_separators = { left = "", right = "" },
+                    disabled_filetypes = { statusline = {}, winbar = {} },
                     ignore_focus = {},
                     always_divide_middle = true,
                     globalstatus = true,
-                    refresh = {statusline = 1000, tabline = 1000, winbar = 1000}
+                    refresh = { statusline = 1000, tabline = 1000, winbar = 1000 },
                 },
                 sections = {
-                    lualine_a = {'mode'},
+                    lualine_a = { "mode" },
                     lualine_b = {
-                        'branch',
+                        "branch",
                         -- {
                         --     require("noice").api.statusline.mode.get,
                         --     cond = require("noice").api.statusline.mode.has,
@@ -80,15 +80,19 @@ return {
                         -- }
                     },
                     lualine_c = {
-                        '%=', {'filename', path = 0}, 'filesize', 'diff', 'diagnostics'
+                        "%=",
+                        { "filename", path = 0 },
+                        "filesize",
+                        "diff",
+                        "diagnostics",
                     },
                     lualine_x = {
-                        'encoding',
-                        'fileformat',
-                        'filetype',
+                        "encoding",
+                        "fileformat",
+                        "filetype",
                     },
-                    lualine_y = {'location', 'progress'},
-                    lualine_z = {''}
+                    lualine_y = { "location", "progress" },
+                    lualine_z = { "" },
                 },
                 inactive_sections = {
                     lualine_a = {},
@@ -96,27 +100,27 @@ return {
                     lualine_c = {},
                     lualine_x = {},
                     lualine_y = {},
-                    lualine_z = {}
+                    lualine_z = {},
                 },
                 tabline = {},
                 winbar = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = {{'filename', path = 1}},
+                    lualine_c = { { "filename", path = 1 } },
                     lualine_x = {},
                     lualine_y = {},
-                    lualine_z = {}
+                    lualine_z = {},
                 },
                 inactive_winbar = {
                     lualine_a = {},
                     lualine_b = {},
-                    lualine_c = {{'filename', path = 1}},
+                    lualine_c = { { "filename", path = 1 } },
                     lualine_x = {},
                     lualine_y = {},
-                    lualine_z = {}
+                    lualine_z = {},
                 },
-                extensions = {'fugitive', 'fzf', 'man', 'nvim-dap-ui', 'quickfix'}
-            }
-        end
+                extensions = { "fugitive", "fzf", "man", "nvim-dap-ui", "quickfix" },
+            })
+        end,
     },
 }

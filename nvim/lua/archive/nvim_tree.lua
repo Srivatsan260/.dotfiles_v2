@@ -1,4 +1,4 @@
-require("nvim-tree").setup {
+require("nvim-tree").setup({
     auto_reload_on_write = true,
     create_in_closed_folder = false,
     disable_netrw = false,
@@ -33,7 +33,7 @@ require("nvim-tree").setup {
             custom_only = false,
             list = {
                 -- user mappings go here
-            }
+            },
         },
         float = {
             enable = false,
@@ -44,9 +44,9 @@ require("nvim-tree").setup {
                 width = 30,
                 height = 30,
                 row = 1,
-                col = 1
-            }
-        }
+                col = 1,
+            },
+        },
     },
     renderer = {
         add_trailing = false,
@@ -59,14 +59,14 @@ require("nvim-tree").setup {
         indent_markers = {
             enable = false,
             inline_arrows = true,
-            icons = {corner = "└", edge = "│", item = "│", bottom = "─", none = " "}
+            icons = { corner = "└", edge = "│", item = "│", bottom = "─", none = " " },
         },
         icons = {
             webdev_colors = true,
             git_placement = "before",
             padding = " ",
             symlink_arrow = " ➛ ",
-            show = {file = true, folder = true, folder_arrow = true, git = true},
+            show = { file = true, folder = true, folder_arrow = true, git = true },
             glyphs = {
                 default = "",
                 symlink = "",
@@ -79,7 +79,7 @@ require("nvim-tree").setup {
                     empty = "",
                     empty_open = "",
                     symlink = "",
-                    symlink_open = ""
+                    symlink_open = "",
                 },
                 git = {
                     unstaged = "✗",
@@ -88,38 +88,38 @@ require("nvim-tree").setup {
                     renamed = "➜",
                     untracked = "★",
                     deleted = "",
-                    ignored = "◌"
-                }
-            }
+                    ignored = "◌",
+                },
+            },
         },
-        special_files = {"Cargo.toml", "Makefile", "README.md", "readme.md"},
-        symlink_destination = true
+        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        symlink_destination = true,
     },
-    hijack_directories = {enable = true, auto_open = true},
-    update_focused_file = {enable = false, update_root = false, ignore_list = {}},
+    hijack_directories = { enable = true, auto_open = true },
+    update_focused_file = { enable = false, update_root = false, ignore_list = {} },
     ignore_ft_on_setup = {},
-    system_open = {cmd = "", args = {}},
+    system_open = { cmd = "", args = {} },
     diagnostics = {
         enable = false,
         show_on_dirs = false,
         debounce_delay = 50,
-        icons = {hint = "", info = "", warning = "", error = ""}
+        icons = { hint = "", info = "", warning = "", error = "" },
     },
-    filters = {dotfiles = false, custom = {}, exclude = {}},
-    filesystem_watchers = {enable = true, debounce_delay = 50},
-    git = {enable = true, ignore = true, show_on_dirs = true, timeout = 400},
+    filters = { dotfiles = false, custom = {}, exclude = {} },
+    filesystem_watchers = { enable = true, debounce_delay = 50 },
+    git = { enable = true, ignore = true, show_on_dirs = true, timeout = 400 },
     actions = {
         use_system_clipboard = true,
-        change_dir = {enable = true, global = false, restrict_above_cwd = false},
-        expand_all = {max_folder_discovery = 300, exclude = {}},
+        change_dir = { enable = true, global = false, restrict_above_cwd = false },
+        expand_all = { max_folder_discovery = 300, exclude = {} },
         file_popup = {
             open_win_config = {
                 col = 1,
                 row = 1,
                 relative = "cursor",
                 border = "shadow",
-                style = "minimal"
-            }
+                style = "minimal",
+            },
         },
         open_file = {
             quit_on_open = false,
@@ -128,15 +128,15 @@ require("nvim-tree").setup {
                 enable = true,
                 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
                 exclude = {
-                    filetype = {"notify", "packer", "qf", "diff", "fugitive", "fugitiveblame"},
-                    buftype = {"nofile", "terminal", "help"}
-                }
-            }
+                    filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+                    buftype = { "nofile", "terminal", "help" },
+                },
+            },
         },
-        remove_file = {close_window = true}
+        remove_file = { close_window = true },
     },
-    trash = {cmd = "gio trash", require_confirm = true},
-    live_filter = {prefix = "[FILTER]: ", always_show_folders = true},
+    trash = { cmd = "gio trash", require_confirm = true },
+    live_filter = { prefix = "[FILTER]: ", always_show_folders = true },
     log = {
         enable = false,
         truncate = false,
@@ -148,7 +148,7 @@ require("nvim-tree").setup {
             diagnostics = false,
             git = false,
             profile = false,
-            watcher = false
-        }
-    }
-}
+            watcher = false,
+        },
+    },
+})

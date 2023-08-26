@@ -1,12 +1,12 @@
 return {
     {
-        'gpanders/editorconfig.nvim',
-        cond = function ()
+        "gpanders/editorconfig.nvim",
+        cond = function()
             return vim.fn.glob(".editorconfig") ~= ""
         end,
     },
     {
-        'airblade/vim-rooter',
+        "airblade/vim-rooter",
         event = "VeryLazy",
     },
 }

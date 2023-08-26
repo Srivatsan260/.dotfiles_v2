@@ -8,11 +8,11 @@ local theme_opts = {
             functions = {},
             keywords = {},
             types = {},
-        }
-    }
+        },
+    },
 }
 
-M.setup = function ()
+M.setup = function()
     require("darcubox").setup(theme_opts)
     vim.cmd.colorscheme("darcubox")
 end

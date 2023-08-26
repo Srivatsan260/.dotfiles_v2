@@ -1,3 +1,3 @@
-require('setup')
+require("setup")
 
 -- print("Hello World")

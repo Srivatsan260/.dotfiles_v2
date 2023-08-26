@@ -1,13 +1,13 @@
 return {
     {
-        'tpope/vim-dadbod',
+        "tpope/vim-dadbod",
         dependencies = {
-            'kristijanhusak/vim-dadbod-ui',
-            'kristijanhusak/vim-dadbod-completion',
+            "kristijanhusak/vim-dadbod-ui",
+            "kristijanhusak/vim-dadbod-completion",
         },
         lazy = true,
         keys = {
-            {"<leader>DB", "<cmd>DBUI<CR>", desc = "Open the DADBOD UI"},
-        }
-    }
+            { "<leader>DB", "<cmd>DBUI<CR>", desc = "Open the DADBOD UI" },
+        },
+    },
 }

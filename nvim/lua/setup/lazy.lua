@@ -11,23 +11,21 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", {desc = "Open Lazy"})
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { desc = "Open Lazy" })
 
-require('lazy').setup(
-    "plugins", {
-        performance = {
-            rtp = {
-                disabled_plugins ={
-                    -- "gzip",
-                    "matchit",
-                    -- "matchparen",
-                    -- "netrwPlugin",
-                    "tarPlugin",
-                    "tohtml",
-                    "tutor",
-                    -- "zipPlugin",
-                }
-            }
-        }
-    }
-)
+require("lazy").setup("plugins", {
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- "gzip",
+                "matchit",
+                -- "matchparen",
+                -- "netrwPlugin",
+                "tarPlugin",
+                "tohtml",
+                "tutor",
+                -- "zipPlugin",
+            },
+        },
+    },
+})

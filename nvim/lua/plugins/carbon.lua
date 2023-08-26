@@ -1,5 +1,5 @@
 return {
-    'ellisonleao/carbon-now.nvim',
+    "ellisonleao/carbon-now.nvim",
     lazy = true,
     opts = {
         base_url = "https://carbon.now.sh/",
@@ -16,10 +16,10 @@ return {
             drop_shadow_offset_y = "20px",
             drop_shadow_blur = "68px",
             width = "1080",
-            watermark = false
-        }
+            watermark = false,
+        },
     },
     keys = {
-        {"<leader>cr", ":CarbonNow<CR>", desc = "Carbon Now", mode = {"n", "x"}},
-    }
+        { "<leader>cr", ":CarbonNow<CR>", desc = "Carbon Now", mode = { "n", "x" } },
+    },
 }

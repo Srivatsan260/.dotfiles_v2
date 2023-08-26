@@ -1,6 +1,6 @@
 return {
-    'mfussenegger/nvim-treehopper',
-    dependencies = {'nvim-treesitter/nvim-treesitter'},
+    "mfussenegger/nvim-treehopper",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
     lazy = true,
     keys = {
         {
@@ -9,7 +9,7 @@ return {
                 require("tsht").nodes()
             end,
             desc = "hop nodes",
-            mode = {"n", "v"}
-        }
-    }
+            mode = { "n", "v" },
+        },
+    },
 }

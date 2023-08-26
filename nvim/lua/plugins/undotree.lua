@@ -1,5 +1,5 @@
 return {
-    'mbbill/undotree',
+    "mbbill/undotree",
     lazy = true,
     keys = {
         {
@@ -16,22 +16,26 @@ return {
                         return ""
                     end
                 end
-                if vim.o.modifiable or vim.bo.filetype == "undotree" or vim.bo.filetype == "diff" then
+                if
+                    vim.o.modifiable
+                    or vim.bo.filetype == "undotree"
+                    or vim.bo.filetype == "diff"
+                then
                     return "<cmd>UndotreeToggle<CR>"
                 else
                     return ""
                 end
             end,
             desc = "toggle undotree",
-            expr = true
-        }
+            expr = true,
+        },
     },
-    init = function ()
+    init = function()
         local g_opts = {
-            undotree_SetFocusWhenToggle = 1
+            undotree_SetFocusWhenToggle = 1,
         }
         for k, v in pairs(g_opts) do
             vim.g[k] = v
         end
-    end
+    end,
 }
