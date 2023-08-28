@@ -1,0 +1,3 @@
+[submodule "tfg_dots"]
+	path = tfg_dots
+	url = https://github.com/Srivatsan260/.dotfiles_tfg
