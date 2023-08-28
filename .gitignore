@@ -1,6 +1,6 @@
 .git/*
 brew_installs.txt
-lazygit/*.yml
+lazygit/state.yml
 nvim/plugin/packer_compiled.lua
 .luarc.json
 test.lua
