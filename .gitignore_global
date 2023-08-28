@@ -9,3 +9,4 @@ tags
 typings/*
 .databricks/*
 .vscode/*
+.sqlfluff
