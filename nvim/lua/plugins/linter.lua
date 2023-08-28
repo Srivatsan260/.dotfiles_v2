@@ -9,6 +9,10 @@ return {
             lua = { "luacheck" },
             sql = { "sqlfluff" },
         }
+
+        local luacheck = lint.linters.luacheck
+        luacheck.args = { "--globals", "vim" }
+
         local sqlfluff = lint.linters.sqlfluff
         sqlfluff.args = { "lint", "--format=json", "--dialect=snowflake" }
         local group = vim.api.nvim_create_augroup("LintGroup", { clear = true })
