@@ -9,6 +9,7 @@ export PATH="/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin/:$PATH"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PYSPARK_DRIVER_PYTHON="ptpython"
+export RUST_CODE=~/Documents/rust_code
 
 [[ ":$PATH:" != ":$HOME/.local/share/neovim/bin/"* ]] && export PATH="$PATH:$HOME/.local/share/neovim/bin/"
 [[ ":$PATH:" != ":$HOME/.local/bin/"* ]] && export PATH="$PATH:$HOME/.local/bin/"
