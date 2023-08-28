@@ -135,12 +135,6 @@ random_choice() {
 
 #: }}}
 
-#: source project-specific config {{{
-
-source ~/dotfiles/tfg_dots/.zshrc
-
-#: }}}
-
 #: misc {{{
 
 ulimit -n 65536
@@ -246,7 +240,11 @@ source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-workon airflow233
+#: source project-specific config {{{
+
+source ~/dotfiles/tfg_dots/.zshrc
+
+#: }}}
 
 # enable vi mode in zsh
 bindkey -v
