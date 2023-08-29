@@ -629,7 +629,6 @@ return {
 
     {
         "scalameta/nvim-metals",
-        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
         },
