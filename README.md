@@ -1,9 +1,9 @@
 # TODO
 
-- prepare setup script to do:
+- [ ] prepare setup script to do:
 
-    * clone repo
-    * install packages
-    * symlink files
+    * [ ] clone repo
+    * [ ] install packages
+    * [ ] symlink files
 
-- push encrypted keys to repo
+- [x] push encrypted keys to repo
