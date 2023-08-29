@@ -242,7 +242,7 @@ source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 #: source project-specific config {{{
 
-source ~/dotfiles/tfg_dots/.zshrc
+source ~/dotfiles/work_dots/.zshrc
 
 #: }}}
 
