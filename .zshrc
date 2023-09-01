@@ -53,6 +53,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 #: aliases {{{
 
+alias cl='clear'
 alias e='exa -lah'
 alias ru="$RUST_CODE"
 # alias n="~/.local/share/neovim/bin/nvim"
