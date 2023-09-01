@@ -118,8 +118,20 @@ return {
 
             telescope.setup({
                 defaults = {
-                    prompt_prefix = " ",
-                    -- layout_strategy = "float",
+                    sorting_strategy = "ascending",
+                    prompt_prefix = " ",
+                    layout_strategy = "center",
+                    border = false,
+                    prompt_title = "",
+                    selection_caret = "",
+                    entry_prefix = "",
+                    multi_icon = "",
+                    color_devicons = false,
+                    preview = { msg_bg_fillchar = " " },
+                    layout_config = {
+                        anchor = "N",
+                        width = 100,
+                    },
                 },
                 extensions = {
                     session_picker = { sessions_dir = vim.g.sessions_dir },
