@@ -59,6 +59,7 @@ alias ru="$RUST_CODE"
 alias n="nvim"
 alias nv="/opt/homebrew/Cellar/neovide/0.11.1/bin/neovide --frame none --maximized"
 alias v="/opt/homebrew/bin/vim"
+alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" lazygit'
 alias lg="lazygit"
 alias cn="c && n ."
 alias sz="source ~/.zshrc"
@@ -77,7 +78,6 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias gwl="git worktree list"
 alias gwf="git fetch --all"
 
-alias lazygit='lazygit --use-config-file="$HOME/.config/lazygit/config.yml'
 
 #: }}}
 
