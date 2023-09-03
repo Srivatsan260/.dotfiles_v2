@@ -1,14 +1,22 @@
+local vimux_run_cmd = require("utils").vimux_run_cmd
+
 return {
     {
         "CRAG666/code_runner.nvim",
+        dependencies = { "preservim/vimux" },
         opts = {
             mode = "term",
             focus = true,
             border = "single",
             filetype = {
                 python = "python -u",
-                rust = "cargo build && cargo run",
-                go = "go run .",
+                rust = vimux_run_cmd("cargo build && cargo run"),
+                go = vimux_run_cmd("go run ."),
+                terraform = vimux_run_cmd(
+                    "terraform",
+                    "terraform action:",
+                    { "apply", "destroy", "plan", "show", "validate" }
+                ),
             },
         },
         keys = {

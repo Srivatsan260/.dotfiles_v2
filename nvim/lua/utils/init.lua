@@ -13,4 +13,17 @@ M.cmd_to_table = function(cmd)
     return t
 end
 
+M.vimux_run_cmd = function(cmd_or_prefix, prompt, opts)
+    return function()
+        print(cmd_or_prefix)
+        if not opts then
+            vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. "')")
+        else
+            vim.ui.select(opts, { prompt = prompt }, function(choice)
+                vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. " " .. choice .. "')")
+            end)
+        end
+    end
+end
+
 return M
