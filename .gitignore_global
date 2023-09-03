@@ -10,3 +10,4 @@ typings/*
 .databricks/*
 .vscode/*
 .sqlfluff
+.luarc.json
