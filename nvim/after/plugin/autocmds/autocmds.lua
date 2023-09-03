@@ -47,6 +47,13 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
         vim.bo.filetype = "sh"
     end,
 })
+vim.api.nvim_create_autocmd({ "BufRead" }, {
+    group = filetype_control,
+    pattern = { "*.tf" },
+    callback = function()
+        vim.bo.filetype = "terraform"
+    end,
+})
 
 vim.api.nvim_create_autocmd("ColorScheme", {
     callback = function()
