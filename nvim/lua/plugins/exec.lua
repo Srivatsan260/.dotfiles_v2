@@ -15,7 +15,7 @@ return {
                 terraform = vimux_run_cmd(
                     "terraform",
                     "terraform action:",
-                    { "apply", "destroy", "plan", "show", "validate" }
+                    { "init", "apply", "destroy", "plan", "show", "validate" }
                 ),
             },
         },
