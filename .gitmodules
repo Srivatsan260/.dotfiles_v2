@@ -1,3 +1,6 @@
 [submodule "work_dots"]
 	path = work_dots
 	url = https://github.com/Srivatsan260/.dotfiles_work
+[submodule "wallpapers"]
+	path = wallpapers
+	url = https://github.com/ThePrimeagen/anime
