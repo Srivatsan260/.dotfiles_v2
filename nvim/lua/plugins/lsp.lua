@@ -411,6 +411,30 @@ return {
                 desc = "Setup jdtls",
                 callback = jdtls_setup,
             })
+
+            -- scala lsp
+            local metals_config = require("metals").bare_config()
+
+            metals_config.settings = {
+                showImplicitArguments = true,
+            }
+
+            -- local ok_cmp, cmp_lsp = pcall(require, "cmp_nvim_lsp")
+            -- if ok_cmp then
+            --     metals_config.capabilities = cmp_lsp.default_capabilities()
+            -- end
+            --
+            -- metals_config.on_attach = function(client, bufnr)
+            --     require("metals").setup_dap()
+            -- end
+            vim.api.nvim_create_autocmd("FileType", {
+                group = java_cmds,
+                pattern = { "scala", "sbt" },
+                desc = "Setup metals",
+                callback = function()
+                    require("metals").initialize_or_attach(metals_config)
+                end,
+            })
         end,
     },
 
@@ -635,7 +659,7 @@ return {
         config = function()
             local nvim_metals_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
             vim.api.nvim_create_autocmd("FileType", {
-                pattern = { "scala", "sbt", "java" },
+                pattern = { "scala", "sbt" },
                 callback = function()
                     require("metals").initialize_or_attach({})
                 end,

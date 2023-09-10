@@ -17,6 +17,7 @@ return {
                     "terraform action:",
                     { "init", "apply", "destroy", "plan", "show", "validate" }
                 ),
+                scala = vimux_run_cmd("sbt", "sbt action:", { "run", "test" }),
             },
         },
         keys = {
