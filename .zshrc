@@ -22,7 +22,7 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 
 export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.4.0/libexec
-export PYTHONPATH=/opt/homebrew/Cellar/apache-spark/3.4.0/libexec/python/:$PYTHONPATH
+export PYTHONPATH=/opt/homebrew/Cellar/apache-spark/3.4.0/libexec/python/
 export SPARK_VERSION="3.4.0"
 
 # Path to your oh-my-zsh installation.
@@ -133,13 +133,26 @@ random_choice() {
     echo $(($RANDOM % ($2 - $1 + 1) + $1))
 }
 
+br() {
+    local cmd cmd_file code
+    cmd_file=$(mktemp)
+    if broot --outcmd "$cmd_file" "$@"; then
+        cmd=$(<"$cmd_file")
+        command rm -f "$cmd_file"
+        eval "$cmd"
+    else
+        code=$?
+        command rm -f "$cmd_file"
+        return "$code"
+    fi
+}
 
 #: }}}
 
 #: misc {{{
 
-ulimit -n 65536
-ulimit -u 2048
+ulimit -n 65535
+ulimit -u 2047
 
 eval "$(zoxide init zsh)"
 
@@ -209,7 +222,7 @@ ZSH_THEME="robbyrussell" # set by `omz`
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode zsh-autosuggestions)
+plugins=(vi-mode zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
