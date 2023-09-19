@@ -11,3 +11,4 @@ typings/*
 .vscode/*
 .sqlfluff
 .luarc.json
+pyrightconfig.json
