@@ -12,3 +12,4 @@ typings/*
 .sqlfluff
 .luarc.json
 pyrightconfig.json
+.envrc
