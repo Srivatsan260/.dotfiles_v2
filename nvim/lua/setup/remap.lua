@@ -277,4 +277,9 @@ vim.keymap.set(
 )
 
 -- ctags
-vim.keymap.set("n", "<leader>ct", "<cmd>AsyncRun ctags -R<CR>", { desc = "generate ctags" })
+vim.keymap.set(
+    "n",
+    "<leader>ct",
+    "<cmd>AsyncRun /opt/homebrew/Cellar/ctags/5.8_2/bin/ctags -R<CR>",
+    { desc = "generate ctags" }
+)
