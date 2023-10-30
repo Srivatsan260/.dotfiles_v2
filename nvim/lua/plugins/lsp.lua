@@ -136,6 +136,18 @@ return {
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, bufopts("list workspace folders"))
             end)
+
+            require("lspconfig").pyright.setup({
+                settings = {
+                    python = {
+                        analysis = {
+                            autoSearchPaths = true,
+                            useLibraryCodeForTypes = true,
+                        },
+                    },
+                },
+            })
+
             lsp.setup()
 
             vim.diagnostic.config({
