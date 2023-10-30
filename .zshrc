@@ -79,6 +79,7 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias gwl="git worktree list"
 alias gwf="git fetch --all"
 
+alias ctags="/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags"
 
 #: }}}
 
