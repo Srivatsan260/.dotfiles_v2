@@ -46,4 +46,5 @@ return {
             strict = false, -- whether to interpret LSP strictly
         },
     },
+    branch = "legacy",
 }
