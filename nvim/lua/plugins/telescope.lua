@@ -12,6 +12,7 @@ return {
             "princejoogie/dir-telescope.nvim",
         },
         lazy = true,
+        cmd = { "Telescope" },
         keys = {
             { "<C-p>", "<cmd>Telescope find_files hidden=True<CR>", desc = "Telescope find_files" },
             {
@@ -169,7 +170,7 @@ return {
                 "git_worktree",
                 "zoxide",
                 "file_browser",
-                "frecency",
+                -- "frecency",
             }
             for _, ext in pairs(extensions) do
                 pcall(telescope.load_extension, ext)

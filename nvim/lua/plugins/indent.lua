@@ -1,30 +1,14 @@
 return {
     {
         "lukas-reineke/indent-blankline.nvim",
-        enabled = false,
         event = { "BufEnter", "BufNewFile" },
+        main = "ibl",
         opts = {
-            -- char = "▏",
-            char = "│",
-            filetype_exclude = {
-                "help",
-                "alpha",
-                "dashboard",
-                "neo-tree",
-                "Trouble",
-                "lazy",
-                "mason",
-                "undotree",
-                "qf",
-                "netrw",
-                "floaterm",
-                "fugitive",
-                "Outline",
-                "gitmessengerpopup",
-            },
-            show_trailing_blankline_indent = false,
-            show_current_context = false,
-        },
+            debounce = 100,
+            indent = { char = "┋", },
+            whitespace = { highlight = { "Whitespace", "NonText" } },
+            scope = { exclude = { language = { "lua" } } },
+        }
     },
     {
         "echasnovski/mini.indentscope",
