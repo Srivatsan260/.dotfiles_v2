@@ -2,12 +2,12 @@ local wezterm = require("wezterm")
 
 local function get_background()
     local home = os.getenv("HOME")
-    local wallpaper_path = string.gsub("~/dotfiles/wallpapers/butterfly.jpg", "~", "")
+    local wallpaper_path = string.gsub("~/Downloads/wallpapers/2758446.jpg", "~", "")
     local opts = {
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.08 },
+            hsb = { brightness = 0.018 },
             vertical_align = "Middle",
         },
     }

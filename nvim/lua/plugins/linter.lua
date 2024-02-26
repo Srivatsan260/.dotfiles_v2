@@ -4,7 +4,7 @@ return {
     config = function()
         local lint = require("lint")
         lint.linters_by_ft = {
-            python = { "mypy", "flake8" },
+            -- python = { "mypy", "flake8" },
             sh = { "shellcheck" },
             lua = { "luacheck" },
             sql = { "sqlfluff" },
@@ -18,7 +18,7 @@ return {
         local group = vim.api.nvim_create_augroup("LintGroup", { clear = true })
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
             group = group,
-            pattern = { "*.py", "*.sh", "*.lua", "*.sql" },
+            pattern = { "*.sh", "*.lua", "*.sql" },
             callback = function()
                 lint.try_lint()
             end,

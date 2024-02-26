@@ -4,8 +4,8 @@
 #: exports {{{
 #
 # add jdk to path
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/20.0.1/"
-export PATH="/opt/homebrew/Cellar/openjdk/20.0.1/bin:$PATH"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.2/"
+export PATH="/opt/homebrew/Cellar/openjdk/21.0.2/bin:$PATH"
 export PATH="/opt/homebrew/opt/llvm/bin/:$PATH"
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PYSPARK_DRIVER_PYTHON="ptpython"
@@ -21,9 +21,9 @@ export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 
-export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.4.0/libexec
-export PYTHONPATH=/opt/homebrew/Cellar/apache-spark/3.4.0/libexec/python/
-export SPARK_VERSION="3.4.0"
+export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec
+export PYTHONPATH=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec/python/
+export SPARK_VERSION="3.5.0"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
