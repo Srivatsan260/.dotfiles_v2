@@ -73,3 +73,19 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         end
     end,
 })
+
+
+local cloak = require("cloak")
+if not cloak then
+    return
+end
+
+vim.api.nvim_create_autocmd(
+    { "BufRead" },
+    {
+        pattern = { "*cfg", "*env", "config", "credentials" },
+        callback = function ()
+            cloak.enable()
+        end
+    }
+)
