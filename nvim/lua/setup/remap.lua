@@ -70,13 +70,6 @@ vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape termin
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", { desc = "open netrw" })
 
-vim.keymap.set("n", "<Tab>", function()
-    return vim.bo.filetype ~= "floaterm" and "<cmd>bn<CR>" or "<Tab>"
-end, { expr = true, desc = "next buffer" })
-vim.keymap.set("n", "<S-Tab>", function()
-    return vim.bo.filetype ~= "floaterm" and "<cmd>bp<CR>" or "<Tab>"
-end, { expr = true, desc = "previous buffer" })
-
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
