@@ -89,6 +89,10 @@ return {
         config = function()
             require("nvim-treesitter.configs").setup({
                 -- ensure_installed = {"python", "rust", "sql", "yaml", "toml", "c", "http", "json"},
+                ensure_installed = {},
+                ignore_install = {},
+                auto_install = false,
+                modules = {},
                 sync_install = false,
                 highlight = { enable = true, additional_vim_regex_highlighting = false },
                 indent = {
