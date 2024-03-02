@@ -182,6 +182,7 @@ return {
                 debugger = false,
             }
 
+            ---@return table
             local function get_jdtls_paths()
                 if cache_vars.paths then
                     return cache_vars.paths
@@ -243,6 +244,8 @@ return {
                 return path
             end
 
+            ---@param bufnr integer
+            ---@return nil
             local function enable_codelens(bufnr)
                 pcall(vim.lsp.codelens.refresh)
 
@@ -256,6 +259,8 @@ return {
                 })
             end
 
+            ---@param bufnr integer
+            ---@return nil
             local function enable_debugger(bufnr)
                 require("jdtls").setup_dap({ hotcodereplace = "auto" })
                 require("jdtls.dap").setup_dap_main_class_configs()
@@ -275,6 +280,9 @@ return {
                 )
             end
 
+            ---@param client table
+            ---@param bufnr integer
+            ---@return nil
             local function jdtls_on_attach(client, bufnr)
                 if features.debugger then
                     enable_debugger(bufnr)
@@ -316,6 +324,8 @@ return {
                 )
             end
 
+            ---@param event any
+            ---@return nil
             local function jdtls_setup(event)
                 local jdtls = require("jdtls")
 

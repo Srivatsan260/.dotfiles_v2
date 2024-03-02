@@ -152,6 +152,9 @@ vim.keymap.set("n", "<leader>gwf", function()
     vim.cmd("AsyncRun git fetch --all")
     vim.cmd.copen()
 end, { desc = "git fetch --all" })
+
+---@param op string
+---@return function
 local function async_git_op(op)
     local fun = function()
         vim.cmd("AsyncRun -cwd=./ git " .. op)
