@@ -58,12 +58,6 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "window down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "window up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "window right" })
 
--- tab switching
-vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<CR>", { desc = "open new tab" })
-vim.keymap.set("n", "<leader>t.", "<cmd>tabnext<CR>", { desc = "next tab" })
-vim.keymap.set("n", "<leader>t,", "<cmd>tabprev<CR>", { desc = "previous tab" })
-vim.keymap.set("n", "<leader>tc", "<cmd>tabclose<CR>", { desc = "close current tab" })
-
 -- escape terminal mode
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape terminal mode" })
 
