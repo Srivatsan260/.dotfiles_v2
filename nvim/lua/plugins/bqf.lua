@@ -1,7 +1,7 @@
 return {
     {
         "kevinhwang91/nvim-bqf",
-        enabled = false,
+        -- enabled = false,
         ft = "qf",
         opts = {
             auto_enable = true,
