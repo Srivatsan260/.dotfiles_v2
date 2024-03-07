@@ -6,4 +6,5 @@ return {
     { "rebelot/kanagawa.nvim", event = "ColorSchemePre" },
     { "catppuccin/nvim", name = "catppuccin", event = "ColorSchemePre" },
     { "dotsilas/darcubox-nvim", name = "darcubox", event = "ColorSchemePre" },
+    { "shaunsingh/moonlight.nvim", name = "moonlight", event = "ColorSchemePre" }
 }
