@@ -62,7 +62,7 @@ opt.formatoptions = opt.formatoptions
 local themes = require("themes").themes
 
 -- TODO: get rid of unused themes and simplify theme selection
-g.global_colorscheme = themes.moonlight
+g.global_colorscheme = themes.tokyonight
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.netrw_altv = 1
