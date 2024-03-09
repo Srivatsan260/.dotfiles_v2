@@ -7,9 +7,9 @@ local theme_opts = {
     dim_nc_background = false,
     disable_background = true,
     disable_float_background = false,
-    disable_italics = false,
+    disable_italics = true,
 
-    --- @usage string hex value or named color from rosepinetheme.com/palette
+    --- @usage string hex value or named color from https://rosepinetheme.com/palette
     groups = {
         background = "base",
         panel = "surface",

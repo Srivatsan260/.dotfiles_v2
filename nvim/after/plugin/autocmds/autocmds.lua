@@ -64,6 +64,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
             "DiagnosticVirtualTextWarn",
             "DiagnosticVirtualTextInfo",
             "DiagnosticVirtualTextHint",
+            "Normal",
             "TroubleNormal",
             "Tabline",
             "TablineFill",
