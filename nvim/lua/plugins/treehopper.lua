@@ -1,5 +1,6 @@
 return {
     "mfussenegger/nvim-treehopper",
+    enabled = false,
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     lazy = true,
     keys = {

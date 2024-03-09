@@ -111,7 +111,7 @@ return {
                     default_fallback = "auto",
                 },
                 incremental_selection = {
-                    enable = false,
+                    enable = true,
                     keymaps = {
                         init_selection = "<leader><CR>",
                         node_incremental = "<CR>",
