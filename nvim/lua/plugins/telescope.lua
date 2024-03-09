@@ -11,7 +11,7 @@ return {
             "nvim-telescope/telescope-frecency.nvim",
             "princejoogie/dir-telescope.nvim",
         },
-        lazy = true,
+        event = { "VeryLazy" },
         cmd = { "Telescope" },
         keys = {
             { "<C-p>", "<cmd>Telescope find_files hidden=True<CR>", desc = "Telescope find_files" },
