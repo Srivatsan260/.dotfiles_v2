@@ -232,9 +232,6 @@ vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", { desc = "open quickfix 
 vim.keymap.set("n", "<localleader>.", "<cmd>cnext<CR>", { desc = "next quickfix item" })
 vim.keymap.set("n", "<localleader>,", "<cmd>cprev<CR>", { desc = "previous quickfix item" })
 
--- clearjumps
-vim.keymap.set("n", "<localleader>cj", "<cmd>clearjumps<CR>", { desc = "clear jumplist" })
-
 -- open zshrc and zshenv
 vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>", { desc = "open .zshrc" })
 vim.keymap.set("n", "<leader>ne", "<cmd>e ~/.zshenv<CR>", { desc = "open .zshenv" })
