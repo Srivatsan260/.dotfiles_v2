@@ -58,7 +58,7 @@ alias e='exa -lah'
 alias ru="$RUST_CODE"
 # alias n="~/.local/share/neovim/bin/nvim"
 alias n="nvim"
-alias nv="/opt/homebrew/Cellar/neovide/0.11.1/bin/neovide --frame none --maximized"
+alias nv="/opt/homebrew/Cellar/neovide/0.12.2/bin/neovide --frame none --maximized"
 alias v="/opt/homebrew/bin/vim"
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" lazygit'
 alias lg="lazygit"
