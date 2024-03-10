@@ -55,19 +55,6 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     end,
 })
 
-local ok, cloak = pcall(require, "cloak")
-if ok then
-    vim.api.nvim_create_autocmd(
-        { "BufRead" },
-        {
-            pattern = { "*cfg", "*env", "config", "credentials" },
-            callback = function ()
-                cloak.enable()
-            end
-        }
-    )
-end
-
 -- set colorscheme
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
     pattern = "*",
