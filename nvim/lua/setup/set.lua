@@ -42,7 +42,7 @@ opt.termguicolors = true
 opt.timeoutlen = 250
 opt.undofile = true
 opt.updatetime = 250
--- opt.winbar = "%f %m",
+opt.winbar = "%f %m"
 opt.wrap = false
 if vim.fn.has("nvim-0.9.0") == 1 then
     opt.splitkeep = "screen"

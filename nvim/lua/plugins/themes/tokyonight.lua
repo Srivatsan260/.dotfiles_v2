@@ -30,6 +30,8 @@ return {
             on_highlights = function(highlights, _)
                 highlights.WinSeparator = { bg = "none", fg = "#78a9ff" }
                 highlights.CursorLineNr = { bg = "none", fg = "#78a9ff" }
+                highlights.WinBar = { bg = "none", fg = "#78a9ff" }
+                highlights.WinBarNC = { bg = "none", fg = "#78a9ff" }
             end,
         }
         require("tokyonight").setup(opts)
