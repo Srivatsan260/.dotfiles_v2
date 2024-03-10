@@ -9,6 +9,7 @@ return {
             lua = { "luacheck" },
             sql = { "sqlfluff" },
             jinja = { "j2lint" },
+            make = { "checkmake" },
         }
 
         local luacheck = lint.linters.luacheck
@@ -22,9 +23,9 @@ return {
             name = "j2lint",
             stdin = true,
             append_fname = true,
-            args = {'-s', '-j'},
+            args = { "-s", "-j" },
             ignore_exitcode = true,
-            parser = function (output)
+            parser = function(output)
                 if output == nil then
                     return {}
                 end
@@ -53,10 +54,39 @@ return {
             end,
         }
 
+        -- lint.linters.checkmake = {
+        --     name = "checkmake",
+        --     cmd = "checkmake",
+        --     stdin = false,
+        --     append_fname = true,
+        --     args = {
+        --         "--format='{{.LineNumber}}:{{.Violation}}\n'",
+        --     },
+        --     ignore_exitcode = true,
+        --     parser = function(output)
+        --         print(output)
+        --         if output == nil then
+        --             return {}
+        --         end
+        --         local diagnostics = {}
+        --         for line in output:gmatch("[^\r\n]+") do
+        --             local parts = vim.split(line, ":")
+        --             print(parts)
+        --             table.insert(diagnostics, {
+        --                 lnum = tonumber(parts[1]),
+        --                 col = 0,
+        --                 message = parts[2],
+        --                 severity = vim.diagnostic.severity.ERROR,
+        --             })
+        --         end
+        --         return diagnostics
+        --     end,
+        -- }
+
         local group = vim.api.nvim_create_augroup("LintGroup", { clear = true })
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost" }, {
             group = group,
-            pattern = { "*.sh", "*.lua", "*.sql", "*.jinja" },
+            pattern = { "*.sh", "*.lua", "*.sql", "*.jinja", "*Makefile" },
             callback = function()
                 lint.try_lint()
             end,

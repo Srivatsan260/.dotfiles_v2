@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-telescope/telescope.nvim" },
     module = true,
     opts = { signs = false },
-    event = { "VimEnter" },
+    event = { "VeryLazy" },
     keys = {
         {
             "]t",

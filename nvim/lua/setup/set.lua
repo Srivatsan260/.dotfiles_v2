@@ -59,10 +59,7 @@ opt.formatoptions = opt.formatoptions
     + "j" -- Auto-remove comments if possible.
     - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
 
-local themes = require("themes").themes
-
--- TODO: get rid of unused themes and simplify theme selection
-g.global_colorscheme = themes.rosepine
+g.global_colorscheme = "rosepine"
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.netrw_altv = 1

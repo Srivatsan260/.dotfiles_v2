@@ -1,5 +1,6 @@
 return {
     "anuvyklack/pretty-fold.nvim",
+    enabled = false,
     event = { "BufReadPre" },
     opts = {
         sections = {
