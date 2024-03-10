@@ -55,30 +55,17 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
     end,
 })
 
-vim.api.nvim_create_autocmd("ColorScheme", {
-    callback = function()
-        local hl_groups = {
-            "CursorLineNr",
-            "Folded",
-            "DiagnosticVirtualTextError",
-            "DiagnosticVirtualTextWarn",
-            "DiagnosticVirtualTextInfo",
-            "DiagnosticVirtualTextHint",
-            "Normal",
-            "TroubleNormal",
-            "Tabline",
-            "TablineFill",
+local ok, cloak = pcall(require, "cloak")
+if ok then
+    vim.api.nvim_create_autocmd(
+        { "BufRead" },
+        {
+            pattern = { "*cfg", "*env", "config", "credentials" },
+            callback = function ()
+                cloak.enable()
+            end
         }
-        for _, hl in pairs(hl_groups) do
-            vim.cmd.highlight(hl .. " ctermbg=none guibg=none")
-        end
-    end,
-})
-
-
-local cloak = require("cloak")
-if not cloak then
-    return
+    )
 end
 
 -- set colorscheme
