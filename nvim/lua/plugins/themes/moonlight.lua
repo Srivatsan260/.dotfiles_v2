@@ -2,7 +2,7 @@ return {
     "shaunsingh/moonlight.nvim",
     name = "moonlight",
     event = "ColorSchemePre",
-    config = function()
+    init = function()
         vim.g.moonlight_italic_comments = false
         vim.g.moonlight_italic_keywords = false
         vim.g.moonlight_italic_functions = false

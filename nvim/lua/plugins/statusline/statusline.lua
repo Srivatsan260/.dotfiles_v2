@@ -12,7 +12,6 @@ return {
                 -- "┃", "█", "", "", "", "", "", "", "●"
                 options = {
                     icons_enabled = true,
-                    theme = vim.g.colors_name,
                     component_separators = { left = "", right = "" },
                     section_separators = { left = "", right = "" },
                     disabled_filetypes = { statusline = {}, winbar = {} },
