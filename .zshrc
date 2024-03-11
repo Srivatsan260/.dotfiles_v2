@@ -62,6 +62,7 @@ alias nv="/opt/homebrew/Cellar/neovide/0.12.2/bin/neovide --frame none --maximiz
 alias v="/opt/homebrew/bin/vim"
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" lazygit'
 alias lg="lazygit"
+alias ptpython="ptpython --config-file ~/dotfiles/ptpython/config.py"
 alias cn="c && n ."
 alias sz="source ~/.zshrc"
 alias nz="n  ~/.zshrc"
