@@ -261,6 +261,8 @@ source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 source ~/dotfiles/work_dots/.zshrc
 
+[[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
 #: }}}
 
 # enable vi mode in zsh

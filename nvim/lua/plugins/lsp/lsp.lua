@@ -1,19 +1,20 @@
 return {
     {
+        "williamboman/mason.nvim",
+        dependencies = { "williamboman/mason-lspconfig.nvim" },
+        keys = {
+            { "<leader>M", "<cmd>Mason<CR>", desc = "open Mason" },
+        },
+        event = { "BufReadPre", "BufNewFile" },
+        cmd = "Mason",
+    },
+    {
         "VonHeikemen/lsp-zero.nvim",
         event = { "BufReadPre", "BufNewFile" },
         dependencies = {
             {
                 "neovim/nvim-lspconfig",
-                dependencies = {
-                    "williamboman/mason.nvim",
-                    dependencies = { "williamboman/mason-lspconfig.nvim" },
-                    keys = {
-                        { "<leader>M", "<cmd>Mason<CR>", desc = "open Mason" },
-                    },
-                    event = { "BufReadPre", "BufNewFile" },
-                    cmd = "Mason",
-                },
+                dependencies = { "williamboman/mason.nvim" },
             },
             {
                 "folke/neodev.nvim",
@@ -26,6 +27,12 @@ return {
             "simrat39/symbols-outline.nvim",
             "folke/trouble.nvim",
             "mfussenegger/nvim-jdtls",
+            {
+                "tjdevries/ocaml.nvim",
+                build = function()
+                    require("ocaml").update()
+                end
+            },
         },
         config = function()
             local lsp = require("lsp-zero")
@@ -54,7 +61,7 @@ return {
                     },
                 },
             })
-            lsp.on_attach(function(_, bufnr)
+            local on_attach = function(_, bufnr)
                 vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
                 local bufopts = function(desc)
@@ -143,7 +150,9 @@ return {
                 vim.keymap.set("n", "<leader>wl", function()
                     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
                 end, bufopts("list workspace folders"))
-            end)
+            end
+
+            lsp.on_attach(on_attach)
 
             require("lspconfig").pyright.setup({
                 settings = {
@@ -155,6 +164,8 @@ return {
                     },
                 },
             })
+
+            require("ocaml").setup()
 
             lsp.setup()
 
