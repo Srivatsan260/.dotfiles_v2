@@ -64,6 +64,9 @@ vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape termin
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", { desc = "open netrw" })
 
+-- jk to escape
+vim.keymap.set("i", "jk", "<Esc>", { desc = "escape insert mode with jk" })
+
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
@@ -120,7 +123,7 @@ vim.keymap.set("n", "<leader>gwu", function()
     end
     local full_path = root .. "/" .. path
     print("full path" .. full_path)
-    -- TODO: list only files here
+    -- TODO: list only dirs here
     local paths = cmd_to_table("ls " .. full_path)
     if rawequal(next(paths), nil) then
         print("no worktrees found in path")
