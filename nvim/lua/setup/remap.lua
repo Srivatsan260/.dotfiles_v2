@@ -19,38 +19,6 @@ vim.keymap.set(
     "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
     { desc = "source set.lua" }
 )
-vim.keymap.set(
-    "n",
-    "<leader><leader>c",
-    "<cmd> so " .. config_path .. "/after/plugin/color/colorscheme.lua<CR>",
-    { desc = "source color.lua" }
-)
-vim.keymap.set(
-    "n",
-    "<leader><leader>t",
-    "<cmd> so " .. config_path .. "/after/plugin/treesitter/treesitter.lua<CR>",
-    { desc = "source treesitter.lua" }
-)
-vim.keymap.set(
-    "n",
-    "<leader><leader>l",
-    "<cmd> so " .. config_path .. "/after/plugin/lsp/lsp_zero.lua<CR>",
-    { desc = "source lsp_zero.lua" }
-)
-
--- copy file name to + register
-vim.keymap.set(
-    "n",
-    "<leader>cf",
-    "<cmd>let @+=@%<CR>",
-    { desc = "copy file name including path from cwd root to clipboard" }
-) -- absolute filepath
-vim.keymap.set(
-    "n",
-    "<leader>cF",
-    "<cmd>let @+=expand('%:t')<CR>",
-    { desc = "copy file name to clipboard" }
-) -- filename
 
 -- window switching
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "window left" })
