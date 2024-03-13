@@ -3,12 +3,6 @@ local cmd_to_table = require("utils").cmd_to_table
 local config_path = vim.fn.stdpath("config")
 vim.keymap.set(
     "n",
-    "<leader><leader>i",
-    "<cmd> so " .. config_path .. "/lua/setup/init.lua<CR>",
-    { desc = "source init.lua" }
-)
-vim.keymap.set(
-    "n",
     "<leader><leader>r",
     "<cmd> so " .. config_path .. "/lua/setup/remap.lua<CR>",
     { desc = "source remap.lua" }
