@@ -17,7 +17,13 @@ M.vimux_run_cmd = function(cmd_or_prefix, prompt, opts)
     return function()
         print(cmd_or_prefix)
         if not opts then
-            vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. "')")
+            if not prompt then
+                vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. "')")
+            else
+                vim.ui.input({ prompt = prompt }, function(input)
+                    vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. " " .. input .. "')")
+                end)
+            end
         else
             vim.ui.select(opts, { prompt = prompt }, function(choice)
                 vim.cmd("VimuxRunCommand('" .. cmd_or_prefix .. " " .. choice .. "')")

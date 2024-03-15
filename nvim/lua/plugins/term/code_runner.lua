@@ -8,6 +8,7 @@ return {
         focus = true,
         border = "single",
         filetype = {
+            -- TODO: Fix python filetype
             python = "python -u",
             rust = vimux_run_cmd("cargo build && cargo run"),
             go = vimux_run_cmd("go run ."),
@@ -17,6 +18,7 @@ return {
                 { "init", "apply", "destroy", "plan", "show", "validate" }
             ),
             scala = vimux_run_cmd("sbt", "sbt action:", { "run", "test" }),
+            ocaml = vimux_run_cmd("dune exec", "enter executable")
         },
     },
     keys = {
