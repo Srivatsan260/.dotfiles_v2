@@ -1,10 +1,25 @@
 return {
     "preservim/vimux",
     lazy = true,
-    cmd = { "VimuxRunCommand", "VimuxRunLastCommand" },
+    cmd = {
+        "VimuxClearRunnerHistory",
+        "VimuxClearTerminalScreen",
+        "VimuxOpenRunner",
+        "VimuxCloseRunner",
+        "VimuxInspectRunner",
+        "VimuxInterruptRunner",
+        "VimuxPromptCommand",
+        "VimuxRunCommand",
+        "VimuxRunLastCommand",
+        "VimuxScrollDownInspect",
+        "VimuxScrollUpInspect",
+        "VimuxTogglePane",
+        "VimuxZoomRunner",
+    },
     keys = {
         { "<leader>vml", "<cmd>VimuxRunLastCommand<CR>", desc = "run last command" },
         { "<leader>vmo", "<cmd>VimuxOpenRunner<CR>", desc = "open vimux runner" },
+        { "<leader>vmc", "<cmd>VimuxCloseRunner<CR>", desc = "close vimux runner" },
         { "<leader>vmt", "<cmd>VimuxTogglePane<CR>", desc = "toggle vimux pane" },
     },
 }
