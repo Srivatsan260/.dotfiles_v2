@@ -26,9 +26,6 @@ vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape termin
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", { desc = "open netrw" })
 
--- jk to escape
-vim.keymap.set("i", "jk", "<Esc>", { desc = "escape insert mode with jk" })
-
 vim.keymap.set("n", "<leader>gwc", function()
     local root = string.gsub(
         vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
