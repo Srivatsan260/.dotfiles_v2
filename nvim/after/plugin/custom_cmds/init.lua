@@ -20,3 +20,6 @@ vim.keymap.set("n", "<leader>spp", function()
         SetPythonPath(path)
     end)
 end)
+
+-- TODO: write this in lua
+vim.cmd [[ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor ]]
