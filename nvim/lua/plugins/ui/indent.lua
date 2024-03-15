@@ -33,7 +33,6 @@ return {
                     "undotree",
                     "qf",
                     "netrw",
-                    "floaterm",
                     "fugitive",
                     "Outline",
                     "gitmessengerpopup",
