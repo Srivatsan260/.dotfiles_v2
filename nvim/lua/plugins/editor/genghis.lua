@@ -1,4 +1,5 @@
 return {
+    -- TODO: This does not copy to system clipboard (+). How to copy from " to + ?
     "chrisgrieser/nvim-genghis",
     event = "VeryLazy",
     dependencies = "stevearc/dressing.nvim",

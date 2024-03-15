@@ -10,7 +10,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader><leader>s",
-    "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
+   "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
     { desc = "source set.lua" }
 )
 
@@ -19,6 +19,10 @@ vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "window left" })
 vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "window down" })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "window up" })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "window right" })
+
+-- terminals
+
+vim.keymap.set("n", "<C-\\>", "<cmd>tabnew term://zsh<CR>i", { desc = "open terminal in vertical split" })
 
 -- escape terminal mode
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape terminal mode" })
