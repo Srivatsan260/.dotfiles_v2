@@ -48,6 +48,7 @@ export PATH="$PATH:$HOME/go/bin"
 
 #: aliases {{{
 
+alias wisdom="fortune | cowsay | lolcat"
 alias cl='clear'
 alias e='exa -lah'
 alias ru="$RUST_CODE"
@@ -267,5 +268,8 @@ source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 bindkey -v
 
 # eval $(starship init zsh)
+
+
+wisdom
 
 #: }}}
