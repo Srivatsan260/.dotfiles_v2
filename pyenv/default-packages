@@ -1,0 +1,18 @@
+# Neovim should be able to run anywhere
+pynvim
+neovim-remote
+
+# Get python language server up & running
+python-language-server[all]
+pyls-mypy
+future
+
+# virtualenv
+virtualenv
+virtualenvwrapper
+
+# a good python REPL
+ptpython
+
+# Upgrade pip while we're at it.
+pip
