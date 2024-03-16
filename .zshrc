@@ -28,11 +28,6 @@ export SPARK_VERSION="3.5.0"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-# pyenv
-export PATH="$HOME/.pyenv/versions/3.9.11/bin/:$PATH"
-export VIRTUALENVWRAPPER_PYTHON=~/.pyenv/versions/3.9.11/bin/python
-source ~/.pyenv/versions/3.9.11/bin/virtualenvwrapper.sh
-
 export VAULT_ADDR="http://127.0.0.1:8200"
 export VIRTUAL_ENV="$(which python)"
 export EDITOR='nvim'
@@ -262,6 +257,9 @@ source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 source ~/dotfiles/work_dots/.zshrc
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+eval "$(pyenv init -)"
+source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 
 #: }}}
 
