@@ -78,6 +78,13 @@ alias gwf="git fetch --all"
 
 alias ctags="/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags"
 
+pomo() {
+    timer $1 && osascript -e "display notification \"☕\" with title \"Timer up!\" subtitle \"$1 has / have passed\" sound name \"Crystal\""
+}
+
+alias wo="pomo 45m"
+alias rs="pomo 15m"
+
 #: }}}
 
 #: functions {{{
