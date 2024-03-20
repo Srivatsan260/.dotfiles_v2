@@ -1,6 +1,6 @@
 return {
     "aserowy/tmux.nvim",
-    event = "VeryLazy",
+    lazy = true,
     keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
     opts = {
         copy_sync = {

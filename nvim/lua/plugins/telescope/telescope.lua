@@ -11,7 +11,7 @@ return {
             "nvim-telescope/telescope-frecency.nvim",
             "princejoogie/dir-telescope.nvim",
         },
-        event = { "VeryLazy" },
+        lazy = true,
         cmd = { "Telescope" },
         keys = {
             { "<C-p>", "<cmd>Telescope find_files hidden=True<CR>", desc = "Telescope find_files" },
@@ -88,6 +88,33 @@ return {
                 end,
                 desc = "list git worktrees in Telescope",
             },
+            {
+                "<leader>ht",
+                function()
+                    local h_ok, harpoon = pcall(require, "harpoon")
+                    if h_ok == nil then
+                        return ""
+                    end
+                    local conf = require("telescope.config").values
+                    local file_paths = {}
+                    local harpoon_files = harpoon:list()
+                    if #harpoon_files.items == 0 then
+                        return
+                    end
+                    for _, item in ipairs(harpoon_files.items) do
+                        table.insert(file_paths, item.value)
+                    end
+                    require("telescope.pickers").new({}, {
+                        prompt_title = "Harpoon",
+                        finder = require("telescope.finders").new_table({
+                            results = file_paths,
+                        }),
+                        previewer = conf.file_previewer({}),
+                        sorter = conf.generic_sorter({}),
+                    }):find()
+                end,
+                desc = "open harpoon in Telescope",
+            }
         },
         config = function()
             local telescope = require("telescope")

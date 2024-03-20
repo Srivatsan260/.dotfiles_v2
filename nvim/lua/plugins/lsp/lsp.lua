@@ -466,7 +466,7 @@ return {
 
     {
         "simrat39/rust-tools.nvim",
-        -- ft = "rust",
+        ft = "rust",
         opts = {
             server = {
                 on_attach = function(_, bufnr)
