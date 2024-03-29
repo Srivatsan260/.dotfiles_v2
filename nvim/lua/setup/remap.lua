@@ -236,6 +236,3 @@ vim.keymap.set(
     "<cmd>AsyncRun /opt/homebrew/Cellar/ctags/5.8_2/bin/ctags -R<CR>",
     { desc = "generate ctags" }
 )
-
--- misc
-vim.keymap.set("i", ",shrug", " ̄\\_(ツ)_/ ̄", { desc = "shrug" })
