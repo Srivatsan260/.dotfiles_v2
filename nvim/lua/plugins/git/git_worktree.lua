@@ -47,9 +47,6 @@ return {
         })
         worktree.on_tree_change(function()
             -- todo: handle open term buffers when switching
-            if vim.fn.glob(".editorconfig") ~= "" then
-                pcall(require("lazy").load, { plugins = { "editorconfig.nvim" } })
-            end
             local branch_name = vim.fn.system("!git rev-parse --abbrev-ref head")
             vim.cmd.clearjumps()
             local bufs = vim.api.nvim_list_bufs()
