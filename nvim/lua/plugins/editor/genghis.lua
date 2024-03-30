@@ -1,5 +1,4 @@
 return {
-    -- TODO: This does not copy to system clipboard (+). How to copy from " to + ?
     "chrisgrieser/nvim-genghis",
     lazy = true,
     dependencies = "stevearc/dressing.nvim",
@@ -20,6 +19,6 @@ return {
         "Trash",
     },
     init = function ()
-        vim.g.genghis_use_system_clipboard = true
+        vim.g.genghis_use_systemclipboard = true
     end
 }
