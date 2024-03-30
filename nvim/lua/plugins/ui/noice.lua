@@ -1,6 +1,6 @@
 return {
     "folke/noice.nvim",
-    enabled = false,
+    -- enabled = false,
     dependencies = {
         "MunifTanjim/nui.nvim",
         "rcarriga/nvim-notify",
@@ -9,7 +9,7 @@ return {
     opts = {
         cmdline = {
             enabled = true, -- enables the Noice cmdline UI
-            view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
+            view = "cmdline_popup", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
             opts = {}, -- global options for the cmdline. See section on views
             ---@type table<string, CmdlineFormat>
             format = {
@@ -31,7 +31,7 @@ return {
         messages = {
             -- NOTE: If you enable messages, then the cmdline is enabled automatically.
             -- This is a current Neovim limitation.
-            enabled = false, -- enables the Noice messages UI
+            enabled = true, -- enables the Noice messages UI
             view = "notify", -- default view for messages
             view_error = "notify", -- view for errors
             view_warn = "notify", -- view for warnings
@@ -39,7 +39,7 @@ return {
             view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
         },
         popupmenu = {
-            enabled = false, -- enables the Noice popupmenu UI
+            enabled = true, -- enables the Noice popupmenu UI
             ---@type 'nui'|'cmp'
             backend = "nui", -- backend to use to show regular cmdline completions
             ---@type NoicePopupmenuItemKind|false
@@ -189,7 +189,7 @@ return {
             -- you can enable a preset by setting it to true, or a table that will override the preset config
             -- you can also add custom presets that you can enable/disable with enabled=true
             bottom_search = false, -- use a classic bottom cmdline for search
-            command_palette = false, -- position the cmdline and popupmenu together
+            command_palette = true, -- position the cmdline and popupmenu together
             long_message_to_split = false, -- long messages will be sent to a split
             inc_rename = false, -- enables an input dialog for inc-rename.nvim
             lsp_doc_border = false, -- add a border to hover docs and signature help
