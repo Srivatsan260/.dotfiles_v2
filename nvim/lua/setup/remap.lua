@@ -163,7 +163,7 @@ vim.keymap.set("v", ">", ">gv", { desc = "indent visual selection right and reta
 
 
 -- show line / word count of visual selection
-vim.keymap.set("x", "<leader>l", "g<C-g>", { desc = "show line, word and byte count of visual selection" })
+vim.keymap.set({"n", "x"}, "<leader>l", "g<C-g>", { desc = "show line, word and byte count of visual selection" })
 
 -- open splits
 vim.keymap.set("n", "<leader>|", "<cmd>vsp<CR>", { desc = "open vertical split" })
