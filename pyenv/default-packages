@@ -14,5 +14,10 @@ virtualenvwrapper
 # a good python REPL
 ptpython
 
+# jupyter
+ipython
+ipykernel
+jupytext
+
 # Upgrade pip while we're at it.
 pip
