@@ -11,11 +11,10 @@ export PATH="/opt/homebrew/opt/llvm/bin/:$PATH"
 export PYSPARK_DRIVER_PYTHON="ptpython"
 export RUST_CODE=~/Documents/rust_code
 
-[[ ":$PATH:" != ":$HOME/.local/share/neovim/bin/"* ]] && export PATH="$PATH:$HOME/.local/share/neovim/bin/"
+[[ ":$PATH:" != ":$HOME/.local/share/bob/nvim-bin/"* ]] && export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
 [[ ":$PATH:" != ":$HOME/.local/bin/"* ]] && export PATH="$PATH:$HOME/.local/bin/"
 [[ ":$PATH:" != ":$HOME/.local/scripts/"* ]] && export PATH="$PATH:$HOME/.local/scripts/"
 export PATH="$PATH:/opt/homebrew/bin/"
-export PATH="$HOME/.local/share/neovim/bin/:$PATH"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
