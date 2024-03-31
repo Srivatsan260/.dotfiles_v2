@@ -174,6 +174,11 @@ source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
+[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver >> /dev/null
+luaver use 5.1 >> /dev/null
+luaver use-luarocks 2.3.0 >> /dev/null
+eval "$(luarocks path)"
+
 eval "$(pyenv init -)"
 source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 
