@@ -149,6 +149,12 @@ br() {
 
 #: }}}
 
+#: source project-specific config {{{
+
+source ~/dotfiles/work_dots/.zshrc
+
+#: }}}
+
 #: misc {{{
 
 ulimit -n 65535
@@ -166,23 +172,12 @@ source $ZSH/oh-my-zsh.sh
 source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
-#: source project-specific config {{{
-
-source ~/dotfiles/work_dots/.zshrc
-
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
 eval "$(pyenv init -)"
 source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 
 PROMPT='%F{219}[%D{%d/%m/%y %H:%M:%S}]%f '$PROMPT
-
-#: }}}
-
-# enable vi mode in zsh
-bindkey -v
-
-# eval $(starship init zsh)
 
 wisdom
 
