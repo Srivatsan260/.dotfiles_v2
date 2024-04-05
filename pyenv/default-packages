@@ -18,6 +18,7 @@ ptpython
 ipython
 ipykernel
 jupytext
+nbdime
 
 # Upgrade pip while we're at it.
 pip
