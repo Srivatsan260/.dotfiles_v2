@@ -7,7 +7,7 @@ return {
             -- python = { "mypy", "flake8" },
             sh = { "shellcheck" },
             lua = { "luacheck" },
-            sql = { "sqlfluff" },
+            -- sql = { "sqlfluff" },
             jinja = { "j2lint" },
             make = { "checkmake" },
         }
@@ -15,8 +15,8 @@ return {
         local luacheck = lint.linters.luacheck
         luacheck.args = { "--globals", "vim" }
 
-        local sqlfluff = lint.linters.sqlfluff
-        sqlfluff.args = { "lint", "--format=json", "--dialect=snowflake" }
+        -- local sqlfluff = lint.linters.sqlfluff
+        -- sqlfluff.args = { "lint", "--format=json", "--dialect=snowflake" }
 
         lint.linters.j2lint = {
             cmd = "j2lint",
