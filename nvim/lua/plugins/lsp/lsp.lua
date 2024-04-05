@@ -448,7 +448,7 @@ return {
             require("lspconfig.configs").dbt = {
                 default_config = {
                     cmd = {'dbt-language-server', '--stdio'},
-                    filetypes = {'dbt', 'sql'},
+                    filetypes = {'dbt', 'sql', 'yml', 'md'},
                     root_dir = function(fname)
                         return require('lspconfig').util.root_pattern('dbt_project.yml')(fname)
                     end,
