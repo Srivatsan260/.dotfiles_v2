@@ -167,6 +167,23 @@ return {
 
             require("ocaml").setup()
 
+            require("lspconfig.configs").dbt = {
+                default_config = {
+                    cmd = {'dbt-language-server', '--stdio'},
+                    filetypes = {'dbt', 'sql'},
+                    root_dir = function(fname)
+                        return require('lspconfig').util.root_pattern('dbt_project.yml')(fname)
+                    end,
+                },
+            }
+            require("lspconfig").dbt.setup({
+                init_options = {
+                    pythonInfo = { path = "python" },
+                    lspMode = "dbtProject",
+                    enableSnowflakeSyntaxCheck = false
+                },
+            })
+
             lsp.setup()
 
             vim.diagnostic.config({
