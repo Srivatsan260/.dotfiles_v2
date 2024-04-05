@@ -182,7 +182,7 @@ eval "$(luarocks path)"
 eval "$(pyenv init -)"
 source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 
-PROMPT='%F{219}[%D{%d/%m/%y %H:%M:%S}]%f '$PROMPT
+PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 
 wisdom
 
