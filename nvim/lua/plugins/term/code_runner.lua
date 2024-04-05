@@ -1,7 +1,9 @@
+-- TODO: Do I really need this plugin?
 local vimux_run_cmd = require("utils").vimux_run_cmd
 
 return {
     "CRAG666/code_runner.nvim",
+    enabled = false,
     dependencies = { "preservim/vimux" },
     opts = {
         mode = "term",
