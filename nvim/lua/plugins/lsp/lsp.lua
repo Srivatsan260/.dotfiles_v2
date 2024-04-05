@@ -182,6 +182,7 @@ return {
                     lspMode = "dbtProject",
                     enableSnowflakeSyntaxCheck = false
                 },
+                on_attach = on_attach
             })
 
             lsp.setup()
