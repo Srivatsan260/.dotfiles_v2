@@ -240,3 +240,7 @@ vim.keymap.set(
     "<cmd>AsyncRun /opt/homebrew/Cellar/ctags/5.8_2/bin/ctags -R<CR>",
     { desc = "generate ctags" }
 )
+
+
+-- nohlsearch on escape
+vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>", { desc = "nohlsearch" })
