@@ -8,7 +8,6 @@ return {
     },
     lazy = true,
     config = function()
-        local home = os.getenv("HOME")
         local g_opts = {
             lazygit_config_file_path = {
                 vim.fn.expand("~/.config/lazygit/config.yml"),
