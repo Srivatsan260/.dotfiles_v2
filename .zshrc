@@ -15,6 +15,7 @@ export RUST_CODE=~/Documents/rust_code
 [[ ":$PATH:" != ":$HOME/.local/bin/"* ]] && export PATH="$PATH:$HOME/.local/bin/"
 [[ ":$PATH:" != ":$HOME/.local/scripts/"* ]] && export PATH="$PATH:$HOME/.local/scripts/"
 export PATH="$PATH:/opt/homebrew/bin/"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
