@@ -189,7 +189,7 @@ vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "yank till end of line to clipb
 vim.keymap.set({ "n", "v" }, "<leader>p", '"+p', { desc = "paste from system clipboard" })
 
 -- delete without affecting registers
-vim.keymap.set("n", "<leader>D", '"_d', { desc = "delete but using _ register" })
+vim.keymap.set("x", "<leader>D", '"_d', { desc = "delete but using _ register" })
 
 -- paste without affecting registers
 vim.keymap.set("x", "<leader>P", '"_dP', { desc = "paste but using _ register" })
