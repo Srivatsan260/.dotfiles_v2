@@ -2,17 +2,17 @@ local wezterm = require("wezterm")
 
 local function get_background()
     local home = os.getenv("HOME")
-    local wallpaper_path = string.gsub("~/Downloads/wallpapers/2758446.jpg", "~", "")
+    local wallpaper_path = string.gsub("~/Downloads/wallpapers/12967235.jpg", "~", "")
     local opts = {
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.018 },
+            hsb = { brightness = 0.035 },
             vertical_align = "Middle",
         },
     }
-    return {}
-    -- return opts
+    -- return {}
+    return opts
 end
 
 return {
@@ -29,5 +29,5 @@ return {
 
     color_scheme = "Tomorrow Night Bright",
     font = wezterm.font({ family = "JetbrainsMono Nerd Font Mono", weight = "Medium" }),
-    font_size = 15,
+    font_size = 17,
 }
