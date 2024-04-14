@@ -10,7 +10,7 @@ vim.keymap.set(
 vim.keymap.set(
     "n",
     "<leader><leader>s",
-   "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
+    "<cmd> so " .. config_path .. "/lua/setup/set.lua<CR>",
     { desc = "source set.lua" }
 )
 
@@ -22,7 +22,12 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "window right" })
 
 -- terminals
 
-vim.keymap.set("n", "<C-\\>", "<cmd>tabnew term://zsh<CR>i", { desc = "open terminal in vertical split" })
+vim.keymap.set(
+    "n",
+    "<C-\\>",
+    "<cmd>tabnew term://zsh<CR>i",
+    { desc = "open terminal in vertical split" }
+)
 
 -- escape terminal mode
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape terminal mode" })
@@ -161,9 +166,13 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "move visual selection
 vim.keymap.set("v", "<", "<gv", { desc = "indent visual selection left and retain selection" })
 vim.keymap.set("v", ">", ">gv", { desc = "indent visual selection right and retain selection" })
 
-
 -- show line / word count of visual selection
-vim.keymap.set({"n", "x"}, "<leader>l", "g<C-g>", { desc = "show line, word and byte count of visual selection" })
+vim.keymap.set(
+    { "n", "x" },
+    "<leader>l",
+    "g<C-g>",
+    { desc = "show line, word and byte count of visual selection" }
+)
 
 -- open splits
 vim.keymap.set("n", "<leader>|", "<cmd>vsp<CR>", { desc = "open vertical split" })
@@ -234,13 +243,33 @@ vim.keymap.set(
 )
 
 -- ctags
-vim.keymap.set(
-    "n",
-    "<leader>ct",
-    "<cmd>AsyncRun /opt/homebrew/Cellar/ctags/5.8_2/bin/ctags -R<CR>",
-    { desc = "generate ctags" }
-)
+vim.keymap.set("n", "<leader>ct", function()
+    if vim.fn.glob("dbt_project.yml") ~= "" then
+        local ctags = io.open("tags", "w+")
 
+        if not ctags then
+            error("Could not open tags file!")
+            return
+        end
+
+        io.output(ctags)
+
+        local f = io.popen("find ./models/ -type f")
+        if f then
+            for file in f:lines() do
+                local basename = file:match("[^/]+$")
+                local ext = file:match("[^.]+$")
+                if ext == "sql" then
+                    io.write(basename .. "\t" .. file .. "\t" .. "1;\tv\n")
+                end
+            end
+        end
+
+        io.close(ctags)
+    else
+        vim.cmd([[ AsyncRun /opt/homebrew/Cellar/ctags/5.8_2/bin/ctags -R ]])
+    end
+end, { desc = "generate ctags" })
 
 -- nohlsearch on escape
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>", { desc = "nohlsearch" })
