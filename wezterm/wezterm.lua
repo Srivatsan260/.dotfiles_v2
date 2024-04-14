@@ -9,6 +9,7 @@ local function get_background()
             repeat_x = "NoRepeat",
             hsb = { brightness = 0.035 },
             vertical_align = "Middle",
+            horizontal_align = "Center",
         },
     }
     -- return {}
