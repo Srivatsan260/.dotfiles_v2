@@ -98,6 +98,7 @@ return {
             local buttons = {
                 type = "group",
                 val = {
+                    button("gwl", "󱁕  Git worktrees", "<leader>gwl"),
                     button("SPC ,", "פּ  Open Netrw", "<cmd>Ex<CR>"),
                     button("e", "  New file", "<cmd>ene <CR>"),
                     button("<C-p>", "  Find file"),
