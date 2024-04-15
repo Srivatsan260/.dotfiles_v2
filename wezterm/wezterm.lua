@@ -8,7 +8,7 @@ local function get_background()
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.035 },
+            hsb = { brightness = 0.020 },
             vertical_align = "Middle",
             horizontal_align = "Center",
         },
@@ -36,8 +36,8 @@ return {
     disable_default_key_bindings = true,
 
     keys = {
-        -- { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
-        -- { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
+        { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
+        { key = 'Tab', mods = 'SHIFT|CTRL', action = act.ActivateTabRelative(-1) },
         { key = 'Enter', mods = 'ALT', action = act.ToggleFullScreen },
         { key = '!', mods = 'CTRL', action = act.ActivateTab(0) },
         { key = '!', mods = 'SHIFT|CTRL', action = act.ActivateTab(0) },
