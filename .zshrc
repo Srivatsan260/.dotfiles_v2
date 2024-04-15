@@ -6,25 +6,25 @@
 #: exports {{{
 #
 # add jdk to path
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/21.0.2/"
-export PATH="/opt/homebrew/Cellar/openjdk/21.0.2/bin:$PATH"
-export PATH="/opt/homebrew/opt/llvm/bin/:$PATH"
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export BREW_PREFIX=$(brew --prefix)
+
+export JAVA_HOME="$BREW_PREFIX/Cellar/openjdk/21.0.2/"
+export -U PATH="$JAVA_HOME/bin:$PATH"
+export -U PATH="$BREW_PREFIX/opt/llvm/bin/:$PATH"
+export -U PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
+export -U PATH="$PATH:$HOME/.local/bin/"
+export -U PATH="$PATH:$HOME/.local/scripts/"
+export -U PATH="$PATH:$BREW_PREFIX/bin/"
+export -U PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
+
 export PYSPARK_DRIVER_PYTHON="ptpython"
 export RUST_CODE=~/Documents/rust_code
-
-[[ ":$PATH:" != ":$HOME/.local/share/bob/nvim-bin/"* ]] && export PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
-[[ ":$PATH:" != ":$HOME/.local/bin/"* ]] && export PATH="$PATH:$HOME/.local/bin/"
-[[ ":$PATH:" != ":$HOME/.local/scripts/"* ]] && export PATH="$PATH:$HOME/.local/scripts/"
-export PATH="$PATH:/opt/homebrew/bin/"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-
-export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec
-export PYTHONPATH=/opt/homebrew/Cellar/apache-spark/3.5.0/libexec/python/
+export SPARK_HOME=$BREW_PREFIX/Cellar/apache-spark/3.5.0/libexec
+export PYTHONPATH=$BREW_PREFIX/Cellar/apache-spark/3.5.0/libexec/python/
 export SPARK_VERSION="3.5.0"
 
 # Path to your oh-my-zsh installation.
@@ -44,7 +44,7 @@ export NVM_DIR="$HOME/.nvm"
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#78a9ff,bg=none,bold"
 
 export GOPATH="$HOME/go"
-export PATH="$PATH:$HOME/go/bin"
+export -U PATH="$PATH:$GOPATH/bin"
 
 #: }}}
 
@@ -56,8 +56,8 @@ alias e='exa -lah'
 alias ru="$RUST_CODE"
 # alias n="~/.local/share/neovim/bin/nvim"
 alias n="nvim"
-alias nv="/opt/homebrew/Cellar/neovide/0.12.2/bin/neovide --frame none --maximized"
-alias v="/opt/homebrew/bin/vim"
+alias nv="$BREW_PREFIX/Cellar/neovide/0.12.2/bin/neovide --frame none --maximized"
+alias v="$BREW_PREFIX/bin/vim"
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" lazygit'
 alias lg="lazygit"
 alias ptpython="ptpython --config-file ~/dotfiles/ptpython/config.py"
@@ -78,7 +78,7 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias gwl="git worktree list"
 alias gwf="git fetch --all"
 
-alias ctags="/opt/homebrew/Cellar/ctags/5.8_2/bin/ctags"
+alias ctags="$BREW_PREFIX/Cellar/ctags/5.8_2/bin/ctags"
 
 pomo() {
     timer $1 && osascript -e "display notification \"☕\" with title \"Timer up!\" subtitle \"$1 has / have passed\" sound name \"Crystal\""
@@ -90,6 +90,8 @@ alias rs="pomo 15m"
 #: }}}
 
 #: functions {{{
+
+plugins=(vi-mode zsh-autosuggestions)
 
 options() {
     PLUGIN_PATH="$HOME/.oh-my-zsh/plugins/"
@@ -169,10 +171,8 @@ eval "$(direnv hook zsh)"
 # NOTE: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="refined" # set by `omz`
 
-plugins=(vi-mode zsh-autosuggestions)
-
 source $ZSH/oh-my-zsh.sh
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source $BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
