@@ -1,6 +1,8 @@
 #!/bin/env zsh
 # vim:fileencoding=utf-8:foldmethod=marker
 
+[[ -n $ZPROF_ENABLE ]] && zmodload zsh/zprof
+
 #: exports {{{
 #
 # add jdk to path
@@ -188,3 +190,5 @@ PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 wisdom
 
 #: }}}
+
+[[ -n $ZPROF_ENABLE ]] && zprof
