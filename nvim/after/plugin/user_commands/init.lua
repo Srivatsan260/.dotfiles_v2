@@ -28,8 +28,31 @@ vim.keymap.set("n", "<leader>spp", function()
     end)
 end)
 
+vim.api.nvim_create_user_command("DbtRun", function()
+    if vim.fn.glob("dbt_project.yml") == "" then
+        error("dbt_project.yml not found!")
+        return
+    end
+    local models = { "all" }
+    for line in io.popen("dbt ls --resource-type model --output name --log-level none"):lines() do
+        table.insert(models, line)
+    end
+    vim.ui.select(models, { prompt = "select model" }, function(selection)
+        if selection == nil then
+            return
+        end
+        if selection == "all" then
+            vim.cmd("AsyncRun dbt run")
+        else
+            vim.cmd("AsyncRun dbt run --models " .. selection)
+        end
+    end)
+end, {})
+
 -- TODO: finish writing this in lua
-vim.cmd([[ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor ]])
+vim.cmd(
+    [[ command! WipeReg for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor ]]
+)
 
 -- vim.api.nvim_create_user_command(
 --     "WipeReg",

@@ -95,15 +95,19 @@ return {
                 end
                 return { type = "button", val = txt, on_press = on_press, opts = opts }
             end
+            local _buttons = {
+                button("SPC ,", "פּ  Open Netrw", "<cmd>Ex<CR>"),
+                button("e", "  New file", "<cmd>ene <CR>"),
+                button("<C-p>", "  Find file"),
+                button("SPC ?", "  Recently opened files"),
+            }
+            local is_bare_repo = vim.fn.system("git config --get core.bare")
+            if is_bare_repo == "true\n" then
+                table.insert(_buttons, 1, button("gwl", "󱁕  Git worktrees", "<leader>gwl"))
+            end
             local buttons = {
                 type = "group",
-                val = {
-                    button("gwl", "󱁕  Git worktrees", "<leader>gwl"),
-                    button("SPC ,", "פּ  Open Netrw", "<cmd>Ex<CR>"),
-                    button("e", "  New file", "<cmd>ene <CR>"),
-                    button("<C-p>", "  Find file"),
-                    button("SPC ?", "  Recently opened files"),
-                },
+                val = _buttons,
                 opts = { spacing = 1 },
             }
             local section = {

@@ -8,7 +8,7 @@ local function get_background()
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.020 },
+            hsb = { brightness = 0.035 },
             vertical_align = "Middle",
             horizontal_align = "Center",
         },

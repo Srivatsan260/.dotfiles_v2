@@ -323,6 +323,7 @@ return {
                 "emmet_ls",
                 "lua_ls",
                 "clangd",
+                "marksman",
             })
             lsp.set_preferences({
                 set_lsp_keymaps = false,
