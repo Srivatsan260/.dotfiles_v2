@@ -87,22 +87,51 @@ return {
         },
         {
             "<leader>R",
-            "<cmd>Gitsigns reset_hunk<CR>",
+            function() require("gitsigns").reset_hunk() end,
             desc = "reset current hunk",
-            mode = { "n", "x" },
+        },
+        {
+            "<leader>R",
+            function()
+                require("gitsigns").reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+            end,
+            desc = "reset current hunk",
+            mode = { "v" },
         },
         {
             "<leader>S",
-            "<cmd>Gitsigns stage_hunk<CR>",
+            function() require("gitsigns").stage_hunk() end,
             desc = "stage current hunk",
-            mode = { "n", "x" },
+        },
+        {
+            "<leader>S",
+            function()
+                require("gitsigns").stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+            end,
+            desc = "stage current hunk",
+            mode = { "v" },
         },
         {
             "<leader>U",
-            "<cmd>Gitsigns undo_stage_hunk<CR>",
+            function()
+                require("gitsigns").undo_stage_hunk()
+            end,
             desc = "unstage current hunk",
-            mode = { "n", "x" },
         },
+        {
+            "<leader>U",
+            function()
+                require("gitsigns").undo_stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+            end,
+            desc = "unstage current hunk",
+            mode = { "v" },
+        },
+        {
+            "ih",
+            "<cmd>Gitsigns select_hunk<CR>",
+            mode = { "o", "x" },
+            desc = "select hunk textobject",
+        }
     },
     event = { "BufReadPre", "BufNewFile" },
 }
