@@ -3,12 +3,12 @@ local act = wezterm.action
 
 local function get_background()
     local home = os.getenv("HOME")
-    local wallpaper_path = string.gsub("~/Downloads/wallpapers/12967235.jpg", "~", "")
+    local wallpaper_path = string.gsub("~/Downloads/wallpapers/12967235.jpeg", "~", "")
     local opts = {
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.035 },
+            hsb = { brightness = 0.025 },
             vertical_align = "Middle",
             horizontal_align = "Center",
         },
@@ -31,7 +31,7 @@ return {
 
     color_scheme = "Tomorrow Night Bright",
     font = wezterm.font({ family = "JetbrainsMono Nerd Font Mono", weight = "Medium" }),
-    font_size = 17,
+    font_size = 15,
 
     disable_default_key_bindings = true,
 
