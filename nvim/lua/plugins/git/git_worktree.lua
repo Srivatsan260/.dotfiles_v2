@@ -1,7 +1,35 @@
 return {
-    "ThePrimeagen/git-worktree.nvim",
+    "polarmutex/git-worktree.nvim",
     lazy = true,
     keys = {
+        {
+            "<leader>gwl",
+            function()
+                local cmd_to_table = require("utils").cmd_to_table
+                local root = string.gsub(
+                    vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
+                    "[\n\r]",
+                    ""
+                )
+                if root == nil then
+                    print("error getting bare repo root!")
+                    return
+                end
+                local worktrees = cmd_to_table("git worktree list | grep -v bare | sed 's+" .. root .. "++g'")
+                if rawequal(next(worktrees), nil) then
+                    print("no worktrees!")
+                    return
+                end
+                vim.ui.select(worktrees, { prompt = "select branch" }, function(choice)
+                    print(choice)
+                    local path = vim.split(choice, " ")[1]
+                    local full_path = root .. path
+                    print(full_path)
+                    require("git-worktree").switch_worktree(full_path)
+                end)
+            end,
+            desc = "checkout existing branch as a new worktree",
+        },
         {
             "<leader>gws",
             function()
@@ -46,7 +74,7 @@ return {
             autopush = false, -- default: false,
         })
         worktree.on_tree_change(function()
-            -- todo: handle open term buffers when switching
+            -- TODO: handle open term buffers when switching
             local branch_name = vim.fn.system("!git rev-parse --abbrev-ref head")
             vim.cmd.clearjumps()
             local bufs = vim.api.nvim_list_bufs()
@@ -64,4 +92,5 @@ return {
             end
         end)
     end,
+
 }
