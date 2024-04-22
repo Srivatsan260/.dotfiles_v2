@@ -3,5 +3,4 @@ brew_installs.txt
 lazygit/state.yml
 nvim/plugin/packer_compiled.lua
 .luarc.json
-lazy-lock.json
 emacs/elpa
