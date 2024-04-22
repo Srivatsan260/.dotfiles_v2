@@ -1,6 +1,7 @@
 return {
     "polarmutex/git-worktree.nvim",
     lazy = true,
+    dependencies = {"stevearc/dressing.nvim"},
     keys = {
         {
             "<leader>gwl",
@@ -22,6 +23,9 @@ return {
                 end
                 vim.ui.select(worktrees, { prompt = "select branch" }, function(choice)
                     print(choice)
+                    if choice == nil then
+                        return
+                    end
                     local path = vim.split(choice, " ")[1]
                     local full_path = root .. path
                     print(full_path)
