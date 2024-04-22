@@ -17,15 +17,17 @@ export -U PATH="$PATH:$HOME/.local/scripts/"
 export -U PATH="$PATH:$BREW_PREFIX/bin/"
 export -U PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
 
-export PYSPARK_DRIVER_PYTHON="ptpython"
 export RUST_CODE=~/Documents/rust_code
 
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-export SPARK_HOME=$BREW_PREFIX/Cellar/apache-spark/3.5.0/libexec
-export PYTHONPATH=$BREW_PREFIX/Cellar/apache-spark/3.5.0/libexec/python/
-export SPARK_VERSION="3.5.0"
+export SPARK_HOME=$HOME/spark/
+export -U PATH="$SPARK_HOME/bin:$PATH"
+export PYSPARK_PYTHON="python3"
+export PYSPARK_DRIVER_PYTHON="ptpython"
+export -U PYTHONPATH=$HOME/spark/python/
+export SPARK_VERSION="3.5.1"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
