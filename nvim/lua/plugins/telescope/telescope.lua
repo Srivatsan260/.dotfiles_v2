@@ -10,6 +10,7 @@ return {
             "nvim-telescope/telescope-file-browser.nvim",
             "nvim-telescope/telescope-frecency.nvim",
             "princejoogie/dir-telescope.nvim",
+            "nvim-telescope/telescope-ui-select.nvim",
         },
         lazy = true,
         cmd = { "Telescope" },
@@ -199,6 +200,7 @@ return {
                 "file_browser",
                 "frecency",
                 "notify",
+                "ui-select",
             }
             for _, ext in pairs(extensions) do
                 pcall(telescope.load_extension, ext)
