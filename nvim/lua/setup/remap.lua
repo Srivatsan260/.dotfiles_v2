@@ -259,7 +259,7 @@ vim.keymap.set("n", "<leader>ct", function()
             for file in f:lines() do
                 local basename = file:match("[^/]+$")
                 local ext = file:match("[^.]+$")
-                if ext == "sql" then
+                if ext == "sql" or ext == "py" then
                     io.write(basename .. "\t" .. file .. "\t" .. "1;\tv\n")
                 end
             end
