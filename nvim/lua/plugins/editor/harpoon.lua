@@ -18,7 +18,7 @@ return {
         {
             "<leader>;",
             function()
-                require("harpoon"):list():append()
+                require("harpoon"):list():add()
             end,
             desc = "set harpoon mark",
         },
