@@ -26,7 +26,7 @@ vim.keymap.set(
     "n",
     "<C-\\>",
     "<cmd>tabnew term://zsh<CR>i",
-    { desc = "open terminal in vertical split" }
+    { desc = "open terminal in new tab" }
 )
 
 -- escape terminal mode
