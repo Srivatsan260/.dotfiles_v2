@@ -24,7 +24,7 @@ export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
 export SPARK_HOME=$HOME/spark/
 export -U PATH="$SPARK_HOME/bin:$PATH"
-export PYSPARK_PYTHON="python3"
+export PYSPARK_PYTHON="python"
 export PYSPARK_DRIVER_PYTHON="ptpython"
 export -U PYTHONPATH=$HOME/spark/python/
 export SPARK_VERSION="3.5.1"
