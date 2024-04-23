@@ -82,13 +82,13 @@ return {
                 desc = "list available filetypes in Telescope",
             },
             { "<leader>jj", "<cmd>Telescope jumplist<CR>", desc = "open jumplist in Telescope" },
-            -- {
-            --     "<leader>gwl",
-            --     function()
-            --         require("telescope").extensions.git_worktree.git_worktrees()
-            --     end,
-            --     desc = "list git worktrees in Telescope",
-            -- },
+            {
+                "<leader>gwl",
+                function()
+                    require("telescope").extensions.git_worktree.git_worktrees()
+                end,
+                desc = "list git worktrees in Telescope",
+            },
             {
                 "<leader>ht",
                 function()
