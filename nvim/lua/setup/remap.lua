@@ -75,6 +75,10 @@ vim.keymap.set("n", "<leader>gwf", function()
     vim.cmd("AsyncRun git fetch --all")
     vim.cmd.copen()
 end, { desc = "git fetch --all" })
+vim.keymap.set("n", "<leader>gft", function()
+    vim.cmd("AsyncRun git fetch --tags --force")
+    vim.cmd.copen()
+end, { desc = "git fetch --tags --force" })
 
 ---@param op string
 ---@return function
