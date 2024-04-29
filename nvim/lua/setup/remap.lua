@@ -1,4 +1,5 @@
 local cmd_to_table = require("utils").cmd_to_table
+local async_git_op = require("utils").async_git_op
 
 local config_path = vim.fn.stdpath("config")
 vim.keymap.set(
@@ -34,25 +35,6 @@ vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape termin
 
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", { desc = "open netrw" })
-
----@param root string | nil
----@param op string | table
----@return function
-local function async_git_op(op, root)
-    local cmd = nil
-    if root == nil then
-        root = vim.fn.getcwd()
-    end
-    if type(op) == "string" then
-        cmd = "AsyncRun -cwd=" .. root .. " git " .. op
-    else
-        cmd = "AsyncRun -cwd=" .. root .. " git " .. table.concat(op, " ")
-    end
-    return function()
-        vim.cmd(cmd)
-        vim.cmd.copen()
-    end
-end
 
 vim.keymap.set("n", "<leader>gwu", function()
     local is_bare_repo = vim.fn.system("git config --get core.bare")

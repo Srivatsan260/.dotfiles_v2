@@ -32,4 +32,23 @@ M.vimux_run_cmd = function(cmd_or_prefix, prompt, opts)
     end
 end
 
+---@param root string | nil
+---@param op string | table
+---@return function
+M.async_git_op = function(op, root)
+    local cmd = nil
+    if root == nil then
+        root = vim.fn.getcwd()
+    end
+    if type(op) == "string" then
+        cmd = "AsyncRun -cwd=" .. root .. " git " .. op
+    else
+        cmd = "AsyncRun -cwd=" .. root .. " git " .. table.concat(op, " ")
+    end
+    return function()
+        vim.cmd(cmd)
+        vim.cmd.copen()
+    end
+end
+
 return M
