@@ -67,16 +67,16 @@ vim.keymap.set("n", "<leader>gwu", function()
         if p == "" or p == nil then
             return
         end
-        async_git_op({"pull", "--ff-only"}, root .. "/" .. path)
+        async_git_op({"pull", "--ff-only"}, root .. "/" .. p)
     end)
 end, { desc = "update git worktree" })
 
-vim.keymap.set("n", "<leader>gfa", async_git_op({"fetch", "--all"}), { desc = "git fetch --all" })
-vim.keymap.set("n", "<leader>gft", async_git_op({"fetch", "--tags", "--force"}), { desc = "git fetch --tags --force" })
-vim.keymap.set("n", "<leader>gsp", async_git_op({"stash", "pop"}), { desc = "git stash pop" })
+vim.keymap.set("n", "<leader>gfa", function() async_git_op({"fetch", "--all"}) end, { desc = "git fetch --all" })
+vim.keymap.set("n", "<leader>gft", function() async_git_op({"fetch", "--tags", "--force"}) end, { desc = "git fetch --tags --force" })
+vim.keymap.set("n", "<leader>gsp", function() async_git_op({"stash", "pop"}) end, { desc = "git stash pop" })
 
-vim.keymap.set("n", "<leader>gp", async_git_op({"pull", "--ff-only"}), { desc = "async git pull" })
-vim.keymap.set("n", "<leader>gP", async_git_op("push"), { desc = "async git push" })
+vim.keymap.set("n", "<leader>gp", function() async_git_op({"pull", "--ff-only"}) end, { desc = "async git pull" })
+vim.keymap.set("n", "<leader>gP", function() async_git_op("push") end, { desc = "async git push" })
 
 -- save file with ctrl-s
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "save current file" })

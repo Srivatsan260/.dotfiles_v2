@@ -40,7 +40,7 @@ end
 
 ---@param root string | nil
 ---@param op string | table
----@return function
+---@return nil
 M.async_git_op = function(op, root)
     local cmd = nil
     if root == nil then
@@ -51,10 +51,8 @@ M.async_git_op = function(op, root)
     else
         cmd = "AsyncRun -cwd=" .. root .. " git " .. table.concat(op, " ")
     end
-    return function()
-        vim.cmd(cmd)
-        vim.cmd.copen()
-    end
+    vim.cmd(cmd)
+    vim.cmd.copen()
 end
 
 return M
