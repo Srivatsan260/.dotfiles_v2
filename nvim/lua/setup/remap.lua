@@ -73,7 +73,7 @@ end, { desc = "update git worktree" })
 
 vim.keymap.set("n", "<leader>gfa", async_git_op({"fetch", "--all"}), { desc = "git fetch --all" })
 vim.keymap.set("n", "<leader>gft", async_git_op({"fetch", "--tags", "--force"}), { desc = "git fetch --tags --force" })
-vim.keymap.set("n", "<leader>gsp", async_git_op({"stash", "pop"}, "./"), { desc = "git stash pop" })
+vim.keymap.set("n", "<leader>gsp", async_git_op({"stash", "pop"}), { desc = "git stash pop" })
 
 vim.keymap.set("n", "<leader>gp", async_git_op({"pull", "--ff-only"}), { desc = "async git pull" })
 vim.keymap.set("n", "<leader>gP", async_git_op("push"), { desc = "async git push" })

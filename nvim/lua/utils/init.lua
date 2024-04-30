@@ -1,5 +1,7 @@
 local M = {}
 
+---@param cmd string
+---@return table
 M.cmd_to_table = function(cmd)
     local t = {}
     local f = io.popen(cmd)
@@ -13,6 +15,10 @@ M.cmd_to_table = function(cmd)
     return t
 end
 
+---@param cmd_or_prefix string
+---@param prompt string
+---@param opts table
+---@return function
 M.vimux_run_cmd = function(cmd_or_prefix, prompt, opts)
     return function()
         print(cmd_or_prefix)
@@ -38,7 +44,7 @@ end
 M.async_git_op = function(op, root)
     local cmd = nil
     if root == nil then
-        root = vim.fn.getcwd()
+        root = "./"
     end
     if type(op) == "string" then
         cmd = "AsyncRun -cwd=" .. root .. " git " .. op
