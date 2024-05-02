@@ -54,6 +54,14 @@ vim.api.nvim_create_autocmd({ "BufRead" }, {
         vim.bo.filetype = "terraform"
     end,
 })
+-- treat .databrickscfg as confini
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+    group = filetype_control,
+    pattern = ".databrickscfg",
+    callback = function()
+        vim.bo.filetype = "confini"
+    end,
+})
 
 -- set colorscheme
 vim.api.nvim_create_autocmd({ "VimEnter" }, {
