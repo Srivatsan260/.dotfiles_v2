@@ -92,6 +92,7 @@ vim.keymap.set(
 
 -- add zz to nav remaps
 vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "ctrl-d and center" })
+vim.keymap.set("n", "<C-t>", "<C-t>zz", { desc = "ctrl-t and center" })
 vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "ctrl-u and center" })
 vim.keymap.set("n", "G", "Gzz", { desc = "G and center" })
 vim.keymap.set(
