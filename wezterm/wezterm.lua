@@ -3,12 +3,12 @@ local act = wezterm.action
 
 local function get_background()
     local home = os.getenv("HOME")
-    local wallpaper_path = string.gsub("~/Downloads/wallpapers/12967235.jpeg", "~", "")
+    local wallpaper_path = string.gsub("~/Downloads/wallpapers/9839402.png", "~", "")
     local opts = {
         {
             source = { File = home .. wallpaper_path },
             repeat_x = "NoRepeat",
-            hsb = { brightness = 0.025 },
+            hsb = { brightness = 0.013 },
             vertical_align = "Middle",
             horizontal_align = "Center",
         },
@@ -16,6 +16,28 @@ local function get_background()
     -- return {}
     return opts
 end
+
+wezterm.on("toggle-opacity", function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if overrides.window_background_opacity == 1 then
+        overrides.window_background_opacity = 0.90
+        overrides.text_background_opacity = 0.90
+    else
+        overrides.window_background_opacity = 1
+        overrides.text_background_opacity = 1
+    end
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on("toggle-background", function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    if next(overrides.background) == nil then
+        overrides.background = get_background()
+    else
+        overrides.background = {}
+    end
+    window:set_config_overrides(overrides)
+end)
 
 return {
     audible_bell = "Disabled",
@@ -92,8 +114,10 @@ return {
         { key = '=', mods = 'SUPER', action = act.IncreaseFontSize },
         { key = '@', mods = 'CTRL', action = act.ActivateTab(1) },
         { key = '@', mods = 'SHIFT|CTRL', action = act.ActivateTab(1) },
+        { key = 'B', mods = 'CTRL', action = wezterm.action.EmitEvent('toggle-background') },
         { key = 'C', mods = 'CTRL', action = act.CopyTo 'Clipboard' },
         { key = 'C', mods = 'SHIFT|CTRL', action = act.CopyTo 'Clipboard' },
+        { key = 'E', mods = 'CTRL', action = wezterm.action.EmitEvent('toggle-opacity') },
         { key = 'F', mods = 'CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
         { key = 'F', mods = 'SHIFT|CTRL', action = act.Search 'CurrentSelectionOrEmptyString' },
         { key = 'H', mods = 'CTRL', action = act.HideApplication },
