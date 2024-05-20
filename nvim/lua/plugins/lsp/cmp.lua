@@ -8,6 +8,14 @@ return {
         "saadparwaiz1/cmp_luasnip",
         "L3MON4D3/LuaSnip",
         "rafamadriz/friendly-snippets",
+        {
+            "MattiasMTS/cmp-dbee",
+            dependencies = {
+                {"kndndrj/nvim-dbee"}
+            },
+            ft = "sql", -- optional but good to have
+            opts = {}, -- needed
+        },
     },
     event = "InsertEnter",
     config = function()
@@ -73,6 +81,7 @@ return {
                     { name = "vim-dadbod-completion" },
                     { name = "conjure" },
                     { name = "crates" },
+                    { name = "cmp-dbee" },
                 },
             })
         end
