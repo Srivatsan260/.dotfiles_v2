@@ -8,7 +8,6 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-lua/popup.nvim",
             "nvim-telescope/telescope-file-browser.nvim",
-            "nvim-telescope/telescope-frecency.nvim",
             "princejoogie/dir-telescope.nvim",
             "nvim-telescope/telescope-ui-select.nvim",
         },
@@ -198,7 +197,6 @@ return {
                 "git_worktree",
                 "zoxide",
                 "file_browser",
-                "frecency",
                 "notify",
                 "ui-select",
             }
