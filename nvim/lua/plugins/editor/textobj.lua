@@ -1,7 +1,6 @@
 return {
     "chrisgrieser/nvim-various-textobjs",
     -- TODO: fix lazy load issue
-    lazy = false,
     opts = {
         lookForwardLines = 5, -- default: 5. Set to 0 to only look in the current line
         useDefaultKeymaps = false, -- Use suggested keymaps (see README). Default: false.

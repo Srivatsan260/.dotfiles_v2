@@ -1,5 +1,6 @@
 return {
     "VidocqH/data-viewer.nvim",
+    cmd = { "DataViewer", "DataViewerClose", "DataViewerPrevTable", "DataViewerNextTable" },
     opts = {
         autoDisplayWhenOpenFile = false,
         maxLineEachTable = 100,

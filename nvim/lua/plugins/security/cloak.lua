@@ -1,5 +1,6 @@
 return {
     "laytan/cloak.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function ()
         local opts = {
             enabled = true,

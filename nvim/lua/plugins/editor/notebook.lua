@@ -16,7 +16,7 @@ return {
                 config = true,
             }
         },
-        event = "VeryLazy",
+        -- event = "VeryLazy",
         config = function()
             local nn = require "notebook-navigator"
             nn.setup(

@@ -84,6 +84,7 @@ return {
             { "nvim-treesitter/nvim-treesitter-textobjects", build = ":TSUpdate" },
             { "nvim-treesitter/playground", build = ":TSUpdate" },
             { "yioneko/nvim-yati" },
+            { "chrisgrieser/nvim-various-textobjs" },
         },
         build = ":TSUpdate",
         config = function()
