@@ -71,7 +71,7 @@ return {
                 desc = "grep for user input in workspace",
             },
             {
-                "<leader>gs",
+                "<leader>gst",
                 "<cmd>Telescope git_status<CR>",
                 desc = "show git status in Telescope",
             },
