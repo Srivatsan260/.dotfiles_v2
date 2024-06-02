@@ -29,14 +29,6 @@ return {
             {
                 "mfussenegger/nvim-jdtls",
                 config = function()
-                    local ok, wf = pcall(require, "vim.lsp._watchfiles")
-                    if ok then
-                        -- disable lsp watcher. Too slow on linux
-                        wf._watchfunc = function()
-                            return function() end
-                        end
-                    end
-
                     -- java lsp setup
                     local java_cmds = vim.api.nvim_create_augroup("java_cmds", { clear = true })
                     local cache_vars = {}
@@ -321,6 +313,15 @@ return {
             },
         },
         config = function()
+            local ok, wf = pcall(require, "vim.lsp._watchfiles")
+            if ok then
+                -- disable lsp watcher. Too slow on linux
+                wf._watchfunc = function()
+                    print("lsp watcher disabled")
+                    return function() end
+                end
+            end
+
             local lsp = require("lsp-zero")
             lsp.preset("recommended")
             lsp.ensure_installed({
