@@ -78,8 +78,6 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
-                    { name = "vim-dadbod-completion" },
-                    { name = "conjure" },
                     { name = "crates" },
                     { name = "cmp-dbee" },
                 },
