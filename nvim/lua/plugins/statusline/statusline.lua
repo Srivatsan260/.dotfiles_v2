@@ -38,6 +38,7 @@ return {
                         "diagnostics",
                     },
                     lualine_x = {
+                        function() return "{…} " .. vim.api.nvim_call_function("codeium#GetStatusString", {}) end,
                         {
                             require("noice").api.statusline.mode.get,
                             cond = require("noice").api.statusline.mode.has,
