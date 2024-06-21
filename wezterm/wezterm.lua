@@ -39,6 +39,28 @@ wezterm.on("toggle-background", function(window, pane)
     window:set_config_overrides(overrides)
 end)
 
+wezterm.on("decrease-transparency", function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    local current_opacity = overrides.window_background_opacity
+    local new_opacity = current_opacity + 0.1
+    if new_opacity > 1 then
+        new_opacity = 1
+    end
+    overrides.window_background_opacity = new_opacity
+    window:set_config_overrides(overrides)
+end)
+
+wezterm.on("increase-transparency", function(window, pane)
+    local overrides = window:get_config_overrides() or {}
+    local current_opacity = overrides.window_background_opacity
+    local new_opacity = current_opacity - 0.1
+    if new_opacity < 0 then
+        new_opacity = 0
+    end
+    overrides.window_background_opacity = new_opacity
+    window:set_config_overrides(overrides)
+end)
+
 return {
     audible_bell = "Disabled",
     max_fps = 120,
@@ -84,9 +106,11 @@ return {
         { key = '*', mods = 'SHIFT|CTRL', action = act.ActivateTab(7) },
         { key = '+', mods = 'CTRL', action = act.IncreaseFontSize },
         { key = '+', mods = 'SHIFT|CTRL', action = act.IncreaseFontSize },
+        { key = ']', mods = 'SUPER', action = wezterm.action.EmitEvent('decrease-transparency') },
         { key = '-', mods = 'CTRL', action = act.DecreaseFontSize },
         { key = '-', mods = 'SHIFT|CTRL', action = act.DecreaseFontSize },
         { key = '-', mods = 'SUPER', action = act.DecreaseFontSize },
+        { key = '[', mods = 'SUPER', action = wezterm.action.EmitEvent('increase-transparency') },
         { key = '0', mods = 'CTRL', action = act.ResetFontSize },
         { key = '0', mods = 'SHIFT|CTRL', action = act.ResetFontSize },
         { key = '0', mods = 'SUPER', action = act.ResetFontSize },
