@@ -228,3 +228,16 @@ end, { desc = "generate ctags" })
 
 -- nohlsearch on escape
 vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>", { desc = "nohlsearch" })
+
+-- force quit all
+vim.keymap.set(
+    "n",
+    "<leader>Q",
+    function()
+        local ans = vim.fn.input({ prompt = "Force quit all? [y/n] ", default = "n" })
+        if string.lower(ans) == "y" then
+            vim.cmd([[ qa! ]])
+        end
+    end,
+    { desc = "force quit all" }
+)
