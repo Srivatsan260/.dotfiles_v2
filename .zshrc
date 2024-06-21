@@ -22,12 +22,12 @@ export RUST_CODE=~/Documents/rust_code
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 export HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
 
-export SPARK_HOME=$HOME/spark/
+export SPARK_VERSION="3.5.1"
+export SPARK_HOME=$HOME/spark/$SPARK_VERSION
 export -U PATH="$SPARK_HOME/bin:$PATH"
 export PYSPARK_PYTHON="python"
 export PYSPARK_DRIVER_PYTHON="ptpython"
-export -U PYTHONPATH=$HOME/spark/python/
-export SPARK_VERSION="3.5.1"
+export -U PYTHONPATH=$SPARK_HOME/python/
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
