@@ -234,7 +234,7 @@ vim.keymap.set(
     "n",
     "<leader>Q",
     function()
-        local ans = vim.fn.input({ prompt = "Force quit all? [y/n] ", default = "n" })
+        local ans = vim.fn.input({ prompt = "Force quit all? [y/n] ", default = "" })
         if string.lower(ans) == "y" then
             vim.cmd([[ qa! ]])
         end
