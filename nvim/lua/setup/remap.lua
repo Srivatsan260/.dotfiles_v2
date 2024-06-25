@@ -241,3 +241,7 @@ vim.keymap.set(
     end,
     { desc = "force quit all" }
 )
+
+
+-- \(.*\)
+vim.keymap.set("i", "fok", "\\(.*\\)", { desc = "\\(.*\\)" })
