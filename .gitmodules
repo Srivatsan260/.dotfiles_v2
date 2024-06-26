@@ -1,6 +1,3 @@
-[submodule "wallpapers"]
-	path = wallpapers
-	url = https://github.com/ThePrimeagen/anime
 [submodule "work_dots"]
 	path = work_dots
 	url = ssh://git@github.com/Srivatsan260/.dotfiles_work.git
