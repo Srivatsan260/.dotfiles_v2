@@ -84,7 +84,7 @@ return {
             {
                 "<leader>gwl",
                 function()
-                    require("telescope").extensions.git_worktree.git_worktrees()
+                    require("telescope").extensions.git_worktree.git_worktree()
                 end,
                 desc = "list git worktrees in Telescope",
             },
