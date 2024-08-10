@@ -231,3 +231,6 @@ vim.keymap.set("n", "<esc>", "<cmd>nohlsearch<CR>", { desc = "nohlsearch" })
 
 -- \(.*\)
 vim.keymap.set("i", "fok", "\\(.*\\)", { desc = "\\(.*\\)" })
+
+-- copy filename to clipboard
+vim.keymap.set("n", "<leader>fn", "<cmd>let @* = expand('%')<CR>", { desc = "copy filename to clipboard" })
