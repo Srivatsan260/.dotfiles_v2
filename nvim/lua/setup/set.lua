@@ -1,5 +1,6 @@
 local opt = vim.opt
 local g = vim.g
+local o = vim.o
 
 opt.background = "dark"
 opt.backup = false
@@ -8,6 +9,7 @@ opt.cmdheight = 1
 opt.colorcolumn = "100"
 opt.completeopt = { "menuone", "noselect" }
 opt.conceallevel = 0
+opt.errorformat = o.errorformat .. ",%f"
 opt.expandtab = true
 opt.exrc = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
