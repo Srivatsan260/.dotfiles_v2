@@ -48,6 +48,8 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#78a9ff,bg=none,bold"
 export GOPATH="$HOME/go"
 export -U PATH="$PATH:$GOPATH/bin"
 
+source ~/.connections.env.sh
+
 #: }}}
 
 #: aliases {{{
@@ -88,6 +90,8 @@ pomo() {
 
 alias wo="pomo 45m"
 alias rs="pomo 15m"
+
+alias lazygit="LG_CONFIG_FILE=$HOME/.config/lazygit/config.yml lazygit"
 
 #: }}}
 
@@ -154,6 +158,20 @@ br() {
     fi
 }
 
+kill_airflow() {
+    cd ~/airflow/
+    for i in $(ls *pid)
+    do
+        kill -9 $(cat $i)
+        rm $i
+    done
+}
+
+start_airflow() {
+    kill_airflow
+    airflow webserver -D && airflow scheduler -D
+}
+
 #: }}}
 
 #: source stuff {{{
@@ -200,8 +218,6 @@ source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 #
 # zinit ice as"completion"
 # zinit snippet https://github.com/dbt-labs/dbt-completion.bash/blob/master/_dbt
-
-source ~/dotfiles/work_dots/.zshrc
 
 #: }}}
 
