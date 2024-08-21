@@ -1,5 +1,6 @@
 return {
     "folke/which-key.nvim",
+    enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
     keys = "<space>",
     opts = {
         plugins = {

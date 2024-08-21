@@ -82,6 +82,27 @@ return {
     config = function()
         local hooks = require("git-worktree.hooks")
         hooks.register(hooks.type.SWITCH, hooks.builtins.update_current_buffer_on_switch)
+        -- hooks.register(
+        --     hooks.type.SWITCH,
+        --     function()
+        --         local branch_name = vim.fn.system("!git rev-parse --abbrev-ref head")
+        --         vim.cmd.clearjumps()
+        --         local bufs = vim.api.nvim_list_bufs()
+        --         local bufnr = vim.api.nvim_get_current_buf()
+        --         for _, buf in ipairs(bufs) do
+        --             if vim.api.nvim_buf_is_loaded(buf) and buf ~= bufnr then
+        --                 local buf_name = vim.api.nvim_buf_get_name(buf)
+        --                 if not string.find(buf_name, branch_name) then
+        --                     vim.api.nvim_buf_delete(buf, {})
+        --                 end
+        --             end
+        --         end
+        --         if vim.api.nvim_buf_get_name(bufnr) ~= "" then
+        --             vim.cmd([[ e ]])
+        --         end
+        --         hooks.builtins.update_current_buffer_on_switch()
+        --     end
+        -- )
     end,
 
 }
