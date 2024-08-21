@@ -1,0 +1,12 @@
+name: on-pr
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  on-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo
+        run: echo "on-pr"

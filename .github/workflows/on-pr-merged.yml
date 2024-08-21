@@ -1,0 +1,13 @@
+name: on-pr-merged
+
+on:
+  pull_request_target:
+    types: [closed]
+
+jobs:
+  on-pr:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true }}
+    steps:
+      - name: echo
+        run: echo "on-pr-merged"
