@@ -9,10 +9,7 @@ return {
     lazy = true,
     config = function()
         local g_opts = {
-            lazygit_config_file_path = {
-                vim.fn.expand("~/.config/lazygit/config.yml"),
-                vim.fn.expand("~/dotfiles/work_dots/lazygit/config.yml"),
-            },
+            lazygit_config_file_path = vim.fn.expand("~/.config/lazygit/config.yml"),
             lazygit_floating_window_use_plenary = 0,
             lazygit_floating_window_winblend = 0,
             lazygit_use_custom_config_file_path = 1,
