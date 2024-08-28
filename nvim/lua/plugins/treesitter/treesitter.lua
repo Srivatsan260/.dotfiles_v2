@@ -75,7 +75,7 @@ return {
                 end,
                 keys = {
                     {
-                        "<leader>tx",
+                        "<leader>cx",
                         "<cmd>TSContextToggle<CR>",
                         desc = "toggle treesitter-context",
                     },
