@@ -68,6 +68,7 @@ g.netrw_altv = 1
 g.netrw_banner = 0
 g.netrw_browse_split = 0
 g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
+g.netrw_sizestyle = "h"
 g.netrw_winsize = 75
 g.sessions_dir = "~/.local/share/nvim/session"
 
