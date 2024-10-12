@@ -9,7 +9,7 @@ return {
         {
             "iS",
             function()
-                require("various-textobjs").subword(true)
+                require("various-textobjs").subword("inner")
             end,
             desc = "visual select in subword",
             mode = { "o", "x" },
@@ -17,7 +17,7 @@ return {
         {
             "aS",
             function()
-                require("various-textobjs").subword(false)
+                require("various-textobjs").subword("outer")
             end,
             desc = "visual select around subword",
             mode = { "o", "x" },
@@ -25,7 +25,7 @@ return {
         {
             "iv",
             function()
-                require("various-textobjs").value(true)
+                require("various-textobjs").value("inner")
             end,
             desc = "visual select in value",
             mode = { "o", "x" },
@@ -33,7 +33,7 @@ return {
         {
             "av",
             function()
-                require("various-textobjs").value(false)
+                require("various-textobjs").value("outer")
             end,
             desc = "visual select around value",
             mode = { "o", "x" },
@@ -41,7 +41,7 @@ return {
         {
             "in",
             function()
-                require("various-textobjs").number(true)
+                require("various-textobjs").number("inner")
             end,
             desc = "visual select in number",
             mode = { "o", "x" },
@@ -49,7 +49,7 @@ return {
         {
             "an",
             function()
-                require("various-textobjs").number(false)
+                require("various-textobjs").number("outer")
             end,
             desc = "visual select around number",
             mode = { "o", "x" },
@@ -57,7 +57,7 @@ return {
         {
             "ii",
             function()
-                require("various-textobjs").indentation(true, true)
+                require("various-textobjs").indentation("inner", "inner")
             end,
             desc = "visual select in indent",
             mode = { "o", "x" },
@@ -65,7 +65,7 @@ return {
         {
             "ai",
             function()
-                require("various-textobjs").indentation(false, false)
+                require("various-textobjs").indentation("outer", "outer")
             end,
             desc = "visual select around indent",
             mode = { "o", "x" },
