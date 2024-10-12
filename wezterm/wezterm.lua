@@ -55,6 +55,9 @@ wezterm.on("increase-background-brightness-or-transparency", function(window, pa
         overrides.background = get_background(BRIGHTNESS_LEVEL)
     else
         local current_opacity = overrides.window_background_opacity
+        if current_opacity == nil then
+            current_opacity = 1
+        end
         local new_opacity = current_opacity - 0.1
         if new_opacity < 0 then
             new_opacity = 0
@@ -75,6 +78,9 @@ wezterm.on("decrease-background-brightness-or-transparency", function(window, pa
         overrides.background = get_background(BRIGHTNESS_LEVEL)
     else
         local current_opacity = overrides.window_background_opacity
+        if current_opacity == nil then
+            current_opacity = 1
+        end
         local new_opacity = current_opacity + 0.1
         if new_opacity > 1 then
             new_opacity = 1
