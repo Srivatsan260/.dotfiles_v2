@@ -225,5 +225,10 @@ return {
             desc = "Scroll backward",
             mode = {"i", "n", "s"}
         },
+        {
+            "<esc>",
+            function() require("noice").cmd("dismiss") end,
+            desc = "Dismiss Noice",
+        }
     },
 }
