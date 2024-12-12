@@ -226,7 +226,7 @@ return {
             mode = {"i", "n", "s"}
         },
         {
-            "<esc>",
+            "<leader><esc>",
             function() require("noice").cmd("dismiss") end,
             desc = "Dismiss Noice",
         }
