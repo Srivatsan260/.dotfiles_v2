@@ -1188,6 +1188,7 @@ keybind = super+k=clear_screen
 keybind = super+physical:two=goto_tab:2
 keybind = super+physical:six=goto_tab:6
 keybind = super+v=paste_from_clipboard
+keybind = global:cmd+;=toggle_quick_terminal
 
 # Horizontal window padding. This applies padding between the terminal cells
 # and the left and right window borders. The value is in points, meaning that
@@ -1678,7 +1679,7 @@ quick-terminal-screen = main
 # Duration (in seconds) of the quick terminal enter and exit animation.
 # Set it to 0 to disable animation completely. This can be changed at
 # runtime.
-quick-terminal-animation-duration = 0.2
+quick-terminal-animation-duration = 0.01
 
 # Automatically hide the quick terminal when focus shifts to another window.
 # Set it to false for the quick terminal to remain open even when it loses focus.
