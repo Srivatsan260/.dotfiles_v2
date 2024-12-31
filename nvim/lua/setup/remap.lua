@@ -23,12 +23,12 @@ vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "window right" })
 
 -- terminals
 
-vim.keymap.set(
-    "n",
-    "<C-\\>",
-    "<cmd>tabnew term://zsh<CR>i",
-    { desc = "open terminal in new tab" }
-)
+-- vim.keymap.set(
+--     "n",
+--     "<C-\\>",
+--     "<cmd>tabnew term://zsh<CR>i",
+--     { desc = "open terminal in new tab" }
+-- )
 
 -- escape terminal mode
 vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape terminal mode" })
