@@ -1,0 +1,8 @@
+{
+    "reportUnknownMemberType": false,
+    "reportAny": false,
+    "reportMissingTypeArgument": false,
+    "reportUnknownParameterType": false,
+    "reportImplicitOverride": false,
+    "reportCallInDefaultInitializer": false
+}
