@@ -11,4 +11,5 @@ return {
     { import = "plugins.treesitter" },
     { import = "plugins.ui" },
     { import = "plugins.themes" },
+    { import = "plugins.misc" },
 }

@@ -305,28 +305,28 @@ return {
                     })
                 end
             },
-            {
-                "tjdevries/ocaml.nvim",
-                build = function()
-                    require("ocaml").update()
-                end
-            },
+            -- {
+            --     "tjdevries/ocaml.nvim",
+            --     build = function()
+            --         require("ocaml").update()
+            --     end
+            -- },
         },
         config = function()
             local ok, wf = pcall(require, "vim.lsp._watchfiles")
-            -- if ok then
-            --     -- disable lsp watcher. Too slow on linux
-            --     wf._watchfunc = function()
-            --         print("lsp watcher disabled")
-            --         return function() end
-            --     end
-            -- end
+            if ok then
+                -- disable lsp watcher. Too slow on linux
+                wf._watchfunc = function()
+                    print("lsp watcher disabled")
+                    return function() end
+                end
+            end
 
             local lsp = require("lsp-zero")
             lsp.preset("recommended")
             lsp.ensure_installed({
                 "basedpyright",
-                "tsserver",
+                "ts_ls",
                 "html",
                 "cssls",
                 "emmet_ls",
@@ -451,7 +451,7 @@ return {
                 },
             })
 
-            require("ocaml").setup()
+            -- require("ocaml").setup()
 
             require("lspconfig.configs").dbt = {
                 default_config = {
