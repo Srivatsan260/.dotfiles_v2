@@ -67,6 +67,7 @@ alias lg="lazygit"
 alias ptpython="ptpython --config-file ~/dotfiles/ptpython/config.py"
 alias cn="c && n ."
 alias sz="source ~/.zshrc"
+alias sc="source ~/.connections.env.sh"
 alias nz="n  ~/.zshrc"
 alias nf='nvim --headless "+call firenvim#install(0) | q"'
 alias rr="ranger"
@@ -228,8 +229,11 @@ ulimit -u 2047
 
 PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 
-wisdom
+# wisdom
 
 #: }}}
 
 [[ -n $ZPROF_ENABLE ]] && zprof
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
