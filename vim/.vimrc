@@ -146,6 +146,7 @@ call plug#begin()
     Plug 'itchyny/lightline.vim'
     Plug 'https://github.com/tpope/vim-fugitive'
     Plug 'https://github.com/ghifarit53/tokyonight-vim'
+    Plug 'https://github.com/letorbi/vim-colors-modern-borland'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'ctrlpvim/ctrlp.vim'
@@ -188,13 +189,14 @@ let g:test#strategy = 'floaterm'
 let g:ctrlp_show_hidden = 1
 let g:floaterm_giteditor = 'nvim'
 let g:lsp_diagnostics_echo_cursor = 1
+let g:BorlandStyle = 'modern'
 
 " }}}
 
 " misc {{{
 
 syntax on
-colorscheme tokyonight
+colorscheme borland
 
 " }}}
 " ## added by OPAM user-setup for vim / base ## 93ee63e278bdfc07d1139a748ed3fff2 ## you can edit, but keep this line

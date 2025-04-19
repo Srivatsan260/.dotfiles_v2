@@ -8,7 +8,7 @@
 # add jdk to path
 export BREW_PREFIX=$(brew --prefix)
 
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk/23.0.2/"
+export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
 export -U PATH="$JAVA_HOME/bin:$PATH"
 export -U PATH="$BREW_PREFIX/opt/llvm/bin/:$PATH"
 export -U PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
