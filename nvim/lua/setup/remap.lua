@@ -163,8 +163,6 @@ vim.keymap.set("n", "<leader>va", "ggVG", { desc = "visual select all" })
 
 -- navigate quickfix
 vim.keymap.set("n", "<localleader>q", "<cmd>copen<CR>", { desc = "open quickfix list" })
-vim.keymap.set("n", "<Tab>", "<cmd>cnext<CR>", { desc = "next quickfix item" })
-vim.keymap.set("n", "<S-Tab>", "<cmd>cprev<CR>", { desc = "previous quickfix item" })
 
 -- open zshrc and zshenv
 vim.keymap.set("n", "<leader>nz", "<cmd>e ~/.zshrc<CR>", { desc = "open .zshrc" })
