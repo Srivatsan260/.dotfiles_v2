@@ -2,6 +2,7 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufEnter", "BufNewFile" },
+        enabled = false,
         main = "ibl",
         opts = {
             debounce = 100,
@@ -12,7 +13,7 @@ return {
     },
     {
         "echasnovski/mini.indentscope",
-        enabled = false,
+        enabled = true,
         version = false, -- wait till new 0.7.0 release to put it back on semver
         event = { "BufEnter", "BufNewFile" },
         opts = {
