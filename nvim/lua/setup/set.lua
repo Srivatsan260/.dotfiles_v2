@@ -61,7 +61,7 @@ opt.formatoptions = opt.formatoptions
     + "j" -- Auto-remove comments if possible.
     - "2" -- Don't use indent of 2nd line of paragraph for the rest of it
 
-g.global_colorscheme = "tokyonight"
+g.global_colorscheme = "onedark"
 g.mapleader = " "
 g.maplocalleader = "\\"
 g.netrw_altv = 1
