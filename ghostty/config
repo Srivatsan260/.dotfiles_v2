@@ -346,7 +346,7 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 #
 #   - macOS: titlebar tabs style is not updated when switching themes.
 #
-theme = UltraDark
+theme = tokyonight_night
 # theme = Tomorrow
 
 # Background color for the window.

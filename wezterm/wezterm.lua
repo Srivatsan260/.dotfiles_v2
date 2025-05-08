@@ -9,7 +9,7 @@ local function get_background(brightness)
         brightness = BRIGHTNESS_LEVEL
     end
     local home = os.getenv("HOME")
-    local wallpaper_path = string.gsub("~/Downloads/wallpapers/1328117.jpeg", "~", "")
+    local wallpaper_path = string.gsub("~/Downloads/wallpapers/1343335.png", "~", "")
     local opts = {
         {
             source = { File = home .. wallpaper_path },
