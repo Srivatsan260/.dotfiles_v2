@@ -101,6 +101,8 @@ return {
             vim.keymap.set("n", "grr", "<cmd>Telescope lsp_references<CR>")
             vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation)
             vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
+            vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
 
             vim.diagnostic.config({
                 virtual_text = true,
@@ -114,7 +116,7 @@ return {
     },
     {
         "simrat39/rust-tools.nvim",
-        enabled = false,
+        -- enabled = false,
         ft = "rust",
         opts = {
             server = {
