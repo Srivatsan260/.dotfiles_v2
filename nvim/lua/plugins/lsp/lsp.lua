@@ -16,6 +16,9 @@ return {
             },
             {
                 "folke/neodev.nvim",
+            },
+            {
+                "j-hui/fidget.nvim",
             }
         },
         config = function()
@@ -102,7 +105,7 @@ return {
             vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation)
             vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition)
             vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
-            vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition)
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 
             vim.diagnostic.config({
                 virtual_text = true,
