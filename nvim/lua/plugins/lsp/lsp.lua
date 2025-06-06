@@ -37,7 +37,7 @@ return {
                             settings = {
                                 basedpyright = {
                                     analysis = {
-                                        diagnosticMode = "workspace",
+                                        diagnosticMode = "openFilesOnly",
                                         inlayHints = {
                                             variableTypes = true,
                                             callArgumentNames = true,
