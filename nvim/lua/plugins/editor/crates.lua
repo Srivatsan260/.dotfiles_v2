@@ -1,5 +1,6 @@
 return {
     "saecki/crates.nvim",
+    enabled = false,
     ft = "toml",
     opts = {
         smart_insert = true,

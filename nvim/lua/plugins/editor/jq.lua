@@ -7,7 +7,6 @@ return {
         height = nil,
         scratch = true,
         filetype = "json",
-        name = "jq output",
     },
     query_window = {
         split_direction = "below",
@@ -15,7 +14,6 @@ return {
         height = 0.3,
         scratch = false,
         filetype = "jq",
-        name = "jq query editor",
     },
     disable_default_keymap = false,
 }

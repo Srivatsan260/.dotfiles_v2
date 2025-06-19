@@ -10,6 +10,8 @@ return {
             -- sql = { "sqlfluff" },
             jinja = { "j2lint" },
             make = { "checkmake" },
+            javascript = { "eslint" },
+            typescript = { "eslint" },
         }
 
         local luacheck = lint.linters.luacheck

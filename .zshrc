@@ -237,3 +237,16 @@ PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/srivatsanramaswamy/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# pnpm
+export PNPM_HOME="/Users/srivatsanramaswamy/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

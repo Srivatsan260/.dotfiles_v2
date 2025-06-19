@@ -78,7 +78,7 @@ return {
                     { name = "luasnip" },
                     { name = "buffer" },
                     { name = "path" },
-                    { name = "crates" },
+                    -- { name = "crates" },
                     { name = "cmp-dbee" },
                 },
             })
