@@ -24,4 +24,10 @@ return {
         lazy = true,
         keys = { "cr", "gA" },
     },
+    {
+        "m4xshen/hardtime.nvim",
+        lazy = false,
+        dependencies = { "MunifTanjim/nui.nvim" },
+        opts = {},
+    },
 }
