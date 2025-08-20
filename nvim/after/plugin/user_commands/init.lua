@@ -19,14 +19,14 @@ function SetPythonPath(path)
         client.notify("workspace/didChangeConfiguration", { settings = nil })
     end
 end
-vim.keymap.set("n", "<leader>spp", function()
-    vim.ui.input({ prompt = "python path: " }, function(path)
-        if path == nil then
-            return
-        end
-        SetPythonPath(path)
-    end)
-end)
+-- vim.keymap.set("n", "<leader>spp", function()
+--     vim.ui.input({ prompt = "python path: " }, function(path)
+--         if path == nil then
+--             return
+--         end
+--         SetPythonPath(path)
+--     end)
+-- end)
 
 vim.api.nvim_create_user_command("DbtRun", function()
     if vim.fn.glob("dbt_project.yml") == "" then

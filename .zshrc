@@ -93,6 +93,7 @@ alias wo="pomo 45m"
 alias rs="pomo 15m"
 
 alias lazygit="LG_CONFIG_FILE=$HOME/.config/lazygit/config.yml lazygit"
+alias sqlworkbench="/Applications/SQLWorkbenchJ.app/Contents/MacOS/SQLWorkbenchJLauncher"
 
 #: }}}
 
