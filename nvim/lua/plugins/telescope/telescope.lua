@@ -53,7 +53,7 @@ return {
                 end,
                 desc = "List all tags in workspace",
             },
-            { "<leader>gb", "<cmd>Telescope git_branches<CR>", desc = "list git branches" },
+            { "<leader>gB", "<cmd>Telescope git_branches<CR>", desc = "list git branches" },
             {
                 "<leader>gr",
                 "<cmd>Telescope grep_string<CR>",
