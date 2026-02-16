@@ -6,16 +6,18 @@
 #: exports {{{
 #
 # add jdk to path
-export BREW_PREFIX=$(brew --prefix)
+# check if brew exists
+[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && export BREW_PREFIX=$(brew --prefix)
 
-export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
-export -U PATH="$JAVA_HOME/bin:$PATH"
-export -U PATH="$BREW_PREFIX/opt/llvm/bin/:$PATH"
+[[ -n $BREW_PREFIX ]] && export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
+[[ -n $BREW_PREFIX ]] && export -U PATH="$JAVA_HOME/bin:$PATH"
+[[ -n $BREW_PREFIX ]] && export -U PATH="$BREW_PREFIX/opt/llvm/bin/:$PATH"
 export -U PATH="$PATH:$HOME/.local/share/bob/nvim-bin/"
 export -U PATH="$PATH:$HOME/.local/bin/"
 export -U PATH="$PATH:$HOME/.local/scripts/"
-export -U PATH="$PATH:$BREW_PREFIX/bin/"
-export -U PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
+[[ -n $BREW_PREFIX ]] && export -U PATH="$PATH:$BREW_PREFIX/bin/"
+[[ -n $BREW_PREFIX ]] && export -U PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
+export PATH=/home/vachu-papa/.opencode/bin:$PATH
 
 export RUST_CODE=~/Documents/rust_code
 
@@ -48,7 +50,7 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#78a9ff,bg=none,bold"
 export GOPATH="$HOME/go"
 export -U PATH="$PATH:$GOPATH/bin"
 
-source ~/.connections.env.sh
+[[ -f ~/.connections.env.sh ]] && source ~/.connections.env.sh
 
 #: }}}
 
@@ -60,8 +62,8 @@ alias e='exa -lah'
 alias ru="$RUST_CODE"
 # alias n="~/.local/share/neovim/bin/nvim"
 alias n="nvim"
-alias nv="$BREW_PREFIX/Cellar/neovide/0.12.2/bin/neovide --frame none --maximized"
-alias v="$BREW_PREFIX/bin/vim"
+[[ -n $BREW_PREFIX ]] && alias nv="$BREW_PREFIX/Cellar/neovide/0.12.2/bin/neovide --frame none --maximized"
+[[ -n $BREW_PREFIX ]] && alias v="$BREW_PREFIX/bin/vim"
 alias lazygit='LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml" lazygit'
 alias lg="lazygit"
 alias ptpython="ptpython --config-file ~/dotfiles/ptpython/config.py"
@@ -83,7 +85,7 @@ alias snowsql=/Applications/SnowSQL.app/Contents/MacOS/snowsql
 alias gwl="git worktree list"
 alias gwf="git fetch --all"
 
-alias ctags="$BREW_PREFIX/Cellar/ctags/5.8_2/bin/ctags"
+[[ -n $BREW_PREFIX ]] && alias ctags="$BREW_PREFIX/Cellar/ctags/5.8_2/bin/ctags"
 
 pomo() {
     timer $1 && osascript -e "display notification \"☕\" with title \"Timer up!\" subtitle \"$1 has / have passed\" sound name \"Crystal\""
@@ -185,18 +187,23 @@ eval "$(direnv hook zsh)"
 ZSH_THEME="refined" # set by `omz`
 
 source $ZSH/oh-my-zsh.sh
-source $BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source "$HOME/.local/lib/zsh-autoenv/init.zsh"
+[[ -n $BREW_PREFIX ]] && source $BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+[[ -f "$HOME/.local/lib/zsh-autoenv/autoenv.zsh" ]] && source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-[ -s ~/.luaver/luaver ] && . ~/.luaver/luaver >> /dev/null
-luaver use 5.1 >> /dev/null
-luaver use-luarocks 2.3.0 >> /dev/null
-eval "$(luarocks path)"
+if [ -s ~/.luaver/luaver ]; then
+    . ~/.luaver/luaver >> /dev/null
+    luaver use 5.1 >> /dev/null
+    luaver use-luarocks 2.3.0 >> /dev/null
+    eval "$(luarocks path)"
+fi
 
-eval "$(pyenv init -)"
-source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init - zsh)"
+[[ -f "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh" ]] && source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
 
 # if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 #     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -238,16 +245,16 @@ PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/srivatsanramaswamy/.lmstudio/bin"
-# End of LM Studio CLI section
-
-
-# pnpm
-export PNPM_HOME="/Users/srivatsanramaswamy/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+#
+# # Added by LM Studio CLI (lms)
+# export PATH="$PATH:/Users/srivatsanramaswamy/.lmstudio/bin"
+# # End of LM Studio CLI section
+#
+#
+# # pnpm
+# export PNPM_HOME="/Users/srivatsanramaswamy/Library/pnpm"
+# case ":$PATH:" in
+#   *":$PNPM_HOME:"*) ;;
+#   *) export PATH="$PNPM_HOME:$PATH" ;;
+# esac
+# # pnpm end

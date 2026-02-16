@@ -107,6 +107,7 @@ return {
     font_size = 15,
 
     disable_default_key_bindings = true,
+    enable_wayland = false,
 
     keys = {
         { key = 'Tab', mods = 'CTRL', action = act.ActivateTabRelative(1) },
