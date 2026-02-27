@@ -31,6 +31,8 @@ export PYSPARK_PYTHON="python"
 export PYSPARK_DRIVER_PYTHON="ptpython"
 export -U PYTHONPATH=$SPARK_HOME/python/
 
+export TMUX_TMPDIR="$HOME/.tmux-sockets/"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -58,7 +60,7 @@ export -U PATH="$PATH:$GOPATH/bin"
 
 alias wisdom="fortune | cowsay | lolcat"
 alias cl='clear'
-alias e='exa -lah'
+alias e='exa -lah --git'
 alias ru="$RUST_CODE"
 # alias n="~/.local/share/neovim/bin/nvim"
 alias n="nvim"
@@ -245,16 +247,19 @@ PROMPT='%F{219}[%D{%Y-%m-%d %H:%M:%S}]%f '$PROMPT
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
-#
-# # Added by LM Studio CLI (lms)
-# export PATH="$PATH:/Users/srivatsanramaswamy/.lmstudio/bin"
-# # End of LM Studio CLI section
-#
-#
-# # pnpm
-# export PNPM_HOME="/Users/srivatsanramaswamy/Library/pnpm"
-# case ":$PATH:" in
-#   *":$PNPM_HOME:"*) ;;
-#   *) export PATH="$PNPM_HOME:$PATH" ;;
-# esac
-# # pnpm end
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/srivatsanramaswamy/.lmstudio/bin"
+# End of LM Studio CLI section
+
+
+# pnpm
+export PNPM_HOME="/Users/srivatsanramaswamy/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# opencode
+export PATH=/Users/srivatsanramaswamy/.opencode/bin:$PATH
