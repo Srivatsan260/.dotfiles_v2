@@ -182,6 +182,17 @@ return {
                     },
                 },
             })
+            local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+            parser_config.tmdl = {
+                install_info = {
+                    -- Local path to the parser project we created
+                    url = "/Users/srivatsanramaswamy/code/personal/ts-tmdl/tree-sitter-tmdl",
+                    files = { "src/parser.c" },
+                    -- If scanner.c exists later, add it:
+                    -- files = { "src/parser.c", "src/scanner.c" },
+                },
+                filetype = "tmdl",
+            }
         end,
         keys = {
             {
