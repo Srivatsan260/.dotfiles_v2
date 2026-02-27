@@ -13,6 +13,7 @@ opt.errorformat = o.errorformat .. ",%f"
 opt.expandtab = true
 opt.exrc = true
 opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.grepformat = "%f:%l:%c:%m"
 opt.grepprg = "rg --vimgrep --no-heading --smart-case"
@@ -68,6 +69,7 @@ g.netrw_altv = 1
 g.netrw_banner = 0
 g.netrw_browse_split = 0
 g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
+g.netrw_preview = 1
 g.netrw_sizestyle = "h"
 g.netrw_winsize = 75
 g.sessions_dir = "~/.local/share/nvim/session"
@@ -75,5 +77,5 @@ g.sessions_dir = "~/.local/share/nvim/session"
 if g.neovide then
     g.neovide_cursor_trail_length = 0.8
     g.neovide_cursor_animation_length = 0.04
-    g.neovide_transparency = 0.9
+    g.neovide_opacity = 0.9
 end
