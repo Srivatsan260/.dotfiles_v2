@@ -1,6 +1,7 @@
 return {
     "polarmutex/git-worktree.nvim",
     version = "^2",
+    enabled = false,
     lazy = true,
     dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
     keys = {

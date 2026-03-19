@@ -16,6 +16,34 @@ return {
         keys = {
             { "<C-p>", "<cmd>Telescope find_files hidden=True<CR>", desc = "Telescope find_files" },
             {
+                "<leader>gwl",
+                function()
+                    require("telescope").extensions.worktree.worktrees()
+                end,
+                desc = "list git worktrees",
+            },
+            {
+                "<leader>gwc",
+                function()
+                    require("telescope").extensions.worktree.create()
+                end,
+                desc = "create git worktree",
+            },
+            {
+                "<leader>gwd",
+                function()
+                    require("telescope").extensions.worktree.delete()
+                end,
+                desc = "delete git worktree",
+            },
+            {
+                "<leader>gws",
+                function()
+                    require("telescope").extensions.worktree.worktrees()
+                end,
+                desc = "switch git worktree",
+            },
+            {
                 "<leader>fb",
                 "<cmd>Telescope file_browser hidden=True<CR>",
                 desc = "Telescope file_browser",
@@ -81,13 +109,6 @@ return {
                 desc = "list available filetypes in Telescope",
             },
             { "<leader>jj", "<cmd>Telescope jumplist<CR>", desc = "open jumplist in Telescope" },
-            {
-                "<leader>gwl",
-                function()
-                    require("telescope").extensions.git_worktree.git_worktree()
-                end,
-                desc = "list git worktrees in Telescope",
-            },
             {
                 "<leader>ht",
                 function()
@@ -194,7 +215,7 @@ return {
             local extensions = {
                 "sessions_picker",
                 "harpoon",
-                "git_worktree",
+                "worktree",
                 "zoxide",
                 "file_browser",
                 "notify",
@@ -203,6 +224,22 @@ return {
             for _, ext in pairs(extensions) do
                 pcall(telescope.load_extension, ext)
             end
+
+            vim.api.nvim_create_user_command("GitWorktreeList", function()
+                telescope.extensions.worktree.worktrees()
+            end, { desc = "List git worktrees" })
+
+            vim.api.nvim_create_user_command("GitWorktreeCreate", function()
+                telescope.extensions.worktree.create()
+            end, { desc = "Create a git worktree" })
+
+            vim.api.nvim_create_user_command("GitWorktreeSwitch", function()
+                telescope.extensions.worktree.worktrees()
+            end, { desc = "Switch git worktrees" })
+
+            vim.api.nvim_create_user_command("GitWorktreeDelete", function()
+                telescope.extensions.worktree.delete()
+            end, { desc = "Delete a git worktree" })
 
             local dir_ok, dir_telescope = pcall(require, "dir-telescope")
             if dir_ok then
