@@ -12,4 +12,7 @@ return {
     },
     cmd = { "Git", "GBrowse", "GRead", "GRemove", "GReset", "Gvdiffsplit" },
     lazy = true,
+    config = function()
+        vim.cmd("runtime! autoload/netrw/os.vim")
+    end
 }
