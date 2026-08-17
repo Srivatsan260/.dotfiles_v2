@@ -47,7 +47,6 @@
   "matchparen.nvim": { "branch": "main", "commit": "1a2dcbd026bf99b20b89345883d54823f80a2bee" },
   "mini.comment": { "branch": "main", "commit": "597d32ed2c9fbfbf9a250bec7c6b9035f71214f5" },
   "mini.indentscope": { "branch": "main", "commit": "065c7713fb4cd0124fe1462f15f27feeb8b04406" },
-  "neg.nvim": { "branch": "master", "commit": "f6c50c5d2f3866534e165fdd357abf5769e9e0d9" },
   "neodev.nvim": { "branch": "main", "commit": "46aa467dca16cf3dfe27098042402066d2ae242d" },
   "neogen": { "branch": "main", "commit": "23e7e9f883d01289ebd90e98025acc860ea26366" },
   "noice.nvim": { "branch": "main", "commit": "7bfd942445fb63089b59f97ca487d605e715f155" },
