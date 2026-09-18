@@ -7,7 +7,7 @@
 #
 # add jdk to path
 # check if brew exists
-[[ -f /home/linuxbrew/.linuxbrew/bin/brew ]] && export BREW_PREFIX=$(brew --prefix)
+export BREW_PREFIX=$(brew --prefix)
 
 [[ -n $BREW_PREFIX ]] && export JAVA_HOME="/opt/homebrew/Cellar/openjdk@17/17.0.14/"
 [[ -n $BREW_PREFIX ]] && export -U PATH="$JAVA_HOME/bin:$PATH"
@@ -263,3 +263,5 @@ esac
 
 # opencode
 export PATH=/Users/srivatsanramaswamy/.opencode/bin:$PATH
+
+. "$HOME/.local/bin/env"
