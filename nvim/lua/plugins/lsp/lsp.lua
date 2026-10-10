@@ -3,6 +3,7 @@ return {
     { "folke/trouble.nvim" },
     {
         "mason-org/mason-lspconfig.nvim",
+        lazy = true,
         dependencies = {
             {
                 "mason-org/mason.nvim",
@@ -256,6 +257,7 @@ return {
     },
     {
         "scalameta/nvim-metals",
+        enabled = false,
         dependencies = {
             "nvim-lua/plenary.nvim",
         },

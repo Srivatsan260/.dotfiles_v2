@@ -265,3 +265,5 @@ esac
 export PATH=/Users/srivatsanramaswamy/.opencode/bin:$PATH
 
 . "$HOME/.local/bin/env"
+
+wisdom
