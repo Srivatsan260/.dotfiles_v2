@@ -2,8 +2,7 @@ return {
     { "simrat39/symbols-outline.nvim" },
     { "folke/trouble.nvim" },
     {
-        "mason-org/mason-lspconfig.nvim",
-        lazy = true,
+        "neovim/nvim-lspconfig",
         dependencies = {
             {
                 "mason-org/mason.nvim",
@@ -12,15 +11,6 @@ return {
                 },
                 event = "VeryLazy",
             },
-            {
-                "neovim/nvim-lspconfig",
-            },
-            {
-                "folke/neodev.nvim",
-            },
-            {
-                "j-hui/fidget.nvim",
-            }
         },
         config = function()
             require("mason").setup({
@@ -29,81 +19,91 @@ return {
                     "github:Crashdummyy/mason-registry",
                 },
             })
-            require("mason-lspconfig").setup({
-                handlers = {
-                    -- this first function is the "default handler"
-                    -- it applies to every language server without a "custom handler"
-                    function(server_name)
-                        require("lspconfig")[server_name].setup({})
-                    end,
 
-                    -- this is the "custom handler" for `basedpyright`
-                    basedpyright = function()
-                        require("lspconfig").basedpyright.setup({
-                            settings = {
-                                basedpyright = {
-                                    analysis = {
-                                        diagnosticMode = "openFilesOnly",
-                                        inlayHints = {
-                                            variableTypes = true,
-                                            callArgumentNames = true,
-                                            functionReturnTypes = true,
-                                            genericTypes = true,
-                                        },
-                                    },
-                                },
+            vim.lsp.config("basedpyright", {
+                settings = {
+                    basedpyright = {
+                        analysis = {
+                            diagnosticMode = "openFilesOnly",
+                            inlayHints = {
+                                variableTypes = true,
+                                callArgumentNames = true,
+                                functionReturnTypes = true,
+                                genericTypes = true,
                             },
-                        })
-                    end,
-
-                    lua_ls = function()
-                        require('lspconfig').lua_ls.setup({
-                            settings = {
-                                Lua = {
-                                    telemetry = {
-                                        enable = false
-                                    },
-                                },
-                            },
-                            on_init = function(client)
-                                local join = vim.fs.joinpath
-                                local path = client.workspace_folders[1].name
-
-                                -- Don't do anything if there is project local config
-                                if vim.uv.fs_stat(join(path, '.luarc.json'))
-                                    or vim.uv.fs_stat(join(path, '.luarc.jsonc'))
-                                then
-                                    return
-                                end
-
-                                local nvim_settings = {
-                                    runtime = {
-                                        -- Tell the language server which version of Lua you're using
-                                        version = 'LuaJIT',
-                                    },
-                                    diagnostics = {
-                                        -- Get the language server to recognize the `vim` global
-                                        globals = {'vim'}
-                                    },
-                                    workspace = {
-                                        checkThirdParty = false,
-                                        library = {
-                                            -- Make the server aware of Neovim runtime files
-                                            vim.env.VIMRUNTIME,
-                                            vim.fn.stdpath('config'),
-                                        },
-                                    },
-                                }
-
-                                client.config.settings.Lua = vim.tbl_deep_extend(
-                                    'force',
-                                    client.config.settings.Lua,
-                                    nvim_settings
-                                )
-                            end,
-                        })
-                    end
+                        },
+                    },
                 },
+            })
+
+            vim.lsp.config("lua_ls", {
+                settings = {
+                    Lua = {
+                        telemetry = {
+                            enable = false,
+                        },
+                    },
+                },
+                on_init = function(client)
+                    local workspace = client.workspace_folders and client.workspace_folders[1]
+                    if not workspace then
+                        return
+                    end
+
+                    local path = workspace.name
+                    if vim.uv.fs_stat(vim.fs.joinpath(path, ".luarc.json"))
+                        or vim.uv.fs_stat(vim.fs.joinpath(path, ".luarc.jsonc"))
+                    then
+                        return
+                    end
+
+                    client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
+                        runtime = {
+                            version = "LuaJIT",
+                        },
+                        diagnostics = {
+                            globals = { "vim" },
+                        },
+                        workspace = {
+                            checkThirdParty = false,
+                            library = {
+                                vim.env.VIMRUNTIME,
+                                vim.fn.stdpath("config"),
+                            },
+                        },
+                    })
+                end,
+            })
+
+            vim.lsp.enable({
+                "basedpyright",
+                "bashls",
+                "buf_ls",
+                "clangd",
+                "cmake",
+                "cssls",
+                "dockerls",
+                "emmet_ls",
+                "eslint",
+                "gopls",
+                "html",
+                "jdtls",
+                "jqls",
+                "jsonls",
+                "jsonnet_ls",
+                "lemminx",
+                "lua_ls",
+                "marksman",
+                "ocamllsp",
+                "powershell_es",
+                "ruby_lsp",
+                "rust_analyzer",
+                "taplo",
+                "terraformls",
+                "tflint",
+                "ts_ls",
+                "vimls",
+                "yamlls",
             })
 
             vim.keymap.set("n", "<leader>ac", vim.lsp.buf.code_action)
