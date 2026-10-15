@@ -37,15 +37,30 @@ export TMUX_TMPDIR="$HOME/.tmux-sockets/"
 export ZSH="$HOME/.oh-my-zsh"
 
 export VAULT_ADDR="http://127.0.0.1:8200"
-export VIRTUAL_ENV="$(which python)"
+[[ -n $VIRTUAL_ENV && ! -d $VIRTUAL_ENV ]] && unset VIRTUAL_ENV
 export EDITOR='nvim'
 export VISUAL='nvim'
 export RANGER_LOAD_DEFAULT_RC=FALSE
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore -l ""'
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+load_nvm() {
+    unfunction nvm node npm npx corepack codex opencode-codex-usage pi zowe 2>/dev/null
+    [[ -s "$NVM_DIR/nvm.sh" ]] || return 1
+    source "$NVM_DIR/nvm.sh"
+    [[ -s "$NVM_DIR/bash_completion" ]] && source "$NVM_DIR/bash_completion"
+}
+
+nvm() { load_nvm && nvm "$@"; }
+node() { load_nvm && command node "$@"; }
+npm() { load_nvm && command npm "$@"; }
+npx() { load_nvm && command npx "$@"; }
+corepack() { load_nvm && command corepack "$@"; }
+codex() { load_nvm && command codex "$@"; }
+opencode-codex-usage() { load_nvm && command opencode-codex-usage "$@"; }
+pi() { load_nvm && command pi "$@"; }
+zowe() { load_nvm && command zowe "$@"; }
 
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#78a9ff,bg=none,bold"
 
@@ -194,18 +209,43 @@ source $ZSH/oh-my-zsh.sh
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-if [ -s ~/.luaver/luaver ]; then
-    . ~/.luaver/luaver >> /dev/null
-    luaver use 5.1 >> /dev/null
-    luaver use-luarocks 2.3.0 >> /dev/null
+load_luaver() {
+    unfunction luaver lua luac luarocks 2>/dev/null
+    [[ -s "$HOME/.luaver/luaver" ]] || return 1
+    source "$HOME/.luaver/luaver" >/dev/null
+    luaver use 5.1 >/dev/null
+    luaver use-luarocks 2.3.0 >/dev/null
     eval "$(luarocks path)"
-fi
+}
+
+luaver() { load_luaver && luaver "$@"; }
+lua() { load_luaver && command lua "$@"; }
+luac() { load_luaver && command luac "$@"; }
+luarocks() { load_luaver && command luarocks "$@"; }
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 
 eval "$(pyenv init - zsh)"
-[[ -f "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh" ]] && source "$HOME/.pyenv/versions/$(pyenv version-name)/bin/virtualenvwrapper.sh"
+
+virtualenvwrapper_commands=(
+    workon mkvirtualenv rmvirtualenv cpvirtualenv lsvirtualenv
+    cdvirtualenv cdsitepackages lssitepackages mkproject
+    setvirtualenvproject toggleglobalsitepackages showvirtualenv
+)
+
+load_virtualenvwrapper() {
+    local version_root="$PYENV_ROOT/versions/$(pyenv version-name)"
+    local script="$version_root/bin/virtualenvwrapper.sh"
+    [[ -x "$version_root/bin/python" && -f "$script" ]] || return 1
+    export VIRTUALENVWRAPPER_PYTHON="$version_root/bin/python"
+    source "$script"
+}
+
+for virtualenvwrapper_command in $virtualenvwrapper_commands; do
+    eval "$virtualenvwrapper_command() { load_virtualenvwrapper && $virtualenvwrapper_command \"\$@\"; }"
+done
+unset virtualenvwrapper_command
 
 # if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 #     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
