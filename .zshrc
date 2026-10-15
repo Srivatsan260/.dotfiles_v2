@@ -73,7 +73,7 @@ export -U PATH="$PATH:$GOPATH/bin"
 
 #: aliases {{{
 
-alias wisdom="fortune | cowsay | lolcat"
+alias wisdom="fortune | cowsay | clolcat"
 alias cl='clear'
 alias e='exa -lah --git'
 alias ru="$RUST_CODE"
