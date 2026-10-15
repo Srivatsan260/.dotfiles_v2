@@ -223,29 +223,22 @@ lua() { load_luaver && command lua "$@"; }
 luac() { load_luaver && command luac "$@"; }
 luarocks() { load_luaver && command luarocks "$@"; }
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+workon() {
+    if (( $# == 0 )); then
+        print -l "$HOME"/.venvs/*(N:t)
+        return
+    fi
 
-eval "$(pyenv init - zsh)"
+    local env="$HOME/.venvs/$1"
 
-virtualenvwrapper_commands=(
-    workon mkvirtualenv rmvirtualenv cpvirtualenv lsvirtualenv
-    cdvirtualenv cdsitepackages lssitepackages mkproject
-    setvirtualenvproject toggleglobalsitepackages showvirtualenv
-)
+    if [[ ! -d $env ]]; then
+        print -u2 "Environment not found: $1"
+        return 1
+    fi
 
-load_virtualenvwrapper() {
-    local version_root="$PYENV_ROOT/versions/$(pyenv version-name)"
-    local script="$version_root/bin/virtualenvwrapper.sh"
-    [[ -x "$version_root/bin/python" && -f "$script" ]] || return 1
-    export VIRTUALENVWRAPPER_PYTHON="$version_root/bin/python"
-    source "$script"
+    (( $+functions[deactivate] )) && deactivate
+    source "$env/bin/activate"
 }
-
-for virtualenvwrapper_command in $virtualenvwrapper_commands; do
-    eval "$virtualenvwrapper_command() { load_virtualenvwrapper && $virtualenvwrapper_command \"\$@\"; }"
-done
-unset virtualenvwrapper_command
 
 # if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
 #     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
