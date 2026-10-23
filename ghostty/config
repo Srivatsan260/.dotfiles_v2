@@ -346,21 +346,20 @@ freetype-load-flags = hinting,force-autohint,monochrome,autohint
 #
 #   - macOS: titlebar tabs style is not updated when switching themes.
 #
-theme = TokyoNight Night
-# theme = Tomorrow
+theme =
 
 # Background color for the window.
-# background = #282c34
+background = #0d1117
 #
 # # Foreground color for the window.
-# foreground = #ffffff
+foreground = #c9d1d9
 
 # The foreground and background color for selection. If this is not set, then
 # the selection color is just the inverted window background and foreground
 # (note: not to be confused with the cell bg/fg).
-selection-foreground =
+selection-foreground = #c9d1d9
 
-selection-background =
+selection-background = #30363d
 # Swap the foreground and background colors of cells for selection. This
 # option overrides the `selection-foreground` and `selection-background`
 # options.
@@ -389,22 +388,23 @@ minimum-contrast = 1
 #
 # For definitions on all the codes [see this cheat
 # sheet](https://www.ditig.com/256-colors-cheat-sheet).
-palette = 0=#1d1f21
-palette = 1=#cc6666
-palette = 2=#b5bd68
-palette = 3=#f0c674
-palette = 4=#81a2be
-palette = 5=#b294bb
-palette = 6=#8abeb7
-palette = 7=#c5c8c6
-palette = 8=#666666
-palette = 9=#d54e53
-palette = 10=#b9ca4a
-palette = 11=#e7c547
-palette = 12=#7aa6da
-palette = 13=#c397d8
-palette = 14=#70c0b1
-palette = 15=#eaeaea
+# GitHub Dark ANSI colors, matching the tmux theme.
+palette = 0=#161b22
+palette = 1=#f85149
+palette = 2=#3fb950
+palette = 3=#d29922
+palette = 4=#58a6ff
+palette = 5=#a371f7
+palette = 6=#39c5cf
+palette = 7=#c9d1d9
+palette = 8=#8b949e
+palette = 9=#ff7b72
+palette = 10=#56d364
+palette = 11=#e3b341
+palette = 12=#79c0ff
+palette = 13=#bc8cff
+palette = 14=#56d4dd
+palette = 15=#f0f6fc
 palette = 16=#000000
 palette = 17=#00005f
 palette = 18=#000087
@@ -647,7 +647,7 @@ palette = 254=#e4e4e4
 palette = 255=#eeeeee
 
 # The color of the cursor. If this is not set, a default will be chosen.
-cursor-color =
+cursor-color = #a371f7
 
 # Swap the foreground and background colors of the cell under the cursor. This
 # option overrides the `cursor-color` and `cursor-text` options.
@@ -700,7 +700,7 @@ cursor-style-blink =
 
 # The color of the text under the cursor. If this is not set, a default will
 # be chosen.
-cursor-text =
+cursor-text = #0d1117
 
 # Enables the ability to move the cursor at prompts by using `alt+click` on
 # Linux and `option+click` on macOS.
@@ -767,7 +767,7 @@ mouse-scroll-multiplier = 1
 # On macOS, background opacity is disabled when the terminal enters native
 # fullscreen. This is because the background becomes gray and it can cause
 # widgets to show through which isn't generally desirable.
-background-opacity = 1.00
+background-opacity = 0.90
 
 # A positive value enables blurring of the background when background-opacity
 # is less than 1. The value is the blur radius to apply. A value of 20
