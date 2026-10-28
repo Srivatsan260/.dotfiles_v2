@@ -1,6 +1,3 @@
-local cmd_to_table = require("utils").cmd_to_table
-local async_git_op = require("utils").async_git_op
-
 local config_path = vim.fn.stdpath("config")
 vim.keymap.set(
     "n",
@@ -35,48 +32,6 @@ vim.keymap.set("t", "<localleader><Esc>", "<C-\\><C-n>", { desc = "escape termin
 
 -- netrw
 vim.keymap.set("n", "<leader>,", "<cmd>Explore<CR>", { desc = "open netrw" })
-
-vim.keymap.set("n", "<leader>gwu", function()
-    local is_bare_repo = vim.fn.system("git config --get core.bare")
-    if is_bare_repo ~= "true\n" then
-        print("use this remap only for bare repos!")
-        return
-    end
-    local root = string.gsub(
-        vim.fn.system('git worktree list --porcelain | head -1 | cut -d" " -f2'),
-        "[\n\r]",
-        ""
-    )
-    if root == nil then
-        print("not a bare repo!")
-        return
-    end
-    local path = vim.fn.input({ prompt = "Enter worktree path from bare root: ", default = "" })
-    if path == "" then
-        return
-    end
-    local full_path = root .. "/" .. path
-    print("full path" .. full_path)
-    -- TODO: list only dirs here
-    local paths = cmd_to_table("ls " .. full_path)
-    if rawequal(next(paths), nil) then
-        print("no worktrees found in path")
-        return
-    end
-    vim.ui.select(paths, { prompt = "select path to update", default = "" }, function(p)
-        if p == "" or p == nil then
-            return
-        end
-        async_git_op({"pull", "--ff-only"}, root .. "/" .. p)
-    end)
-end, { desc = "update git worktree" })
-
-vim.keymap.set("n", "<leader>gfa", function() async_git_op({"fetch", "--all"}) end, { desc = "git fetch --all" })
-vim.keymap.set("n", "<leader>gft", function() async_git_op({"fetch", "--tags", "--force"}) end, { desc = "git fetch --tags --force" })
-vim.keymap.set("n", "<leader>gsp", function() async_git_op({"stash", "pop"}) end, { desc = "git stash pop" })
-
-vim.keymap.set("n", "<leader>gp", function() async_git_op({"pull", "--ff-only"}) end, { desc = "async git pull" })
-vim.keymap.set("n", "<leader>gP", function() async_git_op("push") end, { desc = "async git push" })
 
 -- save file with ctrl-s
 vim.keymap.set("n", "<C-s>", "<cmd>w<CR>", { desc = "save current file" })
