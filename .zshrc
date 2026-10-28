@@ -17,7 +17,6 @@ export -U PATH="$PATH:$HOME/.local/bin/"
 export -U PATH="$PATH:$HOME/.local/scripts/"
 [[ -n $BREW_PREFIX ]] && export -U PATH="$PATH:$BREW_PREFIX/bin/"
 [[ -n $BREW_PREFIX ]] && export -U PATH="$BREW_PREFIX/opt/ruby/bin:$PATH"
-export PATH=/home/vachu-papa/.opencode/bin:$PATH
 
 export RUST_CODE=~/Documents/rust_code
 
