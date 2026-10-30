@@ -197,7 +197,7 @@ start_airflow() {
 #: source stuff {{{
 
 eval "$(zoxide init zsh)"
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
 # NOTE: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="refined" # set by `omz`
@@ -297,5 +297,13 @@ esac
 export PATH=/Users/srivatsanramaswamy/.opencode/bin:$PATH
 
 . "$HOME/.local/bin/env"
+
+# source hooks
+
+for hook in ~/.config/zsh/hooks/*.zsh(N); do
+    # echo "sourcing $hook"
+    source "$hook"
+done
+unset hook
 
 wisdom
