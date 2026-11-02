@@ -204,7 +204,7 @@ ZSH_THEME="refined" # set by `omz`
 
 source $ZSH/oh-my-zsh.sh
 [[ -n $BREW_PREFIX ]] && source $BREW_PREFIX/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-[[ -f "$HOME/.local/lib/zsh-autoenv/autoenv.zsh" ]] && source "$HOME/.local/lib/zsh-autoenv/init.zsh"
+# [[ -f "$HOME/.local/lib/zsh-autoenv/autoenv.zsh" ]] && source "$HOME/.local/lib/zsh-autoenv/init.zsh"
 
 [[ ! -r ~/.opam/opam-init/init.zsh ]] || source ~/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
