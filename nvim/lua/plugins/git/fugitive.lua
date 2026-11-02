@@ -48,8 +48,12 @@ return {
                         local title = vim.fn.input({ prompt = "Enter PR Title: " })
                         local body = vim.fn.input({ prompt = "Enter PR Body: " })
                         local out = vim.fn.system("gh pr create --base " .. branch .. ' --body "' .. body .. '" --title "' .. title .. '"')
-                        if vim.v.shell_error then
-                            vim.notify("error creating pr: " .. out, vim.log.levels.ERROR)
+                        local level = vim.v.shell_error == 0 and vim.log.levels.INFO or vim.log.levels.ERROR
+                        vim.notify(out, level)
+                        local maybe_pr_link = string.match(out, "(https?://%S+)%s*$")
+                        if maybe_pr_link ~= nil
+                        then
+                            vim.system({ "open", maybe_pr_link })
                         end
                     end
                 )
