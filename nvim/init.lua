@@ -1,3 +1,4 @@
 require("setup")
 
--- print("Hello World")
+-- try ui2
+require('vim._core.ui2').enable({})
