@@ -45,15 +45,22 @@ return {
                     { prompt = "select base branch for PR" },
                     function (branch)
                         print("selected " .. branch)
-                        local title = vim.fn.input({ prompt = "Enter PR Title: " })
-                        local body = vim.fn.input({ prompt = "Enter PR Body: " })
-                        local out = vim.fn.system("gh pr create --base " .. branch .. ' --body "' .. body .. '" --title "' .. title .. '"')
-                        local level = vim.v.shell_error == 0 and vim.log.levels.INFO or vim.log.levels.ERROR
-                        vim.notify(out, level)
-                        local maybe_pr_link = string.match(out, "(https?://%S+)%s*$")
-                        if maybe_pr_link ~= nil
+                        local maybe_existing_pr = vim.fn.system([[ gh pr list --head $(git branch --show-current) --json "url" | jq -r '.[0].url' ]])
+                        if maybe_existing_pr
                         then
-                            vim.system({ "open", maybe_pr_link })
+                            vim.notify("PR already exists: " .. maybe_existing_pr)
+                            vim.system({ "open", maybe_existing_pr })
+                        else
+                            local title = vim.fn.input({ prompt = "Enter PR Title: " })
+                            local body = vim.fn.input({ prompt = "Enter PR Body: " })
+                            local out = vim.fn.system("gh pr create --base " .. branch .. ' --body "' .. body .. '" --title "' .. title .. '"')
+                            local level = vim.v.shell_error == 0 and vim.log.levels.INFO or vim.log.levels.ERROR
+                            vim.notify(out, level)
+                            local maybe_pr_link = string.match(out, "(https?://%S+)%s*$")
+                            if maybe_pr_link ~= nil
+                            then
+                                vim.system({ "open", maybe_pr_link })
+                            end
                         end
                     end
                 )
