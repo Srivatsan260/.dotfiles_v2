@@ -196,7 +196,6 @@ start_airflow() {
 
 #: source stuff {{{
 
-eval "$(zoxide init zsh)"
 # eval "$(direnv hook zsh)"
 
 # NOTE: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
@@ -305,5 +304,7 @@ for hook in ~/.config/zsh/hooks/*.zsh(N); do
     source "$hook"
 done
 unset hook
+
+eval "$(zoxide init zsh)"
 
 wisdom
