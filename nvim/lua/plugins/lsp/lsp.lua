@@ -85,7 +85,7 @@ return {
                 "dockerls",
                 "emmet_ls",
                 "eslint",
-                "gopls",
+                -- "gopls",
                 "html",
                 "jdtls",
                 "jqls",
